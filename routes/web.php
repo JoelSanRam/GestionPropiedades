@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/listado', function () {
     return view('Listado');
+});
+Route::get('/', function () {
+    return view('index');
 });

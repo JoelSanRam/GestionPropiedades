@@ -57,7 +57,7 @@
 				<li class="dropdown navbar-user">
 					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
 
-						<span class="d-none d-md-inline">Luis</span> <b class="caret"></b>
+						<span class="d-none d-md-inline">Luis Pereira</span> <b class="caret"></b>
 					</a>
 					<div class="dropdown-menu dropdown-menu-right">
 
@@ -83,7 +83,7 @@
 							</div>
 							<div class="info">
 
-								Luis
+								Luis Pereira
 								<small>ROL DE USUARIO</small>
 							</div>
 						</a>
