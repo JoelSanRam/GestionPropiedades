@@ -114,6 +114,14 @@
                     <li class="has-sub">
 						<a href="javascript:;">
 
+							<i class="fa fa-user"></i>
+							<span>Listado de usuarios</span>
+						</a>
+
+                    </li>
+                    <li class="has-sub">
+						<a href="javascript:;">
+
 							<i class="fa fa-user-times"></i>
 							<span>Salir</span>
 						</a>

@@ -19,3 +19,7 @@ Route::get('/listado', function () {
 Route::get('/', function () {
     return view('index');
 });
+
+Route::get('/usuarios', function () {
+    return view('Usuarios');
+});

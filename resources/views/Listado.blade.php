@@ -60,7 +60,7 @@
                             <td >Joel Sánchez Ramírez</td>
                             <td>Vigente</td>
                             <td>Predio Urbano</td>
-                            <td> <p>Dirección: calle 19 x 20 y 22</p> <p>Localidad: Almendros</p> <p>Municipio: Mérida</p> </td>
+                            <td> <p>Dirección: calle 21 x 20 y 22</p> <p>Localidad: Almendros</p> <p>Municipio: Mérida</p> </td>
                             <td>Cambio de precio catastral Cambio de precio catastral Cambio de precio catastral Cambio de precio catastral</td>
                             <td> <button type="button" class="btn btn-grey btn-icon btn-sm" title="Editar"><i class="fas fa-pencil-alt fa-fw"></i></button>
                                 <button type="button" class="btn btn-primary btn-icon btn-sm" title="Anexos"><i class="fas fa-edit fa-fw"></i></i></button>
@@ -72,7 +72,7 @@
                             <td >Joel Sánchez Ramírez</td>
                             <td>Vigente</td>
                             <td>Predio Urbano</td>
-                            <td> <p>Dirección: calle 19 x 20 y 22</p> <p>Localidad: Almendros</p> <p>Municipio: Mérida</p> </td>
+                            <td> <p>Dirección: calle 23 x 20 y 22</p> <p>Localidad: Almendros</p> <p>Municipio: Mérida</p> </td>
                             <td>Cambio de precio catastral Cambio de precio catastral Cambio de precio catastral Cambio de precio catastral</td>
                             <td> <button type="button" class="btn btn-grey btn-icon btn-sm" title="Editar"><i class="fas fa-pencil-alt fa-fw"></i></button>
                                 <button type="button" class="btn btn-primary btn-icon btn-sm" title="Anexos"><i class="fas fa-edit fa-fw"></i></i></button>
@@ -84,7 +84,7 @@
                             <td >Joel Sánchez Ramírez</td>
                             <td>Vigente</td>
                             <td>Predio Urbano</td>
-                            <td> <p>Dirección: calle 19 x 20 y 22</p> <p>Localidad: Almendros</p> <p>Municipio: Mérida</p> </td>
+                            <td> <p>Dirección: calle 25 x 20 y 22</p> <p>Localidad: Almendros</p> <p>Municipio: Mérida</p> </td>
                             <td>Cambio de precio catastral Cambio de precio catastral Cambio de precio catastral Cambio de precio catastral</td>
                             <td> <button type="button" class="btn btn-grey btn-icon btn-sm" title="Editar"><i class="fas fa-pencil-alt fa-fw"></i></button>
                                 <button type="button" class="btn btn-primary btn-icon btn-sm" title="Anexos"><i class="fas fa-edit fa-fw"></i></i></button>
@@ -96,7 +96,7 @@
                             <td >Joel Sánchez Ramírez</td>
                             <td>Vigente</td>
                             <td>Predio Urbano</td>
-                            <td> <p>Dirección: calle 19 x 20 y 22</p> <p>Localidad: Almendros</p> <p>Municipio: Mérida</p> </td>
+                            <td> <p>Dirección: calle 27 x 20 y 22</p> <p>Localidad: Almendros</p> <p>Municipio: Mérida</p> </td>
                             <td>Cambio de precio catastral Cambio de precio catastral Cambio de precio catastral Cambio de precio catastral</td>
                             <td> <button type="button" class="btn btn-grey btn-icon btn-sm" title="Editar"><i class="fas fa-pencil-alt fa-fw"></i></button>
                                 <button type="button" class="btn btn-primary btn-icon btn-sm" title="Anexos"><i class="fas fa-edit fa-fw"></i></i></button>
@@ -108,7 +108,7 @@
                             <td >Joel Sánchez Ramírez</td>
                             <td>Vigente</td>
                             <td>Predio Urbano</td>
-                            <td> <p>Dirección: calle 19 x 20 y 22</p> <p>Localidad: Almendros</p> <p>Municipio: Mérida</p> </td>
+                            <td> <p>Dirección: calle 29 x 20 y 22</p> <p>Localidad: Almendros</p> <p>Municipio: Mérida</p> </td>
                             <td>Cambio de precio catastral Cambio de precio catastral Cambio de precio catastral Cambio de precio catastral</td>
                             <td> <button type="button" class="btn btn-grey btn-icon btn-sm" title="Editar"><i class="fas fa-pencil-alt fa-fw"></i></button>
                                 <button type="button" class="btn btn-primary btn-icon btn-sm" title="Anexos"><i class="fas fa-edit fa-fw"></i></i></button>
@@ -120,7 +120,7 @@
                             <td >Joel Sánchez Ramírez</td>
                             <td>Vigente</td>
                             <td>Predio Urbano</td>
-                            <td> <p>Dirección: calle 19 x 20 y 22</p> <p>Localidad: Almendros</p> <p>Municipio: Mérida</p> </td>
+                            <td> <p>Dirección: calle 31 x 20 y 22</p> <p>Localidad: Almendros</p> <p>Municipio: Mérida</p> </td>
                             <td>Cambio de precio catastral Cambio de precio catastral Cambio de precio catastral Cambio de precio catastral</td>
                             <td> <button type="button" class="btn btn-grey btn-icon btn-sm" title="Editar"><i class="fas fa-pencil-alt fa-fw"></i></button>
                                 <button type="button" class="btn btn-primary btn-icon btn-sm" title="Anexos"><i class="fas fa-edit fa-fw"></i></i></button>
@@ -132,7 +132,7 @@
                             <td >Joel Sánchez Ramírez</td>
                             <td>Vigente</td>
                             <td>Predio Urbano</td>
-                            <td> <p>Dirección: calle 19 x 20 y 22</p> <p>Localidad: Almendros</p> <p>Municipio: Mérida</p> </td>
+                            <td> <p>Dirección: calle 33 x 20 y 22</p> <p>Localidad: Almendros</p> <p>Municipio: Mérida</p> </td>
                             <td>Cambio de precio catastral Cambio de precio catastral Cambio de precio catastral Cambio de precio catastral</td>
                             <td> <button type="button" class="btn btn-grey btn-icon btn-sm" title="Editar"><i class="fas fa-pencil-alt fa-fw"></i></button>
                                 <button type="button" class="btn btn-primary btn-icon btn-sm" title="Anexos"><i class="fas fa-edit fa-fw"></i></i></button>
