@@ -8,7 +8,7 @@
 </ol>
 <!-- end breadcrumb -->
 <!-- begin page-header -->
-<h1 class="page-header">Listado de predios </h1>
+<h1 class="page-header">Listado de predios</h1>
 <!-- end page-header -->
 
 <!-- begin row -->
