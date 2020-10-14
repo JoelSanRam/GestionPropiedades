@@ -14,14 +14,25 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/listado', function () {
-    return view('Listado');
+    return view('propiedades.Listado');
 });
+//
 Route::get('/', function () {
     return view('index');
 });
+//
 
 Route::get('/usuarios', function () {
-    return view('Usuarios');
+    return view('usuarios.Usuarios');
+});
+Route::get('/addusuarios', function () {
+    return view('usuarios.create');
+});
+
+//
+
+Route::get('/reporte', function () {
+    return view('reportes.reporte');
 });
 
 Auth::routes();

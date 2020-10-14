@@ -122,6 +122,14 @@
                     <li class="has-sub">
 						<a href="javascript:;">
 
+							<i class="fa fa-edit"></i>
+							<span>Generar reporte</span>
+						</a>
+
+                    </li>
+                    <li class="has-sub">
+						<a href="javascript:;">
+
 							<i class="fa fa-user-times"></i>
 							<span>Salir</span>
 						</a>
