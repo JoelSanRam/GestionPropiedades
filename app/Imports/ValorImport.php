@@ -4,8 +4,9 @@ namespace App\Imports;
 
 use App\Valor;
 use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
-class ValorImport implements ToModel
+class ValorImport implements ToModel, WithHeadingRow
 {
     /**
     * @param array $row
@@ -15,7 +16,13 @@ class ValorImport implements ToModel
     public function model(array $row)
     {
         return new Valor([
-            //
+            'propiedad_id' => $row['propiedad_id'],
+            'valor_construccion' => $row['valor_construccion'],
+            'valor_terreno' => $row['valor_terreno'],
+            'valor_comercial' => $row['valor_comercial'],
+            'fecha_valor_comercial' => $row['fecha_valor_comercial'],
+            'valor_catastral' => $row['valor_catastral'],
+            'fecha_valor_catastral' => $row['fecha_valor_catastral'],
         ]);
     }
 }
