@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/listado', function () {
     return view('propiedades.Listado');
 });
+Route::get('/detalle', function () {
+    return view('propiedades.detalle');
+});
 //
 Route::get('/', function () {
     return view('index');
@@ -39,5 +42,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/upload', 'UploadController@upload')->name('upload'); // controlador insersion datos
-Route::get('/create', 'UploadController@create'); // ruta formulario insercion de datos 
+Route::get('/create', 'UploadController@create'); // ruta formulario insercion de datos
 Route::get('/report', 'ReportController@report'); // ruta report test

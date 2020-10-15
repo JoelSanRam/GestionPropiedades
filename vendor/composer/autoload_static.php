@@ -650,6 +650,7 @@ class ComposerStaticInit874bfa0fc2921e8608afa8a7c5a1df13
         'App\\Imports\\DatoImport' => __DIR__ . '/../..' . '/app/Imports/DatoImport.php',
         'App\\Imports\\DimencionImport' => __DIR__ . '/../..' . '/app/Imports/DimencionImport.php',
         'App\\Imports\\PropiedadImport' => __DIR__ . '/../..' . '/app/Imports/PropiedadImport.php',
+        'App\\Imports\\TablesImport' => __DIR__ . '/../..' . '/app/Imports/TablesImport.php',
         'App\\Imports\\UbicacionImport' => __DIR__ . '/../..' . '/app/Imports/UbicacionImport.php',
         'App\\Imports\\ValorImport' => __DIR__ . '/../..' . '/app/Imports/ValorImport.php',
         'App\\Propiedad' => __DIR__ . '/../..' . '/app/Propiedad.php',

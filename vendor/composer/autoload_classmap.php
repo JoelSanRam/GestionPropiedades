@@ -31,6 +31,7 @@ return array(
     'App\\Imports\\DatoImport' => $baseDir . '/app/Imports/DatoImport.php',
     'App\\Imports\\DimencionImport' => $baseDir . '/app/Imports/DimencionImport.php',
     'App\\Imports\\PropiedadImport' => $baseDir . '/app/Imports/PropiedadImport.php',
+    'App\\Imports\\TablesImport' => $baseDir . '/app/Imports/TablesImport.php',
     'App\\Imports\\UbicacionImport' => $baseDir . '/app/Imports/UbicacionImport.php',
     'App\\Imports\\ValorImport' => $baseDir . '/app/Imports/ValorImport.php',
     'App\\Propiedad' => $baseDir . '/app/Propiedad.php',
