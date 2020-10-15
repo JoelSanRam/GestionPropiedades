@@ -15,7 +15,7 @@ class CreateValorsTable extends Migration
     {
         Schema::create('valors', function (Blueprint $table) {
             $table->id();
-            $table->integer('propiedad_id');
+            $table->integer('propiedad_id')->unique();
             $table->double('valor_construccion', 12, 2)->nullable();
             $table->double('valor_terreno', 12, 2)->nullable();
             $table->double('valor_comercial', 12, 2)->nullable();

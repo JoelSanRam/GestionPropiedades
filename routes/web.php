@@ -38,3 +38,5 @@ Route::get('/reporte', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/upload', 'UploadController@upload')->name('upload');
+Route::get('/create', 'UploadController@create');

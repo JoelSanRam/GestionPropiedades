@@ -9,10 +9,10 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class UploadController extends Controller
 {
-    /*public function create()
+    public function create()
 	{
 		return view('upload');
-	}*/
+	}
 
     public function upload(Request $request)
     {

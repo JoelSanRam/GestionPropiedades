@@ -15,7 +15,7 @@ class CreateDatosTable extends Migration
     {
         Schema::create('datos', function (Blueprint $table) {
             $table->id();
-            $table->integer('propiedad_id');
+            $table->integer('propiedad_id')->unique();
             $table->string('entidad_federativa')->nullable();
             $table->string('municipio')->nullable();
             $table->string('localidad')->nullable();
