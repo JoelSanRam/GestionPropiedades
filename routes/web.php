@@ -41,3 +41,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/upload', 'UploadController@upload')->name('upload'); // controlador insersion datos
 Route::get('/create', 'UploadController@create'); // ruta formulario insercion de datos 
 Route::get('/report', 'ReportController@report'); // ruta report test
+Route::get('/pdf', 'ReportController@pdf')->name('pdf-report'); // ruta report pdf test
