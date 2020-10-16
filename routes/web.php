@@ -38,6 +38,10 @@ Route::get('/reporte', function () {
     return view('reportes.reporte');
 });
 
+Route::get('/mapa', function () {
+    return view('mapa.mapa');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
