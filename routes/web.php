@@ -13,23 +13,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/listado', function () {
-    return view('propiedades.Listado');
-});
-Route::get('/detalle', function () {
-    return view('propiedades.detalle');
-});
-//
-Route::get('/', function () {
-    return view('index');
-});
-//
+Route::middleware('auth')->group(function () {
 
-Route::get('/usuarios', function () {
-    return view('usuarios.Usuarios');
-});
-Route::get('/addusuarios', function () {
-    return view('usuarios.create');
+	Route::get('/listado', function () {
+	    return view('propiedades.Listado');
+	});
+	Route::get('/detalle', function () {
+	    return view('propiedades.detalle');
+	});
+
+	Route::get('/', function () {
+	    return view('index');
+	});
+
+	Route::get('/usuarios', function () {
+	    return view('usuarios.Usuarios');
+	});
+	Route::get('/addusuarios', function () {
+	    return view('usuarios.create');
+	});
+
 });
 
 //

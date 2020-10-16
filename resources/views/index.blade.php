@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if !IE]><!-->
-<html lang="en">
+<html lang="es">
 <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
@@ -47,24 +47,36 @@
             <!-- end brand -->
             <!-- begin login-content -->
             <div class="login-content">
-                <form action="index.html" method="GET" class="margin-bottom-0">
+        		@error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+
+                @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+
+                <form method="POST" action="{{ route('login') }}" class="margin-bottom-0">
+                	@csrf
+
                     <div class="form-group m-b-20">
-                        <input type="text" class="form-control form-control-lg inverse-mode" placeholder="Usuario" required />
+                        <input type="text" class="form-control form-control-lg inverse-mode" placeholder="Usuario" name="email" id="email" value="{{ old('email') }}" required/>
                     </div>
                     <div class="form-group m-b-20">
-                        <input type="password" class="form-control form-control-lg inverse-mode" placeholder="Contraseña" required />
+                        <input type="password" class="form-control form-control-lg inverse-mode" placeholder="Contraseña" id="password" name="password" required  />
                     </div>
 
                     <div class="login-buttons">
-                        <a href="/listado" type="submit" class="btn btn-success btn-block btn-lg">Iniciar sesión</a>
+                        <button type="submit" class="btn btn-success btn-block btn-lg">Iniciar sesión</button>
                     </div>
                 </form>
             </div>
             <!-- end login-content -->
         </div>
         <!-- end login -->
-
-
 	</div>
 	<!-- end page container -->
 

@@ -35,128 +35,141 @@
 	<div id="page-loader" class="fade"><span class="spinner"></span></div>
 	<!-- end #page-loader -->
 
-	<!-- begin #page-container -->
-	<div id="page-container" class="fade in page-sidebar-fixed page-header-fixed">
-		<!-- begin #header -->
-		<div id="header" class="header navbar-default">
-			<!-- begin navbar-header -->
-			<div class="navbar-header">
-				<a href="index.html" class="navbar-brand"><span class="navbar-logo"></span> <b>Gestión de </b>Propiedades</a>
-				<button type="button" class="navbar-toggle" data-click="sidebar-toggled">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-			</div>
-			<!-- end navbar-header -->
+		<!-- begin #page-container -->
+		<div id="page-container" class="fade in page-sidebar-fixed page-header-fixed">
 
-			<!-- begin header-nav -->
-			<ul class="navbar-nav navbar-right">
+		@auth
+			<!-- begin #header -->
+			<div id="header" class="header navbar-default">
+				<!-- begin navbar-header -->
+				<div class="navbar-header">
+					<a href="index.html" class="navbar-brand"><span class="navbar-logo"></span> <b>Gestión de </b>Propiedades</a>
+					<button type="button" class="navbar-toggle" data-click="sidebar-toggled">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<!-- end navbar-header -->
+
+				<!-- begin header-nav -->
+				<ul class="navbar-nav navbar-right">
 
 
-				<li class="dropdown navbar-user">
-					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+					<li class="dropdown navbar-user">
+						<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
 
-						<span class="d-none d-md-inline">Luis Pereira</span> <b class="caret"></b>
-					</a>
-					<div class="dropdown-menu dropdown-menu-right">
-
-						<a href="javascript:;" class="dropdown-item">Salir</a>
-					</div>
-				</li>
-			</ul>
-			<!-- end header navigation right -->
-		</div>
-		<!-- end #header -->
-
-		<!-- begin #sidebar -->
-		<div id="sidebar" class="sidebar">
-			<!-- begin sidebar scrollbar -->
-			<div data-scrollbar="true" data-height="100%">
-				<!-- begin sidebar user -->
-				<ul class="nav">
-					<li class="nav-profile">
-						<a href="javascript:;" data-toggle="nav-profile">
-							<div class="cover with-shadow"></div>
-							<div class="image">
-								<img src="{{ asset('assets/img/user/user-13.jpg')}}" alt="" />
-							</div>
-							<div class="info">
-
-								Luis Pereira
-								<small>ROL DE USUARIO</small>
-							</div>
+							<span class="d-none d-md-inline">{{ Auth::user()->name }}</span> <b class="caret"></b>
 						</a>
+						<div class="dropdown-menu dropdown-menu-right">
+
+							<a class="dropdown-item" href="{{ route('logout') }}" 
+							onclick="event.preventDefault();	document.getElementById('logout-form').submit();">
+                                Salir
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+
+						</div>
 					</li>
-
 				</ul>
-				<!-- end sidebar user -->
-				<!-- begin sidebar nav -->
-				<ul class="nav">
-					<li class="nav-header">Módulos</li>
-
-					<li class="has-sub">
-						<a href="javascript:;">
-
-							<i class="fa fa-map"></i>
-							<span>Mapa</span>
-						</a>
-
-                    </li>
-                    <li class="has-sub">
-						<a href="javascript:;">
-
-							<i class="fa fa-home"></i>
-							<span>Listado de predios</span>
-						</a>
-
-                    </li>
-                    <li class="has-sub">
-						<a href="javascript:;">
-
-							<i class="fa fa-user"></i>
-							<span>Listado de usuarios</span>
-						</a>
-
-                    </li>
-                    <li class="has-sub">
-						<a href="javascript:;">
-
-							<i class="fa fa-edit"></i>
-							<span>Generar reporte</span>
-						</a>
-
-                    </li>
-                    <li class="has-sub">
-						<a href="javascript:;">
-
-							<i class="fa fa-user-times"></i>
-							<span>Salir</span>
-						</a>
-
-					</li>
-
-
-
-
-			        <!-- begin sidebar minify button -->
-					<li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="fa fa-angle-double-left"></i></a></li>
-			        <!-- end sidebar minify button -->
-				</ul>
-				<!-- end sidebar nav -->
+				<!-- end header navigation right -->
 			</div>
-			<!-- end sidebar scrollbar -->
-		</div>
-		<div class="sidebar-bg"></div>
-		<!-- end #sidebar -->
+			<!-- end #header -->
+		@endauth
+
+		@auth
+
+			<!-- begin #sidebar -->
+			<div id="sidebar" class="sidebar">
+				<!-- begin sidebar scrollbar -->
+				<div data-scrollbar="true" data-height="100%">
+					<!-- begin sidebar user -->
+					<ul class="nav">
+						<li class="nav-profile">
+							<a href="javascript:;" data-toggle="nav-profile">
+								<div class="cover with-shadow"></div>
+								<div class="image">
+									<img src="{{ asset('assets/img/user/user-13.jpg')}}" alt="" />
+								</div>
+								<div class="info">
+
+									{{ Auth::user()->name }}
+									<small>ROL DE USUARIO</small>
+								</div>
+							</a>
+						</li>
+
+					</ul>
+					<!-- end sidebar user -->
+					<!-- begin sidebar nav -->
+					<ul class="nav">
+						<li class="nav-header">Módulos</li>
+
+						<li class="has-sub">
+							<a href="javascript:;">
+
+								<i class="fa fa-map"></i>
+								<span>Mapa</span>
+							</a>
+
+	                    </li>
+	                    <li class="has-sub">
+							<a href="javascript:;">
+
+								<i class="fa fa-home"></i>
+								<span>Listado de predios</span>
+							</a>
+
+	                    </li>
+	                    <li class="has-sub">
+							<a href="javascript:;">
+
+								<i class="fa fa-user"></i>
+								<span>Listado de usuarios</span>
+							</a>
+
+	                    </li>
+	                    <li class="has-sub">
+							<a href="javascript:;">
+
+								<i class="fa fa-edit"></i>
+								<span>Generar reporte</span>
+							</a>
+
+	                    </li>
+	                    <li class="has-sub">
+							<a href="javascript:;">
+
+								<i class="fa fa-user-times"></i>
+								<span>Salir</span>
+							</a>
+
+						</li>
+
+
+
+
+				        <!-- begin sidebar minify button -->
+						<li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="fa fa-angle-double-left"></i></a></li>
+				        <!-- end sidebar minify button -->
+					</ul>
+					<!-- end sidebar nav -->
+				</div>
+				<!-- end sidebar scrollbar -->
+			</div>
+			<div class="sidebar-bg"></div>
+			<!-- end #sidebar -->
+
+		@endauth
 
 		<!-- begin #content -->
 		<div id="content" class="content">
 			@yield('admin')
 		</div>
 		<!-- end #content -->
-
-
 
 		<!-- begin scroll to top btn -->
 		<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
