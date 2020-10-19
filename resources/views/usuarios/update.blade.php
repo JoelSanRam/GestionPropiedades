@@ -8,7 +8,7 @@
 </ol>
 <!-- end breadcrumb -->
 <!-- begin page-header -->
-<h1 class="page-header">Creación de Usuario</h1>
+<h1 class="page-header">Editar Datos del Usuario</h1>
 <!-- end page-header -->
 
 <!-- begin row -->
@@ -30,30 +30,27 @@
             <!-- end panel-heading -->
             <!-- begin panel-body -->
             <div class="panel-body">
-                <form action="{{ route('usuarios.store') }}" method="POST">
+                <form action="{{ route('usuarios.update', $user) }}" method="POST">
                     @csrf
+                    @method('PUT')
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>Nombre</label>
-                            <input name="name" type="text" class="form-control m-b-5" placeholder="Nombre">
+                            <input name="name" type="text" class="form-control m-b-5" placeholder="Nombre" value="{{ $user->name }}">
                         </div>
                         <div class="form-group col-md-6">
                             <label>Nombre de Usuario</label>
-                            <input name="username" type="text" class="form-control m-b-5" placeholder="Nombre de usuario">
+                            <input name="username" type="text" class="form-control m-b-5" placeholder="Nombre de usuario" value="{{ $user->email }}">
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>Tipo de usuario</label>
-                            <select class="form-control" name="rol">
+                            <select class="form-control" name="rol" value="{{ $user->rol }}">
                                 <option>Administrador</option>                                        
                                 <option>Usuario</option>                                        
                             </select>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label>Contraseña</label>
-                            <input name="password" type="password" name="password" class="form-control m-b-5" placeholder="Contraseña">
                         </div>
                     </div>
 

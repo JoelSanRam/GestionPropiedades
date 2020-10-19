@@ -4,7 +4,7 @@
 
 <!-- begin breadcrumb -->
 <ol class="breadcrumb pull-right">
-    <li class="breadcrumb-item"><a><button class="btn btn-primary">Agregar nuevo usuario</button></a></li>
+    <li class="breadcrumb-item"><a href="{{ route('usuarios.create') }}"><button class="btn btn-primary">Agregar nuevo usuario</button></a></li>
 </ol>
 <!-- end breadcrumb -->
 <!-- begin page-header -->
@@ -33,27 +33,37 @@
                 <table id="data-table-responsive" class="table table-striped table-bordered">
                     <thead>
                         <tr>
-                            <th width="1%">ID</th>
                             <th class="text-nowrap">Nombre</th>
-                            <th width="15%" class="text-nowrap">Usuario</th>
+                            <th width="15%" class="text-nowrap">Nombre de Usuario</th>
                             <th width="15%" class="text-nowrap">Tipo de usuario</th>
-                            <th class="text-nowrap">Contraseña</th>
                             <th width="10%">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="odd gradeX">
-                            <td width="1%" class="f-s-600 text-inverse">1</td>
-                            <td >Joel Sánchez Ramírez</td>
-                            <td>Joel</td>
-                            <td>Administrador</td>
-                            <td> <p>Contrasenia</td>
-                            <td> <button type="button" class="btn btn-grey btn-icon btn-sm" title="Editar"><i class="fas fa-pencil-alt fa-fw"></i></button>
-                                
+                        @foreach($users as $user)
+                            <tr class="odd gradeX">
+                                <td >{{ $user->name }}</td>
+                                <td>{{ $user->email }}</td>
+                                <td>{{ $user->rol }}</td>
+                                <td>
+                                    <a href="{{ route('usuarios.edit', $user->id) }}" class="btn btn-grey btn-icon btn-sm" title="Editar">
+                                            <i class="fas fa-pencil-alt fa-fw"></i>
+                                    </a>
 
-                                <button type="button" class="btn btn-danger btn-icon btn-sm" title="Eliminar"><i class="fas fa-trash-alt fa-fw"></i></button></td>
-                        </tr>
-                        
+                                    <a href="{{ route('view-password', $user->id) }}" class="btn btn-warning btn-icon btn-sm" title="Cambiar Contraseña">
+                                        <i class="fas fa-key"></i>
+                                    </a>
+                                    <form action="{{ route('usuarios.destroy', $user) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger btn-icon btn-sm" title="Eliminar">
+                                            <i class="fas fa-trash-alt fa-fw"></i>
+                                        </button>
+                                    </form>
+                                    
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

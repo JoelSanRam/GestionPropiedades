@@ -8,7 +8,7 @@
 </ol>
 <!-- end breadcrumb -->
 <!-- begin page-header -->
-<h1 class="page-header">Creación de Usuario</h1>
+<h1 class="page-header">Cambiar contraseña</h1>
 <!-- end page-header -->
 
 <!-- begin row -->
@@ -30,29 +30,12 @@
             <!-- end panel-heading -->
             <!-- begin panel-body -->
             <div class="panel-body">
-                <form action="{{ route('usuarios.store') }}" method="POST">
+                <form action="{{ route('change-password', $user->id) }}" method="POST">
                     @csrf
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label>Nombre</label>
-                            <input name="name" type="text" class="form-control m-b-5" placeholder="Nombre">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label>Nombre de Usuario</label>
-                            <input name="username" type="text" class="form-control m-b-5" placeholder="Nombre de usuario">
-                        </div>
-                    </div>
 
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label>Tipo de usuario</label>
-                            <select class="form-control" name="rol">
-                                <option>Administrador</option>                                        
-                                <option>Usuario</option>                                        
-                            </select>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label>Contraseña</label>
+                            <label >Nueva Contraseña</label>
                             <input name="password" type="password" name="password" class="form-control m-b-5" placeholder="Contraseña">
                         </div>
                     </div>

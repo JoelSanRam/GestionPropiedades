@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::redirect('/', '/listado');
+
 Route::middleware('auth')->group(function () {
 
 	Route::get('/listado', function () {
@@ -22,16 +24,12 @@ Route::middleware('auth')->group(function () {
 	    return view('propiedades.detalle');
 	});
 
-	Route::get('/', function () {
-	    return view('index');
-	});
+	Route::resource('/usuarios', 'UserController');
 
-	Route::get('/usuarios', function () {
-	    return view('usuarios.Usuarios');
-	});
-	Route::get('/addusuarios', function () {
-	    return view('usuarios.create');
-	});
+	// change password
+
+	Route::get('/usuarios/view-password/{id}', 'UserController@change')->name('view-password');
+	Route::post('/usuarios/change-password/{id}', 'UserController@password')->name('change-password');
 
 });
 
