@@ -17,13 +17,16 @@ Route::redirect('/', '/listado');
 
 Route::middleware('auth')->group(function () {
 
+    //propiedad
 	Route::get('/listado', function () {
 	    return view('propiedades.Listado');
 	});
 	Route::get('/detalle', function () {
 	    return view('propiedades.detalle');
-	});
+    });
+    Route::get('/addpropiedad', 'PropiedadController@index')->name('addpropiedad');
 
+    //usuarios
 	Route::resource('/usuarios', 'UserController');
 
 	// change password
