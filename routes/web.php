@@ -17,20 +17,19 @@ Route::redirect('/', '/listado');
 
 Route::middleware('auth')->group(function () {
 
-    //propiedad
-	Route::get('/listado', function () {
-	    return view('propiedades.Listado');
-	});
-	Route::get('/detalle', function () {
-	    return view('propiedades.detalle');
-    });
-    Route::get('/addpropiedad', 'PropiedadController@index')->name('addpropiedad');
 
-    //usuarios
+	Route::get('/listado', 'PropiedadController@listado')->name('listado');
+
+	Route::get('/detalle', 'PropiedadController@listado')->name('listado');
+
+    Route::get('/detalle', 'PropiedadController@detalle');
+
+    
+
+    ///// usuarios //////
 	Route::resource('/usuarios', 'UserController');
 
 	// change password
-
 	Route::get('/usuarios/view-password/{id}', 'UserController@change')->name('view-password');
 	Route::post('/usuarios/change-password/{id}', 'UserController@password')->name('change-password');
 

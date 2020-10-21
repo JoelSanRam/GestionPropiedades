@@ -117,35 +117,40 @@
 
 	                    </li>
 	                    <li class="has-sub">
-							<a href="javascript:;">
-
+							<a href="/listado">
 								<i class="fa fa-home"></i>
 								<span>Listado de predios</span>
 							</a>
 
 	                    </li>
+
+	                    @if (Auth::user()->rol == "Administrador")
+		                    <li class="has-sub">
+								<a href="/usuarios">
+									<i class="fa fa-user"></i>
+									<span>Listado de usuarios</span>
+								</a>
+
+		                    </li>
+		                 @endif
+
 	                    <li class="has-sub">
-							<a href="javascript:;">
-
-								<i class="fa fa-user"></i>
-								<span>Listado de usuarios</span>
-							</a>
-
-	                    </li>
-	                    <li class="has-sub">
-							<a href="javascript:;">
-
+							<a href="/reporte">
 								<i class="fa fa-edit"></i>
 								<span>Generar reporte</span>
 							</a>
 
 	                    </li>
 	                    <li class="has-sub">
-							<a href="javascript:;">
 
-								<i class="fa fa-user-times"></i>
+							<a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                <i class="fa fa-user-times"></i>
 								<span>Salir</span>
-							</a>
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
 
 						</li>
 

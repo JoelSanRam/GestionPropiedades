@@ -28,7 +28,6 @@ class UbicacionImport implements ToModel, WithHeadingRow
             'urbana_manzana' => $row['manzana_urbana'],
             'lote' => $row['lote'],
             'codigo_postal' => $row['codigo_postal'],
-            'propietario' => $row['propietario'],
         ]);
     }
 }

@@ -25,6 +25,7 @@ class PropiedadImport implements ToModel, WithHeadingRow
             'ultimo_movimiento' => $row['ultimo_movimiento'],
             'fecha_alta' => $row['fecha_alta'],
             'observaciones' => $row['observaciones'],
+            'propietario' => $row['propietario'],
         ]);
     }
 }

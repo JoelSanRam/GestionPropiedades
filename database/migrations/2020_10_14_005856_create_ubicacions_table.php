@@ -27,7 +27,6 @@ class CreateUbicacionsTable extends Migration
             $table->integer('urbana_manzana')->nullable(); //
             $table->integer('lote')->nullable();
             $table->integer('codigo_postal')->nullable();
-            $table->string('propietario')->nullable();
             $table->timestamps();
         });
     }

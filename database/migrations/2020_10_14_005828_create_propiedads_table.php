@@ -24,6 +24,7 @@ class CreatePropiedadsTable extends Migration
             $table->string('ultimo_movimiento')->nullable();
             $table->string('fecha_alta')->nullable();
             $table->text('observaciones')->nullable();
+            $table->string('propietario')->nullable();
             $table->timestamps();
         });
     }
