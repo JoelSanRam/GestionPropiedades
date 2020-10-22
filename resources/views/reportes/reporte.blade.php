@@ -3,40 +3,41 @@
 @section('admin')
 
 <h1 class="page-header">Generación de reportes</h1>
-<!-- begin breadcrumb -->
-<ol class="breadcrumb pull-right">
-    <li class="breadcrumb-item"><a><button class="btn btn-primary">Generar reporte</button></a></li>
-</ol>
-<!-- end breadcrumb -->
-<!-- begin page-header -->
-    <label for="exampleFormControlSelect1">Tipo</label>
-    <select class="page-header form-control-sm" id="exampleFormControlSelect1">
-      <option>Tipo</option>
-      <option>Tablaje rústico</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
+    
+    <!-- begin page-header -->
+    <form class="my-2" action="{{ route('search') }}" method="GET">
 
-    <label style="margin-left: 10px"for="exampleFormControlSelect1">Entidad</label>
-    <select class="page-header form-control-sm" id="exampleFormControlSelect1">
-      <option>Entidad</option>
-      <option>Tablaje rústico</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
+        <label for="exampleFormControlSelect1">Tipo</label>
+        <select class="page-header form-control-sm" name="tipo">
+          <option>Tipo</option>
+          <option>Tablaje rústico</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
 
-    <label style="margin-left: 10px"for="exampleFormControlSelect1">Status</label>
-    <select class="page-header form-control-sm" id="exampleFormControlSelect1">
-      <option>Status</option>
-      <option>Tablaje rústico</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
+        <label style="margin-left: 10px"for="exampleFormControlSelect1">Entidad</label>
+        <select class="page-header form-control-sm" name="entidad">
+          <option>Entidad</option>
+          <option>Yucatan</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
 
-    <button class="btn btn-success" style="margin-left: 10px">Filtrar</button>
+        <label style="margin-left: 10px">Status</label>
+        <select class="page-header form-control-sm" name="status">
+          <option>Status</option>
+          <option>Vendido</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+
+        <button type="submit" name="option" value="filtrar" class="btn btn-success mr-1 ml-2">Filtrar</button>
+        <button type="submit" name="option" value="reporte" class="btn btn-primary">Generar reporte</button>
+
+    </form>
 <!-- end page-header -->
 
 <!-- begin row -->

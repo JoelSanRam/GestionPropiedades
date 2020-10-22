@@ -97,7 +97,7 @@
 								<div class="info">
 
 									{{ Auth::user()->name }}
-									<small>ROL DE USUARIO</small>
+									<small>Rol de {{Auth::user()->rol}}</small>
 								</div>
 							</a>
 						</li>

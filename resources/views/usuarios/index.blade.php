@@ -2,11 +2,14 @@
 
 @section('admin')
 
+@if (Auth::user()->rol == "Administrador")
 <!-- begin breadcrumb -->
 <ol class="breadcrumb pull-right">
     <li class="breadcrumb-item"><a href="{{ route('usuarios.create') }}"><button class="btn btn-primary">Agregar nuevo usuario</button></a></li>
 </ol>
 <!-- end breadcrumb -->
+@endif
+
 <!-- begin page-header -->
 <h1 class="page-header">Listado de Usuarios </h1>
 <!-- end page-header -->
@@ -46,6 +49,7 @@
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->rol }}</td>
                                 <td>
+                                    @if (Auth::user()->rol == "Administrador")
                                     <a href="{{ route('usuarios.edit', $user->id) }}" class="btn btn-grey btn-icon btn-sm" title="Editar">
                                             <i class="fas fa-pencil-alt fa-fw"></i>
                                     </a>
@@ -60,7 +64,7 @@
                                             <i class="fas fa-trash-alt fa-fw"></i>
                                         </button>
                                     </form>
-                                    
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach
