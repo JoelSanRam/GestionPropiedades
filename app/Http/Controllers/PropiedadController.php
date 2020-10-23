@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Dato;
+use App\Dimencion;
+use App\Propiedad;
+use App\Ubicacion;
+use App\Valor;
 
 class PropiedadController extends Controller
 {
@@ -22,8 +27,40 @@ class PropiedadController extends Controller
         return view('propiedades.addPropiedad');
     }
 
-    public function detalle()
+    public function detalles($id)
     {
-    	return view('propiedades.detalle');
+        $propiedad = Propiedad::find($id);
+        $dato = Dato::where('propiedad_id', $propiedad->propiedad_id)->first();
+        $dimencion = Dimencion::where('propiedad_id', $propiedad->propiedad_id)->first();
+        $ubicacion = Ubicacion::where('propiedad_id', $propiedad->propiedad_id)->first();
+        $valor = Valor::where('propiedad_id', $propiedad->propiedad_id)->first();
+
+    	return view('propiedades.detalles', [
+                'propiedad' => $propiedad, 
+                'dato' => $dato, 
+                'dimencion' => $dimencion, 
+                'ubicacion' => $ubicacion, 
+                'valor' => $valor
+            ]);
     }
+
+    public function pdfIndividual($id)
+    {
+        $propiedad = Propiedad::find($id);
+        $dato = Dato::where('propiedad_id', $propiedad->propiedad_id)->first();
+        $dimencion = Dimencion::where('propiedad_id', $propiedad->propiedad_id)->first();
+        $ubicacion = Ubicacion::where('propiedad_id', $propiedad->propiedad_id)->first();
+        $valor = Valor::where('propiedad_id', $propiedad->propiedad_id)->first();
+
+        $pdf = \PDF::loadView('reportes.individual', [
+                'propiedad' => $propiedad, 
+                'dato' => $dato, 
+                'dimencion' => $dimencion, 
+                'ubicacion' => $ubicacion, 
+                'valor' => $valor
+            ])->setPaper('a4', 'landscape');
+
+        return $pdf->stream('propiedad-individual.pdf');
+    }
+
 }

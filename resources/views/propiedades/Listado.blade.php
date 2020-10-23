@@ -3,10 +3,13 @@
 @section('admin')
 
 <!-- begin breadcrumb -->
+@if (Auth::user()->rol == "Administrador")
 <ol class="breadcrumb pull-right">
     <li class="breadcrumb-item"><a><button class="btn btn-primary">Agregar nuevo predio</button></a></li>
 </ol>
+@endif
 <!-- end breadcrumb -->
+
 <!-- begin page-header -->
 <h1 class="page-header">Listado de predios</h1>
 <!-- end page-header -->
@@ -54,10 +57,29 @@
                                     <p>Localidad: {{ $item->localidad }}</p> 
                                 </td>
                                 <td>{{ $item->ultimo_movimiento }}</td>
-                                <td> <button type="button" class="btn btn-grey btn-icon btn-sm" title="Editar"><i class="fas fa-pencil-alt fa-fw"></i></button>
-                                    <button type="button" class="btn btn-primary btn-icon btn-sm" title="Anexos"><i class="fas fa-edit fa-fw"></i></i></button>
+                                <td>
+                                    <a href="{{ route('pdf-individual', $item->propiedad_id) }}" class="btn btn-warning btn-icon btn-sm" title="Generar reporte">
+                                        <i class="fas fa-file-pdf fa-fw"></i>
+                                    </a>
 
-                                    <button type="button" class="btn btn-danger btn-icon btn-sm" title="Eliminar"><i class="fas fa-trash-alt fa-fw"></i></button></td>
+                                    <a href="{{ route('detalles', $item->propiedad_id) }}" class="btn btn-success btn-icon btn-sm" title="Detalles">
+                                        <i class="fas fa-eye fa-fw"></i>
+                                    </a>
+
+                                    @if (Auth::user()->rol == "Administrador")
+                                        <button type="button" class="btn btn-grey btn-icon btn-sm" title="Editar" >
+                                            <i class="fas fa-pencil-alt fa-fw"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-primary btn-icon btn-sm" title="Anexos">
+                                            <i class="fas fa-edit fa-fw"></i>
+                                        </button>
+
+                                        <button type="button" class="btn btn-danger btn-icon btn-sm" title="Eliminar">
+                                            <i class="fas fa-trash-alt fa-fw"></i>
+                                        </button>
+                                    @endif
+
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
