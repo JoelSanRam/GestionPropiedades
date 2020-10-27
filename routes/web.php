@@ -20,9 +20,25 @@ Route::middleware('auth')->group(function () {
 
 	Route::get('/listado', 'PropiedadController@listado')->name('listado');
 
+	Route::get('/add', 'PropiedadController@addpropiedad')->name('add');
+
     Route::get('/detalles/{id}', 'PropiedadController@detalles')->name('detalles');
 
-    ///// usuarios //////
+    ////// routes update view ///////
+    Route::get('/update/view/dato/{id}', 'ChangesController@updateViewDato')->name('update-view-dato');
+    Route::get('/update/view/dimencion/{id}', 'ChangesController@updateViewDimencion')->name('update-view-dimencion');
+    Route::get('/update/view/propiedad/{id}', 'ChangesController@updateViewPropiedad')->name('update-view-propiedad');
+    Route::get('/update/view/ubicacion/{id}', 'ChangesController@updateViewUbicacion')->name('update-view-ubicacion');
+    Route::get('/update/view/valor/{id}', 'ChangesController@updateViewValor')->name('update-view-valor');
+
+    ////// route update save ////
+    Route::put('/update/save/dato/{id}', 'ChangesController@updateDato')->name('update-dato');
+    Route::put('/update/save/dimencion/{id}', 'ChangesController@updateDimencion')->name('update-dimencion');
+    Route::put('/update/save/propiedad/{id}', 'ChangesController@updatePropiedad')->name('update-propiedad');
+    Route::put('/update/save/ubicacion/{id}', 'ChangesController@updateUbicacion')->name('update-ubicacion');
+    Route::put('/update/save/valor/{id}', 'ChangesController@updateValor')->name('update-valor');
+
+    ///// users //////
 	Route::resource('/usuarios', 'UserController');
 
 	// change password

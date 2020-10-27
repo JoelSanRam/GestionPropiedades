@@ -13,11 +13,11 @@ use App\Valor;
 class ChangesController extends Controller
 {
 	////// Redirect Form View ////
-    public function updateViewDato($id){ $item = Dato::find($id); return view('updates', compact('item')); }
-    public function updateViewDimencion($id){ $item = Dimencion::find($id); return view('updates', compact('item')); }
-    public function updateViewPropiedad($id){ $item = Propiedad::find($id); return view('updates', compact('item')); }
-    public function updateViewUbicacion($id){ $item = Ubicacion::find($id); return view('updates', compact('item')); }
-    public function updateViewValor($id){ $item = Valor::find($id); return view('updates', compact('item')); }
+    public function updateViewDato($id){ $item = Dato::find($id); return view('forms.update.dato', compact('item')); }
+    public function updateViewDimencion($id){ $item = Dimencion::find($id); return view('forms.update.dimencion', compact('item')); }
+    public function updateViewPropiedad($id){ $item = Propiedad::find($id); return view('forms.update.propiedad', compact('item')); }
+    public function updateViewUbicacion($id){ $item = Ubicacion::find($id); return view('forms.update.ubicacion', compact('item')); }
+    public function updateViewValor($id){ $item = Valor::find($id); return view('forms.update.valor', compact('item')); }
 
     ////// Action Form ////
 
@@ -30,7 +30,7 @@ class ChangesController extends Controller
         // ]);
 
         $dato = Dato::find($id);
-        $dato->propiedad_id = $request->propiedad_id;
+        // $dato->propiedad_id = $request->propiedad_id;
         $dato->entidad_federativa = $request->entidad_federativa; 
         $dato->municipio = $request->municipio; 
         $dato->localidad = $request->localidad; 
@@ -44,7 +44,7 @@ class ChangesController extends Controller
     public function updateDimencion(Request $request, $id)
     {
     	$dimencion = Dimencion::find($id);
-    	$dimencion->propiedad_id = $request->propiedad_id;
+    	// $dimencion->propiedad_id = $request->propiedad_id;
     	$dimencion->superficie_construccion = $request->superficie_construccion;
     	$dimencion->superficie_terreno = $request->superficie_terreno;
     	$dimencion->frente = $request->frente;
@@ -58,7 +58,7 @@ class ChangesController extends Controller
     public function updatePropiedad(Request $request, $id)
     {
     	$propiedad = Propiedad::find($id);
-    	$propiedad->propiedad_id = $request->propiedad_id;
+    	// $propiedad->propiedad_id = $request->propiedad_id;
     	$propiedad->origen_id = $request->origen_id;
     	$propiedad->tipo = $request->tipo;
     	$propiedad->granja = $request->granja;
@@ -76,7 +76,7 @@ class ChangesController extends Controller
     public function updateUbicacion(Request $request, $id)
     {
     	$ubicacion = Ubicacion::find($id);
-    	$ubicacion->propiedad_id = $request->propiedad_id;
+    	// $ubicacion->propiedad_id = $request->propiedad_id;
     	$ubicacion->ejido = $request->ejido;
     	$ubicacion->parcela = $request->parcela;
     	$ubicacion->solar = $request->solar;
@@ -96,7 +96,7 @@ class ChangesController extends Controller
     public function updateValor(Request $request, $id)
     {
     	$valor = Valor::find($id);
-    	$valor->propiedad_id = $request->propiedad_id;
+    	// $valor->propiedad_id = $request->propiedad_id;
     	$valor->valor_construccion = $request->valor_construccion;
     	$valor->valor_terreno = $request->valor_terreno;
     	$valor->valor_comercial = $request->valor_comercial;
