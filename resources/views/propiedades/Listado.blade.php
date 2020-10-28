@@ -5,7 +5,7 @@
 <!-- begin breadcrumb -->
 @if (Auth::user()->rol == "Administrador")
 <ol class="breadcrumb pull-right">
-    <li class="breadcrumb-item"><a><button class="btn btn-primary">Agregar nuevo predio</button></a></li>
+    <li class="breadcrumb-item"><button class="btn btn-primary">Agregar nuevo predio</button></li>
 </ol>
 @endif
 <!-- end breadcrumb -->
@@ -38,11 +38,14 @@
                         <tr>
                             <th width="1%">ID</th>
                             <th class="text-nowrap">Propietario</th>
-                            <th width="15%" class="text-nowrap">Status</th>
-                            <th width="15%" class="text-nowrap">Tipo</th>
+                            <th class="text-nowrap">Status</th>
+                            <th class="text-nowrap">Tipo</th>
                             <th class="text-nowrap">Ubicación</th>
-                            <th width="20%" class="text-nowrap">Ult. mov.</th>
-                            <th width="10%">Acciones</th>
+                            <th class="text-nowrap">Ult. mov.</th>
+                            <th>Acciones</th>
+                            @if (Auth::user()->rol == "Administrador")
+                            <th>Opciones para Editar</th>
+                            @endif
                         </tr>
                     </thead>
                     <tbody>
@@ -67,19 +70,30 @@
                                     </a>
 
                                     @if (Auth::user()->rol == "Administrador")
-                                        <button type="button" class="btn btn-grey btn-icon btn-sm" title="Editar" >
-                                            <i class="fas fa-pencil-alt fa-fw"></i>
-                                        </button>
-                                        <button type="button" class="btn btn-primary btn-icon btn-sm" title="Anexos">
-                                            <i class="fas fa-edit fa-fw"></i>
-                                        </button>
 
-                                        <button type="button" class="btn btn-danger btn-icon btn-sm" title="Eliminar">
+                                        {{-- <button type="button" class="btn btn-danger btn-icon btn-sm" title="Eliminar">
                                             <i class="fas fa-trash-alt fa-fw"></i>
-                                        </button>
+                                        </button> --}}
                                     @endif
 
                                 </td>
+                                @if (Auth::user()->rol == "Administrador")
+                                    <td>
+                                        <div class="btn-group">
+                                            <a href="#" class="btn btn-info">Elegir</a>
+                                            <a href="#" class="btn btn-info dropdown-toggle"
+                                                data-toggle="dropdown"></a>
+                                            <ul class="dropdown-menu pull-right">
+                                                <a href="{{ route('update-view-dato', $item->propiedad_id) }}" class="dropdown-item">Datos Generales</a>
+                                                <a href="{{ route('update-view-dimencion', $item->propiedad_id) }}" class="dropdown-item">Dimenciones</a>
+                                                <a href="{{ route('update-view-propiedad', $item->propiedad_id) }}" class="dropdown-item">Propiedad</a>
+                                                <a href="{{ route('update-view-ubicacion', $item->propiedad_id) }}" class="dropdown-item">Datos Extras</a>
+                                                <a href="{{ route('update-view-valor', $item->propiedad_id) }}" class="dropdown-item">Valores</a>
+                                                <a href="" class="dropdown-item">Coordenades</a>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                @endif
                             </tr>
                         @endforeach
                     </tbody>
@@ -92,4 +106,8 @@
     <!-- end col-10 -->
 </div>
 <!-- end row -->
+
 @endsection
+
+
+

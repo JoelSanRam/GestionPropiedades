@@ -626,10 +626,10 @@ class ComposerStaticInit874bfa0fc2921e8608afa8a7c5a1df13
 
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
+        'App\\Coordinate' => __DIR__ . '/../..' . '/app/Coordinate.php',
         'App\\Dato' => __DIR__ . '/../..' . '/app/Dato.php',
         'App\\Dimencion' => __DIR__ . '/../..' . '/app/Dimencion.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
-        'App\\Flight' => __DIR__ . '/../..' . '/app/Flight.php',
         'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',

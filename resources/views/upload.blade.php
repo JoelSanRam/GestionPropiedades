@@ -3,9 +3,9 @@
 @section('admin')
     
     <div class="row mt-5">
-        <div class="col-md-8">
+        <div class="col-md-8 m-auto">
             @if(Session::has('message'))
-                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <div class="alert alert-info alert-dismissible fade show" role="alert">
                     <strong>{!! Session::get('message') !!}</strong>
                 </div>
             @endif
@@ -13,7 +13,7 @@
 
         @if ( $errors->any() )
             <div class="alert alert-danger">
-                @foreach( $errors->all() as $error )<li>{{ $error }}</li>@endforeach
+                @foreach( $errors->all() as $error )<strong>{{ $error }}</strong>@endforeach
             </div>
         @endif
     </div>

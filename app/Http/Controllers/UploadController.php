@@ -16,14 +16,13 @@ class UploadController extends Controller
 
     public function upload(Request $request)
     {
-        Excel::import(new TablesImport, request()->file('registros'));
-        /*
+        
     	try {
-    		Excel::import(new DataImport, request()->file('registros'));
+            Excel::import(new TablesImport, request()->file('registros'));
         	\Session::flash('message', 'Registro Guardado');
     	} catch (\Throwable $th) {
             \Session::flash('message', 'Ocurrio un error');
-        } */
+        } 
 
         return redirect()->back();
     }

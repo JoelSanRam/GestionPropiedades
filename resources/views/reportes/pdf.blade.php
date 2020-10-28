@@ -26,9 +26,9 @@
                 <th scope="col">Entidad Federativa</th>
                 <th scope="col">Municipio</th>
                 <th scope="col">Localidad</th>
-                <th scope="col">Superficie Terreno</th>
                 <th scope="col">Folio Reg Pub</th>
                 <th scope="col">Folio Catastral</th>
+                <th scope="col">Superficie Terreno</th>
                 <th scope="col">Valor Comercial</th> 
                 <th scope="col">Valor Catastral</th>
             </tr>

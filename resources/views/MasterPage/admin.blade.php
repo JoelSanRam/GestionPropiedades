@@ -28,6 +28,7 @@
 
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="{{ asset('assets/plugins/pace/pace.min.js')}}"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
 </head>
 <body>
@@ -121,7 +122,6 @@
 								<i class="fa fa-home"></i>
 								<span>Listado de predios</span>
 							</a>
-
 	                    </li>
 
 	                    @if (Auth::user()->rol == "Administrador")
@@ -130,7 +130,12 @@
 									<i class="fa fa-user"></i>
 									<span>Listado de usuarios</span>
 								</a>
-
+		                    </li>
+		                    <li class="has-sub">
+								<a href="{{ route('view-upload') }}">
+									<i class="fa fa-file-excel"></i>
+									<span>Cargar Excel</span>
+								</a>
 		                    </li>
 		                 @endif
 

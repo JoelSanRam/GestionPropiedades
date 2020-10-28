@@ -10,19 +10,15 @@
         <label for="exampleFormControlSelect1">Tipo</label>
         <select class="page-header form-control-sm" name="tipo">
           <option>Tipo</option>
-          <option>Tablaje rústico</option>
+          <option>PREDIO URBANO</option>
           <option>3</option>
-          <option>4</option>
-          <option>5</option>
         </select>
 
         <label style="margin-left: 10px"for="exampleFormControlSelect1">Entidad</label>
         <select class="page-header form-control-sm" name="entidad">
           <option>Entidad</option>
-          <option>Yucatan</option>
+          <option>YUCATAN</option>
           <option>3</option>
-          <option>4</option>
-          <option>5</option>
         </select>
 
         <label style="margin-left: 10px">Status</label>
@@ -30,8 +26,6 @@
           <option>Status</option>
           <option>Vendido</option>
           <option>3</option>
-          <option>4</option>
-          <option>5</option>
         </select>
 
         <button type="submit" name="option" value="filtrar" class="btn btn-success mr-1 ml-2">Filtrar</button>
@@ -62,58 +56,33 @@
                 <table id="data-table-responsive" class="table table-striped table-bordered">
                     <thead>
                         <tr>
-                            <th width="1%">Tipo</th>
-                            <th class="text-nowrap">Entidad</th>
-                            <th width="15%" class="text-nowrap">Municipio</th>
-                            <th width="15%" class="text-nowrap">Localidad</th>
-                            <th class="text-nowrap">Reg. Pub.</th>
-                            <th width="15%" class="text-nowrap">Folio Cat.</th>
-                            <th width="10%">Valor Comercial</th>
-                            <th width="10%">Status</th>
+                            <th scope="col">ID</th>
+                            <th scope="col">Entidad Federativa</th>
+                            <th scope="col">Municipio</th>
+                            <th scope="col">Localidad</th>
+                            <th scope="col">Folio Reg Pub</th>
+                            <th scope="col">Folio Catastral</th>
+                            <th scope="col">Superficie Terreno</th>
+                            <th scope="col">Valor Comercial</th> 
+                            <th scope="col">Valor Catastral</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="odd gradeX">
-                            <td width="1%" class="f-s-600 text-inverse">Predio Urbano</td>
-                            <td >Yucatán</td>
-                            <td>Mérida</td>
-                            <td>Montecristo</td>
-                            <td> 123abc-123bac</td>
-                            <td>123abc-123bac</td>
-                            <td> 2,000,000</td>
-                            <td> Contratado</td>
-                        </tr>
-                        <tr class="odd gradeX">
-                            <td width="1%" class="f-s-600 text-inverse">Predio Urbano</td>
-                            <td >Yucatán</td>
-                            <td>Mérida</td>
-                            <td>Montecristo</td>
-                            <td> 123abc-123bac</td>
-                            <td>123abc-123bac</td>
-                            <td> 2,000,000</td>
-                            <td> Contratado</td>
-                        </tr>
-                        <tr class="odd gradeX">
-                            <td width="1%" class="f-s-600 text-inverse">Predio Urbano</td>
-                            <td >Yucatán</td>
-                            <td>Mérida</td>
-                            <td>Montecristo</td>
-                            <td> 123abc-123bac</td>
-                            <td>123abc-123bac</td>
-                            <td> 2,000,000</td>
-                            <td> Contratado</td>
-                        </tr>
-                        <tr class="odd gradeX">
-                            <td width="1%" class="f-s-600 text-inverse">Predio Urbano</td>
-                            <td >Yucatán</td>
-                            <td>Mérida</td>
-                            <td>Montecristo</td>
-                            <td> 123abc-123bac</td>
-                            <td>123abc-123bac</td>
-                            <td> 2,000,000</td>
-                            <td> Contratado</td>
-                        </tr>
-
+                        @if(isset($datos))
+                            @foreach($datos as $item)
+                                <tr>
+                                    <td>{{ $item->propiedad_id }}</td>
+                                    <td>{{ $item->entidad_federativa }}</td>
+                                    <td>{{ $item->municipio }}</td>
+                                    <td>{{ $item->localidad }}</td>
+                                    <td>{{ $item->folio_regpub }}</td>
+                                    <td>{{ $item->folio_catastral }}</td>
+                                    <td>{{ $item->superficie_terreno }}</td>
+                                    <td>{{ $item->valor_comercial }}</td>
+                                    <td>{{ $item->valor_catastral }}</td> 
+                                </tr>
+                            @endforeach
+                        @endif
                     </tbody>
                 </table>
             </div>
