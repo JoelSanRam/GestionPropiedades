@@ -141,8 +141,8 @@ class CreateController extends Controller
             $coor->save();
         }
 
-        return response()->json("ok");
-        //return redirect()->route('create-view-coordenada');
+        //return response()->json("ok");
+        return redirect()->route('create-complete');
     }
 
 }

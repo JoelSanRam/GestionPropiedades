@@ -9,6 +9,7 @@ use App\Dimencion;
 use App\Propiedad;
 use App\Ubicacion;
 use App\Valor;
+use App\Coordenada;
 
 class PropiedadController extends Controller
 {
@@ -34,13 +35,15 @@ class PropiedadController extends Controller
         $dimencion = Dimencion::where('propiedad_id', $propiedad->propiedad_id)->first();
         $ubicacion = Ubicacion::where('propiedad_id', $propiedad->propiedad_id)->first();
         $valor = Valor::where('propiedad_id', $propiedad->propiedad_id)->first();
+        $coor = Coordenada::where('propiedad_id', $propiedad->propiedad_id)->get();
 
     	return view('propiedades.detalles', [
                 'propiedad' => $propiedad, 
                 'dato' => $dato, 
                 'dimencion' => $dimencion, 
                 'ubicacion' => $ubicacion, 
-                'valor' => $valor
+                'valor' => $valor,
+                'coor' => $coor,
             ]);
     }
 

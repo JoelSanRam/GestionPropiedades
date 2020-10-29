@@ -41,7 +41,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/update/view/propiedad/{id}', 'ChangesController@updateViewPropiedad')->name('update-view-propiedad');
     Route::get('/update/view/ubicacion/{id}', 'ChangesController@updateViewUbicacion')->name('update-view-ubicacion');
     Route::get('/update/view/valor/{id}', 'ChangesController@updateViewValor')->name('update-view-valor');
-    Route::get('/update/view/coordenada', 'CreateController@updateViewCoordenada')->name('update-view-coordenada'); // pendiente //
+    Route::get('/update/view/coordenada/{id}', 'ChangesController@updateViewCoordenada')->name('update-view-coordenada'); 
 
     ////// route update save ////
     Route::put('/update/save/dato/{id}', 'ChangesController@updateDato')->name('update-dato');
@@ -49,6 +49,12 @@ Route::middleware('auth')->group(function () {
     Route::put('/update/save/propiedad/{id}', 'ChangesController@updatePropiedad')->name('update-propiedad');
     Route::put('/update/save/ubicacion/{id}', 'ChangesController@updateUbicacion')->name('update-ubicacion');
     Route::put('/update/save/valor/{id}', 'ChangesController@updateValor')->name('update-valor');
+    Route::put('/update/save/coordenada', 'ChangesController@updateCoordenada')->name('update-coordenada');
+
+    ///// route delete coordenada ////
+    Route::get('/delete/coordenada/{id}', 'ChangesController@deleteCoordenada')->name('delete-coordenada'); 
+
+
 
     ///// users //////
 	Route::resource('/usuarios', 'UserController');
@@ -71,7 +77,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/crear-predio', function () {
         return view('forms.create.dato');
-    });
+    })->name('crear-predio');
 
     Route::get('create/complete', function () {
         return view('forms.create.complete');

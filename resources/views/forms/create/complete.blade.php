@@ -68,7 +68,7 @@
 <form method="POST" class="form-control-with-bg">
     <div class="jumbotron my-5 py-5 text-center">
         <h2 class="text-inverse">Registro Exitoso</h2>
-        <p><a href="javascript:;" class="btn btn-primary btn-lg">Listado de Predios</a></p>
+        <p><a href="{{ route('listado') }}" class="btn btn-primary btn-lg">Listado de Predios</a></p>
     </div>
 </form>
 

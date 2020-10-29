@@ -14,6 +14,7 @@ class TablesImport implements WithMultipleSheets
             'ubicaciones' => new UbicacionImport(),
             'valores' => new ValorImport(),
             'dimenciones' => new DimencionImport(),
+            'coordenadas' => new CoordenadasImport(),
         ];
     }
 }

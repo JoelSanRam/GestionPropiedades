@@ -353,6 +353,50 @@
 
     </div>
     <!-- end row -->
+
+    <div class="row">
+        <!-- coordenadas -->
+        <div class="col-lg-6 ui-sortable">
+            <!-- begin panel -->
+            <div class="panel panel-inverse">
+                <div class="panel-heading ui-sortable-handle">
+                    <div class="panel-heading-btn">
+                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
+                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+                    </div>
+                    <h4 class="panel-title">Coordenadas</h4>
+                </div>
+                <!-- begin table-responsive -->
+                <div class="table-responsive">
+                    <table id="user" class="table table-condensed table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Latitud</th>
+                                <th>Longitud</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($coor as $item)
+                                <tr>
+                                    <td>
+                                        <a href="javascript:;" id="username" data-type="text" data-pk="1" class="editable editable-click">{{ $item->lat }}</a>
+                                    </td>
+                                    <td>
+                                        <a href="javascript:;" id="username" data-type="text" data-pk="1" class="editable editable-click">{{ $item->lon }}</a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+                <!-- end table-responsive -->
+            </div>
+            <!-- end panel -->
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-md-5"></div>
         <div class="col-md-5">

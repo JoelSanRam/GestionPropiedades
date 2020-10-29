@@ -19,7 +19,13 @@ class ChangesController extends Controller
     public function updateViewPropiedad($id){ $item = Propiedad::find($id); return view('forms.update.propiedad', compact('item')); }
     public function updateViewUbicacion($id){ $item = Ubicacion::find($id); return view('forms.update.ubicacion', compact('item')); }
     public function updateViewValor($id){ $item = Valor::find($id); return view('forms.update.valor', compact('item')); }
-    public function updateViewCoordenada($id){ $item = Coordenada::find($id); return view('forms.update.coordenada', compact('item')); }
+
+    public function updateViewCoordenada($id)
+    {
+        //$coor = Coordenada::find($id);
+        $data = Coordenada::where('propiedad_id', $id)->get();
+        return view('forms.update.coordenada', compact('data')); 
+    }
 
     ////// Action Form ////
 
@@ -108,6 +114,34 @@ class ChangesController extends Controller
     	$valor->save();
 
         return redirect()->route('listado');
+    }
+
+    public function updateCoordenada(Request $request)
+    { 
+        $lat = $request->input('lat');
+        $lon = $request->input('lon');
+
+        foreach ($request->input('id') as $key => $value) {
+            $coor = Coordenada::find($value);
+            $coor->lat = intval($lat[$key]);
+            $coor->lon = intval($lon[$key]);
+            $coor->save();
+        }
+
+        //return response()->json($request);
+        return redirect()->route('listado');
+    }
+
+    public function deleteCoordenada($id)
+    {
+        try{
+            $coor = Coordenada::find($id);
+            $coor->delete();
+        } catch (\Throwable $th) {
+            \Session::flash('message', 'Error al eliminar el registro');
+        }
+
+        return redirect()->back();
     }
 
 }
