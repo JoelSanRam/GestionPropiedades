@@ -9,6 +9,7 @@ use App\Dimencion;
 use App\Propiedad;
 use App\Ubicacion;
 use App\Valor;
+use App\Coordenada;
 
 class ChangesController extends Controller
 {
@@ -18,6 +19,7 @@ class ChangesController extends Controller
     public function updateViewPropiedad($id){ $item = Propiedad::find($id); return view('forms.update.propiedad', compact('item')); }
     public function updateViewUbicacion($id){ $item = Ubicacion::find($id); return view('forms.update.ubicacion', compact('item')); }
     public function updateViewValor($id){ $item = Valor::find($id); return view('forms.update.valor', compact('item')); }
+    public function updateViewCoordenada($id){ $item = Coordenada::find($id); return view('forms.update.coordenada', compact('item')); }
 
     ////// Action Form ////
 

@@ -25,6 +25,7 @@
 	<link href="{{ asset('assets/plugins/DataTables/media/css/dataTables.bootstrap.min.css')}}" rel="stylesheet" />
 	<link href="{{ asset('assets/plugins/DataTables/extensions/Responsive/css/responsive.bootstrap.min.css')}}" rel="stylesheet" />
 	<!-- ================== END PAGE LEVEL STYLE ================== -->
+	<link href="{{ asset('assets/plugins/jquery-smart-wizard/src/css/smart_wizard.css')}}" rel="stylesheet" />
 
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="{{ asset('assets/plugins/pace/pace.min.js')}}"></script>
@@ -209,10 +210,14 @@
 	<script src="{{ asset('assets/js/demo/table-manage-responsive.demo.min.js')}}"></script>
 	<!-- ================== END PAGE LEVEL JS ================== -->
 
+	<script src="{{ asset('assets/plugins/jquery-smart-wizard/src/js/jquery.smartWizard.js') }}"></script>
+	<script src="{{ asset('assets/js/demo/form-wizards.demo.min.js') }}"></script>
+
 	<script>
 		$(document).ready(function() {
 			App.init();
 			TableManageResponsive.init();
+            FormWizard.init();
 		});
 	</script>
 </body>

@@ -140,7 +140,7 @@
 
             return true;
         },
-        _setToolbar: function () {
+        /*_setToolbar: function () {
             // Skip right away if the toolbar is not enabled
             if(this.options.toolbarSettings.toolbarPosition === 'none'){ return true; }
 
@@ -213,7 +213,7 @@
                     break;
             }
             return true;
-        },
+        },*/
         _setEvents: function () {
             // Anchor click event
             var mi = this;

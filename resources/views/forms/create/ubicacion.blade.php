@@ -1,0 +1,145 @@
+@extends('MasterPage.admin')
+
+@section('admin')
+
+<h1 class="page-header">Crear Predio</h1>
+
+<div id="wizard">
+    <ul>
+        <li class="col-md-3 col-sm-4 col-6">
+            <a href="#step-1">
+                <span class="number">1</span> 
+                <span class="info text-ellipsis">
+                    Datos Generales
+                </span>
+            </a>
+        </li>
+        <li class="col-md-3 col-sm-4 col-6">
+            <a href="#step-2">
+                <span class="number">2</span> 
+                <span class="info text-ellipsis">
+                    Datos de la Propiedad
+                </span>
+            </a>
+        </li>
+        <li class="col-md-3 col-sm-4 col-6 active">
+            <a href="#step-3">
+                <span class="number">3</span>
+                <span class="info text-ellipsis">
+                    Ubicacion
+                </span>
+            </a>
+        </li>
+        <li class="col-md-3 col-sm-4 col-6">
+            <a href="#step-4">
+                <span class="number">4</span>
+                <span class="info text-ellipsis">
+                    Dimeciones
+                </span>
+            </a>
+        </li>
+        <li class="col-md-3 col-sm-4 col-6">
+            <a href="#step-5">
+                <span class="number">5</span>
+                <span class="info text-ellipsis">
+                    Valores
+                </span>
+            </a>
+        </li>
+        <li class="col-md-3 col-sm-4 col-6">
+            <a href="#step-6">
+                <span class="number">6</span>
+                <span class="info text-ellipsis">
+                    Coordenadas
+                </span>
+            </a>
+        </li>
+        <li class="col-md-3 col-sm-4 col-6">
+            <a href="#step-7">
+                <span class="number">7</span> 
+                <span class="info text-ellipsis">
+                    Registro Completado
+                </span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<form action="{{ route('create-ubicacion') }}" method="POST" class="form-control-with-bg">
+    @csrf
+    <div class="jumbotron my-5 py-3">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>ID</label>
+                <input name="propiedad_id" type="text" class="form-control m-b-5" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label>Ejido</label>
+                <input name="ejido" type="text" class="form-control m-b-5" placeholder="Ingresar ejido">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Parcela</label>
+                <input name="parcela" type="text" class="form-control m-b-5" placeholder="Ingresar parcela">
+            </div>
+            <div class="form-group col-md-6">
+                <label>Solar</label>
+                <input name="solar" type="text" class="form-control m-b-5" placeholder="Ingresar solar">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Tablaje</label>
+                <input name="tablaje" type="text" class="form-control m-b-5" placeholder="Ingresar tablaje">
+            </div>
+            <div class="form-group col-md-6">
+                <label>Finca</label>
+                <input name="finca" type="text" class="form-control m-b-5" placeholder="Ingresar finca">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Direccion</label>
+                <input name="direccion" type="text" class="form-control m-b-5" placeholder="Ingresar direccion">
+            </div>
+            <div class="form-group col-md-6">
+                <label>Colonia</label>
+                <input name="colonia" type="text" class="form-control m-b-5" placeholder="Ingresar colonia">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Manzana de ejido</label>
+                <input name="ejido_manzana" type="text" class="form-control m-b-5" placeholder="Ingresar manzana de ejido" >
+            </div>
+            <div class="form-group col-md-6">
+                <label>Manzana urbana</label>
+                <input name="urbana_manzana" type="text" class="form-control m-b-5" placeholder="Ingresar manzana urbana">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Lote</label>
+                <input name="lote" type="text" class="form-control m-b-5" placeholder="Ingresar lote">
+            </div>
+            <div class="form-group col-md-6">
+                <label>Codigo postal</label>
+                <input name="codigo_postal" type="text" class="form-control m-b-5" placeholder="Ingresar codigo postal">
+            </div>
+        </div>
+
+        <div class="form-row justify-content-end">
+            <a href="/listado" class="btn btn-secondary btn-lg mr-2">Cancelar</a>
+            <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
+        </div>
+    </div>
+</form>
+
+@endsection
+

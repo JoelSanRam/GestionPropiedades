@@ -2,17 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Route::redirect('/', '/listado');
 
 Auth::routes();
@@ -28,12 +17,31 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/reporte', 'ReportController@reporte');
 
+
+    ///// routes views form create /////
+    Route::get('/create/view/dato', 'CreateController@createViewDato')->name('create-view-dato');
+    Route::get('/create/view/propiedad', 'CreateController@createViewPropiedad')->name('create-view-propiedad');
+    Route::get('/create/view/ubicacion', 'CreateController@createViewUbicacion')->name('create-view-ubicacion');
+    Route::get('/create/view/dimencion', 'CreateController@createViewDimencion')->name('create-view-dimencion');
+    Route::get('/create/view/valor', 'CreateController@createViewValor')->name('create-view-valor');
+    Route::get('/create/view/coordenada', 'CreateController@createViewCoordenada')->name('create-view-coordenada');
+
+    ///// routes post form create /////
+    Route::post('/create/save/dato', 'CreateController@createDato')->name('create-dato');
+    Route::post('/create/save/propiedad', 'CreateController@createPropiedad')->name('create-propiedad');
+    Route::post('/create/save/ubicacion', 'CreateController@createUbicacion')->name('create-ubicacion');
+    Route::post('/create/save/dimencion', 'CreateController@createDimencion')->name('create-dimencion');
+    Route::post('/create/save/valor', 'CreateController@createValor')->name('create-valor');
+    Route::post('/create/save/coordenada', 'CreateController@createCoordenada')->name('create-coordenada');
+
+
     ////// routes update view ///////
     Route::get('/update/view/dato/{id}', 'ChangesController@updateViewDato')->name('update-view-dato');
     Route::get('/update/view/dimencion/{id}', 'ChangesController@updateViewDimencion')->name('update-view-dimencion');
     Route::get('/update/view/propiedad/{id}', 'ChangesController@updateViewPropiedad')->name('update-view-propiedad');
     Route::get('/update/view/ubicacion/{id}', 'ChangesController@updateViewUbicacion')->name('update-view-ubicacion');
     Route::get('/update/view/valor/{id}', 'ChangesController@updateViewValor')->name('update-view-valor');
+    Route::get('/update/view/coordenada', 'CreateController@updateViewCoordenada')->name('update-view-coordenada'); // pendiente //
 
     ////// route update save ////
     Route::put('/update/save/dato/{id}', 'ChangesController@updateDato')->name('update-dato');
@@ -58,10 +66,20 @@ Route::middleware('auth')->group(function () {
     Route::get('/search', 'ReportController@search')->name('search'); // busqueda
 
     Route::get('/mapa', function () {
-    return view('mapa.mapa');
-});
+        return view('mapa.mapa');
+    });
+
+    Route::get('/crear-predio', function () {
+        return view('forms.create.dato');
+    });
+
+    Route::get('create/complete', function () {
+        return view('forms.create.complete');
+    })->name('create-complete');
 
 });
+
+
 
 
 
