@@ -34,7 +34,7 @@
             <a href="#step-3">
                 <span class="number">4</span>
                 <span class="info text-ellipsis">
-                    Dimeciones
+                    Dimenciones
                 </span>
             </a>
         </li>

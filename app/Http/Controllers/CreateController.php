@@ -136,8 +136,8 @@ class CreateController extends Controller
         foreach ($request->input('lat') as $key => $value) {
             $coor = new Coordenada();
             $coor->propiedad_id = $request->propiedad_id;
-            $coor->lat = intval($lat[$key]);
-            $coor->lon = intval($lon[$key]);
+            $coor->lat = floatval($lat[$key]);
+            $coor->lng = floatval($lon[$key]);
             $coor->save();
         }
 

@@ -33,38 +33,43 @@
 
                 <a href="{{ route('create-view-coordenada') }}" class="btn btn-primary my-3">Agregar Coordenadas</a>
 
-                <form action="{{ route('update-coordenada') }}" method="POST">
-                    @csrf
-                    @method('PUT')
+                @if(isset($data) && count($data) > 0)
+                    <form action="{{ route('update-coordenada') }}" method="POST">
+                        @csrf
+                        @method('PUT')
 
-                    <div class="form-row">
-                        <div class="form-group col-md-3">
-                            <label>ID</label>
-                            <input name="propiedad_id" type="text" class="form-control" value="{{ $data[0]['propiedad_id'] }}" readonly>
-                        </div>
-                    </div>
-
-                    @foreach($data as $item)
-                        <div class="form-row mb-2">
-                            <input name="id[]" type="hidden" value="{{ $item->id }}" >
+                        <div class="form-row">
                             <div class="form-group col-md-3">
-                                <input name="lat[]" type="number" value="{{ $item->lat }}" class="form-control" placeholder="Ingresar latitud" required>
-                            </div>
-                            <div class="form-group col-md-3">
-                                <input name="lon[]" type="number" value="{{ $item->lon }}" class="form-control" placeholder="Ingresar longitud" required>
-                            </div>
-                            <div class="col-md-3">
-                                <a href="{{ route('delete-coordenada', $item->id) }}" class="btn btn-danger btn-sm">Borrar</a>
+                                <label>ID</label>
+                                <input name="propiedad_id" type="text" class="form-control" value="{{ $data[0]['propiedad_id'] }}" readonly>
                             </div>
                         </div>
-                    @endforeach
-                    
 
-                    <div class="form-row justify-content-end">
-                        <a href="/listado" class="btn btn-secondary btn-lg mr-2">Regresar</a>
-                        <button type="submit" class="btn btn-primary btn-lg">Guardar Cambios</button>
-                    </div>
-                </form>
+                        @foreach($data as $item)
+                            <div class="form-row mb-2">
+                                <input name="id[]" type="hidden" value="{{ $item->id }}" >
+                                <div class="form-group col-md-3">
+                                    <input name="lat[]" type="text" value="{{ $item->lat }}" class="form-control" placeholder="Ingresar latitud" required>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <input name="lon[]" type="text" value="{{ $item->lng }}" class="form-control" placeholder="Ingresar longitud" required>
+                                </div>
+                                <div class="col-md-3">
+                                    <a href="{{ route('delete-coordenada', $item->id) }}" class="btn btn-danger btn-sm">Borrar</a>
+                                </div>
+                            </div>
+                        @endforeach
+                        
+
+                        <div class="form-row justify-content-end">
+                            <a href="/listado" class="btn btn-secondary btn-lg mr-2">Regresar</a>
+                            <button type="submit" class="btn btn-primary btn-lg">Guardar Cambios</button>
+                        </div>
+                    </form>
+                @else
+                    <h6>No hay coordenadas registradas</h6>
+                @endif
+                
 
             </div>
             <!-- end panel-body -->

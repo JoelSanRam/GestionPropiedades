@@ -83,6 +83,8 @@ Route::middleware('auth')->group(function () {
         return view('forms.create.complete');
     })->name('create-complete');
 
+    Route::get('test/coords-groups', 'PropiedadController@coords');
+
 });
 
 

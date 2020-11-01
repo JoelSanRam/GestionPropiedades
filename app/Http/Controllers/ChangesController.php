@@ -123,8 +123,8 @@ class ChangesController extends Controller
 
         foreach ($request->input('id') as $key => $value) {
             $coor = Coordenada::find($value);
-            $coor->lat = intval($lat[$key]);
-            $coor->lon = intval($lon[$key]);
+            $coor->lat = floatval($lat[$key]);
+            $coor->lng = floatval($lon[$key]);
             $coor->save();
         }
 

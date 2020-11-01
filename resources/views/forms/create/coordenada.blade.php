@@ -34,7 +34,7 @@
             <a href="#step-4">
                 <span class="number">4</span>
                 <span class="info text-ellipsis">
-                    Dimeciones
+                    Dimenciones
                 </span>
             </a>
         </li>
@@ -81,10 +81,10 @@
         <div class="field_wrapper">
             <div class="form-row mb-2">
                 <div class="form-group col-md-3">
-                    <input name="lat[]" type="number" class="form-control" placeholder="Ingresar latitud" required>
+                    <input name="lat[]" type="text" class="form-control" placeholder="Ingresar latitud" required>
                 </div>
                 <div class="form-group col-md-3">
-                    <input name="lon[]" type="number" class="form-control" placeholder="Ingresar longitud" required>
+                    <input name="lon[]" type="text" class="form-control" placeholder="Ingresar longitud" required>
                 </div>
             </div>
         </div>
@@ -105,10 +105,10 @@ $(document).ready(function(){
     var fieldHTML = `
         <div class="form-row mb-2">
             <div class="form-group col-md-3">
-                <input name="lat[]" type="number" class="form-control" placeholder="Ingresar latitud" required>
+                <input name="lat[]" type="text" class="form-control" placeholder="Ingresar latitud" required>
             </div>
             <div class="form-group col-md-3">
-                <input name="lon[]" type="number" class="form-control" placeholder="Ingresar longitud" required>
+                <input name="lon[]" type="text" class="form-control" placeholder="Ingresar longitud" required>
             </div>
             <button class="btn btn-danger remove_button btn-sm">Borrar</button>
         </div>
