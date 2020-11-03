@@ -8,6 +8,7 @@ Auth::routes();
 
 Route::middleware('auth')->group(function () {
 
+    Route::get('/mapa', 'MapController@mapData')->name('map');
 
 	Route::get('/listado', 'PropiedadController@listado')->name('listado');
 
@@ -74,10 +75,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/upload', 'UploadController@upload')->name('upload'); // controlador insersion datos
     Route::get('/cargar-excel', 'UploadController@create')->name('view-upload'); // ruta formulario insercion de datos
     Route::get('/search', 'ReportController@search')->name('search'); // busqueda
-
-    Route::get('/mapa', function () {
-        return view('mapa.mapa');
-    })->name('map');
 
     Route::get('/group/form/create/crear-predio', function () {
         return view('forms.create.dato');

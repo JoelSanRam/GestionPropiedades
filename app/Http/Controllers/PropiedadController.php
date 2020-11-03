@@ -61,14 +61,4 @@ class PropiedadController extends Controller
         return $pdf->stream('propiedad-individual.pdf');
     }
 
-    ///// Test de coordenadas /////
-
-    public function coords()
-    {
-        $data = Coordenada::select('propiedad_id', 'lat', 'lng')->get();
-
-        return view('home', compact('data'));
-
-    }
-
 }

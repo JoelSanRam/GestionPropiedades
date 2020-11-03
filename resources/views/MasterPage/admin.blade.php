@@ -31,6 +31,8 @@
 	<script src="{{ asset('assets/plugins/pace/pace.min.js')}}"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
+
+	<link href="{{ asset('css/map.css') }}" rel="stylesheet">
 </head>
 <body>
 	<!-- begin #page-loader -->
@@ -94,7 +96,7 @@
 							<a href="javascript:;" data-toggle="nav-profile">
 								<div class="cover with-shadow"></div>
 								<div class="image">
-									<img src="{{ asset('assets/img/user/user-13.jpg')}}" alt="" />
+									{{-- <img src="{{ asset('assets/img/user/user-13.jpg')}}" alt="" /> --}}
 								</div>
 								<div class="info">
 
