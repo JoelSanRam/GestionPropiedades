@@ -15,7 +15,7 @@ class CreateDimencionsTable extends Migration
     {
         Schema::create('dimencions', function (Blueprint $table) {
             $table->id();
-            $table->integer('propiedad_id');
+            $table->integer('propiedad_id')->unique();
             $table->string('superficie_construccion')->nullable();
             $table->string('superficie_terreno')->nullable();
             $table->double('frente', 8, 2)->nullable();

@@ -31,6 +31,16 @@
             <!-- begin panel-body -->
             <div class="panel-body">
 
+                <div class="row">
+                    <div class="col-md-6 my-3 mx-auto">
+                        @if(Session::has('message'))
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <strong>{!! Session::get('message') !!}</strong>
+                            </div>
+                        @endif
+                    </div>
+                </div>
+
                 <a href="{{ route('create-view-coordenada') }}" class="btn btn-primary my-3">Agregar Coordenadas</a>
 
                 @if(isset($data) && count($data) > 0)

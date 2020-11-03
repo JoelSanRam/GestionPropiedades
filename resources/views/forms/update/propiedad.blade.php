@@ -30,6 +30,17 @@
             <!-- end panel-heading -->
             <!-- begin panel-body -->
             <div class="panel-body">
+
+                <div class="row">
+                    <div class="col-md-6 my-3 mx-auto">
+                        @if(Session::has('message'))
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <strong>{!! Session::get('message') !!}</strong>
+                            </div>
+                        @endif
+                    </div>
+                </div>
+
                 <form action="{{ route('update-propiedad', $item->id) }}" method="POST">
                     @csrf
                     @method('PUT')

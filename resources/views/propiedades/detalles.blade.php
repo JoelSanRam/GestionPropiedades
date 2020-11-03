@@ -384,7 +384,7 @@
                                         <a href="javascript:;" id="username" data-type="text" data-pk="1" class="editable editable-click">{{ $item->lat }}</a>
                                     </td>
                                     <td>
-                                        <a href="javascript:;" id="username" data-type="text" data-pk="1" class="editable editable-click">{{ $item->lon }}</a>
+                                        <a href="javascript:;" id="username" data-type="text" data-pk="1" class="editable editable-click">{{ $item->lng }}</a>
                                     </td>
                                 </tr>
                             @endforeach

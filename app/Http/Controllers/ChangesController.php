@@ -37,98 +37,116 @@ class ChangesController extends Controller
         //     'email' => 'required|string',
         // ]);
 
-        $dato = Dato::find($id);
-        // $dato->propiedad_id = $request->propiedad_id;
-        $dato->entidad_federativa = $request->entidad_federativa; 
-        $dato->municipio = $request->municipio; 
-        $dato->localidad = $request->localidad; 
-        $dato->folio_regpub = $request->folio_regpub; 
-        $dato->folio_catastral = $request->folio_catastral;
-        $dato->save();
+        try {
+            $dato = Dato::find($id);
+            $dato->entidad_federativa = $request->entidad_federativa; 
+            $dato->municipio = $request->municipio; 
+            $dato->localidad = $request->localidad; 
+            $dato->folio_regpub = $request->folio_regpub; 
+            $dato->folio_catastral = $request->folio_catastral;
+            $dato->save();
+        } catch (\Throwable $th) {
+            \Session::flash('message', 'Ocurrio un error por favor verifique los datos');
+        }
 
         return redirect()->route('listado');
     }
 
     public function updateDimencion(Request $request, $id)
     {
-    	$dimencion = Dimencion::find($id);
-    	// $dimencion->propiedad_id = $request->propiedad_id;
-    	$dimencion->superficie_construccion = $request->superficie_construccion;
-    	$dimencion->superficie_terreno = $request->superficie_terreno;
-    	$dimencion->frente = $request->frente;
-    	$dimencion->fondo = $request->fondo;
-    	$dimencion->capacidad_granja = $request->capacidad_granja;
-    	$dimencion->save();
+        try {
+            $dimencion = Dimencion::find($id);
+            $dimencion->superficie_construccion = $request->superficie_construccion;
+            $dimencion->superficie_terreno = $request->superficie_terreno;
+            $dimencion->frente = $request->frente;
+            $dimencion->fondo = $request->fondo;
+            $dimencion->capacidad_granja = $request->capacidad_granja;
+            $dimencion->save();
+        } catch (\Throwable $th) {
+            \Session::flash('message', 'Ocurrio un error por favor verifique los datos');
+        }
 
         return redirect()->route('listado');
     }
 
     public function updatePropiedad(Request $request, $id)
     {
-    	$propiedad = Propiedad::find($id);
-    	// $propiedad->propiedad_id = $request->propiedad_id;
-    	$propiedad->origen_id = $request->origen_id;
-    	$propiedad->tipo = $request->tipo;
-    	$propiedad->granja = $request->granja;
-    	$propiedad->estatus = $request->estatus;
-    	$propiedad->nombre_corto = $request->nombre_corto;
-    	$propiedad->ultimo_movimiento = $request->ultimo_movimiento;
-    	$propiedad->fecha_alta = $request->fecha_alta;
-    	$propiedad->observaciones = $request->observaciones;
-    	$propiedad->propietario = $request->propietario;
-    	$propiedad->save();
+        try {
+            $propiedad = Propiedad::find($id);
+            $propiedad->origen_id = $request->origen_id;
+            $propiedad->tipo = $request->tipo;
+            $propiedad->granja = $request->granja;
+            $propiedad->estatus = $request->estatus;
+            $propiedad->nombre_corto = $request->nombre_corto;
+            $propiedad->ultimo_movimiento = $request->ultimo_movimiento;
+            $propiedad->fecha_alta = $request->fecha_alta;
+            $propiedad->observaciones = $request->observaciones;
+            $propiedad->propietario = $request->propietario;
+            $propiedad->save();
+        } catch (\Throwable $th) {
+            \Session::flash('message', 'Ocurrio un error por favor verifique los datos');
+        }
 
         return redirect()->route('listado');
     }
 
     public function updateUbicacion(Request $request, $id)
     {
-    	$ubicacion = Ubicacion::find($id);
-    	// $ubicacion->propiedad_id = $request->propiedad_id;
-    	$ubicacion->ejido = $request->ejido;
-    	$ubicacion->parcela = $request->parcela;
-    	$ubicacion->solar = $request->solar;
-    	$ubicacion->tablaje = $request->tablaje;
-    	$ubicacion->finca = $request->finca;
-    	$ubicacion->direccion = $request->direccion;
-    	$ubicacion->colonia = $request->colonia;
-    	$ubicacion->ejido_manzana = $request->ejido_manzana;
-    	$ubicacion->urbana_manzana = $request->urbana_manzana;
-    	$ubicacion->lote = $request->lote;
-    	$ubicacion->codigo_postal = $request->codigo_postal;
-    	$ubicacion->save();
+        try {
+            $ubicacion = Ubicacion::find($id);
+            $ubicacion->ejido = $request->ejido;
+            $ubicacion->parcela = $request->parcela;
+            $ubicacion->solar = $request->solar;
+            $ubicacion->tablaje = $request->tablaje;
+            $ubicacion->finca = $request->finca;
+            $ubicacion->direccion = $request->direccion;
+            $ubicacion->colonia = $request->colonia;
+            $ubicacion->ejido_manzana = $request->ejido_manzana;
+            $ubicacion->urbana_manzana = $request->urbana_manzana;
+            $ubicacion->lote = $request->lote;
+            $ubicacion->codigo_postal = $request->codigo_postal;
+            $ubicacion->save();   
+        } catch (\Throwable $th) {
+            \Session::flash('message', 'Ocurrio un error por favor verifique los datos');
+        }
 
         return redirect()->route('listado');
     }
 
     public function updateValor(Request $request, $id)
     {
-    	$valor = Valor::find($id);
-    	// $valor->propiedad_id = $request->propiedad_id;
-    	$valor->valor_construccion = $request->valor_construccion;
-    	$valor->valor_terreno = $request->valor_terreno;
-    	$valor->valor_comercial = $request->valor_comercial;
-    	$valor->fecha_valor_comercial = $request->fecha_valor_comercial;
-    	$valor->valor_catastral = $request->valor_catastral;
-    	$valor->fecha_valor_catastral = $request->fecha_valor_catastral;
-    	$valor->save();
+        try {
+           $valor = Valor::find($id);
+            $valor->valor_construccion = $request->valor_construccion;
+            $valor->valor_terreno = $request->valor_terreno;
+            $valor->valor_comercial = $request->valor_comercial;
+            $valor->fecha_valor_comercial = $request->fecha_valor_comercial;
+            $valor->valor_catastral = $request->valor_catastral;
+            $valor->fecha_valor_catastral = $request->fecha_valor_catastral;
+            $valor->save(); 
+        } catch (\Throwable $th) {
+            \Session::flash('message', 'Ocurrio un error por favor verifique los datos');
+        }
 
         return redirect()->route('listado');
     }
 
     public function updateCoordenada(Request $request)
     { 
-        $lat = $request->input('lat');
-        $lon = $request->input('lon');
+        try {
+            $lat = $request->input('lat');
+            $lon = $request->input('lon');
 
-        foreach ($request->input('id') as $key => $value) {
-            $coor = Coordenada::find($value);
-            $coor->lat = floatval($lat[$key]);
-            $coor->lng = floatval($lon[$key]);
-            $coor->save();
+            foreach ($request->input('id') as $key => $value) {
+                $coor = Coordenada::find($value);
+                $coor->lat = floatval($lat[$key]);
+                $coor->lng = floatval($lon[$key]);
+                $coor->save();
+            }
+        } catch (\Throwable $th) {
+            \Session::flash('message', 'Ocurrio un error por favor verifique los datos');
         }
-
-        //return response()->json($request);
+        
         return redirect()->route('listado');
     }
 

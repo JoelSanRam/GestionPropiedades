@@ -23,11 +23,6 @@ class PropiedadController extends Controller
 		return view('propiedades.Listado', ['data' => $data]);
 	}
 
-    public function addpropiedad()
-    {
-        return view('propiedades.addPropiedad');
-    }
-
     public function detalles($id)
     {
         $propiedad = Propiedad::find($id);

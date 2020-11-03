@@ -111,7 +111,7 @@
 						<li class="nav-header">Módulos</li>
 
 						<li class="has-sub">
-							<a href="javascript:;">
+							<a href="{{ route('map') }}">
 
 								<i class="fa fa-map"></i>
 								<span>Mapa</span>
@@ -119,7 +119,7 @@
 
 	                    </li>
 	                    <li class="has-sub">
-							<a href="/listado">
+							<a href="{{ route('listado') }}">
 								<i class="fa fa-home"></i>
 								<span>Listado de predios</span>
 							</a>

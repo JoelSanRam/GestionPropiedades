@@ -34,7 +34,7 @@
             <a href="#step-4">
                 <span class="number">4</span>
                 <span class="info text-ellipsis">
-                    Dimenciones
+                    Dimensiones
                 </span>
             </a>
         </li>
@@ -63,6 +63,28 @@
             </a>
         </li>
     </ul>
+</div>
+
+<div class="row">
+    <div class="col-md-6 mt-3 mx-auto">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                @foreach ($errors->all() as $error)
+                    <p>{{ $error }}</p>
+                @endforeach
+            </div>
+        @endif
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 mt-3 mx-auto">
+        @if(Session::has('message'))
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>{!! Session::get('message') !!}</strong>
+            </div>
+        @endif
+    </div>
 </div>
 
 <form action="{{ route('create-propiedad') }}" method="POST" class="form-control-with-bg">

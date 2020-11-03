@@ -73,9 +73,9 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/mapa', function () {
         return view('mapa.mapa');
-    });
+    })->name('map');
 
-    Route::get('/crear-predio', function () {
+    Route::get('/group/form/create/crear-predio', function () {
         return view('forms.create.dato');
     })->name('crear-predio');
 
