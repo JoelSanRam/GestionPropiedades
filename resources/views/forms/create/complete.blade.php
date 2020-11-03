@@ -31,7 +31,7 @@
             </a>
         </li>
         <li class="col-md-3 col-sm-4 col-6">
-            <a href="#step-3">
+            <a href="#step-4">
                 <span class="number">4</span>
                 <span class="info text-ellipsis">
                     Dimensiones
@@ -39,7 +39,7 @@
             </a>
         </li>
         <li class="col-md-3 col-sm-4 col-6">
-            <a href="#step-3">
+            <a href="#step-5">
                 <span class="number">5</span>
                 <span class="info text-ellipsis">
                     Valores
@@ -47,16 +47,24 @@
             </a>
         </li>
         <li class="col-md-3 col-sm-4 col-6">
-            <a href="#step-3">
+            <a href="#step-6">
                 <span class="number">6</span>
                 <span class="info text-ellipsis">
                     Coordenadas
                 </span>
             </a>
         </li>
-        <li class="col-md-3 col-sm-4 col-6 active">
+        <li class="col-md-3 col-sm-4 col-6">
             <a href="#step-7">
-                <span class="number">7</span> 
+                <span class="number">7</span>
+                <span class="info text-ellipsis">
+                    Marcador
+                </span>
+            </a>
+        </li>
+        <li class="col-md-3 col-sm-4 col-6 active">
+            <a href="#step-8">
+                <span class="number">8</span> 
                 <span class="info text-ellipsis">
                     Registro Completado
                 </span>

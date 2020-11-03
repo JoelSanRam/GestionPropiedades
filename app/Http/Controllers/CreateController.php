@@ -10,6 +10,7 @@ use App\Propiedad;
 use App\Ubicacion;
 use App\Valor;
 use App\Coordenada;
+use App\Marker;
 
 class CreateController extends Controller
 {
@@ -20,6 +21,7 @@ class CreateController extends Controller
     public function createViewDimencion(){ return view('forms.create.dimencion'); } // p4
     public function createViewValor(){ return view('forms.create.valor'); }         // p5
     public function createViewCoordenada(){ return view('forms.create.coordenada'); } // p6
+    public function createViewMarker(){ return view('forms.create.marker'); } // p7
 
     ////// Action Form Create ////
 
@@ -140,7 +142,6 @@ class CreateController extends Controller
         } catch (\Throwable $th) {
             \Session::flash('message', 'Ocurrio un error por favor verifique los datos');
         }
-    	
 
         return redirect()->route('create-view-coordenada');
     }
@@ -166,6 +167,25 @@ class CreateController extends Controller
             \Session::flash('message', 'Ocurrio un error por favor verifique los datos');
         }
         
+        return redirect()->route('create-view-marker');
+    }
+
+    public function createMarker(Request $request)
+    {
+        $this->validate($request, [
+            'propiedad_id' => 'required|unique:markers,propiedad_id',
+        ]);
+
+        try {
+            $marker = new Marker();
+            $marker->propiedad_id = $request->propiedad_id;
+            $marker->lat = floatval($request->lat);
+            $marker->lng = floatval($request->lon);
+            $marker->save();
+        } catch (\Throwable $th) {
+            \Session::flash('message', 'Ocurrio un error por favor verifique los datos');
+        }
+
         return redirect()->route('create-complete');
     }
 

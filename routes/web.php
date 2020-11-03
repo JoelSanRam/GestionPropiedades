@@ -25,6 +25,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/create/view/dimencion', 'CreateController@createViewDimencion')->name('create-view-dimencion');
     Route::get('/create/view/valor', 'CreateController@createViewValor')->name('create-view-valor');
     Route::get('/create/view/coordenada', 'CreateController@createViewCoordenada')->name('create-view-coordenada');
+    Route::get('/create/view/marker', 'CreateController@createViewMarker')->name('create-view-marker');
 
     ///// routes post form create /////
     Route::post('/create/save/dato', 'CreateController@createDato')->name('create-dato');
@@ -33,6 +34,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/create/save/dimencion', 'CreateController@createDimencion')->name('create-dimencion');
     Route::post('/create/save/valor', 'CreateController@createValor')->name('create-valor');
     Route::post('/create/save/coordenada', 'CreateController@createCoordenada')->name('create-coordenada');
+    Route::post('/create/save/marker', 'CreateController@createMarker')->name('create-marker');
 
 
     ////// routes update view ///////
@@ -41,7 +43,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/update/view/propiedad/{id}', 'ChangesController@updateViewPropiedad')->name('update-view-propiedad');
     Route::get('/update/view/ubicacion/{id}', 'ChangesController@updateViewUbicacion')->name('update-view-ubicacion');
     Route::get('/update/view/valor/{id}', 'ChangesController@updateViewValor')->name('update-view-valor');
-    Route::get('/update/view/coordenada/{id}', 'ChangesController@updateViewCoordenada')->name('update-view-coordenada'); 
+    Route::get('/update/view/coordenada/{id}', 'ChangesController@updateViewCoordenada')->name('update-view-coordenada');
+    Route::get('/update/view/marker/{id}', 'ChangesController@updateViewMarker')->name('update-view-marker');
 
     ////// route update save ////
     Route::put('/update/save/dato/{id}', 'ChangesController@updateDato')->name('update-dato');
@@ -50,6 +53,7 @@ Route::middleware('auth')->group(function () {
     Route::put('/update/save/ubicacion/{id}', 'ChangesController@updateUbicacion')->name('update-ubicacion');
     Route::put('/update/save/valor/{id}', 'ChangesController@updateValor')->name('update-valor');
     Route::put('/update/save/coordenada', 'ChangesController@updateCoordenada')->name('update-coordenada');
+    Route::put('/update/save/marker/{id}', 'ChangesController@updateMarker')->name('update-marker');
 
     ///// route delete coordenada ////
     Route::get('/delete/coordenada/{id}', 'ChangesController@deleteCoordenada')->name('delete-coordenada'); 

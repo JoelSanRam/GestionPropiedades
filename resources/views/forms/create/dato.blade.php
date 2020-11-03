@@ -56,7 +56,15 @@
         </li>
         <li class="col-md-3 col-sm-4 col-6">
             <a href="#step-7">
-                <span class="number">7</span> 
+                <span class="number">7</span>
+                <span class="info text-ellipsis">
+                    Marcador
+                </span>
+            </a>
+        </li>
+        <li class="col-md-3 col-sm-4 col-6">
+            <a href="#step-8">
+                <span class="number">8</span> 
                 <span class="info text-ellipsis">
                     Registro Completado
                 </span>

@@ -38,7 +38,7 @@
                 </span>
             </a>
         </li>
-        <li class="col-md-3 col-sm-4 col-6 active">
+        <li class="col-md-3 col-sm-4 col-6">
             <a href="#step-5">
                 <span class="number">5</span>
                 <span class="info text-ellipsis">
@@ -54,7 +54,7 @@
                 </span>
             </a>
         </li>
-        <li class="col-md-3 col-sm-4 col-6">
+        <li class="col-md-3 col-sm-4 col-6 active">
             <a href="#step-7">
                 <span class="number">7</span>
                 <span class="info text-ellipsis">
@@ -95,46 +95,24 @@
     </div>
 </div>
 
-<form action="{{ route('create-valor') }}" method="POST" class="form-control-with-bg">
+<form action="{{ route('update-marker', $item->id) }}" method="POST" class="form-control-with-bg">
     @csrf
+    @method('PUT')
+
     <div class="jumbotron my-5 py-3">
+
         <div class="form-row">
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-3">
                 <label>ID</label>
-                <input name="propiedad_id" type="text" class="form-control m-b-5" required>
+                <input type="text" class="form-control" value="{{ $item->id }}" readonly>
             </div>
-            <div class="form-group col-md-6">
-                <label>Valor de construccion</label>
-                <input name="valor_construccion" type="text" class="form-control m-b-5" placeholder="Ingresar valor de construccion">
+            <div class="form-group col-md-3">
+                <label>Latitud</label>
+                <input name="lat" type="text" class="form-control" placeholder="Ingresar latitud" value="{{ $item->lat }}" required>
             </div>
-        </div>
-
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label>Valor de terreno</label>
-                <input name="valor_terreno" type="text" class="form-control m-b-5" placeholder="Ingresar valor del terreno">
-            </div>
-            <div class="form-group col-md-6">
-                <label>Valor comercial</label>
-                <input name="valor_comercial" type="text" class="form-control m-b-5" placeholder="Ingresar valor comercial">
-            </div>
-        </div>
-
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label>Fecha de valor comercial</label>
-                <input name="fecha_valor_comercial" type="date" class="form-control m-b-5">
-            </div>
-            <div class="form-group col-md-6">
-                <label>Valor catastral</label>
-                <input name="valor_catastral" type="text" class="form-control m-b-5" placeholder="Ingresar valor catastral">
-            </div>
-        </div>
-
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label>Fecha de valor catastral</label>
-                <input name="fecha_valor_catastral" type="date" class="form-control m-b-5">
+            <div class="form-group col-md-3">
+                <label>Longitud</label>
+                <input name="lon" type="text" class="form-control" placeholder="Ingresar longitud" value="{{ $item->lng }}" required>
             </div>
         </div>
 
@@ -144,7 +122,5 @@
         </div>
     </div>
 </form>
-
-
 
 @endsection

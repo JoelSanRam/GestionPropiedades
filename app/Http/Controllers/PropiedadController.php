@@ -25,12 +25,12 @@ class PropiedadController extends Controller
 
     public function detalles($id)
     {
-        $propiedad = Propiedad::find($id);
-        $dato = Dato::where('propiedad_id', $propiedad->propiedad_id)->first();
-        $dimencion = Dimencion::where('propiedad_id', $propiedad->propiedad_id)->first();
-        $ubicacion = Ubicacion::where('propiedad_id', $propiedad->propiedad_id)->first();
-        $valor = Valor::where('propiedad_id', $propiedad->propiedad_id)->first();
-        $coor = Coordenada::where('propiedad_id', $propiedad->propiedad_id)->get();
+        $propiedad = Propiedad::where('propiedad_id', $id)->first();
+        $dato = Dato::where('propiedad_id', $id)->first();
+        $dimencion = Dimencion::where('propiedad_id', $id)->first();
+        $ubicacion = Ubicacion::where('propiedad_id', $id)->first();
+        $valor = Valor::where('propiedad_id', $id)->first();
+        $coor = Coordenada::where('propiedad_id', $id)->get();
 
     	return view('propiedades.detalles', [
                 'propiedad' => $propiedad, 
@@ -44,11 +44,11 @@ class PropiedadController extends Controller
 
     public function pdfIndividual($id)
     {
-        $propiedad = Propiedad::find($id);
-        $dato = Dato::where('propiedad_id', $propiedad->propiedad_id)->first();
-        $dimencion = Dimencion::where('propiedad_id', $propiedad->propiedad_id)->first();
-        $ubicacion = Ubicacion::where('propiedad_id', $propiedad->propiedad_id)->first();
-        $valor = Valor::where('propiedad_id', $propiedad->propiedad_id)->first();
+        $propiedad = Propiedad::where('propiedad_id', $id)->first();
+        $dato = Dato::where('propiedad_id', $id)->first();
+        $dimencion = Dimencion::where('propiedad_id', $id)->first();
+        $ubicacion = Ubicacion::where('propiedad_id', $id)->first();
+        $valor = Valor::where('propiedad_id', $id)->first();
 
         $pdf = \PDF::loadView('reportes.individual', [
                 'propiedad' => $propiedad, 
