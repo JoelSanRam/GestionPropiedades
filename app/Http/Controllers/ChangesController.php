@@ -15,12 +15,12 @@ use App\Marker;
 class ChangesController extends Controller
 {
 	////// Redirect Form View ////
-    public function updateViewDato($id){ $item = Dato::where('propiedad_id', $id)->first(); return view('forms.update.dato', compact('item')); }
     public function updateViewDimencion($id){ $item = Dimencion::where('propiedad_id', $id)->first(); return view('forms.update.dimencion', compact('item')); }
     public function updateViewPropiedad($id){ $item = Propiedad::where('propiedad_id', $id)->first(); return view('forms.update.propiedad', compact('item')); }
     public function updateViewUbicacion($id){ $item = Ubicacion::where('propiedad_id', $id)->first(); return view('forms.update.ubicacion', compact('item')); }
     public function updateViewValor($id){ $item = Valor::where('propiedad_id', $id)->first(); return view('forms.update.valor', compact('item')); }
-    public function updateViewMarker($id){ $item = Marker::where('propiedad_id', $id)->first(); return view('forms.update.marker', compact('item')); }
+    public function updateViewMarker($id){ $item = Marker::where('propiedad_id', $id)->first(); return view('forms.update.marker', compact('item')); 
+    }
 
     public function updateViewCoordenada($id)
     {
@@ -31,28 +31,6 @@ class ChangesController extends Controller
 
     ////// Action Form ////
 
-    public function updateDato(Request $request, $id)
-    {
-        // $this->validate($request, [
-        //     'name' => 'required|string',
-        //     'phone' => 'required|numeric',
-        //     'email' => 'required|string',
-        // ]);
-
-        try {
-            $dato = Dato::find($id);
-            $dato->entidad_federativa = $request->entidad_federativa; 
-            $dato->municipio = $request->municipio; 
-            $dato->localidad = $request->localidad; 
-            $dato->folio_regpub = $request->folio_regpub; 
-            $dato->folio_catastral = $request->folio_catastral;
-            $dato->save();
-        } catch (\Throwable $th) {
-            \Session::flash('message', 'Ocurrio un error por favor verifique los datos');
-        }
-
-        return redirect()->route('listado');
-    }
 
     public function updateDimencion(Request $request, $id)
     {
@@ -84,6 +62,11 @@ class ChangesController extends Controller
             $propiedad->fecha_alta = $request->fecha_alta;
             $propiedad->observaciones = $request->observaciones;
             $propiedad->propietario = $request->propietario;
+            $propiedad->entidad_federativa = $request->entidad_federativa; 
+            $propiedad->municipio = $request->municipio; 
+            $propiedad->localidad = $request->localidad; 
+            $propiedad->folio_regpub = $request->folio_regpub; 
+            $propiedad->folio_catastral = $request->folio_catastral;
             $propiedad->save();
         } catch (\Throwable $th) {
             \Session::flash('message', 'Ocurrio un error por favor verifique los datos');

@@ -10,6 +10,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/mapa', 'MapController@mapData')->name('map');
 
+    Route::get('/search-map', 'MapController@search')->name('search-map'); // busqueda
+
 	Route::get('/listado', 'PropiedadController@listado')->name('listado');
 
 	Route::get('/add', 'PropiedadController@addpropiedad')->name('add');
@@ -20,7 +22,6 @@ Route::middleware('auth')->group(function () {
 
 
     ///// routes views form create /////
-    Route::get('/create/view/dato', 'CreateController@createViewDato')->name('create-view-dato');
     Route::get('/create/view/propiedad', 'CreateController@createViewPropiedad')->name('create-view-propiedad');
     Route::get('/create/view/ubicacion', 'CreateController@createViewUbicacion')->name('create-view-ubicacion');
     Route::get('/create/view/dimencion', 'CreateController@createViewDimencion')->name('create-view-dimencion');
@@ -29,7 +30,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/create/view/marker', 'CreateController@createViewMarker')->name('create-view-marker');
 
     ///// routes post form create /////
-    Route::post('/create/save/dato', 'CreateController@createDato')->name('create-dato');
     Route::post('/create/save/propiedad', 'CreateController@createPropiedad')->name('create-propiedad');
     Route::post('/create/save/ubicacion', 'CreateController@createUbicacion')->name('create-ubicacion');
     Route::post('/create/save/dimencion', 'CreateController@createDimencion')->name('create-dimencion');
@@ -39,7 +39,6 @@ Route::middleware('auth')->group(function () {
 
 
     ////// routes update view ///////
-    Route::get('/update/view/dato/{id}', 'ChangesController@updateViewDato')->name('update-view-dato');
     Route::get('/update/view/dimencion/{id}', 'ChangesController@updateViewDimencion')->name('update-view-dimencion');
     Route::get('/update/view/propiedad/{id}', 'ChangesController@updateViewPropiedad')->name('update-view-propiedad');
     Route::get('/update/view/ubicacion/{id}', 'ChangesController@updateViewUbicacion')->name('update-view-ubicacion');
@@ -48,7 +47,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/update/view/marker/{id}', 'ChangesController@updateViewMarker')->name('update-view-marker');
 
     ////// route update save ////
-    Route::put('/update/save/dato/{id}', 'ChangesController@updateDato')->name('update-dato');
     Route::put('/update/save/dimencion/{id}', 'ChangesController@updateDimencion')->name('update-dimencion');
     Route::put('/update/save/propiedad/{id}', 'ChangesController@updatePropiedad')->name('update-propiedad');
     Route::put('/update/save/ubicacion/{id}', 'ChangesController@updateUbicacion')->name('update-ubicacion');
@@ -70,14 +68,14 @@ Route::middleware('auth')->group(function () {
 
     // routes generate pdf individual
     Route::get('/pdf-propiedades', 'ReportController@pdf')->name('pdf-report'); // ruta report pdf
-    Route::get('/pdf-individual/{id}', 'PropiedadController@pdfIndividual')->name('pdf-individual'); // ruta report pdf 
+    Route::get('/pdf-individual/{id}', 'ReportController@pdfIndividual')->name('pdf-individual'); // ruta report pdf 
 
     Route::post('/upload', 'UploadController@upload')->name('upload'); // controlador insersion datos
     Route::get('/cargar-excel', 'UploadController@create')->name('view-upload'); // ruta formulario insercion de datos
     Route::get('/search', 'ReportController@search')->name('search'); // busqueda
 
     Route::get('/group/form/create/crear-predio', function () {
-        return view('forms.create.dato');
+        return view('forms.create.propiedad');
     })->name('crear-predio');
 
     Route::get('create/complete', function () {

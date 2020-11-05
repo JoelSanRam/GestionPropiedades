@@ -10,7 +10,7 @@ class TablesImport implements WithMultipleSheets
     {
         return [
             'propiedades' => new PropiedadImport(),
-            'datos_propiedades' => new DatoImport(),
+            //'datos_propiedades' => new DatoImport(),
             'ubicaciones' => new UbicacionImport(),
             'valores' => new ValorImport(),
             'dimenciones' => new DimencionImport(),

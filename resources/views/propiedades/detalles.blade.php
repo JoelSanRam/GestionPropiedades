@@ -172,7 +172,7 @@
                         <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
                         <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
                     </div>
-                    <h4 class="panel-title">Datos</h4>
+                    <h4 class="panel-title">Datos Extras</h4>
                 </div>
                 <!-- begin table-responsive -->
                 <div class="table-responsive">
@@ -187,23 +187,23 @@
                         <tbody>
                             <tr>
                                 <td class="bg-silver-lighter">Entidad federativa</td>
-                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $dato->entidad_federativa }}</a></td>
+                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $propiedad->entidad_federativa }}</a></td>
                             </tr>
                             <tr>
                                 <td class="bg-silver-lighter">Municipio</td>
-                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $dato->municipio }}</a></td>
+                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $propiedad->municipio }}</a></td>
                             </tr>
                             <tr>
                                 <td class="bg-silver-lighter">Localidad</td>
-                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $dato->localidad }}</a></td>
+                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $propiedad->localidad }}</a></td>
                             </tr>
                             <tr>
                                 <td class="bg-silver-lighter">Registro público</td>
-                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $dato->folio_regpub }}</a></td>
+                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $propiedad->folio_regpub }}</a></td>
                             </tr>
                             <tr>
                                 <td class="bg-silver-lighter">Folio catastral</td>
-                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $dato->folio_catastral }}</a></td>
+                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $propiedad->folio_catastral }}</a></td>
                             </tr>
                         </tbody>
                     </table>

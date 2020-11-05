@@ -25,6 +25,11 @@ class CreatePropiedadsTable extends Migration
             $table->string('fecha_alta')->nullable();
             $table->text('observaciones')->nullable();
             $table->string('propietario')->nullable();
+            $table->string('entidad_federativa')->nullable();
+            $table->string('municipio')->nullable();
+            $table->string('localidad')->nullable();
+            $table->string('folio_regpub')->nullable();
+            $table->string('folio_catastral')->nullable();
             $table->timestamps();
         });
     }

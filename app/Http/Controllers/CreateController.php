@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Dato;
 use App\Dimencion;
 use App\Propiedad;
 use App\Ubicacion;
@@ -15,7 +14,6 @@ use App\Marker;
 class CreateController extends Controller
 {
     ////// Redirect Form Create ////
-    public function createViewDato(){ return view('forms.create.dato'); } // p1
     public function createViewPropiedad(){ return view('forms.create.propiedad'); } // p2
     public function createViewUbicacion(){ return view('forms.create.ubicacion'); } // p3
     public function createViewDimencion(){ return view('forms.create.dimencion'); } // p4
@@ -25,27 +23,6 @@ class CreateController extends Controller
 
     ////// Action Form Create ////
 
-    public function createDato(Request $request) 
-    {
-    	$this->validate($request, [
-            'propiedad_id' => 'required|unique:datos,propiedad_id',
-        ]);
-
-        try {
-            $dato = new Dato();
-            $dato->propiedad_id = $request->propiedad_id;
-            $dato->entidad_federativa = $request->entidad_federativa; 
-            $dato->municipio = $request->municipio; 
-            $dato->localidad = $request->localidad; 
-            $dato->folio_regpub = $request->folio_regpub; 
-            $dato->folio_catastral = $request->folio_catastral;
-            $dato->save();
-        } catch (\Throwable $th) {
-            \Session::flash('message', 'Ocurrio un error por favor verifique los datos');
-        }
-
-        return redirect()->route('create-view-propiedad');
-    }
 
     public function createPropiedad(Request $request) 
     {
@@ -65,6 +42,11 @@ class CreateController extends Controller
             $propiedad->fecha_alta = $request->fecha_alta;
             $propiedad->observaciones = $request->observaciones;
             $propiedad->propietario = $request->propietario;
+            $propiedad->entidad_federativa = $request->entidad_federativa; 
+            $propiedad->municipio = $request->municipio; 
+            $propiedad->localidad = $request->localidad; 
+            $propiedad->folio_regpub = $request->folio_regpub; 
+            $propiedad->folio_catastral = $request->folio_catastral;
             $propiedad->save();
         } catch (\Throwable $th) {
             \Session::flash('message', 'Ocurrio un error por favor verifique los datos');

@@ -15,14 +15,6 @@
             </a>
         </li>
         <li class="col-md-3 col-sm-4 col-6">
-            <a href="#step-2">
-                <span class="number">2</span> 
-                <span class="info text-ellipsis">
-                    Datos de la Propiedad
-                </span>
-            </a>
-        </li>
-        <li class="col-md-3 col-sm-4 col-6">
             <a href="#step-3">
                 <span class="number">3</span>
                 <span class="info text-ellipsis">

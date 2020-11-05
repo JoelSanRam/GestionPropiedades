@@ -100,6 +100,32 @@
                         </div>
                     </div>
 
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label>Entidad federativa</label>
+                            <input name="entidad_federativa" type="text" class="form-control m-b-5" placeholder="Ingresar entidad federativa" value="{{ $item->entidad_federativa }}">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Municipio</label>
+                            <input name="municipio" type="text" class="form-control m-b-5" placeholder="Ingresar municipio" value="{{ $item->municipio }}">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Localidad</label>
+                            <input name="localidad" type="text" class="form-control m-b-5" placeholder="Ingresar localidad" value="{{ $item->localidad }}">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Folio Reg. Pub</label>
+                            <input name="folio_regpub" type="text" class="form-control m-b-5" placeholder="Ingresar folio" value="{{ $item->folio_regpub }}">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Folio catastral</label>
+                            <input name="folio_catastral" type="text" class="form-control m-b-5" placeholder="Ingresar folio catastral" value="{{ $item->folio_catastral }}">
+                        </div>
+                    </div>
+
                     <div class="form-row justify-content-end">
                         <a href="/listado" class="btn btn-secondary btn-lg mr-2">Regresar</a>
                         <button type="submit" class="btn btn-primary btn-lg">Guardar Cambios</button>

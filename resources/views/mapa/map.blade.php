@@ -6,7 +6,7 @@
 <!-- begin breadcrumb -->
 
     <!-- begin page-header -->
-    <form class="my-2" action="" method="GET">
+    <form class="my-2" action="{{ route('search-map') }}" method="GET">
 
         <label for="exampleFormControlSelect1">Tipo</label>
         <select class="page-header form-control-sm" name="tipo">

@@ -84,10 +84,9 @@
                                             <a href="#" class="btn btn-info dropdown-toggle"
                                                 data-toggle="dropdown"></a>
                                             <ul class="dropdown-menu pull-right">
-                                                <a href="{{ route('update-view-dato', $item->propiedad_id) }}" class="dropdown-item">Datos Generales</a>
+                                                <a href="{{ route('update-view-propiedad', $item->propiedad_id) }}" class="dropdown-item">Datos Generales</a>
                                                 <a href="{{ route('update-view-dimencion', $item->propiedad_id) }}" class="dropdown-item">Dimenciones</a>
-                                                <a href="{{ route('update-view-propiedad', $item->propiedad_id) }}" class="dropdown-item">Propiedad</a>
-                                                <a href="{{ route('update-view-ubicacion', $item->propiedad_id) }}" class="dropdown-item">Datos Extras</a>
+                                                <a href="{{ route('update-view-ubicacion', $item->propiedad_id) }}" class="dropdown-item">Ubicacion</a>
                                                 <a href="{{ route('update-view-valor', $item->propiedad_id) }}" class="dropdown-item">Valores</a>
                                                 <a href="{{ route('update-view-coordenada', $item->propiedad_id) }}" class="dropdown-item">Coordenadas</a>
                                                 <a href="{{ route('update-view-marker', $item->propiedad_id) }}" class="dropdown-item">Marcador</a>

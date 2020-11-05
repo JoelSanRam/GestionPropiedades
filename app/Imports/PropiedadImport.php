@@ -26,6 +26,11 @@ class PropiedadImport implements ToModel, WithHeadingRow
             'fecha_alta' => $row['fecha_alta'],
             'observaciones' => $row['observaciones'],
             'propietario' => $row['propietario'],
+            'entidad_federativa' => $row['entidad_federativa'],
+            'municipio' => $row['municipio'],
+            'localidad' => $row['localidad'],
+            'folio_regpub' => $row['folio_regpub'],
+            'folio_catastral' => $row['folio_catastral'],
         ]);
     }
 }

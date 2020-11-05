@@ -20,7 +20,7 @@
 
     <div class="table-top"></div>
 
-    <p>Propiedad</p>
+    <p>Datos Generales</p>
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -50,7 +50,7 @@
         </tbody>
     </table>
 
-    <p class="mt-2">Datos Generales</p>
+    <p class="mt-2">Datos Extras</p>
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -63,11 +63,11 @@
         </thead>
         <tbody>
             <tr>
-                <td>{{ $dato->entidad_federativa }}</td>
-                <td>{{ $dato->municipio }}</td>
-                <td>{{ $dato->localidad }}</td>
-                <td>{{ $dato->folio_regpub }}</td>
-                <td>{{ $dato->folio_catastral }}</td>
+                <td>{{ $propiedad->entidad_federativa }}</td>
+                <td>{{ $propiedad->municipio }}</td>
+                <td>{{ $propiedad->localidad }}</td>
+                <td>{{ $propiedad->folio_regpub }}</td>
+                <td>{{ $propiedad->folio_catastral }}</td>
             </tr>
         </tbody>
     </table>

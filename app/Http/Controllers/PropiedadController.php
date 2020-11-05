@@ -15,10 +15,7 @@ class PropiedadController extends Controller
 {
 	public function listado()
 	{
-		$data = DB::table('propiedads')
-                    ->join('datos', 'propiedads.propiedad_id', '=', 'datos.propiedad_id')
-                    ->select('propiedads.*', 'datos.municipio', 'datos.localidad')
-                    ->get();
+		$data = Propiedad::all();
 
 		return view('propiedades.Listado', ['data' => $data]);
 	}
@@ -26,7 +23,6 @@ class PropiedadController extends Controller
     public function detalles($id)
     {
         $propiedad = Propiedad::where('propiedad_id', $id)->first();
-        $dato = Dato::where('propiedad_id', $id)->first();
         $dimencion = Dimencion::where('propiedad_id', $id)->first();
         $ubicacion = Ubicacion::where('propiedad_id', $id)->first();
         $valor = Valor::where('propiedad_id', $id)->first();
@@ -34,31 +30,11 @@ class PropiedadController extends Controller
 
     	return view('propiedades.detalles', [
                 'propiedad' => $propiedad, 
-                'dato' => $dato, 
                 'dimencion' => $dimencion, 
                 'ubicacion' => $ubicacion, 
                 'valor' => $valor,
                 'coor' => $coor,
             ]);
     }
-
-    public function pdfIndividual($id)
-    {
-        $propiedad = Propiedad::where('propiedad_id', $id)->first();
-        $dato = Dato::where('propiedad_id', $id)->first();
-        $dimencion = Dimencion::where('propiedad_id', $id)->first();
-        $ubicacion = Ubicacion::where('propiedad_id', $id)->first();
-        $valor = Valor::where('propiedad_id', $id)->first();
-
-        $pdf = \PDF::loadView('reportes.individual', [
-                'propiedad' => $propiedad, 
-                'dato' => $dato, 
-                'dimencion' => $dimencion, 
-                'ubicacion' => $ubicacion, 
-                'valor' => $valor
-            ])->setPaper('a4', 'landscape');
-
-        return $pdf->stream('propiedad-individual.pdf');
-    }
-
+    
 }
