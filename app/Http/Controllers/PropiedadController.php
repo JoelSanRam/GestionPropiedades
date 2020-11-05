@@ -10,6 +10,7 @@ use App\Propiedad;
 use App\Ubicacion;
 use App\Valor;
 use App\Coordenada;
+use App\Marker;
 
 class PropiedadController extends Controller
 {
@@ -26,14 +27,16 @@ class PropiedadController extends Controller
         $dimencion = Dimencion::where('propiedad_id', $id)->first();
         $ubicacion = Ubicacion::where('propiedad_id', $id)->first();
         $valor = Valor::where('propiedad_id', $id)->first();
-        $coor = Coordenada::where('propiedad_id', $id)->get();
+        $marker = Marker::where('propiedad_id', $id)->first();
+        $polygon = Coordenada::where('propiedad_id', $id)->get();
 
     	return view('propiedades.detalles', [
                 'propiedad' => $propiedad, 
                 'dimencion' => $dimencion, 
                 'ubicacion' => $ubicacion, 
                 'valor' => $valor,
-                'coor' => $coor,
+                'marker' => $marker,
+                'polygon' => $polygon,
             ]);
     }
     

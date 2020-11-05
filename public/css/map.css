@@ -1,3 +1,7 @@
-#map {
+.principal-map {
   padding: 200px !important;
+}
+
+.detalles-map {
+  padding: 150px !important;
 }

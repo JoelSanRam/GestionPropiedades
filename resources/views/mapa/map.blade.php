@@ -36,7 +36,7 @@
 
 <div class="row">
   <div class="col-md-12 col-12">
-    <div id="map"></div>
+    <div class="principal-map" id="map"></div>
   </div>
 </div>
 
@@ -111,10 +111,13 @@
     // loop for show markers
     for (let i = 0; i < markers.length; i++) {
       const marker = markers[i];
-      const detailsLink = `<a href="http://127.0.0.1:8000/detalles/${marker.propiedad_id}">Ver Detalles</a>`; // link detalles
+      const detailsLink = `
+      <p>${marker.nombre_corto}</p>
+      <a href="http://127.0.0.1:8000/detalles/${marker.propiedad_id}">Ver Detalles</a>
+      `; // link detalles
       const infowindow = new google.maps.InfoWindow({ // window show clic marker
         content: detailsLink,
-        maxWidth: 100,
+        maxWidth: 200,
       });
 
       const markerMap = new google.maps.Marker({

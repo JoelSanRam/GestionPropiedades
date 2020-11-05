@@ -96,7 +96,7 @@
                 </div>
                 <!-- begin table-responsive -->
 
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.535652378898!2d-89.69482248506766!3d21.011242786007898!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f5674b03906566b%3A0x7da2b1624b9b5263!2sCaucel%2C%2097300%20Caucel%2C%20Yuc.!5e0!3m2!1ses-419!2smx!4v1602874088589!5m2!1ses-419!2smx" width="522" height="323" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                <div class="detalles-map" id="map"></div>
 
                 <!-- end table-responsive -->
             </div>
@@ -378,7 +378,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($coor as $item)
+                            @foreach($polygon as $item)
                                 <tr>
                                     <td>
                                         <a href="javascript:;" id="username" data-type="text" data-pk="1" class="editable editable-click">{{ $item->lat }}</a>
@@ -404,5 +404,45 @@
         </div>
 
     </div>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzlAU7AYsNOTbWNsuvgXhyIPSl07JSJ_g&callback=initMap&libraries=&v=weekly"defer></script>
+
+<script>
+
+    function initMap() {
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 3,
+          center: { lat: 24.886, lng: -70.268 },
+        });
+
+        // print polygon.
+        const polygon = new google.maps.Polygon({
+          paths: @json($polygon),
+          strokeColor: "#FF0000",
+          strokeOpacity: 0.8,
+          strokeWeight: 2,
+          fillColor: "#FF0000",
+          fillOpacity: 0.35,
+        });
+
+        polygon.setMap(map);
+
+
+        ///// print markers ////
+        const image = {
+            url: "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
+            size: new google.maps.Size(20, 32),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(0, 32),
+        };
+        const marker = new google.maps.Marker({
+          position: @json($marker),
+          map,
+          icon: image,
+        });
+
+    }
+</script>
 
 @endsection
