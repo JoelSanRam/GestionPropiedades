@@ -366,7 +366,7 @@
                         <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
                         <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
                     </div>
-                    <h4 class="panel-title">Coordenadas</h4>
+                    <h4 class="panel-title">Archivos</h4>
                 </div>
                 <!-- begin table-responsive -->
                 <div class="table-responsive">
@@ -378,16 +378,14 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($polygon as $item)
-                                <tr>
-                                    <td>
-                                        <a href="javascript:;" id="username" data-type="text" data-pk="1" class="editable editable-click">{{ $item->lat }}</a>
-                                    </td>
-                                    <td>
-                                        <a href="javascript:;" id="username" data-type="text" data-pk="1" class="editable editable-click">{{ $item->lng }}</a>
-                                    </td>
-                                </tr>
-                            @endforeach
+                            <tr>
+                                <td>
+                                    <a class="btn btn-danger" >PDF</a>
+                                </td>
+                                <td>
+                                    <a class="btn btn-info">DWG</a>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -397,6 +395,8 @@
         </div>
     </div>
 
+    {{ json_encode($archivo) }}
+
     <div class="row">
         <div class="col-md-5"></div>
         <div class="col-md-5">
@@ -404,6 +404,8 @@
         </div>
 
     </div>
+
+
 
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzlAU7AYsNOTbWNsuvgXhyIPSl07JSJ_g&callback=initMap&libraries=&v=weekly"defer></script>

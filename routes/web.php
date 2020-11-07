@@ -70,7 +70,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/pdf-propiedades', 'ReportController@pdf')->name('pdf-report'); // ruta report pdf
     Route::get('/pdf-individual/{id}', 'ReportController@pdfIndividual')->name('pdf-individual'); // ruta report pdf 
 
-    Route::post('/upload', 'UploadController@upload')->name('upload'); // controlador insersion datos
+    Route::post('/initial/data/excel/upload', 'UploadController@upload')->name('upload'); // controlador insersion datos
     Route::get('/cargar-excel', 'UploadController@create')->name('view-upload'); // ruta formulario insercion de datos
     Route::get('/search', 'ReportController@search')->name('search'); // busqueda
 
@@ -82,7 +82,15 @@ Route::middleware('auth')->group(function () {
         return view('forms.create.complete');
     })->name('create-complete');
 
-    Route::get('test/coords-groups', 'PropiedadController@coords');
+
+    ////// upload pdfs dwg and excel ///////
+    Route::get('/upload/file/home-files', 'FileController@index')->name('files');
+    Route::get('/upload/file/excel-files', 'FileController@uploadExcelView')->name('file-view-excel');
+    Route::get('/upload/file/files', 'FileController@uploadFilesView')->name('file-view-files');
+
+    Route::post('/upload/post/files-excel', 'FileController@uploadExcel')->name('file-upload-excel');
+    Route::post('/upload/post/files', 'FileController@uploadFiles')->name('file-upload-files');
+
 
 });
 

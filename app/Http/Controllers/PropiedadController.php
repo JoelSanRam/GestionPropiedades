@@ -11,6 +11,7 @@ use App\Ubicacion;
 use App\Valor;
 use App\Coordenada;
 use App\Marker;
+use App\File;
 
 class PropiedadController extends Controller
 {
@@ -29,6 +30,7 @@ class PropiedadController extends Controller
         $valor = Valor::where('propiedad_id', $id)->first();
         $marker = Marker::where('propiedad_id', $id)->first();
         $polygon = Coordenada::where('propiedad_id', $id)->get();
+        $archivo = File::where('propiedad_id', $id)->first();
 
     	return view('propiedades.detalles', [
                 'propiedad' => $propiedad, 
@@ -37,6 +39,7 @@ class PropiedadController extends Controller
                 'valor' => $valor,
                 'marker' => $marker,
                 'polygon' => $polygon,
+                'archivo' => $archivo,
             ]);
     }
     
