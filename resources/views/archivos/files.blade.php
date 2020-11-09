@@ -27,17 +27,25 @@
                 <div class="form-group">
                     <label>Archivos PDF</label>
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" name="pdfs[]" id="pdfs" lang="es" multiple="multiple">
+                        <input type="file" class="custom-file-input" onchange="alertSuccessPDF()" name="pdfs[]" id="pdfs" lang="es" multiple="multiple">
                         <label class="custom-file-label">Seleccionar Archivos</label>
                     </div>
+                </div>
+
+                <div class="alert alert-primary message-pdfs d-none" role="alert">
+                    <p>Archivos Cargados: <span class="count-pdfs"></span></p>
                 </div>
 
                 <div class="form-group">
                     <label>Archivos DWG</label>
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" name="dwgs[]" id="dwgs" lang="es" multiple="multiple">
+                        <input type="file" class="custom-file-input" onchange="alertSuccessDWG()" name="dwgs[]" id="dwgs" lang="es" multiple="multiple">
                         <label class="custom-file-label" >Seleccionar Archivos</label>
                     </div>
+                </div>
+
+                <div class="alert alert-primary message-dwgs d-none" role="alert">
+                     <p>Archivos Cargados: <span class="count-dwgs"></span></p>
                 </div>
 
                 <div class="form-group">
@@ -46,5 +54,28 @@
             </form>
         </div>
     </div>
+
+    <script>
+        function alertSuccessPDF() {
+            var items_pdfs = document.getElementById('pdfs');
+
+            if (items_pdfs) {
+                var count_pdfs = items_pdfs.files.length;
+                $(".count-pdfs").html(count_pdfs);
+                $(".message-pdfs").removeClass("d-none");
+            }
+        }
+
+        function alertSuccessDWG() {
+            var items_dwgs = document.getElementById('dwgs');
+
+            if (items_dwgs) {
+                var count_dwgs = items_dwgs.files.length;
+                $(".count-dwgs").html(count_dwgs);
+                $(".message-dwgs").removeClass("d-none");
+            }
+        }
+        
+    </script>
 
 @endsection

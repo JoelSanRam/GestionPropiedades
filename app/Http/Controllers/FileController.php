@@ -15,7 +15,28 @@ class FileController extends Controller
     public function index()
     {
         $files = File::all();
-        //return view('', compact('files'))
+        return view('archivos.index', compact('files'));
+    }
+
+    public function edit($id)
+    {
+        $file = File::find($id);
+        return view('archivos.edit', compact('file'));
+    }
+
+    public function update(Request $request, $id)
+    {
+
+        try {
+            $file = File::find($id);
+            $file->pdf = $request->pdf;
+            $file->dwg = $request->dwg;
+            $file->save();
+        } catch (\Throwable $th) {
+            \Session::flash('message', 'Ocurrio un error, por favor verifica los datos');
+        }
+
+        return redirect()->route('files');
     }
 
     public function uploadExcelView()
