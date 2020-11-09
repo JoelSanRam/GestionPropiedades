@@ -91,6 +91,10 @@ Route::middleware('auth')->group(function () {
     Route::post('/upload/post/files-excel', 'FileController@uploadExcel')->name('file-upload-excel');
     Route::post('/upload/post/files', 'FileController@uploadFiles')->name('file-upload-files');
 
+    ///// downloads documents //////
+    Route::get('/downloads/pdf/doc-pdf/{id}', 'FileController@downloadPDF')->name('doc-pdf');
+    Route::get('/downloads/dwg/doc-dwg/{id}', 'FileController@downloadDWG')->name('doc-dwg');
+
 
 });
 

@@ -366,24 +366,42 @@
                         <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
                         <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
                     </div>
-                    <h4 class="panel-title">Archivos</h4>
+                    <h4 class="panel-title">Documentos Adjuntos</h4>
                 </div>
                 <!-- begin table-responsive -->
                 <div class="table-responsive">
                     <table id="user" class="table table-condensed table-bordered">
                         <thead>
                             <tr>
-                                <th>Latitud</th>
-                                <th>Longitud</th>
+                                <th>PDF</th>
+                                <th>DWG</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>
-                                    <a class="btn btn-danger" >PDF</a>
+                                    @if(!empty($archivo))
+                                        @if($archivo->pdf != null && $archivo->pdf != ".pdf")
+                                            <a href="{{ route('doc-pdf', $archivo->id ) }}" class="btn btn-danger">{{$archivo->pdf}}</a>
+                                        @else
+                                            No hay documento pdf
+                                        @endif
+                                    @else
+                                        No hay documento pdf
+                                    @endif
+                                    
                                 </td>
                                 <td>
-                                    <a class="btn btn-info">DWG</a>
+                                    @if(!empty($archivo))
+                                        @if($archivo->dwg != null && $archivo->dwg != ".dwg")
+                                            <a href="{{ route('doc-dwg', $archivo->id ) }}" class="btn btn-info">{{$archivo->dwg}}</a>
+                                        @else
+                                            No hay documento dwg
+                                        @endif
+
+                                    @else
+                                        No hay documento dwg
+                                    @endif
                                 </td>
                             </tr>
                         </tbody>

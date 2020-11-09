@@ -15,7 +15,7 @@ class CreateFilesTable extends Migration
     {
         Schema::create('files', function (Blueprint $table) {
             $table->id();
-            $table->integer('propiedad_id');
+            $table->integer('propiedad_id')->unique();
             $table->string('pdf')->nullable()->unique();
             $table->string('dwg')->nullable()->unique();
             $table->timestamps();

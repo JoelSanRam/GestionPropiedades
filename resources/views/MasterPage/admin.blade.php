@@ -129,12 +129,6 @@
 
 	                    @if (Auth::user()->rol == "Administrador")
 		                    <li class="has-sub">
-								<a href="/usuarios">
-									<i class="fa fa-user"></i>
-									<span>Listado de usuarios</span>
-								</a>
-		                    </li>
-		                    <li class="has-sub">
 								<a href="{{ route('view-upload') }}">
 									<i class="fa fa-file-excel"></i>
 									<span>Cargar Excel</span>
@@ -144,6 +138,18 @@
 								<a href="{{ route('crear-predio') }}">
 									<i class="fa fa-plus-square"></i>
 									<span>Nuevo Predio</span>
+								</a>
+		                    </li>
+		                    <li class="has-sub">
+								<a href="{{ route('file-view-excel') }}">
+									<i class="fa fa-upload"></i>
+									<span>Cargar Archivos</span>
+								</a>
+		                    </li>
+		                    <li class="has-sub">
+								<a href="/usuarios">
+									<i class="fa fa-user"></i>
+									<span>Listado de usuarios</span>
 								</a>
 		                    </li>
 		                 @endif

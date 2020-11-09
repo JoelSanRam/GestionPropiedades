@@ -47,7 +47,9 @@ class FileController extends Controller
             'dwgs' => 'required'
         ]);
 
-        if ($request->has('pdfs') || $request->has('dwgs')) {
+        try {
+
+            if ($request->has('pdfs') || $request->has('dwgs')) {
                 foreach ($request->file('pdfs') as $pdf) {
                     Storage::putFileAs(
                         'pdf', $pdf, $pdf->getClientOriginalName()
@@ -61,14 +63,22 @@ class FileController extends Controller
                 }
             }
 
-        /*try {
-
         } catch (\Throwable $th) {
             \Session::flash('message', 'Ocurrio un error, por favor verifica los archivos que intentas subir');
-        }*/
+        }
 
         return redirect()->back();
     }
 
+    public function downloadPDF($id)
+    {
+        $file = File::find($id);
+        return response()->download(storage_path("app/pdf/{$file->pdf}"));
+    }
 
+    public function downloadDWG($id)
+    {
+        $file = File::find($id);
+        return response()->download(storage_path("app/dwg/{$file->dwg}"));
+    }
 }
