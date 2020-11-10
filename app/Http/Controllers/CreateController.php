@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Dimencion;
 use App\Propiedad;
@@ -10,6 +11,7 @@ use App\Ubicacion;
 use App\Valor;
 use App\Coordenada;
 use App\Marker;
+use App\File;
 
 class CreateController extends Controller
 {
@@ -20,6 +22,8 @@ class CreateController extends Controller
     public function createViewValor(){ return view('forms.create.valor'); }         // p5
     public function createViewCoordenada(){ return view('forms.create.coordenada'); } // p6
     public function createViewMarker(){ return view('forms.create.marker'); } // p7
+    public function createViewArchivo(){ return view('forms.create.archivo'); }
+    public function createViewArchivoFiles(){ return view('forms.create.files'); }
 
     ////// Action Form Create ////
 
@@ -166,6 +170,50 @@ class CreateController extends Controller
             $marker->save();
         } catch (\Throwable $th) {
             \Session::flash('message', 'Ocurrio un error por favor verifique los datos');
+        }
+
+        return redirect()->route('create-complete');
+    }
+
+    public function createArchivo(Request $request)
+    {
+        $this->validate($request, [
+            'propiedad_id' => 'required|unique:files,propiedad_id',
+        ]);
+
+        try {
+            $file = new File();
+            $file->propiedad_id = $request->propiedad_id;
+            $file->pdf = $request->pdf . '.pdf';
+            $file->dwg = $request->dwg . '.dwg';
+            $file->save();
+        } catch (\Throwable $th) {
+            \Session::flash('message', 'Ocurrio un error, por favor verifica los datos');
+        }
+
+        return redirect()->route('create-view-archivo-files');
+    }
+
+    public function createArchivoFiles(Request $request)
+    {
+        try {
+
+            if ($request->has('pdf')) {
+
+                Storage::putFileAs(
+                    'pdf', $request->file('pdf'), $request->file('pdf')->getClientOriginalName()
+                );
+            }
+
+            if ($request->has('dwg')) {
+
+                Storage::putFileAs(
+                    'dwg', $request->file('dwg'), $request->file('dwg')->getClientOriginalName()
+                );
+            }
+
+        } catch (\Throwable $th) {
+            \Session::flash('message', 'Ocurrio un error, por favor verifica los archivos que intentas subir');
         }
 
         return redirect()->route('create-complete');

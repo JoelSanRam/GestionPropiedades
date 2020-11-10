@@ -2,8 +2,6 @@
 
 @section('admin')
 
-
-
     <!-- begin page-header -->
     <h1 class="page-header">Detalle de propiedad </h1>
     <!-- end page-header -->
@@ -355,8 +353,13 @@
     <!-- end row -->
 
     <div class="row">
-        <!-- coordenadas -->
+
         <div class="col-lg-6 ui-sortable">
+            @if(Session::has('message'))
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>{!! Session::get('message') !!}</strong>
+                </div>
+            @endif
             <!-- begin panel -->
             <div class="panel panel-inverse">
                 <div class="panel-heading ui-sortable-handle">
@@ -412,8 +415,6 @@
             <!-- end panel -->
         </div>
     </div>
-
-    {{ json_encode($archivo) }}
 
     <div class="row">
         <div class="col-md-5"></div>

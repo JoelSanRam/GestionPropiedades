@@ -15,6 +15,7 @@ class TablesImport implements WithMultipleSheets
             'dimenciones' => new DimencionImport(),
             'coordenadas' => new CoordenadasImport(),
             'marcadores' => new MarkersImport(),
+            'archivos' => new FilesImport(),
         ];
     }
 }

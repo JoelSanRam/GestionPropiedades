@@ -11,6 +11,7 @@ use App\Ubicacion;
 use App\Valor;
 use App\Coordenada;
 use App\Marker;
+use App\File;
 
 class ChangesController extends Controller
 {
@@ -20,6 +21,9 @@ class ChangesController extends Controller
     public function updateViewUbicacion($id){ $item = Ubicacion::where('propiedad_id', $id)->first(); return view('forms.update.ubicacion', compact('item')); }
     public function updateViewValor($id){ $item = Valor::where('propiedad_id', $id)->first(); return view('forms.update.valor', compact('item')); }
     public function updateViewMarker($id){ $item = Marker::where('propiedad_id', $id)->first(); return view('forms.update.marker', compact('item')); 
+    }
+
+    public function updateViewArchivo($id){ $item = File::where('propiedad_id', $id)->first(); return view('forms.update.files', compact('item')); 
     }
 
     public function updateViewCoordenada($id)
@@ -142,6 +146,20 @@ class ChangesController extends Controller
             $marker->lat = floatval($request->lat);
             $marker->lng = floatval($request->lon);
             $marker->save();
+        } catch (\Throwable $th) {
+            \Session::flash('message', 'Ocurrio un error por favor verifique los datos');
+        }
+
+        return redirect()->route('listado');
+    }
+
+    public function updateArchivo(Request $request, $id)
+    {
+        try {
+            $file = File::find($id);
+            $file->pdf = $request->pdf;
+            $file->dwg = $request->dwg;
+            $file->save();
         } catch (\Throwable $th) {
             \Session::flash('message', 'Ocurrio un error por favor verifique los datos');
         }

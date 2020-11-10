@@ -90,6 +90,7 @@
                                                 <a href="{{ route('update-view-valor', $item->propiedad_id) }}" class="dropdown-item">Valores</a>
                                                 <a href="{{ route('update-view-coordenada', $item->propiedad_id) }}" class="dropdown-item">Coordenadas</a>
                                                 <a href="{{ route('update-view-marker', $item->propiedad_id) }}" class="dropdown-item">Marcador</a>
+                                                <a href="{{ route('update-view-archivo', $item->propiedad_id) }}" class="dropdown-item">Archivos</a>
                                             </ul>
                                         </div>
                                     </td>

@@ -22,7 +22,7 @@
                 </span>
             </a>
         </li>
-        <li class="col-md-3 col-sm-4 col-6 active">
+        <li class="col-md-3 col-sm-4 col-6">
             <a>
                 <span class="number">3</span>
                 <span class="info text-ellipsis">
@@ -54,7 +54,7 @@
                 </span>
             </a>
         </li>
-        <li class="col-md-3 col-sm-4 col-6">
+        <li class="col-md-3 col-sm-4 col-6 active">
             <a>
                 <span class="number">7</span>
                 <span class="info text-ellipsis">
@@ -62,7 +62,7 @@
                 </span>
             </a>
         </li>
-        <li class="col-md-3 col-sm-4 col-6 ">
+        <li class="col-md-3 col-sm-4 col-6">
             <a>
                 <span class="number">8</span> 
                 <span class="info text-ellipsis">
@@ -95,39 +95,33 @@
     </div>
 </div>
 
-<form action="{{ route('create-dimencion') }}" method="POST" class="form-control-with-bg">
+<form action="{{ route('create-archivo-files') }}" method="POST" enctype="multipart/form-data" class="form-control-with-bg">
     @csrf
     <div class="jumbotron my-5 py-3">
+
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label>ID</label>
-                <input name="propiedad_id" type="text" class="form-control m-b-5" required>
-            </div>
-            <div class="form-group col-md-6">
-                <label>Superficie de Construccion</label>
-                <input name="superficie_construccion" type="text" class="form-control m-b-5" placeholder="Ingresar superficie de construccion">
+                <label>Archivo PDF</label>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" onchange="alertSuccessSinglePDF()" name="pdf" id="pdf" lang="es">
+                    <label class="custom-file-label">Seleccionar Archivo</label>
+                </div>
+                <div class="alert alert-primary message-pdf d-none my-2" role="alert">
+                    Archivo Cargado
+                </div>
             </div>
         </div>
 
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label>Superficie de terreno</label>
-                <input name="superficie_terreno" type="text" class="form-control m-b-5" placeholder="Ingresar superficie del terreno">
-            </div>
-            <div class="form-group col-md-6">
-                <label>Frente</label>
-                <input name="frente" type="text" class="form-control m-b-5" placeholder="Ingresar frente">
-            </div>
-        </div>
-
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label>Fondo</label>
-                <input name="fondo" type="text" class="form-control m-b-5" placeholder="Ingresar fondo">
-            </div>
-            <div class="form-group col-md-6">
-                <label>Capacidad granja</label>
-                <input name="capacidad_granja" type="text" class="form-control m-b-5" placeholder="Ingresar capacidad granja">
+                <label>Archivo DWG</label>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" onchange="alertSuccessSingleDWG()" name="dwg" id="dwg" lang="es">
+                    <label class="custom-file-label">Seleccionar Archivo</label>
+                </div>
+                <div class="alert alert-primary message-dwg d-none my-2" role="alert">
+                    Archivo Cargado
+                </div>
             </div>
         </div>
 
@@ -135,10 +129,27 @@
             <a href="/listado" class="btn btn-secondary btn-lg mr-2">Cancelar</a>
             <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
         </div>
+        
     </div>
 </form>
 
+<script>
+    function alertSuccessSinglePDF() {
+        var item_pdf = document.getElementById('pdf');
+
+        if (item_pdf) {
+            $(".message-pdf").removeClass("d-none");
+        }
+    }
+
+    function alertSuccessSingleDWG() {
+        var items_dwg = document.getElementById('dwg');
+
+        if (items_dwg) {
+            $(".message-dwg").removeClass("d-none");
+        }
+    }
+    
+</script>
+
 @endsection
-
-
-

@@ -141,7 +141,7 @@
 								</a>
 		                    </li>
 		                    <li class="has-sub">
-								<a href="{{ route('file-view-excel') }}">
+								<a href="{{ route('file-view-files') }}">
 									<i class="fa fa-upload"></i>
 									<span>Cargar Archivos</span>
 								</a>
