@@ -45,8 +45,14 @@
 
                     <div class="row">
                         <div class="col-md-6 mb-4">
-                            <a href="{{route('delete-pdf', $item->id)}}" class="btn btn-danger">Eliminar PDF</a>
+                            @if($item->pdf != ".pdf")
+                                <a href="{{route('delete-pdf', $item->id)}}" class="btn btn-danger">Eliminar PDF</a>
+                            @endif
+
+                            @if($item->dwg != ".dwg")
                             <a href="{{route('delete-dwg', $item->id)}}" class="btn btn-warning">Eliminar DWG</a>
+
+                            @endif
                             <a href="{{route('file-view-files')}}" class="btn btn-info">Cargar Archivos</a>
                         </div>
                     </div>
@@ -62,11 +68,11 @@
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label>Nombre del PDF</label>
-                                    <input name="pdf" type="text" class="form-control" placeholder="Ingresar nombre del pdf" value="{{ $item->pdf }}">
+                                    <input name="pdf" id="pdf" type="text" class="form-control" placeholder="Ingresar nombre del pdf" value="{{ $item->pdf }}">
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label>Nombre del DWG</label>
-                                    <input name="dwg" type="text" class="form-control" placeholder="Ingresar nombre del dwg" value="{{ $item->dwg }}">
+                                    <input name="dwg" id="dwg" type="text" class="form-control" placeholder="Ingresar nombre del dwg" value="{{ $item->dwg }}">
                                 </div>
                             </div>
 
@@ -88,4 +94,22 @@
     <!-- end col-10 -->
 </div>
 <!-- end row -->
+
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<script>
+    
+    $(function () {
+        $('#pdf')
+        .popover(
+            { title: 'Alerta', content: "No olvide poner la extencion del archivo ejemplo: archivo.pdf", placement: "top" }
+        );
+
+        $('#dwg')
+        .popover(
+            { title: 'Alerta', content: "No olvide poner la extencion del archivo ejemplo: archivo.dwg", placement: "top" }
+        )
+    })
+
+</script>
+
 @endsection

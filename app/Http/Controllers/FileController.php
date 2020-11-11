@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\File;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 
 class FileController extends Controller
 {
@@ -77,6 +78,7 @@ class FileController extends Controller
         try {
             $file = File::find($id);
             Storage::delete("pdf/{$file->pdf}");
+            DB::table('files')->where('id', $id)->update(['pdf' => ".pdf"]);
             \Session::flash('message', 'El archivo se elimino con exito');
         } catch (\Throwable $th) {
             \Session::flash('message', 'Ocurrio un error, no se encontro el archivo');
@@ -90,6 +92,7 @@ class FileController extends Controller
         try {
             $file = File::find($id);
             Storage::delete("dwg/{$file->dwg}");
+            DB::table('files')->where('id', $id)->update(['dwg' => ".dwg"]);
             \Session::flash('message', 'El archivo se elimino con exito');
         } catch (\Throwable $th) {
             \Session::flash('message', 'Ocurrio un error, no se encontro el archivo');

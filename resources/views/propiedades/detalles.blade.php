@@ -385,7 +385,7 @@
                                 <td>
                                     @if(!empty($archivo))
                                         @if($archivo->pdf != null && $archivo->pdf != ".pdf")
-                                            <a href="{{ route('doc-pdf', $archivo->id ) }}" class="btn btn-danger">{{$archivo->pdf}}</a>
+                                            <a href="{{ route('doc-pdf', $archivo->id ) }}" class="btn btn-green">{{$archivo->pdf}}</a>
                                         @else
                                             No hay documento pdf
                                         @endif
@@ -397,7 +397,7 @@
                                 <td>
                                     @if(!empty($archivo))
                                         @if($archivo->dwg != null && $archivo->dwg != ".dwg")
-                                            <a href="{{ route('doc-dwg', $archivo->id ) }}" class="btn btn-info">{{$archivo->dwg}}</a>
+                                            <a href="{{ route('doc-dwg', $archivo->id ) }}" class="btn btn-green">{{$archivo->dwg}}</a>
                                         @else
                                             No hay documento dwg
                                         @endif

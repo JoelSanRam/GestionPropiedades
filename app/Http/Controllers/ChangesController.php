@@ -155,16 +155,26 @@ class ChangesController extends Controller
 
     public function updateArchivo(Request $request, $id)
     {
+         
         try {
-            $file = File::find($id);
-            $file->pdf = $request->pdf;
-            $file->dwg = $request->dwg;
-            $file->save();
+            if (preg_match("/pdf/i", $request->pdf) && preg_match("/dwg/i", $request->dwg)) {
+                $file = File::find($id);
+                $file->pdf = $request->pdf;
+                $file->dwg = $request->dwg;
+                $file->save();
+
+                return redirect()->route('listado');
+
+            } else {
+                \Session::flash('message', 'Debe agregar la extecion correcta en el nombre del archivo');
+                return redirect()->back();
+            }
+
         } catch (\Throwable $th) {
             \Session::flash('message', 'Ocurrio un error por favor verifique los datos');
+            return redirect()->back();
         }
 
-        return redirect()->route('listado');
     }
 
     public function deleteCoordenada($id)
