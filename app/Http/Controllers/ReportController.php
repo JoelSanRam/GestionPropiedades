@@ -59,7 +59,7 @@ class ReportController extends Controller
                 'dimencion' => $dimencion, 
                 'ubicacion' => $ubicacion, 
                 'valor' => $valor
-            ])->setPaper('a4', 'landscape');
+            ])->setPaper('a4');
 
         return $pdf->stream('propiedad-individual.pdf');
     }

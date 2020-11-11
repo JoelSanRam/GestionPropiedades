@@ -9,6 +9,9 @@
         .table-top{
             padding-top: 80px;
         }
+        .letra{
+            font-size: 12px;
+        }
     </style>
 </head>
 <body>
@@ -19,7 +22,7 @@
         </div>
     </div>
 
-    <table class="table table-bordered table-top">
+    <table class="table table-bordered table-top letra">
         <thead>
             <tr>
                 <th scope="col">ID</th>

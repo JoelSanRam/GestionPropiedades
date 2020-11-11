@@ -20,9 +20,9 @@
 
     <div class="table-top"></div>
 
-    <p>Datos Generales</p>
-    <table class="table table-bordered">
-        <thead>
+    
+    {{-- <table class="table table-bordered">
+        <thead class="thead-dark">
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Origen ID</th>
@@ -48,106 +48,223 @@
                 <td>{{ $propiedad->propietario }}</td> 
             </tr>
         </tbody>
-    </table>
-
-    <p class="mt-2">Datos Extras</p>
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th scope="col">Entidad federativa</th>
-                <th scope="col">Municipio</th>
-                <th scope="col">Localidad</th>
-                <th scope="col">Folio regpub</th>
-                <th scope="col">Folio Catastral</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>{{ $propiedad->entidad_federativa }}</td>
-                <td>{{ $propiedad->municipio }}</td>
-                <td>{{ $propiedad->localidad }}</td>
-                <td>{{ $propiedad->folio_regpub }}</td>
-                <td>{{ $propiedad->folio_catastral }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <p class="mt-2">Dimenciones</p>
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th scope="col">Superficie Construccion</th>
-                <th scope="col">Superficie Terreno</th>
-                <th scope="col">Frente</th>
-                <th scope="col">Fondo</th>
-                <th scope="col">Capacidad granja</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>{{ $dimencion->superficie_construccion }}</td>
-                <td>{{ $dimencion->superficie_terreno }}</td>
-                <td>{{ $dimencion->frente }}</td>
-                <td>{{ $dimencion->fondo }}</td>
-                <td>{{ $dimencion->capacidad_granja }}</td>
-            </tr>
-        </tbody>
-    </table>
-	
+    </table> --}}
     <br>
-    <p class="mt-5">Valores</p>
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th scope="col">Valor construccion</th>
-                <th scope="col">Valor terreno</th>
-                <th scope="col">Valor comercial</th>
-                <th scope="col">Fecha valor comercial</th>
-                <th scope="col">Valor catastral</th>
-                <th scope="col">Fecha valorcatastral</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>{{ $valor->valor_construccion }}</td>
-                <td>{{ $valor->valor_terreno }}</td>
-                <td>{{ $valor->valor_comercial }}</td>
-                <td>{{ $valor->fecha_valor_comercial }}</td>
-                <td>{{ $valor->valor_catastral }}</td>
-                <td>{{ $valor->fecha_valor_catastral }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Datos Generales</h3>
+            <div class="col-md-6">
+                <table class="table table-bordered">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col" width="20%">Campo</th>
+                            <th scope="col">Valores</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ID</td>
+                            <td>{{ $propiedad->propiedad_id }}</td>
+                        </tr>
+                        <tr>
+                            <td>ID origen</td>
+                            <td>{{ $propiedad->origen_id }}</td>
+                        </tr>
+                        <tr>
+                            <td>Tipo</td>
+                            <td>{{ $propiedad->tipo }}</td>
+                        </tr>
+                        <tr>
+                            <td>Granja</td>
+                            <td>{{ $propiedad->granja }}</td>
+                        </tr>
+                        <tr>
+                            <td>Estatus</td>
+                            <td>{{ $propiedad->estatus }}</td>
+                        </tr>
+                        <tr>
+                            <td>Nombre corto</td>
+                            <td>{{ $propiedad->nombre_corto }}</td>
+                        </tr>
+                        <tr>
+                            <td>Último movimiento</td>
+                            <td>{{ $propiedad->ultimo_movimiento }}</td>
+                        </tr>
+                        <tr>
+                            <td>Fecha de alta</td>
+                            <td>{{ $propiedad->fecha_alta }}</td>
+                        </tr>
+                        <tr>
+                            <td>Propietario</td>
+                            <td>{{ $propiedad->propietario }}</td> 
+                        </tr>
+                    </tbody>
+                </table> 
+            </div> <br>
+            <h3>Datos Extras</h3>
+            <div class="col-md-6">
+                <table class="table table-bordered">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col" width="20%">Campo</th>
+                            <th scope="col">Valores</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Entidad federativa</td>
+                            <td>{{ $propiedad->entidad_federativa }}</td>
+                        </tr>
+                        <tr>
+                            <td>Municipio</td>
+                            <td>{{ $propiedad->municipio }}</td>
+                        </tr>
+                        <tr>
+                            <td>Localidad</td>
+                            <td>{{ $propiedad->localidad }}</td>
+                        </tr>
+                        <tr>
+                            <td>Folio reg. pub.</td>
+                            <td>{{ $propiedad->folio_regpub }}</td>
+                        </tr>
+                        <tr>
+                            <td>Folio catastral</td>
+                            <td>{{ $propiedad->folio_catastral }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 
-    <p class="mt-2">Ubicacion</p>
+    
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-6">
+                <h4>Dimensiones</h4>
+                <table class="table table-bordered">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col" width="20%">Campo</th>
+                            <th scope="col">Valores</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Superficie Construccion</td>
+                            <td>{{ $dimencion->superficie_construccion }}</td>
+                        </tr>
+                        <tr>
+                            <td>Superficie Terreno</td>
+                            <td>{{ $dimencion->superficie_terreno }}</td>
+                        </tr>
+                        <tr>
+                            <td>Frente</td>
+                            <td>{{ $dimencion->frente }}</td>
+                        </tr>
+                        <tr>
+                            <td>Fondo</td>
+                            <td>{{ $dimencion->fondo }}</td>
+                        </tr>
+                        <tr>
+                            <td>Granja</td>
+                            <td>{{ $dimencion->capacidad_granja }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div> <br>
+            <div class="col-md-6">
+                <h4>Valores</h4>
+                <table class="table table-bordered">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col" width="20%">Campo</th>
+                            <th scope="col">Valores</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Valor construcción</td>
+                            <td>{{ $valor->valor_construccion }}</td>
+                        </tr>
+                        <tr>
+                            <td>Valor terreno</td>
+                            <td>{{ $valor->valor_terreno }}</td>
+                        </tr>
+                        <tr>
+                            <td>Valor comercial</td>
+                            <td>{{ $valor->valor_comercial }}</td>
+                        </tr>
+                        <tr>
+                            <td>Fecha valor comercial</td>
+                            <td>{{ $valor->fecha_valor_comercial }}</td>
+                        </tr>
+                        <tr>
+                            <td>Valor catastral</td>
+                            <td>{{ $valor->valor_catastral }}</td>
+                        </tr>
+                        <tr>
+                            <td>Fecha valorcatastral</td>
+                            <td>{{ $valor->fecha_valor_catastral }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div> <br><br><br><br>
+
+    <h4>Ubicacion</h4>
     <table class="table table-bordered">
-        <thead>
+        <thead class="thead-dark">
             <tr>
-                <th scope="col">Ejido</th>
-                <th scope="col">Parcela</th>
-                <th scope="col">Solar</th>
-                <th scope="col">Tablaje</th>
-                <th scope="col">Finca</th>
-                <th scope="col">Direccion</th>
-                <th scope="col">Colonia</th>
-                <th scope="col">Manzana Ejido</th>
-                <th scope="col">Manzana Urbana</th>
-                <th scope="col">Lote</th>
-                <th scope="col">Codigo_postal</th>
+                <th scope="col" width="20%">Campo</th>
+                <th scope="col">Valores</th>
             </tr>
         </thead>
         <tbody>
             <tr>
+                <td>Ejido</td>
                 <td>{{ $ubicacion->ejido }}</td>
+            </tr>
+            <tr>
+                <td>Parcela</td>
                 <td>{{ $ubicacion->parcela }}</td>
+            </tr>
+            <tr>
+                <td>Solar</td>
                 <td>{{ $ubicacion->solar }}</td>
+            </tr>
+            <tr>
+                <td>Tablaje</td>
                 <td>{{ $ubicacion->tablaje }}</td>
+            </tr>
+            <tr>
+                <td>Finca</td>
                 <td>{{ $ubicacion->finca }}</td>
+            </tr>
+            <tr>
+                <td>Dirección</td>
                 <td>{{ $ubicacion->direccion }}</td>
+            </tr>
+            <tr>
+                <td>Colonia</td>
                 <td>{{ $ubicacion->colonia }}</td>
+            </tr>
+            <tr>
+                <td>Manzana ejido</td>
                 <td>{{ $ubicacion->ejido_manzana }}</td>
+            </tr>
+            <tr>
+                <td>Manzana urbana</td>
                 <td>{{ $ubicacion->urbana_manzana }}</td>
+            </tr>
+            <tr>
+                <td>Lote</td>
                 <td>{{ $ubicacion->lote }}</td>
+            </tr>
+            <tr>
+                <td>Código postal</td>
                 <td>{{ $ubicacion->codigo_postal }}</td>
             </tr>
         </tbody>
