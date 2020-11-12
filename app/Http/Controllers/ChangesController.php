@@ -166,7 +166,7 @@ class ChangesController extends Controller
                 return redirect()->route('listado');
 
             } else {
-                \Session::flash('message', 'Debe agregar la extecion correcta en el nombre del archivo');
+                \Session::flash('message', 'Debe agregar la extension correcta en el nombre del archivo');
                 return redirect()->back();
             }
 

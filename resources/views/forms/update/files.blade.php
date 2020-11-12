@@ -101,12 +101,12 @@
     $(function () {
         $('#pdf')
         .popover(
-            { title: 'Alerta', content: "No olvide poner la extencion del archivo ejemplo: archivo.pdf", placement: "top" }
+            { title: 'Alerta', content: "No olvide poner la extension del archivo, ejemplo: archivo.pdf", placement: "top" }
         );
 
         $('#dwg')
         .popover(
-            { title: 'Alerta', content: "No olvide poner la extencion del archivo ejemplo: archivo.dwg", placement: "top" }
+            { title: 'Alerta', content: "No olvide poner la extension del archivo, ejemplo: archivo.dwg", placement: "top" }
         )
     })
 
