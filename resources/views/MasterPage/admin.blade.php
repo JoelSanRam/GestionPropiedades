@@ -141,10 +141,14 @@
 								</a>
 		                    </li>
 		                    <li class="has-sub">
-								<a href="{{ route('file-view-files') }}">
+								<a href="#">
 									<i class="fa fa-upload"></i>
 									<span>Cargar Archivos</span>
 								</a>
+								<ul class="sub-menu">
+							      	<li><a href="{{ route('files-view-pdf') }}">Subir PDF</a></li>
+							      	<li><a href="{{ route('files-view-dwg') }}">Subir DWG</a></li>
+							    </ul>
 		                    </li>
 		                    <li class="has-sub">
 								<a href="/usuarios">

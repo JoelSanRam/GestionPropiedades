@@ -53,7 +53,7 @@
                             <a href="{{route('delete-dwg', $item->id)}}" class="btn btn-warning">Eliminar DWG</a>
 
                             @endif
-                            <a href="{{route('file-view-files')}}" class="btn btn-info">Cargar Archivos</a>
+                            <a href="{{route('files-view-pdf')}}" class="btn btn-green">Cargar Archivos</a>
                         </div>
                     </div>
 

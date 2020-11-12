@@ -17,16 +17,25 @@ class FileController extends Controller
         return view('archivos.index', compact('files'));
     }
 
-    public function uploadFilesView()
+    public function uploadViewPDF()
     {
-        return view('archivos.files');
+        return view('archivos.pdfs');
     }
 
-    public function uploadFiles(Request $request)
+    public function uploadViewDWG()
     {
+        return view('archivos.dwgs');
+    }
+
+    public function uploadPDF(Request $request)
+    {
+        $this->validate($request, [
+            'pdfs' => 'required'
+        ]);
+
         try {
 
-            if ($request->has('pdfs')) {
+            if ($request->hasfile('pdfs')) {
                 foreach ($request->file('pdfs') as $pdf) {
                     Storage::putFileAs(
                         'pdf', $pdf, $pdf->getClientOriginalName()
@@ -34,16 +43,7 @@ class FileController extends Controller
                 }
             }
 
-            if ($request->has('dwgs')) {
-                foreach ($request->file('dwgs') as $dwg) {
-                    Storage::putFileAs(
-                        'dwg', $dwg, $dwg->getClientOriginalName()
-                    );
-                }
-            }
-
-            \Session::flash('message', 'Se Cargaron los Archivos Exitosamente');
-
+            \Session::flash('message', 'Se Cargaron los Archivos PDF Exitosamente');
 
         } catch (\Throwable $th) {
             \Session::flash('message', 'Ocurrio un error, por favor verifica los archivos que intentas subir');
@@ -51,6 +51,32 @@ class FileController extends Controller
 
         return redirect()->back();
     }
+
+    public function uploadDWG(Request $request)
+    {
+        $this->validate($request, [
+            'dwgs' => 'required'
+        ]);
+
+        try {
+
+            if ($request->hasfile('dwgs')) {
+                foreach ($request->file('dwgs') as $dwg) {
+                    Storage::putFileAs(
+                        'dwg', $dwg, $dwg->getClientOriginalName()
+                    );
+                }
+            }
+
+            \Session::flash('message', 'Se Cargaron los Archivos DWG Exitosamente');
+
+        } catch (\Throwable $th) {
+            \Session::flash('message', 'Ocurrio un error, por favor verifica los archivos que intentas subir');
+        }
+
+        return redirect()->back();
+    }
+
     public function downloadPDF($id)
     {
         try {
