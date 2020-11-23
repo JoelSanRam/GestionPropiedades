@@ -27,6 +27,6 @@ class UploadController extends Controller
             \Session::flash('message', 'Ocurrio un error, por favor verifica los datos del archivo excel');
         } 
 
-        return redirect()->route('file-view-files');
+        return redirect()->route('files-view-pdf');
     }
 }
