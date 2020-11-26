@@ -48,7 +48,7 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>ID</label>
-                            <input type="text" class="form-control m-b-5" value="{{ $item->propiedad_id }}" readonly>
+                            <input type="text" class="form-control m-b-5" value="{{ $item->id }}" readonly>
                         </div>
                         <div class="form-group col-md-6">
                             <label>ID de origen</label>
@@ -63,7 +63,12 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label>Granja</label>
-                            <input name="granja" type="text" class="form-control m-b-5" placeholder="Ingresar granja" value="{{ $item->granja }}">
+                            <select name="granja" class="form-control m-b-5" required>
+                                <option>{{ $item->granja }}</option>
+                                <option value="">Selecionar</option>
+                                <option>Si</option>
+                                <option>No</option>
+                            </select>
                         </div>
                     </div>
 
@@ -84,32 +89,29 @@
                             <input name="ultimo_movimiento" type="text" class="form-control m-b-5" placeholder="Ingresar ultimo movimiento" value="{{ $item->ultimo_movimiento }}">
                         </div>
                         <div class="form-group col-md-6">
-                            <label>Fecha de alta</label>
-                            <input name="fecha_alta" type="date" class="form-control m-b-5" value="{{ $item->fecha_alta }}">
+                            <label>Observaciones</label>
+                            <input name="observaciones" type="text" class="form-control m-b-5" placeholder="Ingresar observaciones" value="{{ $item->observaciones }}">
                         </div>
                     </div>
 
                     <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label>Observaciones</label>
-                            <input name="observaciones" type="text" class="form-control m-b-5" placeholder="Ingresar observaciones" value="{{ $item->observaciones }}">
-                        </div>
                         <div class="form-group col-md-6">
                             <label>Propietario</label>
                             <input name="propietario" type="text" class="form-control m-b-5" placeholder="Ingresar propietario" value="{{ $item->propietario }}">
                         </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-6">
                             <label>Entidad federativa</label>
                             <input name="entidad_federativa" type="text" class="form-control m-b-5" placeholder="Ingresar entidad federativa" value="{{ $item->entidad_federativa }}">
                         </div>
-                        <div class="form-group col-md-4">
+                    </div>
+
+                    <div class="form-row">
+                        
+                        <div class="form-group col-md-6">
                             <label>Municipio</label>
                             <input name="municipio" type="text" class="form-control m-b-5" placeholder="Ingresar municipio" value="{{ $item->municipio }}">
                         </div>
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-6">
                             <label>Localidad</label>
                             <input name="localidad" type="text" class="form-control m-b-5" placeholder="Ingresar localidad" value="{{ $item->localidad }}">
                         </div>

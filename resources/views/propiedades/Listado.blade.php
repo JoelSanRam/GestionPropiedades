@@ -5,7 +5,7 @@
 <!-- begin breadcrumb -->
 @if (Auth::user()->rol == "Administrador")
 <ol class="breadcrumb pull-right">
-    <li class="breadcrumb-item"><a href="{{ route('crear-predio') }}" class="btn btn-primary">Agregar nuevo predio</a></li>
+    <li class="breadcrumb-item"><a href="{{ route('create-view-propiedad') }}" class="btn btn-primary">Agregar nuevo predio</a></li>
 </ol>
 @endif
 <!-- end breadcrumb -->
@@ -51,7 +51,7 @@
                     <tbody>
                         @foreach($data as $item)
                             <tr class="odd gradeX">
-                                <td width="1%" class="f-s-600 text-inverse">{{ $item->propiedad_id }}</td>
+                                <td width="1%" class="f-s-600 text-inverse">{{ $item->id }}</td>
                                 <td>{{ $item->propietario }}</td>
                                 <td>{{ $item->estatus }}</td>
                                 <td>{{ $item->tipo }}</td>
@@ -61,11 +61,11 @@
                                 </td>
                                 <td>{{ $item->ultimo_movimiento }}</td>
                                 <td>
-                                    <a href="{{ route('pdf-individual', $item->propiedad_id) }}" class="btn btn-warning btn-icon btn-sm" title="Generar reporte">
+                                    <a href="{{ route('pdf-individual', $item->id) }}" class="btn btn-warning btn-icon btn-sm" title="Generar reporte">
                                         <i class="fas fa-file-pdf fa-fw"></i>
                                     </a>
 
-                                    <a href="{{ route('detalles', $item->propiedad_id) }}" class="btn btn-success btn-icon btn-sm" title="Detalles">
+                                    <a href="{{ route('detalles', $item->id) }}" class="btn btn-success btn-icon btn-sm" title="Detalles">
                                         <i class="fas fa-eye fa-fw"></i>
                                     </a>
 
@@ -84,13 +84,13 @@
                                             <a href="#" class="btn btn-info dropdown-toggle"
                                                 data-toggle="dropdown"></a>
                                             <ul class="dropdown-menu pull-right">
-                                                <a href="{{ route('update-view-propiedad', $item->propiedad_id) }}" class="dropdown-item">Datos Generales</a>
-                                                <a href="{{ route('update-view-dimencion', $item->propiedad_id) }}" class="dropdown-item">Dimenciones</a>
-                                                <a href="{{ route('update-view-ubicacion', $item->propiedad_id) }}" class="dropdown-item">Ubicacion</a>
-                                                <a href="{{ route('update-view-valor', $item->propiedad_id) }}" class="dropdown-item">Valores</a>
-                                                <a href="{{ route('update-view-coordenada', $item->propiedad_id) }}" class="dropdown-item">Coordenadas</a>
-                                                <a href="{{ route('update-view-marker', $item->propiedad_id) }}" class="dropdown-item">Marcador</a>
-                                                <a href="{{ route('update-view-archivo', $item->propiedad_id) }}" class="dropdown-item">Archivos</a>
+                                                <a href="{{ route('update-view-propiedad', $item->id) }}" class="dropdown-item">Datos Generales</a>
+                                                <a href="{{ route('update-view-dimencion', $item->id) }}" class="dropdown-item">Dimenciones</a>
+                                                <a href="{{ route('update-view-ubicacion', $item->id) }}" class="dropdown-item">Ubicacion</a>
+                                                <a href="{{ route('update-view-valor', $item->id) }}" class="dropdown-item">Valores</a>
+                                                <a href="{{ route('update-view-coordenada', $item->id) }}" class="dropdown-item">Coordenadas</a>
+                                                <a href="{{ route('update-view-marker', $item->id) }}" class="dropdown-item">Marcador</a>
+                                                <a href="{{ route('update-view-archivo', $item->id) }}" class="dropdown-item">Archivos</a>
                                             </ul>
                                         </div>
                                     </td>

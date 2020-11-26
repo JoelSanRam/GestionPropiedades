@@ -16,7 +16,6 @@ class UbicacionImport implements ToModel, WithHeadingRow
     public function model(array $row)
     {
         return new Ubicacion([
-            'propiedad_id' => $row['propiedad_id'],
             'ejido' => $row['ejido'],
             'parcela' => $row['parcela'],
             'solar' => $row['solar'],

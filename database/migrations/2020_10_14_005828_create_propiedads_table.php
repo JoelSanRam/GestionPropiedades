@@ -15,14 +15,12 @@ class CreatePropiedadsTable extends Migration
     {
         Schema::create('propiedads', function (Blueprint $table) {
             $table->id();
-            $table->integer('propiedad_id')->unique();
             $table->integer('origen_id')->nullable();
             $table->string('tipo')->nullable();
             $table->string('granja')->nullable();
             $table->string('estatus')->nullable();
             $table->string('nombre_corto')->nullable();
             $table->string('ultimo_movimiento')->nullable();
-            $table->string('fecha_alta')->nullable();
             $table->text('observaciones')->nullable();
             $table->string('propietario')->nullable();
             $table->string('entidad_federativa')->nullable();

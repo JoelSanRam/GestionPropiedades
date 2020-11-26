@@ -15,7 +15,6 @@ class CreateUbicacionsTable extends Migration
     {
         Schema::create('ubicacions', function (Blueprint $table) {
             $table->id();
-            $table->integer('propiedad_id')->unique();
             $table->string('ejido')->nullable();
             $table->integer('parcela')->nullable();
             $table->integer('solar')->nullable();

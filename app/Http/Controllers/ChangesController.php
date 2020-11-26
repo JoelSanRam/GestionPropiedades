@@ -16,25 +16,63 @@ use App\File;
 class ChangesController extends Controller
 {
 	////// Redirect Form View ////
-    public function updateViewDimencion($id){ $item = Dimencion::where('propiedad_id', $id)->first(); return view('forms.update.dimencion', compact('item')); }
-    public function updateViewPropiedad($id){ $item = Propiedad::where('propiedad_id', $id)->first(); return view('forms.update.propiedad', compact('item')); }
-    public function updateViewUbicacion($id){ $item = Ubicacion::where('propiedad_id', $id)->first(); return view('forms.update.ubicacion', compact('item')); }
-    public function updateViewValor($id){ $item = Valor::where('propiedad_id', $id)->first(); return view('forms.update.valor', compact('item')); }
-    public function updateViewMarker($id){ $item = Marker::where('propiedad_id', $id)->first(); return view('forms.update.marker', compact('item')); 
+    public function updateViewPropiedad($id){ $item = Propiedad::find($id); return view('forms.update.propiedad', compact('item')); }
+    public function updateViewUbicacion($id){ $item = Ubicacion::find($id); return view('forms.update.ubicacion', compact('item')); }
+    public function updateViewDimencion($id){ $item = Dimencion::find($id); return view('forms.update.dimencion', compact('item')); }
+    public function updateViewValor($id){ $item = Valor::find($id); return view('forms.update.valor', compact('item')); }
+
+    public function updateViewMarker($id)
+    { 
+        $item = Marker::where('propiedad_id', $id)->first();
+        return view('forms.update.marker', compact('item', 'id')); 
     }
 
-    public function updateViewArchivo($id){ $item = File::where('propiedad_id', $id)->first(); return view('forms.update.files', compact('item')); 
+    public function updateViewArchivo($id)
+    { 
+        $item = File::where('propiedad_id', $id)->first(); 
+        return view('forms.update.files', compact('item')); 
     }
 
     public function updateViewCoordenada($id)
     {
-        //$coor = Coordenada::find($id);
         $data = Coordenada::where('propiedad_id', $id)->get();
-        return view('forms.update.coordenada', compact('data')); 
+        return view('forms.update.coordenada', compact('data', 'id')); 
     }
 
     ////// Action Form ////
 
+    public function updatePropiedad(Request $request, $id)
+    {
+        $this->validate($request, [
+            'tipo' => 'required',
+            'estatus' => 'required',
+            'nombre_corto' => 'nombre_corto',
+            'propietario' => 'required',
+            'entidad_federativa' => 'required',
+        ]);
+        
+        try {
+            $propiedad = Propiedad::find($id);
+            $propiedad->origen_id = $request->origen_id;
+            $propiedad->tipo = $request->tipo;
+            $propiedad->granja = $request->granja;
+            $propiedad->estatus = $request->estatus;
+            $propiedad->nombre_corto = $request->nombre_corto;
+            $propiedad->ultimo_movimiento = $request->ultimo_movimiento;
+            $propiedad->observaciones = $request->observaciones;
+            $propiedad->propietario = $request->propietario;
+            $propiedad->entidad_federativa = $request->entidad_federativa; 
+            $propiedad->municipio = $request->municipio; 
+            $propiedad->localidad = $request->localidad; 
+            $propiedad->folio_regpub = $request->folio_regpub; 
+            $propiedad->folio_catastral = $request->folio_catastral;
+            $propiedad->save();
+        } catch (\Throwable $th) {
+            \Session::flash('message', 'Ocurrio un error por favor verifique los datos');
+        }
+
+        return redirect()->route('listado');
+    }
 
     public function updateDimencion(Request $request, $id)
     {
@@ -46,32 +84,6 @@ class ChangesController extends Controller
             $dimencion->fondo = $request->fondo;
             $dimencion->capacidad_granja = $request->capacidad_granja;
             $dimencion->save();
-        } catch (\Throwable $th) {
-            \Session::flash('message', 'Ocurrio un error por favor verifique los datos');
-        }
-
-        return redirect()->route('listado');
-    }
-
-    public function updatePropiedad(Request $request, $id)
-    {
-        try {
-            $propiedad = Propiedad::find($id);
-            $propiedad->origen_id = $request->origen_id;
-            $propiedad->tipo = $request->tipo;
-            $propiedad->granja = $request->granja;
-            $propiedad->estatus = $request->estatus;
-            $propiedad->nombre_corto = $request->nombre_corto;
-            $propiedad->ultimo_movimiento = $request->ultimo_movimiento;
-            $propiedad->fecha_alta = $request->fecha_alta;
-            $propiedad->observaciones = $request->observaciones;
-            $propiedad->propietario = $request->propietario;
-            $propiedad->entidad_federativa = $request->entidad_federativa; 
-            $propiedad->municipio = $request->municipio; 
-            $propiedad->localidad = $request->localidad; 
-            $propiedad->folio_regpub = $request->folio_regpub; 
-            $propiedad->folio_catastral = $request->folio_catastral;
-            $propiedad->save();
         } catch (\Throwable $th) {
             \Session::flash('message', 'Ocurrio un error por favor verifique los datos');
         }

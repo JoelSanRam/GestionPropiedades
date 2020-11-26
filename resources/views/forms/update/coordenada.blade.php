@@ -41,7 +41,7 @@
                     </div>
                 </div>
 
-                <a href="{{ route('create-view-coordenada') }}" class="btn btn-primary my-3">Agregar Coordenadas</a>
+                {{--<a href="{{ route('create-view-coordenada') }}" class="btn btn-primary my-3">Agregar Coordenadas</a>--}}
 
                 @if(isset($data) && count($data) > 0)
                     <form action="{{ route('update-coordenada') }}" method="POST">
@@ -77,7 +77,41 @@
                         </div>
                     </form>
                 @else
-                    <h6>No hay coordenadas registradas</h6>
+                    <form action="{{ route('create-coordenada') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+
+                        <div class="form-row justify-content-center">
+                            <div class="form-group col-md-6">
+                                <label>ID Propiedad</label>
+                                <input type="text" class="form-control m-b-5" value="{{ $id }}" readonly>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row justify-content-center">
+                            <div class="col-md-6">
+                                <div class="input-group my-3">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" onchange="alertSuccess()" id="coordenadas" name="coordenadas">
+                                        <label class="custom-file-label" for="coordenadas">Elige tu archivo</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                        <div class="form-row justify-content-center">
+                            <div class="col-md-6">
+                                <div class="alert alert-primary message d-none" role="alert">
+                                    Archivo Cargado
+                                </div>
+                            </div>
+                        </div>
+                                                            
+                        <div class="form-row justify-content-end">
+                            <a href="/listado" class="btn btn-secondary btn-lg mr-2">Cancelar</a>
+                            <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
+                        </div>
+                    </form>
                 @endif
                 
 
@@ -89,4 +123,16 @@
     <!-- end col-10 -->
 </div>
 <!-- end row -->
+
+<script>
+    function alertSuccess() {
+        var file = document.querySelector('input[type=file]').files[0];
+
+        if (file) {
+            $(".message").removeClass("d-none");
+        }
+    }
+    
+</script>
+
 @endsection

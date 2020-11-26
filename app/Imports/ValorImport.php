@@ -16,7 +16,6 @@ class ValorImport implements ToModel, WithHeadingRow
     public function model(array $row)
     {
         return new Valor([
-            'propiedad_id' => $row['propiedad_id'],
             'valor_construccion' => $row['valor_construccion'],
             'valor_terreno' => $row['valor_terreno'],
             'valor_comercial' => $row['valor_comercial'],

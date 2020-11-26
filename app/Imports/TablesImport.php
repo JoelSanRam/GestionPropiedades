@@ -11,11 +11,8 @@ class TablesImport implements WithMultipleSheets
         return [
             'propiedades' => new PropiedadImport(),
             'ubicaciones' => new UbicacionImport(),
-            'valores' => new ValorImport(),
             'dimenciones' => new DimencionImport(),
-            'coordenadas' => new CoordenadasImport(),
-            'marcadores' => new MarkersImport(),
-            'archivos' => new FilesImport(),
+            'valores' => new ValorImport(),
         ];
     }
 }

@@ -95,13 +95,14 @@
     </div>
 </div>
 
+
 <form action="{{ route('create-propiedad') }}" method="POST" class="form-control-with-bg">
     @csrf
     <div class="jumbotron my-5 py-3">
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label>ID</label>
-                <input name="propiedad_id" type="text" class="form-control m-b-5" required>
+                <label>ID Propiedad</label>
+                <input type="text" class="form-control m-b-5" value="@if($id == null) 1 @else {{ intval($id) + 1 }} @endif" readonly>
             </div>
             <div class="form-group col-md-6">
                 <label>ID de origen</label>
@@ -112,22 +113,26 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label>Tipo</label>
-                <input name="tipo" type="text" class="form-control m-b-5" placeholder="Ingresar tipo">
+                <input name="tipo" type="text" class="form-control m-b-5" placeholder="Ingresar tipo" required>
             </div>
             <div class="form-group col-md-6">
                 <label>Granja</label>
-                <input name="granja" type="text" class="form-control m-b-5" placeholder="Ingresar granja">
+                <select name="granja" class="form-control m-b-5" required>
+                    <option value="">Selecionar</option>
+                    <option>Si</option>
+                    <option>No</option>
+                </select>
             </div>
         </div>
 
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label>Estatus</label>
-                <input name="estatus" type="text" class="form-control m-b-5" placeholder="Ingresar estatus">
+                <input name="estatus" type="text" class="form-control m-b-5" placeholder="Ingresar estatus" required>
             </div>
             <div class="form-group col-md-6">
                 <label>Nombre corto</label>
-                <input name="nombre_corto" type="text" class="form-control m-b-5" placeholder="Ingresar nombre corto">
+                <input name="nombre_corto" type="text" class="form-control m-b-5" placeholder="Ingresar nombre corto" required>
             </div>
         </div>
 
@@ -137,32 +142,28 @@
                 <input name="ultimo_movimiento" type="text" class="form-control m-b-5" placeholder="Ingresar ultimo movimiento">
             </div>
             <div class="form-group col-md-6">
-                <label>Fecha de alta</label>
-                <input name="fecha_alta" type="date" class="form-control m-b-5">
-            </div>
-        </div>
-
-        <div class="form-row">
-            <div class="form-group col-md-6">
                 <label>Observaciones</label>
                 <input name="observaciones" type="text" class="form-control m-b-5" placeholder="Ingresar observaciones">
             </div>
+        </div>
+
+        <div class="form-row">
             <div class="form-group col-md-6">
                 <label>Propietario</label>
-                <input name="propietario" type="text" class="form-control m-b-5" placeholder="Ingresar propietario">
+                <input name="propietario" type="text" class="form-control m-b-5" placeholder="Ingresar propietario" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label>Entidad federativa</label>
+                <input name="entidad_federativa" type="text" class="form-control m-b-5" placeholder="Ingresar entidad federativa" required>
             </div>
         </div>
 
         <div class="form-row">
-            <div class="form-group col-md-4">
-                <label>Entidad federativa</label>
-                <input name="entidad_federativa" type="text" class="form-control m-b-5" placeholder="Ingresar entidad federativa">
-            </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-6">
                 <label>Municipio</label>
                 <input name="municipio" type="text" class="form-control m-b-5" placeholder="Ingresar municipio">
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-6">
                 <label>Localidad</label>
                 <input name="localidad" type="text" class="form-control m-b-5" placeholder="Ingresar localidad">
             </div>

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
+use App\Imports\CoordenadasImport;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Dimencion;
 use App\Propiedad;
 use App\Ubicacion;
@@ -16,13 +18,48 @@ use App\File;
 class CreateController extends Controller
 {
     ////// Redirect Form Create ////
-    public function createViewPropiedad(){ return view('forms.create.propiedad'); } // p2
-    public function createViewUbicacion(){ return view('forms.create.ubicacion'); } // p3
-    public function createViewDimencion(){ return view('forms.create.dimencion'); } // p4
-    public function createViewValor(){ return view('forms.create.valor'); }         // p5
-    public function createViewCoordenada(){ return view('forms.create.coordenada'); } // p6
-    public function createViewMarker(){ return view('forms.create.marker'); } // p7
-    public function createViewArchivo(){ return view('forms.create.archivo'); }
+    public function createViewPropiedad()
+    {
+        $id = Propiedad::max('id');
+        return view('forms.create.propiedad', compact('id')); 
+    }
+
+    public function createViewUbicacion()
+    {
+        $id = Ubicacion::max('id'); 
+        return view('forms.create.ubicacion', compact('id')); 
+    }
+
+    public function createViewDimencion()
+    {
+        $id = Dimencion::max('id');  
+        return view('forms.create.dimencion', compact('id')); 
+    }
+
+    public function createViewValor()
+    {
+        $id = Valor::max('id');  
+        return view('forms.create.valor', compact('id')); 
+    }
+
+    public function createViewCoordenada()
+    {
+        $id = Propiedad::max('id');
+        return view('forms.create.coordenada', compact('id')); 
+    }
+
+    public function createViewMarker()
+    {
+        $id = Propiedad::max('id'); 
+        return view('forms.create.marker', compact('id')); 
+    }
+
+    public function createViewArchivo()
+    {
+        $id = Propiedad::max('id'); 
+        return view('forms.create.archivo', compact('id')); 
+    }
+
     public function createViewArchivoFiles(){ return view('forms.create.files'); }
 
     ////// Action Form Create ////
@@ -31,19 +68,21 @@ class CreateController extends Controller
     public function createPropiedad(Request $request) 
     {
     	$this->validate($request, [
-            'propiedad_id' => 'required|unique:propiedads,propiedad_id',
+            'tipo' => 'required',
+            'estatus' => 'required',
+            'nombre_corto' => 'required',
+            'propietario' => 'required',
+            'entidad_federativa' => 'required',
         ]);
 
     	try {
             $propiedad = new Propiedad();
-            $propiedad->propiedad_id = $request->propiedad_id;
             $propiedad->origen_id = $request->origen_id;
             $propiedad->tipo = $request->tipo;
             $propiedad->granja = $request->granja;
             $propiedad->estatus = $request->estatus;
             $propiedad->nombre_corto = $request->nombre_corto;
             $propiedad->ultimo_movimiento = $request->ultimo_movimiento;
-            $propiedad->fecha_alta = $request->fecha_alta;
             $propiedad->observaciones = $request->observaciones;
             $propiedad->propietario = $request->propietario;
             $propiedad->entidad_federativa = $request->entidad_federativa; 
@@ -52,6 +91,7 @@ class CreateController extends Controller
             $propiedad->folio_regpub = $request->folio_regpub; 
             $propiedad->folio_catastral = $request->folio_catastral;
             $propiedad->save();
+            
         } catch (\Throwable $th) {
             \Session::flash('message', 'Ocurrio un error por favor verifique los datos');
         }
@@ -61,13 +101,12 @@ class CreateController extends Controller
 
     public function createUbicacion(Request $request) 
     {
-    	$this->validate($request, [
+    	/*$this->validate($request, [
             'propiedad_id' => 'required|unique:ubicacions,propiedad_id',
-        ]);
+        ]);*/
 
         try {
             $ubicacion = new Ubicacion();
-            $ubicacion->propiedad_id = $request->propiedad_id;
             $ubicacion->ejido = $request->ejido;
             $ubicacion->parcela = $request->parcela;
             $ubicacion->solar = $request->solar;
@@ -80,6 +119,7 @@ class CreateController extends Controller
             $ubicacion->lote = $request->lote;
             $ubicacion->codigo_postal = $request->codigo_postal;
             $ubicacion->save();
+
         } catch (\Throwable $th) {
             \Session::flash('message', 'Ocurrio un error por favor verifique los datos');
         }
@@ -89,19 +129,19 @@ class CreateController extends Controller
 
     public function createDimencion(Request $request) 
     {
-    	$this->validate($request, [
+    	/*$this->validate($request, [
             'propiedad_id' => 'required|unique:dimencions,propiedad_id',
-        ]);
+        ]);*/
 
         try {
             $dimencion =  new Dimencion();
-            $dimencion->propiedad_id = $request->propiedad_id;
             $dimencion->superficie_construccion = $request->superficie_construccion;
             $dimencion->superficie_terreno = $request->superficie_terreno;
             $dimencion->frente = $request->frente;
             $dimencion->fondo = $request->fondo;
             $dimencion->capacidad_granja = $request->capacidad_granja;
             $dimencion->save();
+            
         } catch (\Throwable $th) {
             \Session::flash('message', 'Ocurrio un error por favor verifique los datos');
         }
@@ -111,13 +151,12 @@ class CreateController extends Controller
 
     public function createValor(Request $request)
     {
-    	$this->validate($request, [
+    	/*$this->validate($request, [
             'propiedad_id' => 'required|unique:valors,propiedad_id',
-        ]);
+        ]);*/
 
         try {
             $valor = new Valor();
-            $valor->propiedad_id = $request->propiedad_id;
             $valor->valor_construccion = $request->valor_construccion;
             $valor->valor_terreno = $request->valor_terreno;
             $valor->valor_comercial = $request->valor_comercial;
@@ -125,54 +164,57 @@ class CreateController extends Controller
             $valor->valor_catastral = $request->valor_catastral;
             $valor->fecha_valor_catastral = $request->fecha_valor_catastral;
             $valor->save();
+
+            return redirect()->route('create-view-coordenada');
+
         } catch (\Throwable $th) {
             \Session::flash('message', 'Ocurrio un error por favor verifique los datos');
+            return redirect()->back();
         }
 
-        return redirect()->route('create-view-coordenada');
     }
 
     public function createCoordenada(Request $request)
     {
         $this->validate($request, [
-            'propiedad_id' => 'required',
+            'coordenadas' => 'required',
         ]);
 
         try {
-            $lat = $request->input('lat');
-            $lon = $request->input('lon');
 
-            foreach ($request->input('lat') as $key => $value) {
-                $coor = new Coordenada();
-                $coor->propiedad_id = $request->propiedad_id;
-                $coor->lat = floatval($lat[$key]);
-                $coor->lng = floatval($lon[$key]);
-                $coor->save();
-            }
+            Excel::import(new CoordenadasImport, request()->file('coordenadas'));
+            \Session::flash('message', 'Registros Guardados Exitosamente');
+
+            return redirect()->route('create-view-marker');
         } catch (\Throwable $th) {
             \Session::flash('message', 'Ocurrio un error por favor verifique los datos');
+            return redirect()->back();
         }
         
-        return redirect()->route('create-view-marker');
     }
 
     public function createMarker(Request $request)
     {
         $this->validate($request, [
             'propiedad_id' => 'required|unique:markers,propiedad_id',
+            'lat' => 'required',
+            'lon' => 'required',
         ]);
 
         try {
+
             $marker = new Marker();
             $marker->propiedad_id = $request->propiedad_id;
             $marker->lat = floatval($request->lat);
             $marker->lng = floatval($request->lon);
             $marker->save();
+
+            return redirect()->route('create-view-archivo');
         } catch (\Throwable $th) {
             \Session::flash('message', 'Ocurrio un error por favor verifique los datos');
+            return redirect()->back();
         }
 
-        return redirect()->route('create-complete');
     }
 
     public function createArchivo(Request $request)
@@ -187,11 +229,13 @@ class CreateController extends Controller
             $file->pdf = $request->pdf . '.pdf';
             $file->dwg = $request->dwg . '.dwg';
             $file->save();
+
+            return redirect()->route('create-view-archivo-files');
         } catch (\Throwable $th) {
             \Session::flash('message', 'Ocurrio un error, por favor verifica los datos');
+            return redirect()->back();
         }
-
-        return redirect()->route('create-view-archivo-files');
+        
     }
 
     public function createArchivoFiles(Request $request)

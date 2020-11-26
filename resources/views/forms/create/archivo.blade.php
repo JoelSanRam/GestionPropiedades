@@ -100,9 +100,9 @@
     <div class="jumbotron my-5 py-3">
 
         <div class="form-row">
-            <div class="form-group col-md-3">
-                <label>ID</label>
-                <input name="propiedad_id" type="text" class="form-control" required>
+            <div class="form-group">
+                <label>ID Propiedad</label>
+                <input name="propiedad_id" type="text" class="form-control m-b-5" value="@if($id == null) 1 @else {{ intval($id) }} @endif" readonly>
             </div>
             <div class="form-group col-md-3">
                 <label>Nombre del PDF</label>

@@ -94,31 +94,35 @@
         @endif
     </div>
 </div>
+    
 
-<form action="{{ route('create-coordenada') }}" method="POST" class="form-control-with-bg">
+<form action="{{ route('create-coordenada') }}" method="POST" class="form-control-with-bg" enctype="multipart/form-data">
     @csrf
     <div class="jumbotron my-5 py-3">
 
-        <div class="form-row">
-            <div class="form-group col-md-3">
-                <label>ID</label>
-                <input name="propiedad_id" type="text" class="form-control" required>
+        <div class="form-row justify-content-center">
+            <div class="col-md-8">
+
+                <div class="form-group">
+                    <label>ID Propiedad</label>
+                    <input type="text" class="form-control m-b-5" value="@if($id == null) 1 @else {{ intval($id) }} @endif" readonly>
+                </div>
+
+                <div class="input-group my-3">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" onchange="alertSuccess()" id="coordenadas" name="coordenadas">
+                        <label class="custom-file-label" for="coordenadas">Elige tu archivo</label>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="alert alert-primary message d-none" role="alert">
+                    Archivo Cargado
+                </div>
             </div>
         </div>
-
-        <a href="javascript:void(0);" class="btn btn-primary my-3 add_button">Agregar Campo</a>
-
-        <div class="field_wrapper">
-            <div class="form-row mb-2">
-                <div class="form-group col-md-3">
-                    <input name="lat[]" type="text" class="form-control" placeholder="Ingresar latitud" required>
-                </div>
-                <div class="form-group col-md-3">
-                    <input name="lon[]" type="text" class="form-control" placeholder="Ingresar longitud" required>
-                </div>
-            </div>
-        </div>
-
+        
         <div class="form-row justify-content-end">
             <a href="/listado" class="btn btn-secondary btn-lg mr-2">Cancelar</a>
             <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
@@ -126,38 +130,15 @@
     </div>
 </form>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){
-    var maxField = 10;
-    var addButton = $('.add_button'); 
-    var wrapper = $('.field_wrapper'); //Input field wrapper
-    var fieldHTML = `
-        <div class="form-row mb-2">
-            <div class="form-group col-md-3">
-                <input name="lat[]" type="text" class="form-control" placeholder="Ingresar latitud" required>
-            </div>
-            <div class="form-group col-md-3">
-                <input name="lon[]" type="text" class="form-control" placeholder="Ingresar longitud" required>
-            </div>
-            <button class="btn btn-danger remove_button btn-sm">Borrar</button>
-        </div>
-    `;
+<script>
+    function alertSuccess() {
+        var file = document.querySelector('input[type=file]').files[0];
 
-    var x = 1; //Initial field counter is 1
-    $(addButton).click(function(){ //Once add button is clicked
-        if(x < maxField){ //Check maximum number of input fields
-            x++; //Increment field counter
-            $(wrapper).append(fieldHTML); // Add field html
+        if (file) {
+            $(".message").removeClass("d-none");
         }
-    });
-
-    $(wrapper).on('click', '.remove_button', function(e){ //Once remove button is clicked
-        e.preventDefault();
-        $(this).parent('div').remove(); //Remove field html
-        x--; //Decrement field counter
-    });
-});
+    }
+    
 </script>
 
 @endsection

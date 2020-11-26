@@ -16,7 +16,6 @@ class DimencionImport implements ToModel, WithHeadingRow
     public function model(array $row)
     {
         return new Dimencion([
-            'propiedad_id' => $row['propiedad_id'],
             'superficie_construccion' => $row['superficie_construccion'],
             'superficie_terreno' => $row['superficie_terreno'],
             'frente' => $row['frente'],

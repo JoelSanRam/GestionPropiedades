@@ -100,8 +100,8 @@
     <div class="jumbotron my-5 py-3">
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label>ID</label>
-                <input name="propiedad_id" type="text" class="form-control m-b-5" required>
+                <label>ID Propiedad</label>
+                <input type="text" class="form-control m-b-5" value="@if($id == null) 1 @else {{ intval($id) + 1 }} @endif" readonly>
             </div>
             <div class="form-group col-md-6">
                 <label>Valor de construccion</label>

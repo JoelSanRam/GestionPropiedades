@@ -67,8 +67,32 @@
                             </div>
                     </form>
                 @else
-                    <a href="{{ route('create-view-marker') }}" class="btn btn-primary my-3">Agregar Marcador</a>
-                    <h6>No existe el marcador</h6>
+                    
+                    <form action="{{ route('create-marker') }}" method="POST">
+                        @csrf
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>ID Propiedad</label>
+                                <input name="propiedad_id" type="text" class="form-control m-b-5" value="{{ $id }}" readonly>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label>Latitud</label>
+                                <input name="lat" type="text" class="form-control" placeholder="Ingresar latitud" required>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label>Longitud</label>
+                                <input name="lon" type="text" class="form-control" placeholder="Ingresar longitud" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row justify-content-end">
+                            <a href="/listado" class="btn btn-secondary btn-lg mr-2">Cancelar</a>
+                            <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
+                        </div>
+
+                    </form>
+
                 @endif
 
             </div>

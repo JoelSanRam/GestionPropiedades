@@ -48,7 +48,7 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>ID</label>
-                            <input type="text" class="form-control m-b-5" value="{{ $item->propiedad_id }}" readonly>
+                            <input type="text" class="form-control m-b-5" value="{{ $item->id }}" readonly>
                         </div>
                         <div class="form-group col-md-6">
                             <label>Valor de construccion</label>

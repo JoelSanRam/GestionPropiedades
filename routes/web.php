@@ -80,10 +80,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/cargar-excel', 'UploadController@create')->name('view-upload'); // ruta formulario insercion de datos
     Route::get('/search', 'ReportController@search')->name('search'); // busqueda
 
-    Route::get('/group/form/create/crear-predio', function () {
-        return view('forms.create.propiedad');
-    })->name('crear-predio');
-
     Route::get('create/complete', function () {
         return view('forms.create.complete');
     })->name('create-complete');
