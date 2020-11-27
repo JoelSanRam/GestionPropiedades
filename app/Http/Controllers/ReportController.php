@@ -16,28 +16,50 @@ class ReportController extends Controller
 {
     public function reporte()
     {
-        return view('reportes.reporte');
+        $entidades = DB::table('propiedads')->select('entidad_federativa')->distinct()->get();
+        $localidades = DB::table('propiedads')->select('localidad')->distinct()->get();
+        $propietarios = DB::table('propiedads')->select('propietario')->distinct()->get();
+        $status = DB::table('propiedads')->select('estatus')->distinct()->get();
+        return view('reportes.reporte', compact('entidades', 'localidades', 'propietarios', 'status'));
     }
 
     public function search(Request $request)
     {
-        $tipo = $request->get('tipo');
         $entidad = $request->get('entidad');
+        $localidad = $request->get('localidad');
+        $propietario = $request->get('propietario');
         $status = $request->get('status');
         $option = $request->get('option');
 
         $datos = DB::table('propiedads')
-                    ->where([['tipo', $tipo], ['estatus', $status], ['entidad_federativa', $entidad]])
-                    ->join('dimencions', 'propiedads.propiedad_id', '=', 'dimencions.propiedad_id')
-                    ->join('valors', 'propiedads.propiedad_id', '=', 'valors.propiedad_id')
-                    ->select('propiedads.*', 'dimencions.superficie_terreno', 'valors.valor_comercial','valors.valor_catastral')
-                    ->get();
+                    ->orWhere('entidad_federativa', $entidad)
+                    ->orWhere('localidad', $localidad)
+                    ->orWhere('propietario', $propietario)
+                    ->orWhere('estatus', $status)
+                    ->join('ubicacions', 'propiedads.id', '=', 'ubicacions.id')
+                    ->join('dimencions', 'propiedads.id', '=', 'dimencions.id')
+                    ->join('valors', 'propiedads.id', '=', 'valors.id')
+                    ->select(
+                        'propiedads.*', 
+                        'ubicacions.direccion', 
+                        'dimencions.superficie_terreno', 
+                        'valors.valor_comercial',
+                        'valors.valor_catastral')->get();
+
 
         if ($option == "filtrar") {
 
-            return view('reportes.reporte', compact('datos'));
+            // Filtros 
+
+            $entidades = DB::table('propiedads')->select('entidad_federativa')->distinct()->get();
+            $localidades = DB::table('propiedads')->select('localidad')->distinct()->get();
+            $propietarios = DB::table('propiedads')->select('propietario')->distinct()->get();
+            $status = DB::table('propiedads')->select('estatus')->distinct()->get();
+
+            return view('reportes.reporte', compact('datos', 'entidades', 'localidades', 'propietarios', 'status'));
 
         } else if($option == "reporte") {
+
             $pdf =  \PDF::loadView('reportes.pdf', ['data' => $datos])->setPaper('a4', 'landscape');
 
             return $pdf->stream('propiedades.pdf');
@@ -47,15 +69,13 @@ class ReportController extends Controller
 
     public function pdfIndividual($id)
     {
-        $propiedad = Propiedad::where('propiedad_id', $id)->first();
-        //$dato = Dato::where('propiedad_id', $id)->first();
-        $dimencion = Dimencion::where('propiedad_id', $id)->first();
-        $ubicacion = Ubicacion::where('propiedad_id', $id)->first();
-        $valor = Valor::where('propiedad_id', $id)->first();
+        $propiedad = Propiedad::find($id);
+        $dimencion = Dimencion::find($id);
+        $ubicacion = Ubicacion::find($id);
+        $valor = Valor::find($id);
 
         $pdf = \PDF::loadView('reportes.individual', [
-                'propiedad' => $propiedad, 
-                //'dato' => $dato, 
+                'propiedad' => $propiedad,
                 'dimencion' => $dimencion, 
                 'ubicacion' => $ubicacion, 
                 'valor' => $valor

@@ -6,26 +6,37 @@
     
     <!-- begin page-header -->
     <form class="my-2" action="{{ route('search') }}" method="GET">
-
-        <label for="exampleFormControlSelect1">Tipo</label>
-        <select class="page-header form-control-sm" name="tipo">
-          <option>Tipo</option>
-          <option>PREDIO URBANO</option>
-          <option>3</option>
+        
+        <label style="margin-left: 10px">Entidad</label>
+        <select class="page-header form-control-sm" name="entidad">
+            <option value="">Elegir</option>
+            @foreach($entidades as $item)
+                <option>{{ $item->entidad_federativa }}</option>
+            @endforeach
         </select>
 
-        <label style="margin-left: 10px"for="exampleFormControlSelect1">Entidad</label>
-        <select class="page-header form-control-sm" name="entidad">
-          <option>Entidad</option>
-          <option>YUCATAN</option>
-          <option>3</option>
+        <label style="margin-left: 10px">Localidad</label>
+        <select class="page-header form-control-sm" name="localidad">
+            <option value="">Elegir</option>
+            @foreach($localidades as $item)
+                <option>{{ $item->localidad }}</option>
+            @endforeach
+        </select>
+
+        <label style="margin-left: 10px">Propietario</label>
+        <select class="page-header form-control-sm" name="propietario">
+            <option value="">Elegir</option>
+            @foreach($propietarios as $item)
+                <option>{{ $item->propietario }}</option>
+            @endforeach
         </select>
 
         <label style="margin-left: 10px">Status</label>
         <select class="page-header form-control-sm" name="status">
-          <option>Status</option>
-          <option>Vendido</option>
-          <option>3</option>
+            <option value="">Elegir</option>
+            @foreach($status as $item)
+                <option>{{ $item->estatus }}</option>
+            @endforeach
         </select>
 
         <button type="submit" name="option" value="filtrar" class="btn btn-success mr-1 ml-2">Filtrar</button>
@@ -57,11 +68,11 @@
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
-                            <th scope="col">Entidad Federativa</th>
-                            <th scope="col">Municipio</th>
+                            <th scope="col">Entidad</th>
                             <th scope="col">Localidad</th>
-                            <th scope="col">Folio Reg Pub</th>
-                            <th scope="col">Folio Catastral</th>
+                            <th scope="col">Direccion</th>
+                            <th scope="col">Nombre Corto</th>
+                            <th scope="col">Propietario</th>
                             <th scope="col">Superficie Terreno</th>
                             <th scope="col">Valor Comercial</th> 
                             <th scope="col">Valor Catastral</th>
@@ -71,15 +82,15 @@
                         @if(isset($datos))
                             @foreach($datos as $item)
                                 <tr>
-                                    <td>{{ $item->propiedad_id }}</td>
+                                    <td>{{ $item->id }}</td>
                                     <td>{{ $item->entidad_federativa }}</td>
-                                    <td>{{ $item->municipio }}</td>
                                     <td>{{ $item->localidad }}</td>
-                                    <td>{{ $item->folio_regpub }}</td>
-                                    <td>{{ $item->folio_catastral }}</td>
+                                    <td>{{ $item->direccion }}</td>
+                                    <td>{{ $item->nombre_corto }}</td>
+                                    <td>{{ $item->propietario }}</td>
                                     <td>{{ $item->superficie_terreno }}</td>
                                     <td>{{ $item->valor_comercial }}</td>
-                                    <td>{{ $item->valor_catastral }}</td> 
+                                    <td>{{ $item->valor_catastral }}</td>  
                                 </tr>
                             @endforeach
                         @endif

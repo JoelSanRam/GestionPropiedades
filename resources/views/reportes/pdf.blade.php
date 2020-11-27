@@ -26,11 +26,11 @@
         <thead>
             <tr>
                 <th scope="col">ID</th>
-                <th scope="col">Entidad Federativa</th>
-                <th scope="col">Municipio</th>
+                <th scope="col">Entidad</th>
                 <th scope="col">Localidad</th>
-                <th scope="col">Folio Reg Pub</th>
-                <th scope="col">Folio Catastral</th>
+                <th scope="col">Direccion</th>
+                <th scope="col">Nombre Corto</th>
+                <th scope="col">Propietario</th>
                 <th scope="col">Superficie Terreno</th>
                 <th scope="col">Valor Comercial</th> 
                 <th scope="col">Valor Catastral</th>
@@ -39,12 +39,12 @@
         <tbody>
             @foreach($data as $item)
 	        	<tr>
-	                <td>{{ $item->propiedad_id }}</td>
+	                <td>{{ $item->id }}</td>
 	                <td>{{ $item->entidad_federativa }}</td>
-	                <td>{{ $item->municipio }}</td>
                     <td>{{ $item->localidad }}</td>
-                    <td>{{ $item->folio_regpub }}</td>
-	                <td>{{ $item->folio_catastral }}</td>
+                    <td>{{ $item->direccion }}</td>
+	                <td>{{ $item->nombre_corto }}</td>
+                    <td>{{ $item->propietario }}</td>
 	                <td>{{ $item->superficie_terreno }}</td>
 	                <td>{{ $item->valor_comercial }}</td>
 	                <td>{{ $item->valor_catastral }}</td> 

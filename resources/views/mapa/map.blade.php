@@ -8,28 +8,30 @@
     <!-- begin page-header -->
     <form class="my-2" action="{{ route('search-map') }}" method="GET">
 
-        <label for="exampleFormControlSelect1">Tipo</label>
-        <select class="page-header form-control-sm" name="tipo">
-          <option>Tipo</option>
-          <option>PREDIO URBANO</option>
-          <option>3</option>
-        </select>
+      <label style="margin-left: 10px">Granja</label>
+      <select class="page-header form-control-sm" name="granja">
+          <option value="">Elegir</option>
+          <option>Si</option>
+          <option>No</option>
+      </select>
 
-        <label style="margin-left: 10px"for="exampleFormControlSelect1">Entidad</label>
-        <select class="page-header form-control-sm" name="entidad">
-          <option>Entidad</option>
-          <option>YUCATAN</option>
-          <option>3</option>
-        </select>
+      <label style="margin-left: 10px">Propietario</label>
+      <select class="page-header form-control-sm" name="propietario">
+          <option value="">Elegir</option>
+          @foreach($propietarios as $item)
+              <option>{{ $item->propietario }}</option>
+          @endforeach
+      </select>
 
-        <label style="margin-left: 10px">Status</label>
-        <select class="page-header form-control-sm" name="status">
-          <option>Status</option>
-          <option>Vendido</option>
-          <option>3</option>
-        </select>
+      <label style="margin-left: 10px">Status</label>
+      <select class="page-header form-control-sm" name="status">
+          <option value="">Elegir</option>
+          @foreach($status as $item)
+              <option>{{ $item->estatus }}</option>
+          @endforeach
+      </select>
 
-        <button type="submit" class="btn btn-success mr-1 ml-2">Filtrar</button>
+      <button type="submit" class="btn btn-success mr-1 ml-2">Filtrar</button>
 
     </form>
 <!-- end page-header -->
