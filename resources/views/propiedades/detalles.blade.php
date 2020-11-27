@@ -34,7 +34,7 @@
                         <tbody>
                             <tr>
                                 <td class="bg-silver-lighter">ID</td>
-                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $propiedad->propiedad_id }}</a></td>
+                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $propiedad->id }}</a></td>
                             </tr>
                             <tr>
                                 <td class="bg-silver-lighter">ID Origen</td>
@@ -384,7 +384,7 @@
                             <tr>
                                 <td>
                                     @if(!empty($archivo))
-                                        @if($archivo->pdf != null && $archivo->pdf != ".pdf")
+                                        @if($archivo->pdf != null && $archivo->pdf != "")
                                             <a href="{{ route('doc-pdf', $archivo->id ) }}" class="btn btn-green">{{$archivo->pdf}}</a>
                                         @else
                                             No hay documento pdf
@@ -396,7 +396,7 @@
                                 </td>
                                 <td>
                                     @if(!empty($archivo))
-                                        @if($archivo->dwg != null && $archivo->dwg != ".dwg")
+                                        @if($archivo->dwg != null && $archivo->dwg != "")
                                             <a href="{{ route('doc-dwg', $archivo->id ) }}" class="btn btn-green">{{$archivo->dwg}}</a>
                                         @else
                                             No hay documento dwg

@@ -95,11 +95,18 @@
     </div>
 </div>
 
-<form action="{{ route('create-archivo-files') }}" method="POST" enctype="multipart/form-data" class="form-control-with-bg">
+<form action="{{ route('create-archivo') }}" method="POST" enctype="multipart/form-data" class="form-control-with-bg">
     @csrf
     <div class="jumbotron my-5 py-3">
 
-        <div class="form-row">
+        <div class="form-row justify-content-center">
+            <div class="form-group col-md-6">
+                <label>ID Propiedad</label>
+                <input name="propiedad_id" type="text" class="form-control m-b-5" value="@if($id == null) 1 @else {{ intval($id) }} @endif" readonly>
+            </div>
+        </div>
+
+        <div class="form-row justify-content-center">
             <div class="form-group col-md-6">
                 <label>Archivo PDF</label>
                 <div class="custom-file">
@@ -112,7 +119,7 @@
             </div>
         </div>
 
-        <div class="form-row">
+        <div class="form-row justify-content-center">
             <div class="form-group col-md-6">
                 <label>Archivo DWG</label>
                 <div class="custom-file">

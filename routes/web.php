@@ -29,7 +29,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/create/view/coordenada', 'CreateController@createViewCoordenada')->name('create-view-coordenada');
     Route::get('/create/view/marker', 'CreateController@createViewMarker')->name('create-view-marker');
     Route::get('/create/view/archivo', 'CreateController@createViewArchivo')->name('create-view-archivo');
-    Route::get('/create/view/archivo/files', 'CreateController@createViewArchivoFiles')->name('create-view-archivo-files');
 
     ///// routes post form create /////
     Route::post('/create/save/propiedad', 'CreateController@createPropiedad')->name('create-propiedad');
@@ -39,7 +38,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/create/save/coordenada', 'CreateController@createCoordenada')->name('create-coordenada');
     Route::post('/create/save/marker', 'CreateController@createMarker')->name('create-marker');
     Route::post('/create/save/archivo', 'CreateController@createArchivo')->name('create-archivo');
-    Route::post('/create/save/archivo/files', 'CreateController@createArchivoFiles')->name('create-archivo-files');
 
 
     ////// routes update view ///////
@@ -58,7 +56,9 @@ Route::middleware('auth')->group(function () {
     Route::put('/update/save/valor/{id}', 'ChangesController@updateValor')->name('update-valor');
     Route::put('/update/save/coordenada', 'ChangesController@updateCoordenada')->name('update-coordenada');
     Route::put('/update/save/marker/{id}', 'ChangesController@updateMarker')->name('update-marker');
-    Route::put('/update/save/archivo/{id}', 'ChangesController@updateArchivo')->name('update-archivo');
+    Route::put('/update/save/archivo/pdf/and/dwg', 'ChangesController@updateArchivoPDFAndDWG')->name('update-archivo');
+    Route::put('/update/save/archivo/pdf/{id}', 'ChangesController@updateArchivoPDF')->name('update-view-archivo-pdf');
+    Route::put('/update/save/archivo/dwg/{id}', 'ChangesController@updateArchivoDWG')->name('update-view-archivo-dwg');
 
     ///// route delete coordenada ////
     Route::get('/delete/coordenada/{id}', 'ChangesController@deleteCoordenada')->name('delete-coordenada'); 

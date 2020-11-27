@@ -104,7 +104,7 @@ class FileController extends Controller
         try {
             $file = File::find($id);
             Storage::delete("pdf/{$file->pdf}");
-            DB::table('files')->where('id', $id)->update(['pdf' => ".pdf"]);
+            DB::table('files')->where('id', $id)->update(['pdf' => ""]);
             \Session::flash('message', 'El archivo se elimino con exito');
         } catch (\Throwable $th) {
             \Session::flash('message', 'Ocurrio un error, no se encontro el archivo');
@@ -118,7 +118,7 @@ class FileController extends Controller
         try {
             $file = File::find($id);
             Storage::delete("dwg/{$file->dwg}");
-            DB::table('files')->where('id', $id)->update(['dwg' => ".dwg"]);
+            DB::table('files')->where('id', $id)->update(['dwg' => ""]);
             \Session::flash('message', 'El archivo se elimino con exito');
         } catch (\Throwable $th) {
             \Session::flash('message', 'Ocurrio un error, no se encontro el archivo');

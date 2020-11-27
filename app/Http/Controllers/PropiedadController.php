@@ -24,10 +24,10 @@ class PropiedadController extends Controller
 
     public function detalles($id)
     {
-        $propiedad = Propiedad::where('propiedad_id', $id)->first();
-        $dimencion = Dimencion::where('propiedad_id', $id)->first();
-        $ubicacion = Ubicacion::where('propiedad_id', $id)->first();
-        $valor = Valor::where('propiedad_id', $id)->first();
+        $propiedad = Propiedad::find($id);
+        $dimencion = Dimencion::find($id);
+        $ubicacion = Ubicacion::find($id);
+        $valor = Valor::find($id);
         $marker = Marker::where('propiedad_id', $id)->first();
         $polygon = Coordenada::where('propiedad_id', $id)->get();
         $archivo = File::where('propiedad_id', $id)->first();

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Dato;
 use App\Dimencion;
@@ -30,7 +31,7 @@ class ChangesController extends Controller
     public function updateViewArchivo($id)
     { 
         $item = File::where('propiedad_id', $id)->first(); 
-        return view('forms.update.files', compact('item')); 
+        return view('forms.update.files', compact('item', 'id')); 
     }
 
     public function updateViewCoordenada($id)
@@ -165,25 +166,103 @@ class ChangesController extends Controller
         return redirect()->route('listado');
     }
 
-    public function updateArchivo(Request $request, $id)
+    public function updateArchivoPDF(Request $request, $id)
     {
-         
+        $pdfName = '';
+
         try {
-            if (preg_match("/pdf/i", $request->pdf) && preg_match("/dwg/i", $request->dwg)) {
-                $file = File::find($id);
-                $file->pdf = $request->pdf;
-                $file->dwg = $request->dwg;
-                $file->save();
+            if ($request->has('pdf')) {
 
-                return redirect()->route('listado');
+                Storage::putFileAs(
+                    'pdf', 
+                    $request->file('pdf'), 
+                    $request->file('pdf')->getClientOriginalName()
+                );
 
-            } else {
-                \Session::flash('message', 'Debe agregar la extension correcta en el nombre del archivo');
-                return redirect()->back();
+                $pdfName = $request->file('pdf')->getClientOriginalName(); 
             }
 
+            $file = File::find($id);
+            $file->pdf = $pdfName;
+            $file->save();
+
+            \Session::flash('message', 'Archivo PDF subido con exito');
+
         } catch (\Throwable $th) {
-            \Session::flash('message', 'Ocurrio un error por favor verifique los datos');
+            \Session::flash('message', 'Ocurrio un error, al subir el archivo PDF');
+        }
+
+        return redirect()->back();
+    }
+
+    public function updateArchivoDWG(Request $request, $id)
+    {
+        $dwgName = '';
+
+        try {
+            if ($request->has('dwg')) {
+
+                Storage::putFileAs(
+                    'dwg', 
+                    $request->file('dwg'), 
+                    $request->file('dwg')->getClientOriginalName()
+                );
+
+                $dwgName = $request->file('dwg')->getClientOriginalName();
+            }
+
+            $file = File::find($id);
+            $file->dwg = $dwgName;
+            $file->save();
+
+            \Session::flash('message', 'Archivo DWG subido con exito');
+
+        } catch (\Throwable $th) {
+            \Session::flash('message', 'Ocurrio un error, al subir el archivo DWG');
+        }
+
+        return redirect()->back();
+    }
+
+    public function updateArchivoPDFAndDWG(Request $request)
+    {
+        $pdfName = '';
+        $dwgName = '';
+
+        try {
+
+            if ($request->has('pdf')) {
+
+                Storage::putFileAs(
+                    'pdf', 
+                    $request->file('pdf'), 
+                    $request->file('pdf')->getClientOriginalName()
+                );
+
+                $pdfName = $request->file('pdf')->getClientOriginalName(); 
+            }
+
+            if ($request->has('dwg')) {
+
+                Storage::putFileAs(
+                    'dwg', 
+                    $request->file('dwg'), 
+                    $request->file('dwg')->getClientOriginalName()
+                );
+
+                $dwgName = $request->file('dwg')->getClientOriginalName();
+            }
+
+            $file = new File();
+            $file->propiedad_id = $request->propiedad_id;
+            $file->pdf = $pdfName;
+            $file->dwg = $dwgName;
+            $file->save();
+
+            return redirect()->back();
+
+        } catch (\Throwable $th) {
+            \Session::flash('message', 'Ocurrio un error, por favor verifica los archivos que intentas subir');
             return redirect()->back();
         }
 
