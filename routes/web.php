@@ -85,11 +85,6 @@ Route::middleware('auth')->group(function () {
     })->name('create-complete');
 
 
-    ////// upload pdfs dwg and excel ///////
-    Route::get('/upload/files/file-pdf', 'FileController@uploadViewPDF')->name('files-view-pdf');
-    Route::get('/upload/files/file-dwg', 'FileController@uploadViewDWG')->name('files-view-dwg');
-    Route::post('/upload/post/files-pdfs', 'FileController@uploadPDF')->name('upload-pdfs');
-    Route::post('/upload/post/files-dwgs', 'FileController@uploadDWG')->name('upload-dwgs');
 
     ///// downloads documents //////
     Route::get('/downloads/pdf/doc-pdf/{id}', 'FileController@downloadPDF')->name('doc-pdf');
