@@ -52,8 +52,7 @@ class CreateController extends Controller
     {
         $id = Propiedad::max('id'); 
         return view('forms.create.marker', compact('id')); 
-    }eturn view('forms.create.archivo', compact('id')); 
-    }*/
+    }
 
     public function createViewArchivo()
     {
