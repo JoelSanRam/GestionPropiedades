@@ -225,24 +225,26 @@ class CreateController extends Controller
 
             if ($request->has('pdf')) {
 
+                $pdfName = uniqid() . $request->file('pdf')->getClientOriginalName(); 
+
                 Storage::putFileAs(
                     'pdf', 
                     $request->file('pdf'), 
-                    $request->file('pdf')->getClientOriginalName()
+                    $pdfName
                 );
-
-                $pdfName = $request->file('pdf')->getClientOriginalName(); 
+                
             }
 
             if ($request->has('dwg')) {
 
-                Storage::putFileAs(
-                    'dwg', 
-                    $request->file('dwg'), 
-                    $request->file('dwg')->getClientOriginalName()
-                );
+                $dwgName = uniqid() . $request->file('dwg')->getClientOriginalName();
 
-                $dwgName = $request->file('dwg')->getClientOriginalName();
+                Storage::putFileAs(
+                    'dwg',
+                    $request->file('dwg'), 
+                    $dwgName
+                );
+                
             }
 
             $file = new File();

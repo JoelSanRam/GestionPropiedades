@@ -173,13 +173,13 @@ class ChangesController extends Controller
         try {
             if ($request->has('pdf')) {
 
+                $pdfName = uniqid() . $request->file('pdf')->getClientOriginalName(); 
+
                 Storage::putFileAs(
                     'pdf', 
                     $request->file('pdf'), 
-                    $request->file('pdf')->getClientOriginalName()
+                    $pdfName
                 );
-
-                $pdfName = $request->file('pdf')->getClientOriginalName(); 
             }
 
             $file = File::find($id);
@@ -202,13 +202,14 @@ class ChangesController extends Controller
         try {
             if ($request->has('dwg')) {
 
+                $dwgName = uniqid() . $request->file('dwg')->getClientOriginalName();
+
                 Storage::putFileAs(
                     'dwg', 
                     $request->file('dwg'), 
-                    $request->file('dwg')->getClientOriginalName()
+                    $dwgName
                 );
 
-                $dwgName = $request->file('dwg')->getClientOriginalName();
             }
 
             $file = File::find($id);
@@ -233,24 +234,26 @@ class ChangesController extends Controller
 
             if ($request->has('pdf')) {
 
+                $pdfName = uniqid() . $request->file('pdf')->getClientOriginalName(); 
+
                 Storage::putFileAs(
                     'pdf', 
                     $request->file('pdf'), 
-                    $request->file('pdf')->getClientOriginalName()
+                    $pdfName
                 );
-
-                $pdfName = $request->file('pdf')->getClientOriginalName(); 
+                
             }
 
             if ($request->has('dwg')) {
 
+                $dwgName = uniqid() . $request->file('dwg')->getClientOriginalName();
+
                 Storage::putFileAs(
                     'dwg', 
                     $request->file('dwg'), 
-                    $request->file('dwg')->getClientOriginalName()
+                    $dwgName
                 );
-
-                $dwgName = $request->file('dwg')->getClientOriginalName();
+                
             }
 
             $file = new File();
@@ -265,7 +268,6 @@ class ChangesController extends Controller
             \Session::flash('message', 'Ocurrio un error, por favor verifica los archivos que intentas subir');
             return redirect()->back();
         }
-
     }
 
     public function deleteCoordenada($id)
