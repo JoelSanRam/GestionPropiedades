@@ -151,6 +151,14 @@
                                 <td class="bg-silver-lighter">Capacidad granja</td>
                                 <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $dimencion->capacidad_granja }}</a></td>
                             </tr>
+                            <tr>
+                                <td class="bg-silver-lighter">Fecha alta</td>
+                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $dimencion->created_at }}</a></td>
+                            </tr>
+                            <tr>
+                                <td class="bg-silver-lighter">Ult. Mov</td>
+                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $dimencion->updated_at }}</a></td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -202,6 +210,14 @@
                             <tr>
                                 <td class="bg-silver-lighter">Folio catastral</td>
                                 <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $propiedad->folio_catastral }}</a></td>
+                            </tr>
+                            <tr>
+                                <td class="bg-silver-lighter">Fecha alta</td>
+                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $propiedad->created_at }}</a></td>
+                            </tr>
+                            <tr>
+                                <td class="bg-silver-lighter">Ult. Mov</td>
+                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $propiedad->updated_at }}</a></td>
                             </tr>
                         </tbody>
                     </table>
@@ -285,6 +301,14 @@
                                 <td class="bg-silver-lighter">Código postal</td>
                                 <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $ubicacion->codigo_postal }}</a></td>
                             </tr>
+                            <tr>
+                                <td class="bg-silver-lighter">Fecha alta</td>
+                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $ubicacion->created_at }}</a></td>
+                            </tr>
+                            <tr>
+                                <td class="bg-silver-lighter">Ult. Mov</td>
+                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $ubicacion->updated_at }}</a></td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -340,6 +364,14 @@
                             <tr>
                                 <td class="bg-silver-lighter">Fecha del valor catastral</td>
                                 <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $valor->fecha_valor_catastral }}</a></td>
+                            </tr>
+                            <tr>
+                                <td class="bg-silver-lighter">Fecha alta</td>
+                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $valor->created_at }}</a></td>
+                            </tr>
+                            <tr>
+                                <td class="bg-silver-lighter">Ult. Mov</td>
+                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $valor->updated_at }}</a></td>
                             </tr>
                         </tbody>
                     </table>
@@ -407,6 +439,23 @@
                                     @endif
                                 </td>
                             </tr>
+                                @if(!empty($archivo->created_at)){{-- valida si contiene informacion --}}
+                                <tr>
+                                <td class="bg-silver-lighter">Fecha alta</td>
+                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $archivo->created_at }}</a></td>
+                                </tr>
+                                @endif
+                           
+                            
+                                @if (!empty($archivo->updated_at))
+                                <tr>
+                                <td class="bg-silver-lighter">Ult. Mov</td>
+                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $archivo->updated_at }}</a></td>
+                                </tr>
+                                @endif
+                           
+                                
+                            
                         </tbody>
                     </table>
                 </div>
