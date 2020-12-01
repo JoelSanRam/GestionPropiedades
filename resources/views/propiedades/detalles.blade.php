@@ -57,20 +57,20 @@
                                 <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $propiedad->nombre_corto }}</a></td>
                             </tr>
                             <tr>
-                                <td class="bg-silver-lighter">Ult. Mov.</td>
-                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $propiedad->ultimo_movimiento }}</a></td>
-                            </tr>
-                            <tr>
-                                <td class="bg-silver-lighter">Fecha alta</td>
-                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $propiedad->fecha_alta }}</a></td>
-                            </tr>
-                            <tr>
                                 <td class="bg-silver-lighter">Propietario</td>
                                 <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $propiedad->propietario }}</a></td>
                             </tr>
                             <tr>
                                 <td class="bg-silver-lighter">Observaciones</td>
                                 <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $propiedad->observaciones }}</a></td>
+                            </tr>
+                            <tr>
+                                <td class="bg-silver-lighter">Fecha alta</td>
+                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $propiedad->created_at }}</a></td>
+                            </tr>
+                            <tr>
+                                <td class="bg-silver-lighter">Ult. Mov</td>
+                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $propiedad->updated_at }}</a></td>
                             </tr>
                         </tbody>
                     </table>

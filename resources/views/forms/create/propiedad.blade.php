@@ -138,32 +138,25 @@
 
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label>Ultimo movimiento</label>
-                <input name="ultimo_movimiento" type="text" class="form-control m-b-5" placeholder="Ingresar ultimo movimiento">
-            </div>
-            <div class="form-group col-md-6">
                 <label>Observaciones</label>
                 <input name="observaciones" type="text" class="form-control m-b-5" placeholder="Ingresar observaciones">
             </div>
-        </div>
-
-        <div class="form-row">
             <div class="form-group col-md-6">
                 <label>Propietario</label>
                 <input name="propietario" type="text" class="form-control m-b-5" placeholder="Ingresar propietario" required>
             </div>
-            <div class="form-group col-md-6">
-                <label>Entidad federativa</label>
-                <input name="entidad_federativa" type="text" class="form-control m-b-5" placeholder="Ingresar entidad federativa" required>
-            </div>
         </div>
 
         <div class="form-row">
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-4">
+                <label>Entidad federativa</label>
+                <input name="entidad_federativa" type="text" class="form-control m-b-5" placeholder="Ingresar entidad federativa" required>
+            </div>
+            <div class="form-group col-md-4">
                 <label>Municipio</label>
                 <input name="municipio" type="text" class="form-control m-b-5" placeholder="Ingresar municipio">
             </div>
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-4">
                 <label>Localidad</label>
                 <input name="localidad" type="text" class="form-control m-b-5" placeholder="Ingresar localidad">
             </div>

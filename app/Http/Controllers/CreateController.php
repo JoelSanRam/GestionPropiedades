@@ -62,7 +62,6 @@ class CreateController extends Controller
 
     ////// Action Form Create ////
 
-
     public function createPropiedad(Request $request) 
     {
     	$this->validate($request, [
@@ -80,7 +79,6 @@ class CreateController extends Controller
             $propiedad->granja = $request->granja;
             $propiedad->estatus = $request->estatus;
             $propiedad->nombre_corto = $request->nombre_corto;
-            $propiedad->ultimo_movimiento = $request->ultimo_movimiento;
             $propiedad->observaciones = $request->observaciones;
             $propiedad->propietario = $request->propietario;
             $propiedad->entidad_federativa = $request->entidad_federativa; 
@@ -99,9 +97,9 @@ class CreateController extends Controller
 
     public function createUbicacion(Request $request) 
     {
-    	/*$this->validate($request, [
-            'propiedad_id' => 'required|unique:ubicacions,propiedad_id',
-        ]);*/
+    	$this->validate($request, [
+            'codigo_postal' => 'required',
+        ]);
 
         try {
             $ubicacion = new Ubicacion();
@@ -127,9 +125,11 @@ class CreateController extends Controller
 
     public function createDimencion(Request $request) 
     {
-    	/*$this->validate($request, [
-            'propiedad_id' => 'required|unique:dimencions,propiedad_id',
-        ]);*/
+    	$this->validate($request, [
+            'superficie_terreno' => 'required',
+            'frente' => 'required',
+            'fondo' => 'required',
+        ]);
 
         try {
             $dimencion =  new Dimencion();
@@ -149,9 +149,10 @@ class CreateController extends Controller
 
     public function createValor(Request $request)
     {
-    	/*$this->validate($request, [
-            'propiedad_id' => 'required|unique:valors,propiedad_id',
-        ]);*/
+    	$this->validate($request, [
+            'valor_comercial' => 'required',
+            'valor_catastral' => 'required',
+        ]);
 
         try {
             $valor = new Valor();

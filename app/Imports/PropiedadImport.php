@@ -21,7 +21,6 @@ class PropiedadImport implements ToModel, WithHeadingRow
             'granja' => $row['granja'],
             'estatus' => $row['estatus'],
             'nombre_corto' => $row['nombre_corto'],
-            'ultimo_movimiento' => $row['ultimo_movimiento'],
             'observaciones' => $row['observaciones'],
             'propietario' => $row['propietario'],
             'entidad_federativa' => $row['entidad_federativa'],

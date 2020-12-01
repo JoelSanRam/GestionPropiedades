@@ -116,7 +116,7 @@
             </div>
             <div class="form-group col-md-6">
                 <label>Valor comercial</label>
-                <input name="valor_comercial" type="text" class="form-control m-b-5" placeholder="Ingresar valor comercial">
+                <input name="valor_comercial" type="text" class="form-control m-b-5" placeholder="Ingresar valor comercial" required>
             </div>
         </div>
 
@@ -127,7 +127,7 @@
             </div>
             <div class="form-group col-md-6">
                 <label>Valor catastral</label>
-                <input name="valor_catastral" type="text" class="form-control m-b-5" placeholder="Ingresar valor catastral">
+                <input name="valor_catastral" type="text" class="form-control m-b-5" placeholder="Ingresar valor catastral" required>
             </div>
         </div>
 

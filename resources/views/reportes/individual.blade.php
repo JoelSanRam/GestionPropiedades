@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Propiedades</title>
+	<title>Propiedad</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <style>
         .table-top{
@@ -20,35 +20,6 @@
 
     <div class="table-top"></div>
 
-    
-    {{-- <table class="table table-bordered">
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Origen ID</th>
-                <th scope="col">Tipo</th>
-                <th scope="col">Granja</th>
-                <th scope="col">Estatus</th>
-                <th scope="col">Nombre corto</th>
-                <th scope="col">Ultimo movimiento</th>
-                <th scope="col">Fecha_alta</th> 
-                <th scope="col">Propietario</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>{{ $propiedad->propiedad_id }}</td>
-                <td>{{ $propiedad->origen_id }}</td>
-                <td>{{ $propiedad->tipo }}</td>
-                <td>{{ $propiedad->granja }}</td>
-                <td>{{ $propiedad->estatus }}</td>
-                <td>{{ $propiedad->nombre_corto }}</td>
-                <td>{{ $propiedad->ultimo_movimiento }}</td>
-                <td>{{ $propiedad->fecha_alta }}</td>
-                <td>{{ $propiedad->propietario }}</td> 
-            </tr>
-        </tbody>
-    </table> --}}
     <br>
     <div class="row">
         <div class="col-md-12">
@@ -65,7 +36,7 @@
                     <tbody>
                         <tr>
                             <td>ID</td>
-                            <td>{{ $propiedad->propiedad_id }}</td>
+                            <td>{{ $propiedad->id }}</td>
                         </tr>
                         <tr>
                             <td>ID origen</td>
@@ -87,13 +58,13 @@
                             <td>Nombre corto</td>
                             <td>{{ $propiedad->nombre_corto }}</td>
                         </tr>
-                        <tr>
+                        {{--<tr>
                             <td>Último movimiento</td>
-                            <td>{{ $propiedad->ultimo_movimiento }}</td>
-                        </tr>
+                            <td>{{ $propiedad->updated_at }}</td>
+                        </tr>--}}
                         <tr>
                             <td>Fecha de alta</td>
-                            <td>{{ $propiedad->fecha_alta }}</td>
+                            <td>{{ $propiedad->created_at }}</td>
                         </tr>
                         <tr>
                             <td>Propietario</td>

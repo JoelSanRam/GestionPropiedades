@@ -63,7 +63,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label>Valor comercial</label>
-                            <input name="valor_comercial" type="text" class="form-control m-b-5" placeholder="Ingresar valor comercial" value="{{ $item->valor_comercial }}">
+                            <input name="valor_comercial" type="text" class="form-control m-b-5" placeholder="Ingresar valor comercial" value="{{ $item->valor_comercial }}" required>
                         </div>
                     </div>
 
@@ -74,7 +74,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label>Valor catastral</label>
-                            <input name="valor_catastral" type="text" class="form-control m-b-5" placeholder="Ingresar valor catastral" value="{{ $item->valor_catastral }}">
+                            <input name="valor_catastral" type="text" class="form-control m-b-5" placeholder="Ingresar valor catastral" value="{{ $item->valor_catastral }}" required>
                         </div>
                     </div>
 

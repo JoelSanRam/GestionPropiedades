@@ -59,7 +59,7 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>Tipo</label>
-                            <input name="tipo" type="text" class="form-control m-b-5" placeholder="Ingresar tipo" value="{{ $item->tipo }}">
+                            <input name="tipo" type="text" class="form-control m-b-5" placeholder="Ingresar tipo" value="{{ $item->tipo }}" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label>Granja</label>
@@ -75,45 +75,37 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>Estatus</label>
-                            <input name="estatus" type="text" class="form-control m-b-5" placeholder="Ingresar estatus" value="{{ $item->estatus }}">
+                            <input name="estatus" type="text" class="form-control m-b-5" placeholder="Ingresar estatus" value="{{ $item->estatus }}" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label>Nombre corto</label>
-                            <input name="nombre_corto" type="text" class="form-control m-b-5" placeholder="Ingresar nombre corto" value="{{ $item->nombre_corto }}">
+                            <input name="nombre_corto" type="text" class="form-control m-b-5" placeholder="Ingresar nombre corto" value="{{ $item->nombre_corto }}" required>
                         </div>
                     </div>
 
                     <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label>Ultimo movimiento</label>
-                            <input name="ultimo_movimiento" type="text" class="form-control m-b-5" placeholder="Ingresar ultimo movimiento" value="{{ $item->ultimo_movimiento }}">
-                        </div>
                         <div class="form-group col-md-6">
                             <label>Observaciones</label>
                             <input name="observaciones" type="text" class="form-control m-b-5" placeholder="Ingresar observaciones" value="{{ $item->observaciones }}">
                         </div>
-                    </div>
-
-                    <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>Propietario</label>
-                            <input name="propietario" type="text" class="form-control m-b-5" placeholder="Ingresar propietario" value="{{ $item->propietario }}">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label>Entidad federativa</label>
-                            <input name="entidad_federativa" type="text" class="form-control m-b-5" placeholder="Ingresar entidad federativa" value="{{ $item->entidad_federativa }}">
+                            <input name="propietario" type="text" class="form-control m-b-5" placeholder="Ingresar propietario" value="{{ $item->propietario }}" required>
                         </div>
                     </div>
 
                     <div class="form-row">
-                        
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4">
                             <label>Municipio</label>
                             <input name="municipio" type="text" class="form-control m-b-5" placeholder="Ingresar municipio" value="{{ $item->municipio }}">
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4">
                             <label>Localidad</label>
                             <input name="localidad" type="text" class="form-control m-b-5" placeholder="Ingresar localidad" value="{{ $item->localidad }}">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Entidad federativa</label>
+                            <input name="entidad_federativa" type="text" class="form-control m-b-5" placeholder="Ingresar entidad federativa" value="{{ $item->entidad_federativa }}" required>
                         </div>
                     </div>
 

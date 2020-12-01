@@ -59,18 +59,18 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>Superficie de terreno</label>
-                            <input name="superficie_terreno" type="text" class="form-control m-b-5" placeholder="Ingresar superficie del terreno" value="{{ $item->superficie_terreno }}">
+                            <input name="superficie_terreno" type="text" class="form-control m-b-5" placeholder="Ingresar superficie del terreno" value="{{ $item->superficie_terreno }}" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label>Frente</label>
-                            <input name="frente" type="text" class="form-control m-b-5" placeholder="Ingresar frente" value="{{ $item->frente }}">
+                            <input name="frente" type="text" class="form-control m-b-5" placeholder="Ingresar frente" value="{{ $item->frente }}" required>
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>Fondo</label>
-                            <input name="fondo" type="text" class="form-control m-b-5" placeholder="Ingresar fondo" value="{{ $item->fondo }}">
+                            <input name="fondo" type="text" class="form-control m-b-5" placeholder="Ingresar fondo" value="{{ $item->fondo }}" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label>Capacidad granja</label>

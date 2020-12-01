@@ -107,7 +107,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label>Codigo postal</label>
-                            <input name="codigo_postal" type="text" class="form-control m-b-5" placeholder="Ingresar codigo postal" value="{{ $item->codigo_postal }}">
+                            <input name="codigo_postal" type="text" class="form-control m-b-5" placeholder="Ingresar codigo postal" value="{{ $item->codigo_postal }}" required>
                         </div>
                     </div>
 

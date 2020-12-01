@@ -59,7 +59,6 @@ class ChangesController extends Controller
             $propiedad->granja = $request->granja;
             $propiedad->estatus = $request->estatus;
             $propiedad->nombre_corto = $request->nombre_corto;
-            $propiedad->ultimo_movimiento = $request->ultimo_movimiento;
             $propiedad->observaciones = $request->observaciones;
             $propiedad->propietario = $request->propietario;
             $propiedad->entidad_federativa = $request->entidad_federativa; 
@@ -75,25 +74,12 @@ class ChangesController extends Controller
         return redirect()->route('listado');
     }
 
-    public function updateDimencion(Request $request, $id)
-    {
-        try {
-            $dimencion = Dimencion::find($id);
-            $dimencion->superficie_construccion = $request->superficie_construccion;
-            $dimencion->superficie_terreno = $request->superficie_terreno;
-            $dimencion->frente = $request->frente;
-            $dimencion->fondo = $request->fondo;
-            $dimencion->capacidad_granja = $request->capacidad_granja;
-            $dimencion->save();
-        } catch (\Throwable $th) {
-            \Session::flash('message', 'Ocurrio un error por favor verifique los datos');
-        }
-
-        return redirect()->route('listado');
-    }
-
     public function updateUbicacion(Request $request, $id)
     {
+        $this->validate($request, [
+            'codigo_postal' => 'required',
+        ]);
+
         try {
             $ubicacion = Ubicacion::find($id);
             $ubicacion->ejido = $request->ejido;
@@ -115,8 +101,36 @@ class ChangesController extends Controller
         return redirect()->route('listado');
     }
 
+    public function updateDimencion(Request $request, $id)
+    {
+        $this->validate($request, [
+            'superficie_terreno' => 'required',
+            'frente' => 'required',
+            'fondo' => 'required',
+        ]);
+
+        try {
+            $dimencion = Dimencion::find($id);
+            $dimencion->superficie_construccion = $request->superficie_construccion;
+            $dimencion->superficie_terreno = $request->superficie_terreno;
+            $dimencion->frente = $request->frente;
+            $dimencion->fondo = $request->fondo;
+            $dimencion->capacidad_granja = $request->capacidad_granja;
+            $dimencion->save();
+        } catch (\Throwable $th) {
+            \Session::flash('message', 'Ocurrio un error por favor verifique los datos');
+        }
+
+        return redirect()->route('listado');
+    }
+
     public function updateValor(Request $request, $id)
     {
+        $this->validate($request, [
+            'valor_comercial' => 'required',
+            'valor_catastral' => 'required',
+        ]);
+
         try {
            $valor = Valor::find($id);
             $valor->valor_construccion = $request->valor_construccion;
@@ -154,6 +168,11 @@ class ChangesController extends Controller
 
     public function updateMarker(Request $request, $id)
     {
+        $this->validate($request, [
+            'lat' => 'required',
+            'lon' => 'required',
+        ]);
+
         try {
             $marker = Marker::find($id);
             $marker->lat = floatval($request->lat);
@@ -168,6 +187,10 @@ class ChangesController extends Controller
 
     public function updateArchivoPDF(Request $request, $id)
     {
+        $this->validate($request, [
+            'pdf' => 'required',
+        ]);
+
         $pdfName = '';
 
         try {
@@ -197,6 +220,10 @@ class ChangesController extends Controller
 
     public function updateArchivoDWG(Request $request, $id)
     {
+        $this->validate($request, [
+            'dwg' => 'required',
+        ]);
+
         $dwgName = '';
 
         try {

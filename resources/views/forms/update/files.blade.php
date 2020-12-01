@@ -84,7 +84,7 @@
                                                         <div class="form-group col-md-8">
                                                             <label>Archivo PDF</label>
                                                             <div class="custom-file">
-                                                                <input type="file" class="custom-file-input" onchange="alertSuccessSinglePDF()" name="pdf" id="pdf" lang="es">
+                                                                <input type="file" class="custom-file-input" onchange="alertSuccessSinglePDF()" name="pdf" id="pdf" lang="es" required>
                                                                 <label class="custom-file-label">Seleccionar Archivo</label>
                                                             </div>
                                                             <div class="alert alert-primary message-pdf d-none my-2" role="alert">
@@ -112,7 +112,7 @@
                                                         <div class="form-group col-md-8">
                                                             <label>Archivo DWG</label>
                                                             <div class="custom-file">
-                                                                <input type="file" class="custom-file-input" onchange="alertSuccessSingleDWG()" name="dwg" id="dwg" lang="es">
+                                                                <input type="file" class="custom-file-input" onchange="alertSuccessSingleDWG()" name="dwg" id="dwg" lang="es" required>
                                                                 <label class="custom-file-label">Seleccionar Archivo</label>
                                                             </div>
                                                             <div class="alert alert-primary message-dwg d-none my-2" role="alert">

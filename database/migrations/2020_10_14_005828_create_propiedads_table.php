@@ -20,7 +20,6 @@ class CreatePropiedadsTable extends Migration
             $table->string('granja')->nullable();
             $table->string('estatus')->nullable();
             $table->string('nombre_corto')->nullable();
-            $table->string('ultimo_movimiento')->nullable();
             $table->text('observaciones')->nullable();
             $table->string('propietario')->nullable();
             $table->string('entidad_federativa')->nullable();
