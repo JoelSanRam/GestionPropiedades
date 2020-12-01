@@ -77,8 +77,9 @@
                         </div>
                     </form>
                 @else
-                    <form action="{{ route('create-coordenada') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('update-excel-coordenada') }}" method="POST" enctype="multipart/form-data">
                         @csrf
+                        @method('PUT')
 
                         <div class="form-row justify-content-center">
                             <div class="form-group col-md-6">
@@ -91,7 +92,7 @@
                             <div class="col-md-6">
                                 <div class="input-group my-3">
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" onchange="alertSuccess()" id="coordenadas" name="coordenadas">
+                                        <input type="file" class="custom-file-input" onchange="alertSuccess()" id="coordenadas" name="coordenadas" required>
                                         <label class="custom-file-label" for="coordenadas">Elige tu archivo</label>
                                     </div>
                                 </div>

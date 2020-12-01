@@ -55,6 +55,7 @@ Route::middleware('auth')->group(function () {
     Route::put('/update/save/ubicacion/{id}', 'ChangesController@updateUbicacion')->name('update-ubicacion');
     Route::put('/update/save/valor/{id}', 'ChangesController@updateValor')->name('update-valor');
     Route::put('/update/save/coordenada', 'ChangesController@updateCoordenada')->name('update-coordenada');
+    Route::put('/update/save/coordenada/excel', 'ChangesController@updateExcelCoordenada')->name('update-excel-coordenada');
     Route::put('/update/save/marker/{id}', 'ChangesController@updateMarker')->name('update-marker');
     Route::put('/update/save/archivo/pdf/and/dwg', 'ChangesController@updateArchivoPDFAndDWG')->name('update-archivo');
     Route::put('/update/save/archivo/pdf/{id}', 'ChangesController@updateArchivoPDF')->name('update-view-archivo-pdf');

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use App\Imports\CoordenadasImport;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 use App\Dato;
 use App\Dimencion;
@@ -164,6 +166,24 @@ class ChangesController extends Controller
         }
         
         return redirect()->route('listado');
+    }
+
+    public function updateExcelCoordenada(Request $request)
+    {
+        $this->validate($request, [
+            'coordenadas' => 'required',
+        ]);
+
+        try {
+
+            Excel::import(new CoordenadasImport, request()->file('coordenadas'));
+            \Session::flash('message', 'Registros Guardados Exitosamente');
+
+            return redirect()->back();
+        } catch (\Throwable $th) {
+            \Session::flash('message', 'Ocurrio un error por favor verifique los datos');
+            return redirect()->back();
+        }
     }
 
     public function updateMarker(Request $request, $id)
