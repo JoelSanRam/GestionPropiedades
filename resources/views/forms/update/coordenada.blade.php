@@ -64,9 +64,16 @@
                                 <div class="form-group col-md-3">
                                     <input name="lon[]" type="text" value="{{ $item->lng }}" class="form-control" placeholder="Ingresar longitud" required>
                                 </div>
-                                {{--<div class="col-md-3">
-                                    <a href="{{ route('delete-coordenada', $item->id) }}" class="btn btn-danger btn-sm">Borrar</a>
-                                </div>--}}
+                                @if($item->marcador != null || $item->marcador != '')
+                                    <div class="form-group col-md-3">
+                                        <span class="badge badge-primary">Marcador</span>
+                                    </div>
+                                @else
+                                    <div class="col-md-3">
+                                        <a href="{{ route('update-view-marcador', $item->id) }}" class="btn btn-warning btn-sm">Establecer</a>
+                                    </div>
+                                @endif
+                                
                             </div>
                         @endforeach
                         

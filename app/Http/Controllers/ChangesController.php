@@ -303,4 +303,32 @@ class ChangesController extends Controller
         return redirect()->back();
     }
 
+    public function updateMarcador($id)
+    {
+        $item = Coordenada::find($id);
+        $marcador = Coordenada::where([
+            ['propiedad_id', $item->propiedad_id], 
+            ['marcador', 'si']
+        ])->first();
+
+        if ($marcador == null) {
+
+            $nuevo_marcador = Coordenada::find($id);
+            $nuevo_marcador->marcador = 'si';
+            $nuevo_marcador->save();
+
+        } else {
+
+            $actual_marcador = Coordenada::find($marcador->id);
+            $actual_marcador->marcador = null;
+            $actual_marcador->save();
+
+            $nuevo_marcador = Coordenada::find($id);
+            $nuevo_marcador->marcador = 'si';
+            $nuevo_marcador->save();
+        }
+
+        return redirect()->back();
+    }
+
 }

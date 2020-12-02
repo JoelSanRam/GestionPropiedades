@@ -45,6 +45,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/update/view/valor/{id}', 'ChangesController@updateViewValor')->name('update-view-valor');
     Route::get('/update/view/coordenada/{id}', 'ChangesController@updateViewCoordenada')->name('update-view-coordenada');
     Route::get('/update/view/archivo/{id}', 'ChangesController@updateViewArchivo')->name('update-view-archivo');
+    // update marcador
+    Route::get('/update/view/marcador/{id}', 'ChangesController@updateMarcador')->name('update-view-marcador');
 
     ////// route update save ////
     Route::put('/update/save/dimencion/{id}', 'ChangesController@updateDimencion')->name('update-dimencion');
