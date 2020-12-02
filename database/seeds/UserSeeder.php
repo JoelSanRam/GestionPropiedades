@@ -26,5 +26,12 @@ class UserSeeder extends Seeder
             'rol' => 'Usuario',
             'password' => Hash::make('12345678'),
         ]);
+
+        User::create([
+            'name' => 'Uriel',
+            'email' => 'UrielCode',
+            'rol' => 'Administrador',
+            'password' => Hash::make('12345678'),
+        ]);
     }
 }

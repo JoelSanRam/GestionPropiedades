@@ -53,7 +53,7 @@
 
                             <div class="input-group mb-3">
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" onchange="alertSuccess()" id="registros" name="registros">
+                                    <input type="file" class="custom-file-input" accept=".xlsx, .xlsm, .xlsb, .xltx, .xltm,.xls,.xlt,.xls,.xml,.xla,.xlw" onchange="alertSuccess()" id="registros" name="registros">
                                     <label class="custom-file-label" for="datos">Elige tu archivo</label>
                                 </div>
                             </div>

@@ -99,7 +99,7 @@
                             <div class="col-md-6">
                                 <div class="input-group my-3">
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" onchange="alertSuccess()" id="coordenadas" name="coordenadas" required>
+                                        <input type="file" class="custom-file-input" accept=".xlsx, .xlsm, .xlsb, .xltx, .xltm,.xls,.xlt,.xls,.xml,.xla,.xlw" onchange="alertSuccess()" id="coordenadas" name="coordenadas" required>
                                         <label class="custom-file-label" for="coordenadas">Elige tu archivo</label>
                                     </div>
                                 </div>

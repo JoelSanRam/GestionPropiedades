@@ -41,7 +41,7 @@
                             <th class="text-nowrap">Status</th>
                             <th class="text-nowrap">Tipo</th>
                             <th class="text-nowrap">Ubicación</th>
-                            <th class="text-nowrap">Ult. mov.</th>
+                            {{-- <th class="text-nowrap">Ult. mov.</th> --}}
                             <th>Acciones</th>
                             @if (Auth::user()->rol == "Administrador")
                             <th>Opciones para Editar</th>
@@ -59,7 +59,6 @@
                                     <p>Municipio: {{ $item->municipio }}</p> 
                                     <p>Localidad: {{ $item->localidad }}</p> 
                                 </td>
-                                <td>{{ $item->ultimo_movimiento }}</td>
                                 <td>
                                     <a href="{{ route('pdf-individual', $item->id) }}" class="btn btn-warning btn-icon btn-sm" title="Generar reporte">
                                         <i class="fas fa-file-pdf fa-fw"></i>
