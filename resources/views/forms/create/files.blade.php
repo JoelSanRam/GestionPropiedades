@@ -46,17 +46,9 @@
                 </span>
             </a>
         </li>
-        <li class="col-md-3 col-sm-4 col-6 ">
-            <a>
-                <span class="number">6</span>
-                <span class="info text-ellipsis">
-                    Marcador
-                </span>
-            </a>
-        </li>
         <li class="col-md-3 col-sm-4 col-6 active">
             <a>
-                <span class="number">7</span>
+                <span class="number">6</span>
                 <span class="info text-ellipsis">
                     Documentos Adjuntos
                 </span>
@@ -64,7 +56,7 @@
         </li>
         <li class="col-md-3 col-sm-4 col-6">
             <a>
-                <span class="number">8</span> 
+                <span class="number">7</span> 
                 <span class="info text-ellipsis">
                     Registro Completado
                 </span>

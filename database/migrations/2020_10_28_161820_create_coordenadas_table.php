@@ -18,6 +18,7 @@ class CreateCoordenadasTable extends Migration
             $table->integer('propiedad_id');
             $table->float('lat', 8, 4)->nullable();
             $table->float('lng', 8, 4)->nullable();
+            $table->string('marcador')->nullable();
             $table->timestamps();
         });
     }

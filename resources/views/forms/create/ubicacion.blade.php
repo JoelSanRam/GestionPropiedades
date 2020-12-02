@@ -50,21 +50,13 @@
             <a>
                 <span class="number">6</span>
                 <span class="info text-ellipsis">
-                    Marcador
+                    Documentos Adjuntos
                 </span>
             </a>
         </li>
         <li class="col-md-3 col-sm-4 col-6">
             <a>
                 <span class="number">7</span>
-                <span class="info text-ellipsis">
-                    Documentos Adjuntos
-                </span>
-            </a>
-        </li>
-        <li class="col-md-3 col-sm-4 col-6 ">
-            <a>
-                <span class="number">8</span> 
                 <span class="info text-ellipsis">
                     Registro Completado
                 </span>

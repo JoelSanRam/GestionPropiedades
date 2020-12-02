@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Coordenada extends Model
 {
     protected $fillable = [
-    	'propiedad_id', 'lat', 'lng',
+    	'propiedad_id', 'lat', 'lng', 'marcador'
     ];
 }

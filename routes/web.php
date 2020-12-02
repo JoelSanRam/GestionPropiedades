@@ -27,7 +27,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/create/view/dimencion', 'CreateController@createViewDimencion')->name('create-view-dimencion');
     Route::get('/create/view/valor', 'CreateController@createViewValor')->name('create-view-valor');
     Route::get('/create/view/coordenada', 'CreateController@createViewCoordenada')->name('create-view-coordenada');
-    Route::get('/create/view/marker', 'CreateController@createViewMarker')->name('create-view-marker');
     Route::get('/create/view/archivo', 'CreateController@createViewArchivo')->name('create-view-archivo');
 
     ///// routes post form create /////
@@ -36,7 +35,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/create/save/dimencion', 'CreateController@createDimencion')->name('create-dimencion');
     Route::post('/create/save/valor', 'CreateController@createValor')->name('create-valor');
     Route::post('/create/save/coordenada', 'CreateController@createCoordenada')->name('create-coordenada');
-    Route::post('/create/save/marker', 'CreateController@createMarker')->name('create-marker');
     Route::post('/create/save/archivo', 'CreateController@createArchivo')->name('create-archivo');
 
 
@@ -46,7 +44,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/update/view/ubicacion/{id}', 'ChangesController@updateViewUbicacion')->name('update-view-ubicacion');
     Route::get('/update/view/valor/{id}', 'ChangesController@updateViewValor')->name('update-view-valor');
     Route::get('/update/view/coordenada/{id}', 'ChangesController@updateViewCoordenada')->name('update-view-coordenada');
-    Route::get('/update/view/marker/{id}', 'ChangesController@updateViewMarker')->name('update-view-marker');
     Route::get('/update/view/archivo/{id}', 'ChangesController@updateViewArchivo')->name('update-view-archivo');
 
     ////// route update save ////
@@ -56,7 +53,6 @@ Route::middleware('auth')->group(function () {
     Route::put('/update/save/valor/{id}', 'ChangesController@updateValor')->name('update-valor');
     Route::put('/update/save/coordenada', 'ChangesController@updateCoordenada')->name('update-coordenada');
     Route::put('/update/save/coordenada/excel', 'ChangesController@updateExcelCoordenada')->name('update-excel-coordenada');
-    Route::put('/update/save/marker/{id}', 'ChangesController@updateMarker')->name('update-marker');
     Route::put('/update/save/archivo/pdf/and/dwg', 'ChangesController@updateArchivoPDFAndDWG')->name('update-archivo');
     Route::put('/update/save/archivo/pdf/{id}', 'ChangesController@updateArchivoPDF')->name('update-view-archivo-pdf');
     Route::put('/update/save/archivo/dwg/{id}', 'ChangesController@updateArchivoDWG')->name('update-view-archivo-dwg');

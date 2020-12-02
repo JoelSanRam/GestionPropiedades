@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Coordenada;
-use App\Marker;
 
 class MapController extends Controller
 {
@@ -14,9 +13,10 @@ class MapController extends Controller
     {
         $polygons = Coordenada::select('propiedad_id', 'lat', 'lng')->get();
 
-        $markers = DB::table('markers')
-                    ->join('propiedads', 'markers.propiedad_id', '=', 'propiedads.id')
-                    ->select('markers.propiedad_id', 'markers.lat', 'markers.lng', 'propiedads.nombre_corto')
+        $markers = DB::table('coordenadas')
+                    ->where('marcador', 'si')
+                    ->join('propiedads', 'coordenadas.propiedad_id', '=', 'propiedads.id')
+                    ->select('coordenadas.propiedad_id', 'coordenadas.lat', 'coordenadas.lng', 'propiedads.nombre_corto')
                     ->get();
 
         $propietarios = DB::table('propiedads')->select('propietario')->distinct()->get();
@@ -44,8 +44,11 @@ class MapController extends Controller
                     ->orWhere('granja', $granja)
                     ->orWhere('propietario', $propietario)
                     ->orWhere('estatus', $estatus)
-                    ->join('markers', 'propiedads.id', '=', 'markers.propiedad_id')
-                    ->select('markers.propiedad_id', 'markers.lat', 'markers.lng', 'propiedads.nombre_corto')
+                    ->join('coordenadas', function ($join) {
+                        $join->on('propiedads.id', '=', 'coordenadas.propiedad_id')
+                            ->where('coordenadas.marcador', '=', 'si');
+                    })
+                    ->select('coordenadas.propiedad_id', 'coordenadas.lat', 'coordenadas.lng', 'propiedads.nombre_corto')
                     ->get();
 
         $propietarios = DB::table('propiedads')->select('propietario')->distinct()->get();

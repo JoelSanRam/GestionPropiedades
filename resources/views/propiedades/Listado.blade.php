@@ -89,7 +89,6 @@
                                                 <a href="{{ route('update-view-ubicacion', $item->id) }}" class="dropdown-item">Ubicacion</a>
                                                 <a href="{{ route('update-view-valor', $item->id) }}" class="dropdown-item">Valores</a>
                                                 <a href="{{ route('update-view-coordenada', $item->id) }}" class="dropdown-item">Coordenadas</a>
-                                                <a href="{{ route('update-view-marker', $item->id) }}" class="dropdown-item">Marcador</a>
                                                 <a href="{{ route('update-view-archivo', $item->id) }}" class="dropdown-item">Archivos</a>
                                             </ul>
                                         </div>

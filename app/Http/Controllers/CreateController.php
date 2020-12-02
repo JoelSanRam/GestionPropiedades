@@ -12,7 +12,6 @@ use App\Propiedad;
 use App\Ubicacion;
 use App\Valor;
 use App\Coordenada;
-use App\Marker;
 use App\File;
 
 class CreateController extends Controller
@@ -46,12 +45,6 @@ class CreateController extends Controller
     {
         $id = Propiedad::max('id');
         return view('forms.create.coordenada', compact('id')); 
-    }
-
-    public function createViewMarker()
-    {
-        $id = Propiedad::max('id'); 
-        return view('forms.create.marker', compact('id')); 
     }
 
     public function createViewArchivo()
@@ -184,36 +177,12 @@ class CreateController extends Controller
             Excel::import(new CoordenadasImport, request()->file('coordenadas'));
             \Session::flash('message', 'Registros Guardados Exitosamente');
 
-            return redirect()->route('create-view-marker');
-        } catch (\Throwable $th) {
-            \Session::flash('message', 'Ocurrio un error por favor verifique los datos');
-            return redirect()->back();
-        }
-        
-    }
-
-    public function createMarker(Request $request)
-    {
-        $this->validate($request, [
-            'propiedad_id' => 'required|unique:markers,propiedad_id',
-            'lat' => 'required',
-            'lon' => 'required',
-        ]);
-
-        try {
-
-            $marker = new Marker();
-            $marker->propiedad_id = $request->propiedad_id;
-            $marker->lat = floatval($request->lat);
-            $marker->lng = floatval($request->lon);
-            $marker->save();
-
             return redirect()->route('create-view-archivo');
         } catch (\Throwable $th) {
             \Session::flash('message', 'Ocurrio un error por favor verifique los datos');
             return redirect()->back();
         }
-
+        
     }
 
     public function createArchivo(Request $request)

@@ -19,6 +19,7 @@ class CoordenadasImport implements ToModel, WithHeadingRow
             'propiedad_id' => $row['propiedad_id'],
             'lat' => $row['latitud'],
             'lng' => $row['longitud'],
+            'marcador' => $row['marcador'],
         ]);
     }
 }
