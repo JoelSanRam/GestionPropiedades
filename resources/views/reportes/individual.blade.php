@@ -128,11 +128,11 @@
                         </tr>
                         <tr>
                             <td>Superficie Terreno</td>
-                            <td>{{ $dimencion->superficie_terreno }}</td>
+                            <td>{{ $dimencion->superficie_terreno }} m<sup>2</sup></td>
                         </tr>
                         <tr>
                             <td>Frente</td>
-                            <td>{{ $dimencion->frente }}</td>
+                            <td>{{ $dimencion->frente }} </td>
                         </tr>
                         <tr>
                             <td>Fondo</td>

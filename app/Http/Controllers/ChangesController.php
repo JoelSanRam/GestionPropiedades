@@ -42,7 +42,7 @@ class ChangesController extends Controller
         $this->validate($request, [
             'tipo' => 'required',
             'estatus' => 'required',
-            'nombre_corto' => 'nombre_corto',
+            'nombre_corto' => 'required', // corregimos bug
             'propietario' => 'required',
             'entidad_federativa' => 'required',
         ]);

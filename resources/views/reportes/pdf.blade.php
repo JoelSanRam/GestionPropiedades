@@ -45,7 +45,7 @@
                     <td>{{ $item->direccion }}</td>
 	                <td>{{ $item->nombre_corto }}</td>
                     <td>{{ $item->propietario }}</td>
-	                <td>{{ $item->superficie_terreno }}</td>
+	                <td>{{ $item->superficie_terreno }} m<sup>2</sup></td>
 	                <td>${{ number_format($item->valor_comercial, 2) }}</td>
 	                <td>${{ number_format($item->valor_catastral, 2) }}</td> 
 	            </tr>

@@ -143,7 +143,7 @@
                             </tr>
                             <tr>
                                 <td class="bg-silver-lighter">Terreno</td>
-                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $dimencion->superficie_terreno }}</a></td>
+                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $dimencion->superficie_terreno }} m<sup>2</sup></a></td>
                             </tr>
                             <tr>
                                 <td class="bg-silver-lighter">Frente</td>
