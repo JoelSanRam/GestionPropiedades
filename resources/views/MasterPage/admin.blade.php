@@ -123,7 +123,7 @@
 	                    <li class="has-sub">
 							<a href="{{ route('listado') }}">
 								<i class="fa fa-home"></i>
-								<span>Listado de predios</span>
+								<span>Listado de Predios</span>
 							</a>
 	                    </li>
 
@@ -144,7 +144,7 @@
 		                    <li class="has-sub">
 								<a href="/usuarios">
 									<i class="fa fa-user"></i>
-									<span>Listado de usuarios</span>
+									<span>Listado de Usuarios</span>
 								</a>
 		                    </li>
 		                 @endif
@@ -152,7 +152,7 @@
 	                    <li class="has-sub">
 							<a href="/reporte">
 								<i class="fa fa-edit"></i>
-								<span>Generar reporte</span>
+								<span>Generar Reporte</span>
 							</a>
 
 	                    </li>

@@ -110,7 +110,7 @@
             <div class="form-group col-md-6">
                 <label>Granja</label>
                 <select name="granja" class="form-control m-b-5" required>
-                    <option value="">Selecionar</option>
+                    <option value="">Seleccionar</option>
                     <option>Si</option>
                     <option>No</option>
                 </select>

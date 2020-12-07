@@ -2,8 +2,14 @@
 
 @section('admin')
 
+
+    <ol class="breadcrumb pull-right">
+    <li class="breadcrumb-item"><a href="{{ route('pdf-individual', $propiedad->id) }}" class="btn btn-primary">Generar PDF</a></li>
+    </ol>
+
     <!-- begin page-header -->
     <h1 class="page-header">Detalle de propiedad </h1>
+
     <!-- end page-header -->
 
     <!-- begin row -->
