@@ -51,14 +51,14 @@
                             <input type="text" class="form-control m-b-5" value="{{ $item->id }}" readonly>
                         </div>
                         <div class="form-group col-md-6">
-                            <label>Superficie de Construccion</label>
+                            <label>Superficie de Construccion(m<sup>2</sup>)</label>
                             <input name="superficie_construccion" type="text" class="form-control m-b-5" placeholder="Ingresar superficie de construccion" value="{{ $item->superficie_construccion }}">
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label>Superficie de terreno</label>
+                            <label>Superficie de terreno (m<sup>2</sup>)</label>
                             <input name="superficie_terreno" type="text" class="form-control m-b-5" placeholder="Ingresar superficie del terreno" value="{{ $item->superficie_terreno }}" required>
                         </div>
                         <div class="form-group col-md-6">
