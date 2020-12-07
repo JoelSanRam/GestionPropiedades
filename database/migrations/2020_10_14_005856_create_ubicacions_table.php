@@ -17,14 +17,12 @@ class CreateUbicacionsTable extends Migration
             $table->id();
             $table->string('ejido')->nullable();
             $table->integer('parcela')->nullable();
+            $table->integer('lote')->nullable(); // cambiamos de lugar
             $table->integer('solar')->nullable();
             $table->integer('tablaje')->nullable();
             $table->string('finca')->nullable();
             $table->string('direccion')->nullable();
-            $table->string('colonia')->nullable();
-            $table->integer('ejido_manzana')->nullable(); //
-            $table->integer('urbana_manzana')->nullable(); //
-            $table->integer('lote')->nullable();
+            $table->integer('ejido_manzana')->nullable(); 
             $table->integer('codigo_postal')->nullable();
             $table->timestamps();
         });

@@ -58,27 +58,20 @@
 
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label>Valor de terreno</label>
-                            <input name="valor_terreno" type="text" class="form-control m-b-5" placeholder="Ingresar valor del terreno" value="{{ $item->valor_terreno }}">
-                        </div>
-                        <div class="form-group col-md-6">
                             <label>Valor comercial</label>
                             <input name="valor_comercial" type="text" class="form-control m-b-5" placeholder="Ingresar valor comercial" value="{{ $item->valor_comercial }}" required>
                         </div>
-                    </div>
-
-                    <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>Fecha de valor comercial</label>
                             <input name="fecha_valor_comercial" type="date" class="form-control m-b-5" value="{{ $item->fecha_valor_comercial }}">
                         </div>
+                    </div>
+
+                    <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>Valor catastral</label>
                             <input name="valor_catastral" type="text" class="form-control m-b-5" placeholder="Ingresar valor catastral" value="{{ $item->valor_catastral }}" required>
                         </div>
-                    </div>
-
-                    <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>Fecha de valor catastral</label>
                             <input name="fecha_valor_catastral" type="date" class="form-control m-b-5" value="{{ $item->fecha_valor_catastral }}">

@@ -260,8 +260,12 @@
                                 <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $ubicacion->ejido }}</a></td>
                             </tr>
                              <tr>
-                                <td class="bg-silver-lighter">Parcela</td>
+                                <td class="bg-silver-lighter">Ejido Parcela</td>
                                 <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $ubicacion->parcela }}</a></td>
+                            </tr>
+                            <tr>
+                                <td class="bg-silver-lighter">Ejido Lote</td>
+                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $ubicacion->lote }}</a></td>
                             </tr>
                             <tr>
                                 <td class="bg-silver-lighter">Solar</td>
@@ -282,20 +286,8 @@
                                 <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $ubicacion->direccion }}</a></td>
                             </tr>
                             <tr>
-                                <td class="bg-silver-lighter">Colonia</td>
+                                <td class="bg-silver-lighter">Ejido Manzana</td>
                                 <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $ubicacion->colonia }}</a></td>
-                            </tr>
-                            <tr>
-                                <td class="bg-silver-lighter">Ejido Mza.</td>
-                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $ubicacion->colonia }}</a></td>
-                            </tr>
-                            <tr>
-                                <td class="bg-silver-lighter">Urbana Mza.</td>
-                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $ubicacion->urbana_manzana }}</a></td>
-                            </tr>
-                            <tr>
-                                <td class="bg-silver-lighter">Lote</td>
-                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $ubicacion->lote }}</a></td>
                             </tr>
                             <tr>
                                 <td class="bg-silver-lighter">Código postal</td>
@@ -343,15 +335,11 @@
                         <tbody>
                             <tr>
                                 <td class="bg-silver-lighter">Valor de Construcción</td>
-                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $valor->valor_construccion }}</a></td>
-                            </tr>
-                            <tr>
-                                <td class="bg-silver-lighter">Valor de Terreno</td>
-                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $valor->valor_terreno }}</a></td>
+                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">${{ number_format($valor->valor_construccion, 2) }}</a></td>
                             </tr>
                             <tr>
                                 <td class="bg-silver-lighter">Valor comercial</td>
-                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $valor->valor_comercial }}</a></td>
+                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">${{ number_format($valor->valor_comercial, 2) }}</a></td>
                             </tr>
                             <tr>
                                 <td class="bg-silver-lighter">Fecha del valor comercial</td>
@@ -359,7 +347,7 @@
                             </tr>
                             <tr>
                                 <td class="bg-silver-lighter">Valor catastral</td>
-                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $valor->valor_catastral }}</a></td>
+                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">${{ number_format($valor->valor_catastral, 2) }}</a></td>
                             </tr>
                             <tr>
                                 <td class="bg-silver-lighter">Fecha del valor catastral</td>

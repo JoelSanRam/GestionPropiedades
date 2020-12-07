@@ -102,11 +102,15 @@
         </div>
 
         <div class="form-row">
-            <div class="form-group col-md-6">
-                <label>Parcela</label>
+            <div class="form-group col-md-4">
+                <label>Ejido Parcela</label>
                 <input name="parcela" type="text" class="form-control m-b-5" placeholder="Ingresar parcela">
             </div>
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-4">
+                <label>Ejido Lote</label>
+                <input name="lote" type="text" class="form-control m-b-5" placeholder="Ingresar lote">
+            </div>
+            <div class="form-group col-md-4">
                 <label>Solar</label>
                 <input name="solar" type="text" class="form-control m-b-5" placeholder="Ingresar solar">
             </div>
@@ -129,27 +133,12 @@
                 <input name="direccion" type="text" class="form-control m-b-5" placeholder="Ingresar direccion">
             </div>
             <div class="form-group col-md-6">
-                <label>Colonia</label>
-                <input name="colonia" type="text" class="form-control m-b-5" placeholder="Ingresar colonia">
-            </div>
-        </div>
-
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label>Manzana de ejido</label>
+                <label>Ejido Manzana</label>
                 <input name="ejido_manzana" type="text" class="form-control m-b-5" placeholder="Ingresar manzana de ejido" >
             </div>
-            <div class="form-group col-md-6">
-                <label>Manzana urbana</label>
-                <input name="urbana_manzana" type="text" class="form-control m-b-5" placeholder="Ingresar manzana urbana">
-            </div>
         </div>
 
         <div class="form-row">
-            <div class="form-group col-md-6">
-                <label>Lote</label>
-                <input name="lote" type="text" class="form-control m-b-5" placeholder="Ingresar lote">
-            </div>
             <div class="form-group col-md-6">
                 <label>Codigo postal</label>
                 <input name="codigo_postal" type="text" class="form-control m-b-5" placeholder="Ingresar codigo postal" required>

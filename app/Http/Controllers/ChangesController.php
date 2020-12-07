@@ -79,14 +79,12 @@ class ChangesController extends Controller
             $ubicacion = Ubicacion::find($id);
             $ubicacion->ejido = $request->ejido;
             $ubicacion->parcela = $request->parcela;
+            $ubicacion->lote = $request->lote;
             $ubicacion->solar = $request->solar;
             $ubicacion->tablaje = $request->tablaje;
             $ubicacion->finca = $request->finca;
             $ubicacion->direccion = $request->direccion;
-            $ubicacion->colonia = $request->colonia;
             $ubicacion->ejido_manzana = $request->ejido_manzana;
-            $ubicacion->urbana_manzana = $request->urbana_manzana;
-            $ubicacion->lote = $request->lote;
             $ubicacion->codigo_postal = $request->codigo_postal;
             $ubicacion->save();   
         } catch (\Throwable $th) {
@@ -129,7 +127,6 @@ class ChangesController extends Controller
         try {
            $valor = Valor::find($id);
             $valor->valor_construccion = $request->valor_construccion;
-            $valor->valor_terreno = $request->valor_terreno;
             $valor->valor_comercial = $request->valor_comercial;
             $valor->fecha_valor_comercial = $request->fecha_valor_comercial;
             $valor->valor_catastral = $request->valor_catastral;

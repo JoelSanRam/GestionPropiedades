@@ -46,8 +46,8 @@
 	                <td>{{ $item->nombre_corto }}</td>
                     <td>{{ $item->propietario }}</td>
 	                <td>{{ $item->superficie_terreno }}</td>
-	                <td>{{ $item->valor_comercial }}</td>
-	                <td>{{ $item->valor_catastral }}</td> 
+	                <td>${{ number_format($item->valor_comercial, 2) }}</td>
+	                <td>${{ number_format($item->valor_catastral, 2) }}</td> 
 	            </tr>
         	@endforeach
         </tbody>

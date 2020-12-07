@@ -103,27 +103,20 @@
 
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label>Valor de terreno</label>
-                <input name="valor_terreno" type="text" class="form-control m-b-5" placeholder="Ingresar valor del terreno">
-            </div>
-            <div class="form-group col-md-6">
                 <label>Valor comercial</label>
                 <input name="valor_comercial" type="text" class="form-control m-b-5" placeholder="Ingresar valor comercial" required>
             </div>
-        </div>
-
-        <div class="form-row">
             <div class="form-group col-md-6">
                 <label>Fecha de valor comercial</label>
                 <input name="fecha_valor_comercial" type="date" class="form-control m-b-5">
             </div>
+        </div>
+
+        <div class="form-row">
             <div class="form-group col-md-6">
                 <label>Valor catastral</label>
                 <input name="valor_catastral" type="text" class="form-control m-b-5" placeholder="Ingresar valor catastral" required>
             </div>
-        </div>
-
-        <div class="form-row">
             <div class="form-group col-md-6">
                 <label>Fecha de valor catastral</label>
                 <input name="fecha_valor_catastral" type="date" class="form-control m-b-5">

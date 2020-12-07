@@ -8,15 +8,13 @@ class Ubicacion extends Model
 {
     protected $fillable = [
     	'ejido', 
-    	'parcela', 
+    	'parcela',
+        'lote', 
     	'solar', 
     	'tablaje', 
     	'finca', 
-    	'direccion', 
-    	'colonia', 
-    	'ejido_manzana', 
-    	'urbana_manzana', 
-    	'lote', 
+    	'direccion',
+    	'ejido_manzana',
     	'codigo_postal'
     ];
 }

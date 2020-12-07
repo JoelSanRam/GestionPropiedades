@@ -157,15 +157,11 @@
                     <tbody>
                         <tr>
                             <td>Valor construcción</td>
-                            <td>{{ $valor->valor_construccion }}</td>
-                        </tr>
-                        <tr>
-                            <td>Valor terreno</td>
-                            <td>{{ $valor->valor_terreno }}</td>
+                            <td>${{ number_format($valor->valor_construccion, 2) }}</td>
                         </tr>
                         <tr>
                             <td>Valor comercial</td>
-                            <td>{{ $valor->valor_comercial }}</td>
+                            <td>${{ number_format($valor->valor_comercial, 2) }}</td>
                         </tr>
                         <tr>
                             <td>Fecha valor comercial</td>
@@ -173,7 +169,7 @@
                         </tr>
                         <tr>
                             <td>Valor catastral</td>
-                            <td>{{ $valor->valor_catastral }}</td>
+                            <td>${{ number_format($valor->valor_catastral, 2) }}</td>
                         </tr>
                         <tr>
                             <td>Fecha valorcatastral</td>
@@ -199,8 +195,12 @@
                 <td>{{ $ubicacion->ejido }}</td>
             </tr>
             <tr>
-                <td>Parcela</td>
+                <td>Ejido Parcela</td>
                 <td>{{ $ubicacion->parcela }}</td>
+            </tr>
+            <tr>
+                <td>Ejido Lote</td>
+                <td>{{ $ubicacion->lote }}</td>
             </tr>
             <tr>
                 <td>Solar</td>
@@ -219,20 +219,8 @@
                 <td>{{ $ubicacion->direccion }}</td>
             </tr>
             <tr>
-                <td>Colonia</td>
-                <td>{{ $ubicacion->colonia }}</td>
-            </tr>
-            <tr>
-                <td>Manzana ejido</td>
+                <td>Ejido Manzana</td>
                 <td>{{ $ubicacion->ejido_manzana }}</td>
-            </tr>
-            <tr>
-                <td>Manzana urbana</td>
-                <td>{{ $ubicacion->urbana_manzana }}</td>
-            </tr>
-            <tr>
-                <td>Lote</td>
-                <td>{{ $ubicacion->lote }}</td>
             </tr>
             <tr>
                 <td>Código postal</td>

@@ -7,8 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Valor extends Model
 {
     protected $fillable = [
-    	'valor_construccion', 
-    	'valor_terreno', 
+    	'valor_construccion',
     	'valor_comercial', 
     	'fecha_valor_comercial', 
     	'valor_catastral', 

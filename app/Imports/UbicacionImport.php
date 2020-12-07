@@ -17,15 +17,13 @@ class UbicacionImport implements ToModel, WithHeadingRow
     {
         return new Ubicacion([
             'ejido' => $row['ejido'],
-            'parcela' => $row['parcela'],
+            'parcela' => $row['ejido_parcela'],
+            'lote' => $row['ejido_lote'],
             'solar' => $row['solar'],
             'tablaje' => $row['tablaje'],
             'finca' => $row['finca'],
             'direccion' => $row['direccion'],
-            'colonia' => $row['colonia'],
             'ejido_manzana' => $row['ejido_manzana'],
-            'urbana_manzana' => $row['manzana_urbana'],
-            'lote' => $row['lote'],
             'codigo_postal' => $row['codigo_postal'],
         ]);
     }
