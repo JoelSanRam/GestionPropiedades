@@ -16,8 +16,8 @@ class CreateCoordenadasTable extends Migration
         Schema::create('coordenadas', function (Blueprint $table) {
             $table->id();
             $table->integer('propiedad_id');
-            $table->float('lat', 8, 4)->nullable();
-            $table->float('lng', 8, 4)->nullable();
+            $table->double('lat', 20, 15)->nullable();
+            $table->double('lng', 20, 15)->nullable();
             $table->string('marcador')->nullable();
             $table->timestamps();
         });
