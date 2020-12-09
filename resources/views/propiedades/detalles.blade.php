@@ -139,19 +139,19 @@
                         <tbody>
                             <tr>
                                 <td class="bg-silver-lighter">Construcción</td>
-                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $dimencion->superficie_construccion }}</a></td>
+                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $dimencion->superficie_construccion }} mts.<sup>2</sup></a></td>
                             </tr>
                             <tr>
                                 <td class="bg-silver-lighter">Terreno</td>
-                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $dimencion->superficie_terreno }} m<sup>2</sup></a></td>
+                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $dimencion->superficie_terreno }} mts.<sup>2</sup></a></td>
                             </tr>
                             <tr>
                                 <td class="bg-silver-lighter">Frente</td>
-                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $dimencion->frente }}</a></td>
+                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $dimencion->frente }}  mts.</a></td>
                             </tr>
                             <tr>
                                 <td class="bg-silver-lighter">Fondo</td>
-                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $dimencion->fondo }}</a></td>
+                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $dimencion->fondo }}  mts.</a></td>
                             </tr>
                             <tr>
                                 <td class="bg-silver-lighter">Capacidad granja</td>

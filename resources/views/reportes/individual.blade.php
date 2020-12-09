@@ -113,6 +113,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="col-md-6">
+                <br><br><br>
                 <h4>Dimensiones</h4>
                 <table class="table table-bordered">
                     <thead class="thead-dark">
@@ -124,19 +125,19 @@
                     <tbody>
                         <tr>
                             <td>Superficie Construccion</td>
-                            <td>{{ $dimencion->superficie_construccion }}</td>
+                            <td>{{ $dimencion->superficie_construccion }} @if( $dimencion->superficie_construccion != "") mts<sup>2</sup>. @endif  </td>
                         </tr>
                         <tr>
                             <td>Superficie Terreno</td>
-                            <td>{{ $dimencion->superficie_terreno }} m<sup>2</sup></td>
+                            <td>{{ $dimencion->superficie_terreno }} @if($dimencion->superficie_terreno != "") mts<sup>2.</sup> @endif </td>
                         </tr>
                         <tr>
                             <td>Frente</td>
-                            <td>{{ $dimencion->frente }} </td>
+                            <td>{{ $dimencion->frente }} @if($dimencion->frente != "") mts.@endif </td>
                         </tr>
                         <tr>
                             <td>Fondo</td>
-                            <td>{{ $dimencion->fondo }}</td>
+                            <td>{{ $dimencion->fondo }} @if($dimencion->fondo != "") mts. @endif</td>
                         </tr>
                         <tr>
                             <td>Granja</td>

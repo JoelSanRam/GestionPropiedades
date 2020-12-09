@@ -84,7 +84,7 @@
                                                 data-toggle="dropdown"></a>
                                             <ul class="dropdown-menu pull-right">
                                                 <a href="{{ route('update-view-propiedad', $item->id) }}" class="dropdown-item">Datos Generales</a>
-                                                <a href="{{ route('update-view-dimencion', $item->id) }}" class="dropdown-item">Dimenciones</a>
+                                                <a href="{{ route('update-view-dimencion', $item->id) }}" class="dropdown-item">Dimensiones</a>
                                                 <a href="{{ route('update-view-ubicacion', $item->id) }}" class="dropdown-item">Ubicacion</a>
                                                 <a href="{{ route('update-view-valor', $item->id) }}" class="dropdown-item">Valores</a>
                                                 <a href="{{ route('update-view-coordenada', $item->id) }}" class="dropdown-item">Coordenadas</a>
