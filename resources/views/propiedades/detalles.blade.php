@@ -139,19 +139,19 @@
                         <tbody>
                             <tr>
                                 <td class="bg-silver-lighter">Construcción</td>
-                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $dimencion->superficie_construccion }} mts.<sup>2</sup></a></td>
+                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $dimencion->superficie_construccion }} @if( $dimencion->superficie_construccion != "")mts.<sup>2</sup>@endif</a></td>
                             </tr>
                             <tr>
                                 <td class="bg-silver-lighter">Terreno</td>
-                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $dimencion->superficie_terreno }} mts.<sup>2</sup></a></td>
+                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $dimencion->superficie_terreno }} @if($dimencion->superficie_terreno != "") mts.<sup>2</sup> @endif</a></td>
                             </tr>
                             <tr>
                                 <td class="bg-silver-lighter">Frente</td>
-                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $dimencion->frente }}  mts.</a></td>
+                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $dimencion->frente }} @if($dimencion->frente != "")  mts. @endif</a></td>
                             </tr>
                             <tr>
                                 <td class="bg-silver-lighter">Fondo</td>
-                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $dimencion->fondo }}  mts.</a></td>
+                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $dimencion->fondo }} @if($dimencion->fondo) mts. @endif</a></td>
                             </tr>
                             <tr>
                                 <td class="bg-silver-lighter">Capacidad granja</td>
