@@ -28,7 +28,7 @@ class PropiedadController extends Controller
         $ubicacion = Ubicacion::find($id);
         $valor = Valor::find($id);
         $marker = Coordenada::where([['propiedad_id', $id], ['marcador', 'si']])->first();
-        $polygon = Coordenada::where('propiedad_id', $id)->get();
+        $polygon = Coordenada::where([['propiedad_id', $id], ['marcador', null]])->get();
         $archivo = File::where('propiedad_id', $id)->first();
 
     	return view('propiedades.detalles', [

@@ -11,7 +11,7 @@ class MapController extends Controller
 {
     public function mapData()
     {
-        $polygons = Coordenada::select('propiedad_id', 'lat', 'lng')->get();
+        $polygons = Coordenada::select('propiedad_id', 'lat', 'lng')->where('marcador', null)->get();
 
         $markers = DB::table('coordenadas')
                     ->where('marcador', 'si')
@@ -36,7 +36,10 @@ class MapController extends Controller
                     ->orWhere('granja', $granja)
                     ->orWhere('propietario', $propietario)
                     ->orWhere('estatus', $estatus)
-                    ->join('coordenadas', 'propiedads.id', '=', 'coordenadas.propiedad_id')
+                    ->join('coordenadas', function ($join) {
+                        $join->on('propiedads.id', '=', 'coordenadas.propiedad_id')
+                            ->where('coordenadas.marcador', '=', null);
+                    })
                     ->select('coordenadas.propiedad_id', 'coordenadas.lat', 'coordenadas.lng')
                     ->get();
 
