@@ -20,10 +20,9 @@
             <!-- begin panel-heading -->
             <div class="panel-heading">
                 <div class="panel-heading-btn">
-                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
-                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
+
                     <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
-                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+
                 </div>
                 <h4 class="panel-title">Datos Generales</h4>
             </div>
@@ -73,10 +72,10 @@
                                         <a href="{{ route('update-view-marcador', $item->id) }}" class="btn btn-warning btn-sm">Establecer</a>
                                     </div>
                                 @endif
-                                
+
                             </div>
                         @endforeach
-                        
+
 
                         <div class="form-row justify-content-end">
                             <a href="/listado" class="btn btn-secondary btn-lg mr-2">Regresar</a>
@@ -94,7 +93,7 @@
                                 <input type="text" class="form-control m-b-5" value="{{ $id }}" readonly>
                             </div>
                         </div>
-                        
+
                         <div class="form-row justify-content-center">
                             <div class="col-md-6">
                                 <div class="input-group my-3">
@@ -104,7 +103,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                         </div>
 
                         <div class="form-row justify-content-center">
@@ -114,14 +113,14 @@
                                 </div>
                             </div>
                         </div>
-                                                            
+
                         <div class="form-row justify-content-end">
                             <a href="/listado" class="btn btn-secondary btn-lg mr-2">Cancelar</a>
                             <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
                         </div>
                     </form>
                 @endif
-                
+
 
             </div>
             <!-- end panel-body -->
@@ -140,7 +139,7 @@
             $(".message").removeClass("d-none");
         }
     }
-    
+
 </script>
 
 @endsection

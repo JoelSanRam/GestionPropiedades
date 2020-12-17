@@ -18,7 +18,8 @@
 	<link href="{{ asset('assets/plugins/animate/animate.min.css" rel="stylesheet')}}" />
 	<link href="{{ asset('assets/css/default/style.min.css')}}" rel="stylesheet" />
 	<link href="{{ asset('assets/css/default/style-responsive.min.css')}}" rel="stylesheet" />
-	<link href="{{ asset('assets/css/default/theme/default.css')}}" rel="stylesheet" id="theme" />
+    <link href="{{ asset('assets/css/default/theme/default.css')}}" rel="stylesheet" id="theme" />
+
 	<!-- ================== END BASE CSS STYLE ================== -->
 
 	<!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
@@ -32,7 +33,8 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
 
-	<link href="{{ asset('css/map.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/map.css') }}" rel="stylesheet">
+    
 </head>
 <body>
 	<!-- begin #page-loader -->
@@ -47,7 +49,7 @@
 			<div id="header" class="header navbar-default">
 				<!-- begin navbar-header -->
 				<div class="navbar-header">
-					<a href="index.html" class="navbar-brand"><span class="navbar-logo"></span> <b>Gestión de </b>Propiedades</a>
+					<img src="{{ asset('assets/img/logo/logo.svg')}}" alt="Logo" class="logobonito">
 					<button type="button" class="navbar-toggle" data-click="sidebar-toggled">
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
@@ -67,7 +69,7 @@
 						</a>
 						<div class="dropdown-menu dropdown-menu-right">
 
-							<a class="dropdown-item" href="{{ route('logout') }}" 
+							<a class="dropdown-item" href="{{ route('logout') }}"
 							onclick="event.preventDefault();	document.getElementById('logout-form').submit();">
                                 Salir
                             </a>
@@ -140,7 +142,7 @@
 									<span>Nuevo Predio</span>
 								</a>
 		                    </li>
-		                   
+
 		                    <li class="has-sub">
 								<a href="/usuarios">
 									<i class="fa fa-user"></i>

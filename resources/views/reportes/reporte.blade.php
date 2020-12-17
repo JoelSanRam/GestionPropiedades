@@ -3,10 +3,10 @@
 @section('admin')
 
 <h1 class="page-header">Generación de reportes</h1>
-    
+
     <!-- begin page-header -->
     <form class="my-2" action="{{ route('search') }}" method="GET">
-        
+
         <label style="margin-left: 10px">Entidad</label>
         <select class="page-header form-control-sm" name="entidad">
             <option value="">Elegir</option>
@@ -54,10 +54,9 @@
             <!-- begin panel-heading -->
             <div class="panel-heading">
                 <div class="panel-heading-btn">
-                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
-                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
+
                     <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
-                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+
                 </div>
                 <h4 class="panel-title">Listado de predios</h4>
             </div>
@@ -74,7 +73,7 @@
                             <th scope="col">Nombre Corto</th>
                             <th scope="col">Propietario</th>
                             <th scope="col">Superficie Terreno</th>
-                            <th scope="col">Valor Comercial</th> 
+                            <th scope="col">Valor Comercial</th>
                             <th scope="col">Valor Catastral</th>
                         </tr>
                     </thead>

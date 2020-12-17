@@ -21,10 +21,9 @@
             <div class="panel panel-inverse">
                 <div class="panel-heading ui-sortable-handle">
                     <div class="panel-heading-btn">
-                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
-                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
+
                         <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
-                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+
                     </div>
                     <h4 class="panel-title">Datos generales</h4>
                 </div>
@@ -91,10 +90,9 @@
             <div class="panel panel-inverse" >
                 <div class="panel-heading ui-sortable-handle">
                     <div class="panel-heading-btn">
-                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
-                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
+
                         <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
-                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+
                     </div>
                     <h4 class="panel-title">Mapa</h4>
                 </div>
@@ -119,10 +117,9 @@
             <div class="panel panel-inverse">
                 <div class="panel-heading ui-sortable-handle">
                     <div class="panel-heading-btn">
-                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
-                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
+
                         <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
-                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+
                     </div>
                     <h4 class="panel-title">Dimensiones</h4>
                 </div>
@@ -179,10 +176,9 @@
             <div class="panel panel-inverse">
                 <div class="panel-heading ui-sortable-handle">
                     <div class="panel-heading-btn">
-                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
-                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
+
                         <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
-                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+
                     </div>
                     <h4 class="panel-title">Datos Extras</h4>
                 </div>
@@ -232,7 +228,7 @@
             </div>
             <!-- end panel -->
         </div>
-        
+
     </div>
     <div class="row">
         <!-- end col-8 -->
@@ -243,10 +239,9 @@
             <div class="panel panel-inverse">
                 <div class="panel-heading ui-sortable-handle">
                     <div class="panel-heading-btn">
-                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
-                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
+
                         <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
-                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+
                     </div>
                     <h4 class="panel-title">Ubicación</h4>
                 </div>
@@ -321,10 +316,9 @@
             <div class="panel panel-inverse">
                 <div class="panel-heading ui-sortable-handle">
                     <div class="panel-heading-btn">
-                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
-                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
+
                         <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
-                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+
                     </div>
                     <h4 class="panel-title">Valores</h4>
                 </div>
@@ -390,10 +384,9 @@
             <div class="panel panel-inverse">
                 <div class="panel-heading ui-sortable-handle">
                     <div class="panel-heading-btn">
-                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
-                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
+
                         <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
-                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+
                     </div>
                     <h4 class="panel-title">Documentos Adjuntos</h4>
                 </div>
@@ -418,7 +411,7 @@
                                     @else
                                         No hay documento pdf
                                     @endif
-                                    
+
                                 </td>
                                 <td>
                                     @if(!empty($archivo))
@@ -439,17 +432,17 @@
                                 <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $archivo->created_at }}</a></td>
                                 </tr>
                                 @endif
-                           
-                            
+
+
                                 @if (!empty($archivo->updated_at))
                                 <tr>
                                 <td class="bg-silver-lighter">Ult. Mov</td>
                                 <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $archivo->updated_at }}</a></td>
                                 </tr>
                                 @endif
-                           
-                                
-                            
+
+
+
                         </tbody>
                     </table>
                 </div>
