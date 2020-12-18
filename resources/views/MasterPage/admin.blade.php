@@ -34,7 +34,10 @@
 	<!-- ================== END BASE JS ================== -->
 
     <link href="{{ asset('css/map.css') }}" rel="stylesheet">
-    
+
+    <link href="{{ asset('assets/img/logo/criofavicon.png')}}" sizes="128x128" rel="shortcut icon" type="image/x-icon" />
+	<link href="{{ asset('assets/img/logo/criofavicon.png')}}" sizes="128x128" rel="shortcut icon" />
+
 </head>
 <body>
 	<!-- begin #page-loader -->

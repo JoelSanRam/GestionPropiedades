@@ -4,8 +4,8 @@
 <div class="login bg-black animated fadeInDown">
             <!-- begin brand -->
             <div class="login-header">
-                <div class="brand">
-                    <span class="logo"></span> <b>Gestión de </b>Propiedades
+                <div class="brand" style="text-align: center">
+                    <img src="{{ asset('assets/img/logo/logo.svg')}}" alt="Logo" class="logobonito2">
 
                 </div>
                 <div class="icon">

@@ -26,16 +26,16 @@ Website: http://www.seantheme.com/color-admin-v4.0/admin/
 
 /* Added in v1.5 */
 
-.gradient-enabled .sidebar .nav > li.active > a, 
-.gradient-enabled .sidebar .nav > li.active > a:focus, 
+.gradient-enabled .sidebar .nav > li.active > a,
+.gradient-enabled .sidebar .nav > li.active > a:focus,
 .gradient-enabled .sidebar .nav > li.active > a:hover,
-.gradient-enabled.page-sidebar-minified .sidebar .nav > li.has-sub.active:focus > a, 
-.gradient-enabled.page-sidebar-minified .sidebar .nav > li.has-sub.active:hover > a, 
+.gradient-enabled.page-sidebar-minified .sidebar .nav > li.has-sub.active:focus > a,
+.gradient-enabled.page-sidebar-minified .sidebar .nav > li.has-sub.active:hover > a,
 .gradient-enabled.page-sidebar-minified .sidebar .nav > li.has-sub.active > a,
 .gradient-enabled .label.label-theme,
 .gradient-enabled .btn.btn-scroll-to-top,
-.gradient-enabled .top-menu .nav > li.active > a, 
-.gradient-enabled .top-menu .nav > li.active > a:focus, 
+.gradient-enabled .top-menu .nav > li.active > a,
+.gradient-enabled .top-menu .nav > li.active > a:focus,
 .gradient-enabled .top-menu .nav > li.active > a:hover {
     background: rgb(0,210,210); /* Old browsers */
     /* IE9 SVG, needs conditional override of 'filter' to 'none' */
@@ -56,7 +56,7 @@ Website: http://www.seantheme.com/color-admin-v4.0/admin/
 	color: rgba(0,0,0,0.5);
 }
 .pace-progress {
-    background: #00acac;
+    background: #0011ac;
 }
 .pace .pace-activity {
     border-top-color: #00acac;
@@ -77,8 +77,8 @@ Website: http://www.seantheme.com/color-admin-v4.0/admin/
 
 /* Added in v1.9 */
 
-.top-menu .nav > li.active > a i, 
-.top-menu .nav > li.active > a:focus i, 
+.top-menu .nav > li.active > a i,
+.top-menu .nav > li.active > a:focus i,
 .top-menu .nav > li.active > a:hover i {
     color: #00acac;
 }
