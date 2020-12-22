@@ -103,7 +103,7 @@
                                     <img src="{{ asset('assets/img/logo/logo.svg')}}" alt="Logo" class="logobonito">
                                     <div class="info titulos">
 
-                                        
+
                                         {{-- <small class="titulos">Rol de {{Auth::user()->rol}}</small> --}}
                                     </div>
                                 </div>
@@ -122,7 +122,7 @@
 					<!-- end sidebar user -->
 					<!-- begin sidebar nav -->
 					<ul class="nav">
-						<li class="nav-header">Módulos</li>
+						<li class="nav-header" style="color: white">Módulos</li>
 
 						<li class="has-sub">
 							<a href="{{ route('map') }}">
@@ -199,7 +199,8 @@
 
 		<!-- begin #content -->
 		<div id="content" class="content">
-			@yield('admin')
+            @yield('admin')
+           
 		</div>
 		<!-- end #content -->
 

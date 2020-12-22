@@ -8,7 +8,7 @@
     <ul>
         <li class="col-md-3 col-sm-4 col-6 ">
             <a>
-                <span class="number">1</span> 
+                <span class="number">1</span>
                 <span class="info text-ellipsis">
                     Datos Generales
                 </span>

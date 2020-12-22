@@ -32,7 +32,7 @@
                     </div>
 
                     <div class="login-buttons">
-                        <button type="submit" class="btn btn-primary btn-block btn-lg" style="background-color: #1C4482">Iniciar sesión</button>
+                        <button type="submit" class="btn btn-primary btn-block btn-lg" style="background-color: #ffc800">Iniciar sesión</button>
                     </div>
                 </form>
             </div>
