@@ -40,8 +40,6 @@
                     </div>
                 </div>
 
-                {{--<a href="{{ route('create-view-coordenada') }}" class="btn btn-primary my-3">Agregar Coordenadas</a>--}}
-
                 @if(isset($data) && count($data) > 0)
                     <form action="{{ route('update-coordenada') }}" method="POST">
                         @csrf
@@ -66,10 +64,18 @@
                                 @if($item->marcador != null || $item->marcador != '')
                                     <div class="form-group col-md-3">
                                         <span class="badge badge-primary">Marcador</span>
+                                        <a href="{{ route('delete-coordenada', $item->id) }}" class="btn btn-danger btn-sm">
+                                            Borrar
+                                        </a>
                                     </div>
                                 @else
                                     <div class="col-md-3">
-                                        <a href="{{ route('update-view-marcador', $item->id) }}" class="btn btn-warning btn-sm">Establecer</a>
+                                        <a href="{{ route('update-view-marcador', $item->id) }}" class="btn btn-warning btn-sm">
+                                            Establecer
+                                        </a>
+                                        <a href="{{ route('delete-coordenada', $item->id) }}" class="btn btn-danger btn-sm">
+                                            Borrar
+                                        </a>
                                     </div>
                                 @endif
 
