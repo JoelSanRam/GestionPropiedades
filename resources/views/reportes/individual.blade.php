@@ -14,7 +14,7 @@
 <body>
 	<div>
         <div class="float-right">
-            <img src="{{ asset('assets/img/logo/logo.png')}}" width="90px" height="50px">
+            <img src="{{ asset('assets/img/logo/logo.png')}}" width="90px" height="40px">
         </div>
     </div>
 
