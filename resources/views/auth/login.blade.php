@@ -34,9 +34,14 @@
                     <div class="login-buttons">
                         <button type="submit" class="btn btn-primary btn-block btn-lg" style="background-color: #ffc800">Iniciar sesión</button>
                     </div>
-                </form>
+                </form> <br>
+
             </div>
+
             <!-- end login-content -->
+            <div class="copyright">
+                <p style="color: white">© 2021 Desarrollado por <a style="color: yellow" href="https://www.buho-solutions.com">Buho solutions</a></p>
+            </div>
         </div>
 
 @endsection

@@ -20,7 +20,7 @@
             <!-- begin panel-heading -->
             <div class="panel-heading">
                 <div class="panel-heading-btn">
-                    
+
                     <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
 
                 </div>
@@ -58,7 +58,7 @@
 
                     <div class="form-row justify-content-end">
                         <a href="/usuarios" class="btn btn-secondary btn-lg mr-2">Regresar</a>
-                        <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
+                        <button type="submit" class="btn btn-warning btn-lg">Guardar</button>
                     </div>
                 </form>
 
@@ -71,4 +71,7 @@
     <!-- end col-10 -->
 </div>
 <!-- end row -->
+<div class="copyright">
+    <p>© 2021 Desarrollado por <a href="https://www.buho-solutions.com">Buho solutions</a></p>
+</div>
 @endsection

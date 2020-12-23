@@ -5,7 +5,7 @@
 @if (Auth::user()->rol == "Administrador")
 <!-- begin breadcrumb -->
 <ol class="breadcrumb pull-right">
-    <li class="breadcrumb-item"><a href="{{ route('usuarios.create') }}"><button class="btn btn-primary">Agregar nuevo usuario</button></a></li>
+    <li class="breadcrumb-item"><a href="{{ route('usuarios.create') }}"><button class="btn btn-warning">Agregar nuevo usuario</button></a></li>
 </ol>
 <!-- end breadcrumb -->
 @endif
@@ -77,4 +77,7 @@
     <!-- end col-10 -->
 </div>
 <!-- end row -->
+<div class="copyright">
+    <p>© 2021 Desarrollado por <a href="https://www.buho-solutions.com">Buho solutions</a></p>
+</div>
 @endsection

@@ -507,7 +507,9 @@
 
     </div>
 
-
+    <div class="copyright">
+        <p>© 2021 Desarrollado por <a href="https://www.buho-solutions.com">Buho solutions</a></p>
+    </div>
 
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzlAU7AYsNOTbWNsuvgXhyIPSl07JSJ_g&callback=initMap&libraries=&v=weekly"defer></script>

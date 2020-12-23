@@ -40,7 +40,7 @@
         </select>
 
         <button type="submit" name="option" value="filtrar" class="btn btn-success mr-1 ml-2">Filtrar</button>
-        <button type="submit" name="option" value="reporte" class="btn btn-primary">Generar reporte</button>
+        <button type="submit" name="option" value="reporte" class="btn btn-warning">Generar reporte</button>
 
     </form>
 <!-- end page-header -->
@@ -103,4 +103,7 @@
     <!-- end col-10 -->
 </div>
 <!-- end row -->
+<div class="copyright">
+    <p>© 2021 Desarrollado por <a href="https://www.buho-solutions.com">Buho solutions</a></p>
+</div>
 @endsection
