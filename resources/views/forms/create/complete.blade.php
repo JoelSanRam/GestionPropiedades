@@ -93,5 +93,7 @@
         <p><a href="{{ route('listado') }}" class="btn btn-primary btn-lg">Listado de Predios</a></p>
     </div>
 </form>
-
+<div class="copyright">
+    <p>© 2021 Desarrollado por <a href="https://www.buho-solutions.com">Buho solutions</a></p>
+</div>
 @endsection

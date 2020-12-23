@@ -8,7 +8,7 @@
     <ul>
         <li class="col-md-3 col-sm-4 col-6 ">
             <a>
-                <span class="number">1</span> 
+                <span class="number">1</span>
                 <span class="info text-ellipsis">
                     Datos Generales
                 </span>
@@ -125,10 +125,13 @@
 
         <div class="form-row justify-content-end">
             <a href="/listado" class="btn btn-secondary btn-lg mr-2">Cancelar</a>
-            <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
+            <button type="submit" class="btn btn-warning btn-lg">Guardar</button>
         </div>
     </div>
 </form>
+<div class="copyright">
+    <p>© 2021 Desarrollado por <a href="https://www.buho-solutions.com">Buho solutions</a></p>
+</div>
 
 @endsection
 

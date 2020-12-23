@@ -18,12 +18,12 @@
 
 	<div>
         <div class="float-right">
-            <img src="https://d500.epimg.net/cincodias/imagenes/2015/05/08/pyme/1431098283_691735_1431098420_noticia_normal.jpg" width="80px" height="80px">
+            <img src="{{ asset('assets/img/logo/logo.png')}}" width="90px" height="40px">
         </div>
     </div>
 
     <table class="table table-bordered table-top letra">
-        <thead>
+        <thead class="thead" style="background-color: #1C4482; color: white">
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Entidad</th>
@@ -32,7 +32,7 @@
                 <th scope="col">Nombre Corto</th>
                 <th scope="col">Propietario</th>
                 <th scope="col">Superficie Terreno</th>
-                <th scope="col">Valor Comercial</th> 
+                <th scope="col">Valor Comercial</th>
                 <th scope="col">Valor Catastral</th>
             </tr>
         </thead>
@@ -47,11 +47,11 @@
                     <td>{{ $item->propietario }}</td>
 	                <td>{{ $item->superficie_terreno }} m<sup>2</sup></td>
 	                <td>${{ number_format($item->valor_comercial, 2) }}</td>
-	                <td>${{ number_format($item->valor_catastral, 2) }}</td> 
+	                <td>${{ number_format($item->valor_catastral, 2) }}</td>
 	            </tr>
         	@endforeach
         </tbody>
     </table>
-	
+
 </body>
 </html>

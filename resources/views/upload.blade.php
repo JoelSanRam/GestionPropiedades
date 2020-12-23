@@ -64,7 +64,7 @@
                             </div>
 
                             <div class="form-group">
-                                <button type="submit" class="btn btn-success">Guardar</button>
+                                <button type="submit" class="btn btn-warning">Guardar</button>
                             </div>
                         </form>
                     </div>
@@ -78,6 +78,10 @@
     <!-- end col-10 -->
 </div>
 <!-- end row -->
+
+<div class="copyright">
+    <p>© 2021 Desarrollado por <a href="https://www.buho-solutions.com">Buho solutions</a></p>
+</div>
 
     <script>
         function alertSuccess() {
