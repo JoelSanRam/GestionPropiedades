@@ -332,7 +332,7 @@
                             </tr>
                             <tr>
                                 <td class="bg-silver-lighter">Ejido Manzana</td>
-                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $ubicacion->colonia }}</a></td>
+                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $ubicacion->ejido_manzana }}</a></td>
                             </tr>
                             <tr>
                                 <td class="bg-silver-lighter">Código postal</td>
@@ -495,6 +495,8 @@
             <!-- end panel -->
         </div>
 
+        
+
          <!-- Valores -->
          <div class="col-lg-6 ui-sortable">
             <!-- begin panel -->
@@ -517,12 +519,25 @@
                                 <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                                 <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                             </ol>
-                           
+                            @php
+                                $i=1
+                            @endphp
+                            
                             <div class="carousel-inner popup">
+                           
                                 @foreach($images as $item)
-                                    <div class="carousel-item active">
+
+                                @if ($i ==1)
+                                <div class="carousel-item active">
+                                    <img class="d-block w-100" src="{{ asset('pics/' . $item->filename) }}">
+                                </div>
+                                @endif
+                                    <div class="carousel-item">
                                         <img class="d-block w-100" src="{{ asset('pics/' . $item->filename) }}">
                                     </div>
+                                    @php
+                                    $i++
+                                    @endphp
                                 @endforeach
                             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
