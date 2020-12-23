@@ -23,14 +23,15 @@
     <br>
     <div class="row">
         <div class="col-md-12">
-            <h3>Datos Generales</h3>
             <div class="col-md-6">
+                <br>
+                <h4>Datos Generales</h4>
                 <table class="table table-bordered">
-                    <thead class="thead-dark">
+                    <thead class="thead" style="background-color: #1C4482; color: white">
                         <tr>
                             <th scope="col" width="20%">Campo</th>
                             <th scope="col">Valores</th>
-                            
+
                         </tr>
                     </thead>
                     <tbody>
@@ -68,15 +69,16 @@
                         </tr>
                         <tr>
                             <td>Propietario</td>
-                            <td>{{ $propiedad->propietario }}</td> 
+                            <td>{{ $propiedad->propietario }}</td>
                         </tr>
                     </tbody>
-                </table> 
+                </table>
             </div> <br>
-            <h3>Datos Extras</h3>
             <div class="col-md-6">
+                <br>
+                <h4>Datos Extras</h4>
                 <table class="table table-bordered">
-                    <thead class="thead-dark">
+                    <thead class="thead" style="background-color: #1C4482; color: white">
                         <tr>
                             <th scope="col" width="20%">Campo</th>
                             <th scope="col">Valores</th>
@@ -109,14 +111,14 @@
         </div>
     </div>
 
-    
+
     <div class="row">
         <div class="col-md-12">
             <div class="col-md-6">
-                <br><br><br>
+                <br><br>
                 <h4>Dimensiones</h4>
                 <table class="table table-bordered">
-                    <thead class="thead-dark">
+                    <thead class="thead" style="background-color: #1C4482; color: white">
                         <tr>
                             <th scope="col" width="20%">Campo</th>
                             <th scope="col">Valores</th>
@@ -124,7 +126,7 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Superficie Construccion</td>
+                            <td>Superficie Construcción</td>
                             <td>{{ $dimencion->superficie_construccion }} @if( $dimencion->superficie_construccion != "") mts<sup>2</sup>. @endif  </td>
                         </tr>
                         <tr>
@@ -149,7 +151,7 @@
             <div class="col-md-6">
                 <h4>Valores</h4>
                 <table class="table table-bordered">
-                    <thead class="thead-dark">
+                    <thead class="thead" style="background-color: #1C4482; color: white">
                         <tr>
                             <th scope="col" width="20%">Campo</th>
                             <th scope="col">Valores</th>
@@ -184,7 +186,7 @@
 
     <h4>Ubicacion</h4>
     <table class="table table-bordered">
-        <thead class="thead-dark">
+        <thead class="thead" style="background-color: #1C4482; color: white">
             <tr>
                 <th scope="col" width="20%">Campo</th>
                 <th scope="col">Valores</th>
