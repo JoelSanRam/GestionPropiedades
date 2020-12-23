@@ -18,7 +18,7 @@
 
 	<div>
         <div class="float-right">
-            <img src="https://d500.epimg.net/cincodias/imagenes/2015/05/08/pyme/1431098283_691735_1431098420_noticia_normal.jpg" width="80px" height="80px">
+            <img src="{{ asset('assets/img/logo/logo.png')}}" width="120px" height="70px">
         </div>
     </div>
 
