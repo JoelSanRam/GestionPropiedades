@@ -1,7 +1,51 @@
 @extends('MasterPage.admin')
 
 @section('admin')
-
+    <style>
+        .popup{
+            margin: auto;
+            text-align: center
+        }
+        .popup img{
+            cursor: pointer
+        }
+        .show-img{
+            z-index: 999;
+            display: none;
+        }
+        .show-img .overlay{
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,.66);
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+        .show-img .img-show{
+            width: 65%;
+            height: 65%;
+            background: #FFF;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            overflow: hidden
+        }
+        .img-show span{
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 99;
+            cursor: pointer;
+        }
+        .img-show img{
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+    </style>
 
     <ol class="breadcrumb pull-right">
     <li class="breadcrumb-item"><a href="{{ route('pdf-individual', $propiedad->id) }}" class="btn btn-primary">Generar PDF</a></li>
@@ -471,7 +515,7 @@
                                 <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                                 <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                             </ol>
-                            <div class="carousel-inner">
+                            <div class="carousel-inner popup">
                                 <div class="carousel-item active">
                                     <img class="d-block w-100" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22800%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20400%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_176904f15e5%20text%20%7B%20fill%3A%23333%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A40pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_176904f15e5%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23555%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22276.9921875%22%20y%3D%22217.7%22%3EFirst%20slide%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="First slide">
                                 </div>
@@ -498,7 +542,13 @@
         </div>
 
     </div>
-
+    <div class="show-img">
+        <div class="overlay"></div>
+        <div class="img-show">
+            <span>X</span>
+            <img src="">
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-5"></div>
         <div class="col-md-5">
@@ -547,7 +597,20 @@
           map,
           icon: image,
         });
-
+        $(function () {
+            "use strict";
+            
+            $(".popup img").click(function () {
+                var $src = $(this).attr("src");
+                $(".show-img").fadeIn();
+                $(".img-show img").attr("src", $src);
+            });
+            
+            $("span, .overlay").click(function () {
+                $(".show-img").fadeOut();
+            });
+            
+        });
     }
 </script>
 
