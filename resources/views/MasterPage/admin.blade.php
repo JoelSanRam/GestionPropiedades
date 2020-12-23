@@ -52,7 +52,7 @@
 			<div id="header" class="header navbar-default">
 				<!-- begin navbar-header -->
 				<div class="navbar-header">
-					<img src="{{ asset('assets/img/logo/logo.svg')}}" alt="Logo" class="logobonito">
+					<a href="" class="navbar-brand"><b>Gestión de Propiedades</b></a>
 					<button type="button" class="navbar-toggle" data-click="sidebar-toggled">
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
@@ -97,25 +97,32 @@
 				<div data-scrollbar="true" data-height="100%">
 					<!-- begin sidebar user -->
 					<ul class="nav">
-						<li class="nav-profile">
+						<li class="nav-profile ajustedelogocontexto">
 							<a href="javascript:;" data-toggle="nav-profile">
-								<div class="cover with-shadow"></div>
-								<div class="image">
-									{{-- <img src="{{ asset('assets/img/user/user-13.jpg')}}" alt="" /> --}}
-								</div>
-								<div class="info">
+                                <div class="cover " style="background-color: white">
+                                    <img src="{{ asset('assets/img/logo/logo.svg')}}" alt="Logo" class="logobonito">
+                                    <div class="info titulos">
 
-									{{ Auth::user()->name }}
-									<small>Rol de {{Auth::user()->rol}}</small>
+
+                                        {{-- <small class="titulos">Rol de {{Auth::user()->rol}}</small> --}}
+                                    </div>
+                                </div>
+
+								<div class="info titulos">
+
+                                    {{-- {{ Auth::user()->name }} <br>
+                                    Rol de {{Auth::user()->rol}} --}}
+									{{-- <small class="titulos">Rol de {{Auth::user()->rol}}</small> --}}
 								</div>
-							</a>
+                            </a>
+
 						</li>
 
 					</ul>
 					<!-- end sidebar user -->
 					<!-- begin sidebar nav -->
 					<ul class="nav">
-						<li class="nav-header">Módulos</li>
+						<li class="nav-header" style="color: white">Módulos</li>
 
 						<li class="has-sub">
 							<a href="{{ route('map') }}">
@@ -192,7 +199,8 @@
 
 		<!-- begin #content -->
 		<div id="content" class="content">
-			@yield('admin')
+            @yield('admin')
+           
 		</div>
 		<!-- end #content -->
 

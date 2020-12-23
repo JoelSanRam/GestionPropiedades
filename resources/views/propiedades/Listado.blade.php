@@ -5,7 +5,7 @@
 <!-- begin breadcrumb -->
 @if (Auth::user()->rol == "Administrador")
 <ol class="breadcrumb pull-right">
-    <li class="breadcrumb-item"><a href="{{ route('create-view-propiedad') }}" class="btn btn-primary">Agregar nuevo predio</a></li>
+    <li class="breadcrumb-item"><a href="{{ route('create-view-propiedad') }}" class="btn btn-warning">Agregar nuevo predio</a></li>
 </ol>
 @endif
 <!-- end breadcrumb -->
@@ -104,7 +104,9 @@
     <!-- end col-10 -->
 </div>
 <!-- end row -->
-
+<div class="copyright">
+    <p>© 2021 Desarrollado por <a href="https://www.buho-solutions.com">Buho solutions</a></p>
+</div>
 @endsection
 
 
