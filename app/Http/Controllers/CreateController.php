@@ -13,6 +13,7 @@ use App\Ubicacion;
 use App\Valor;
 use App\Coordenada;
 use App\File;
+use App\Image;
 
 class CreateController extends Controller
 {
@@ -51,6 +52,12 @@ class CreateController extends Controller
     {
         $id = Propiedad::max('id'); 
         return view('forms.create.files', compact('id')); 
+    }
+
+    public function createViewImage()
+    {
+        $id = Image::max('id'); 
+        return view('forms.create.image', compact('id')); 
     }
 
     ////// Action Form Create ////
@@ -219,7 +226,7 @@ class CreateController extends Controller
             $file->dwg = $dwgName;
             $file->save();
 
-            return redirect()->route('create-complete');
+            return redirect()->route('create-view-image');
 
         } catch (\Throwable $th) {
             \Session::flash('message', 'Ocurrio un error, por favor verifica los archivos que intentas subir');
@@ -228,4 +235,35 @@ class CreateController extends Controller
 
     }
 
+    public function createImage(Request $request)
+    {
+        $this->validate($request, [
+            'images' => 'required',
+        ]);
+
+        try {
+            
+            if ($request->hasfile('images')) {
+
+                foreach ($request->file('images') as $file) {
+
+                    $path = public_path() . '/pics';
+                    $filename = uniqid() . $file->getClientOriginalName();
+                    $file->move($path, $filename);
+                    
+                    $image = new Image();
+                    $image->propiedad_id = $request->propiedad_id;
+                    $image->filename = $filename;
+                    $image->save(); 
+                }
+            }
+
+            return redirect()->route('create-complete');
+
+        } catch (Exception $e) {
+            \Session::flash('message', 'Ocurrio un error, al subir las imagenes');
+            return redirect()->back();
+        }
+
+    }
 }

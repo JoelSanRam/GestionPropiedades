@@ -34,3 +34,19 @@
 .copyright{
     text-align: center;
 }
+
+.img-fit {
+    object-fit: cover;
+    margin: 5px;
+    border-radius: 5px;
+    animation: slidein 0.8s;
+}
+
+@keyframes slidein {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

@@ -28,6 +28,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/create/view/valor', 'CreateController@createViewValor')->name('create-view-valor');
     Route::get('/create/view/coordenada', 'CreateController@createViewCoordenada')->name('create-view-coordenada');
     Route::get('/create/view/archivo', 'CreateController@createViewArchivo')->name('create-view-archivo');
+    Route::get('/create/view/image', 'CreateController@createViewImage')->name('create-view-image');
 
     ///// routes post form create /////
     Route::post('/create/save/propiedad', 'CreateController@createPropiedad')->name('create-propiedad');
@@ -36,6 +37,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/create/save/valor', 'CreateController@createValor')->name('create-valor');
     Route::post('/create/save/coordenada', 'CreateController@createCoordenada')->name('create-coordenada');
     Route::post('/create/save/archivo', 'CreateController@createArchivo')->name('create-archivo');
+    Route::post('/create/save/image', 'CreateController@createImage')->name('create-image');
 
 
     ////// routes update view ///////
@@ -59,8 +61,9 @@ Route::middleware('auth')->group(function () {
     Route::put('/update/save/archivo/pdf/{id}', 'ChangesController@updateArchivoPDF')->name('update-view-archivo-pdf');
     Route::put('/update/save/archivo/dwg/{id}', 'ChangesController@updateArchivoDWG')->name('update-view-archivo-dwg');
 
-    ///// route delete coordenada ////
+    ///// route delete coordenada and image ////
     Route::get('/delete/coordenada/{id}', 'ChangesController@deleteCoordenada')->name('delete-coordenada'); 
+    Route::get('/delete/image/{id}', 'ChangesController@deleteCoordenada')->name('delete-coordenada'); 
 
 
 

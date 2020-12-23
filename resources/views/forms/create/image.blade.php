@@ -38,19 +38,11 @@
                 </span>
             </a>
         </li>
-        <li class="col-md-3 col-sm-4 col-6 active">
+        <li class="col-md-3 col-sm-4 col-6">
             <a>
                 <span class="number">5</span>
                 <span class="info text-ellipsis">
                     Coordenadas
-                </span>
-            </a>
-        </li>
-        <li class="col-md-3 col-sm-4 col-6">
-            <a>
-                <span class="number">6</span>
-                <span class="info text-ellipsis">
-                    Imagenes
                 </span>
             </a>
         </li>
@@ -59,6 +51,14 @@
                 <span class="number">6</span>
                 <span class="info text-ellipsis">
                     Documentos Adjuntos
+                </span>
+            </a>
+        </li>
+        <li class="col-md-3 col-sm-4 col-6 active">
+            <a>
+                <span class="number">6</span>
+                <span class="info text-ellipsis">
+                    Imagenes
                 </span>
             </a>
         </li>
@@ -96,7 +96,7 @@
 </div>
     
 
-<form action="{{ route('create-coordenada') }}" method="POST" class="form-control-with-bg" enctype="multipart/form-data">
+<form action="{{ route('create-image') }}" method="POST" class="form-control-with-bg" enctype="multipart/form-data">
     @csrf
     <div class="jumbotron my-5 py-3">
 
@@ -105,21 +105,19 @@
 
                 <div class="form-group">
                     <label>ID Propiedad</label>
-                    <input type="text" class="form-control m-b-5" value="@if($id == null) 1 @else {{ intval($id) }} @endif" readonly>
+                    <input type="text" class="form-control m-b-5" name="propiedad_id" value="@if($id == null) 1 @else {{ intval($id) }} @endif" readonly>
                 </div>
 
                 <div class="input-group my-3">
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" accept=".xlsx, .xlsm, .xlsb, .xltx, .xltm,.xls,.xlt,.xls,.xml,.xla,.xlw" onchange="alertSuccess()" id="coordenadas" name="coordenadas" required>
-                        <label class="custom-file-label" for="coordenadas">Elige tu archivo</label>
+                        <input type="file" class="custom-file-input" accept=".jpg, .svg, .png," onchange="uploadImages()" id="images" name="images[]" required multiple>
+                        <label class="custom-file-label" for="coordenadas">Eligir imagenes</label>
                     </div>
                 </div>
 
                 <br>
 
-                <div class="alert alert-primary message d-none" role="alert">
-                    Archivo Cargado
-                </div>
+                <div id="container-img" class="mb-3"></div>
             </div>
         </div>
         
@@ -131,14 +129,32 @@
 </form>
 
 <script>
-    function alertSuccess() {
-        var file = document.querySelector('input[type=file]').files[0];
 
-        if (file) {
-            $(".message").removeClass("d-none");
+    function uploadImages(){
+
+        document.getElementById("container-img").innerHTML="";
+
+        let images = document.getElementById('images');
+
+        if(images && images.files.length > 0){
+            
+            for (var i = 0; i <= images.files.length - 1; i++) {
+                previewImage(images.files[i]);
+            }
+        }
+
+    }
+
+    function previewImage(img) {
+        let reader = new FileReader();
+        reader.readAsDataURL(img);
+
+        reader.onloadend = function() {
+            let img = `<img src="${reader.result}" width="100" height="100" class="img-fit">`;
+            $("#container-img").append(img);
         }
     }
-    
+
 </script>
 
 @endsection
