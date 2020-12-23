@@ -88,6 +88,7 @@
                                                 <a href="{{ route('update-view-valor', $item->id) }}" class="dropdown-item">Valores</a>
                                                 <a href="{{ route('update-view-coordenada', $item->id) }}" class="dropdown-item">Coordenadas</a>
                                                 <a href="{{ route('update-view-archivo', $item->id) }}" class="dropdown-item">Archivos</a>
+                                                <a href="{{ route('update-view-image', $item->id) }}" class="dropdown-item">Imagenes</a>
                                             </ul>
                                         </div>
                                     </td>

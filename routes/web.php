@@ -47,6 +47,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/update/view/valor/{id}', 'ChangesController@updateViewValor')->name('update-view-valor');
     Route::get('/update/view/coordenada/{id}', 'ChangesController@updateViewCoordenada')->name('update-view-coordenada');
     Route::get('/update/view/archivo/{id}', 'ChangesController@updateViewArchivo')->name('update-view-archivo');
+    Route::get('/update/view/image/{id}', 'ChangesController@updateViewImage')->name('update-view-image');
+
     // update marcador
     Route::get('/update/view/marcador/{id}', 'ChangesController@updateMarcador')->name('update-view-marcador');
 
@@ -63,7 +65,7 @@ Route::middleware('auth')->group(function () {
 
     ///// route delete coordenada and image ////
     Route::get('/delete/coordenada/{id}', 'ChangesController@deleteCoordenada')->name('delete-coordenada'); 
-    Route::get('/delete/image/{id}', 'ChangesController@deleteCoordenada')->name('delete-coordenada'); 
+    Route::get('/delete/image/{id}', 'ChangesController@deleteImage')->name('delete-image'); 
 
 
 

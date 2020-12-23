@@ -98,6 +98,8 @@
 
 <form action="{{ route('create-image') }}" method="POST" class="form-control-with-bg" enctype="multipart/form-data">
     @csrf
+
+    <input type="hidden" name="action" value="create">
     <div class="jumbotron my-5 py-3">
 
         <div class="form-row justify-content-center">

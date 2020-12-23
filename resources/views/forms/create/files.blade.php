@@ -89,6 +89,7 @@
 
 <form action="{{ route('create-archivo') }}" method="POST" enctype="multipart/form-data" class="form-control-with-bg">
     @csrf
+
     <div class="jumbotron my-5 py-3">
 
         <div class="form-row justify-content-center">

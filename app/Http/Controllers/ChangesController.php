@@ -14,6 +14,7 @@ use App\Ubicacion;
 use App\Valor;
 use App\Coordenada;
 use App\File;
+use App\Image;
 
 class ChangesController extends Controller
 {
@@ -33,6 +34,12 @@ class ChangesController extends Controller
     {
         $data = Coordenada::where('propiedad_id', $id)->get();
         return view('forms.update.coordenada', compact('data', 'id')); 
+    }
+
+    public function updateViewImage($id)
+    {
+        $data = Image::where('propiedad_id', $id)->get();
+        return view('forms.update.image', compact('data', 'id')); 
     }
 
     ////// Action Form ////
@@ -293,8 +300,22 @@ class ChangesController extends Controller
         try{
             $coor = Coordenada::find($id);
             $coor->delete();
+            \Session::flash('message', 'Coordenada eliminada');
         } catch (\Throwable $th) {
             \Session::flash('message', 'Error al eliminar el registro');
+        }
+
+        return redirect()->back();
+    }
+
+    public function deleteImage($id)
+    {
+        try{
+            $img = Image::find($id);
+            $img->delete();
+            \Session::flash('message', 'Imagen eliminada');
+        } catch (\Throwable $th) {
+            \Session::flash('message', 'Error al eliminar la imagen');
         }
 
         return redirect()->back();

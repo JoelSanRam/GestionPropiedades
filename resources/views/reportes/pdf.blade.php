@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Propiedades</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propiedades</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <style>
         .table-top{
             padding-top: 80px;
@@ -16,7 +16,7 @@
 </head>
 <body>
 
-	<div>
+    <div>
         <div class="float-right">
             <img src="{{ asset('assets/img/logo/logo.png')}}" width="90px" height="40px">
         </div>
@@ -38,18 +38,18 @@
         </thead>
         <tbody>
             @foreach($data as $item)
-	        	<tr>
-	                <td>{{ $item->id }}</td>
-	                <td>{{ $item->entidad_federativa }}</td>
+                <tr>
+                    <td>{{ $item->id }}</td>
+                    <td>{{ $item->entidad_federativa }}</td>
                     <td>{{ $item->localidad }}</td>
                     <td>{{ $item->direccion }}</td>
-	                <td>{{ $item->nombre_corto }}</td>
+                    <td>{{ $item->nombre_corto }}</td>
                     <td>{{ $item->propietario }}</td>
-	                <td>{{ $item->superficie_terreno }} m<sup>2</sup></td>
-	                <td>${{ number_format($item->valor_comercial, 2) }}</td>
-	                <td>${{ number_format($item->valor_catastral, 2) }}</td>
-	            </tr>
-        	@endforeach
+                    <td>{{ $item->superficie_terreno }} m<sup>2</sup></td>
+                    <td>${{ number_format($item->valor_comercial, 2) }}</td>
+                    <td>${{ number_format($item->valor_catastral, 2) }}</td>
+                </tr>
+            @endforeach
         </tbody>
     </table>
 

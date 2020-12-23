@@ -56,7 +56,7 @@ class CreateController extends Controller
 
     public function createViewImage()
     {
-        $id = Image::max('id'); 
+        $id = Propiedad::max('id'); 
         return view('forms.create.image', compact('id')); 
     }
 
@@ -258,7 +258,12 @@ class CreateController extends Controller
                 }
             }
 
-            return redirect()->route('create-complete');
+            if ($request->action == "create") {
+                return redirect()->route('create-complete');
+            } elseif ($request->action == "update") {
+                \Session::flash('message', 'Imagenes cargadas con exito');
+                return redirect()->back();
+            }
 
         } catch (Exception $e) {
             \Session::flash('message', 'Ocurrio un error, al subir las imagenes');
