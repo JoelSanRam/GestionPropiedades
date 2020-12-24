@@ -37,7 +37,7 @@
 
     <link href="{{ asset('assets/img/logo/criofavicon.png')}}" sizes="128x128" rel="shortcut icon" type="image/x-icon" />
 	<link href="{{ asset('assets/img/logo/criofavicon.png')}}" sizes="128x128" rel="shortcut icon" />
-
+	<link rel="stylesheet" href="{{ asset('assets/magnific-popup/dist/magnific-popup.css')}}">
 </head>
 <body>
 	<!-- begin #page-loader -->
@@ -234,12 +234,21 @@
 
 	<script src="{{ asset('assets/plugins/jquery-smart-wizard/src/js/jquery.smartWizard.js') }}"></script>
 	<script src="{{ asset('assets/js/demo/form-wizards.demo.min.js') }}"></script>
-
+	<script src="{{ asset('assets/magnific-popup/dist/jquery.magnific-popup.min.js')}}"></script>
 	<script>
 		$(document).ready(function() {
 			App.init();
 			TableManageResponsive.init();
             FormWizard.init();
+		});
+		$('.img-popup').magnificPopup({
+			delegate: 'a', // child items selector, by clicking on it popup will open
+			type: 'image',
+			gallery: {
+				// options for gallery
+				enabled: true
+			}
+			// other options
 		});
 	</script>
 </body>
