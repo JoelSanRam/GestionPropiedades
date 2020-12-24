@@ -11,6 +11,7 @@
         }
         .letra{
             font-size: 12px;
+            padding-top: 50px;
         }
     </style>
 </head>
@@ -22,7 +23,13 @@
         </div>
     </div>
 
-    <table class="table table-bordered table-top letra">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-top"><h2 class="text-center"><u>Resultados de búsqueda por filtro</u></h2></div>
+        </div>
+    </div>
+
+    <table class="table table-bordered letra">
         <thead class="thead" style="background-color: #1C4482; color: white">
             <tr>
                 <th scope="col">ID</th>

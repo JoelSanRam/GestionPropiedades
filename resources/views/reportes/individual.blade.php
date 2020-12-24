@@ -18,9 +18,12 @@
         </div>
     </div>
 
-    <div class="table-top"></div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-top"><h2 class="text-center"><u>Reporte de Predio Individual</u></h2></div>
+        </div>
+    </div>
 
-    <br>
     <div class="row">
         <div class="col-md-12">
             <div class="col-md-6">
@@ -184,7 +187,10 @@
         </div>
     </div> <br><br><br><br>
 
-    <h4>Ubicacion</h4>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-6">
+                <h4>Ubicacion</h4>
     <table class="table table-bordered">
         <thead class="thead" style="background-color: #1C4482; color: white">
             <tr>
@@ -231,5 +237,8 @@
             </tr>
         </tbody>
     </table>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
