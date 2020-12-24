@@ -9,6 +9,9 @@
         .table-top{
             padding-top: 50px;
         }
+        .img-size {
+            max-width: 100%;
+        }
     </style>
 </head>
 <body>
@@ -191,53 +194,64 @@
         <div class="col-md-12">
             <div class="col-md-6">
                 <h4>Ubicacion</h4>
-    <table class="table table-bordered">
-        <thead class="thead" style="background-color: #1C4482; color: white">
-            <tr>
-                <th scope="col" width="20%">Campo</th>
-                <th scope="col">Valores</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Ejido</td>
-                <td>{{ $ubicacion->ejido }}</td>
-            </tr>
-            <tr>
-                <td>Ejido Parcela</td>
-                <td>{{ $ubicacion->parcela }}</td>
-            </tr>
-            <tr>
-                <td>Ejido Lote</td>
-                <td>{{ $ubicacion->lote }}</td>
-            </tr>
-            <tr>
-                <td>Solar</td>
-                <td>{{ $ubicacion->solar }}</td>
-            </tr>
-            <tr>
-                <td>Tablaje</td>
-                <td>{{ $ubicacion->tablaje }}</td>
-            </tr>
-            <tr>
-                <td>Finca</td>
-                <td>{{ $ubicacion->finca }}</td>
-            </tr>
-            <tr>
-                <td>Dirección</td>
-                <td>{{ $ubicacion->direccion }}</td>
-            </tr>
-            <tr>
-                <td>Ejido Manzana</td>
-                <td>{{ $ubicacion->ejido_manzana }}</td>
-            </tr>
-            <tr>
-                <td>Código postal</td>
-                <td>{{ $ubicacion->codigo_postal }}</td>
-            </tr>
-        </tbody>
-    </table>
+                <table class="table table-bordered">
+                    <thead class="thead" style="background-color: #1C4482; color: white">
+                        <tr>
+                            <th scope="col" width="20%">Campo</th>
+                            <th scope="col">Valores</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ejido</td>
+                            <td>{{ $ubicacion->ejido }}</td>
+                        </tr>
+                        <tr>
+                            <td>Ejido Parcela</td>
+                            <td>{{ $ubicacion->parcela }}</td>
+                        </tr>
+                        <tr>
+                            <td>Ejido Lote</td>
+                            <td>{{ $ubicacion->lote }}</td>
+                        </tr>
+                        <tr>
+                            <td>Solar</td>
+                            <td>{{ $ubicacion->solar }}</td>
+                        </tr>
+                        <tr>
+                            <td>Tablaje</td>
+                            <td>{{ $ubicacion->tablaje }}</td>
+                        </tr>
+                        <tr>
+                            <td>Finca</td>
+                            <td>{{ $ubicacion->finca }}</td>
+                        </tr>
+                        <tr>
+                            <td>Dirección</td>
+                            <td>{{ $ubicacion->direccion }}</td>
+                        </tr>
+                        <tr>
+                            <td>Ejido Manzana</td>
+                            <td>{{ $ubicacion->ejido_manzana }}</td>
+                        </tr>
+                        <tr>
+                            <td>Código postal</td>
+                            <td>{{ $ubicacion->codigo_postal }}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+        </div>
+    </div>  
+
+    <br><br><br><br><br><br><br><br><br><br>
+
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <h4>Imagenes</h4>
+            @foreach($images as $item)                   
+                <img class="img-size mb-3" src="{{ asset('pics/' . $item->filename) }}">
+            @endforeach
         </div>
     </div>
 </body>

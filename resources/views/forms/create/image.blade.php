@@ -56,7 +56,7 @@
         </li>
         <li class="col-md-3 col-sm-4 col-6 active">
             <a>
-                <span class="number">6</span>
+                <span class="number">7</span>
                 <span class="info text-ellipsis">
                     Imagenes
                 </span>
@@ -64,7 +64,7 @@
         </li>
         <li class="col-md-3 col-sm-4 col-6">
             <a>
-                <span class="number">7</span>
+                <span class="number">8</span>
                 <span class="info text-ellipsis">
                     Registro Completado
                 </span>
@@ -113,11 +113,15 @@
                 <div class="input-group my-3">
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" accept=".jpg, .svg, .png," onchange="uploadImages()" id="images" name="images[]" required multiple>
-                        <label class="custom-file-label" for="coordenadas">Eligir imagenes</label>
+                        <label class="custom-file-label" for="images">Eligir imagenes</label>
                     </div>
                 </div>
 
                 <br>
+
+                <div class="text-danger mb-2 limit-invalid d-none">
+                    Solo se pueden subir 5 imagenes por predio.
+                </div>
 
                 <div id="container-img" class="mb-3"></div>
             </div>
@@ -139,10 +143,18 @@
         let images = document.getElementById('images');
 
         if(images && images.files.length > 0){
-            
-            for (var i = 0; i <= images.files.length - 1; i++) {
-                previewImage(images.files[i]);
+
+            if(images.files.length > 5){
+                $(".limit-invalid").removeClass("d-none");
+                images.value = "";
+            } else {
+                $(".limit-invalid").addClass("d-none");
+                for (var i = 0; i <= images.files.length - 1; i++) {
+                    previewImage(images.files[i]);
+                }
             }
+            
+            
         }
 
     }

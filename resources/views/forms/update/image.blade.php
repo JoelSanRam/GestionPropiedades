@@ -59,40 +59,47 @@
                     
                 @endif
 
-                <div class="row mt-5">
-                    <div class="col-md-12">
-                        <form action="{{ route('create-image') }}" method="POST" enctype="multipart/form-data">
-                            @csrf
+                @if(isset($data) && count($data) < 5)
+                    <div class="row mt-5">
+                        <div class="col-md-12">
+                            <form action="{{ route('create-image') }}" method="POST" enctype="multipart/form-data">
+                                @csrf
 
-                            <input type="hidden" name="action" value="update">
-                            <div class="form-row justify-content-center">
-                                <div class="col-md-6">
+                                <input type="hidden" name="action" value="update">
+                                <div class="form-row justify-content-center">
+                                    <div class="col-md-6">
 
-                                    <div class="form-group">
-                                        <label>ID Propiedad</label>
-                                        <input type="text" class="form-control m-b-5" name="propiedad_id" value="@if($id == null) 1 @else {{ intval($id) }} @endif" readonly>
-                                    </div>
-
-                                    <div class="input-group my-3">
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" accept=".jpg, .svg, .png," onchange="uploadImages()" id="images" name="images[]" required multiple>
-                                            <label class="custom-file-label" for="coordenadas">Eligir imagenes</label>
+                                        <div class="form-group">
+                                            <label>ID Propiedad</label>
+                                            <input type="text" class="form-control m-b-5" name="propiedad_id" value="@if($id == null) 1 @else {{ intval($id) }} @endif" readonly>
                                         </div>
+
+                                        <div class="input-group my-3">
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" accept=".jpg, .svg, .png," onchange="uploadImages()" id="images" name="images[]" required multiple>
+                                                <label class="custom-file-label" for="coordenadas">Eligir imagenes</label>
+                                            </div>
+                                        </div>
+
+                                        <br>
+
+                                        <div class="text-danger mb-2 limit-invalid d-none">
+                                            Solo se pueden subir <strong>5</strong> imagenes por predio. Tu ya tienes subido <strong class="img-upload"></strong> imagenes.
+                                            Puedes subir <strong class="img-available"></strong> imagenes mas.
+                                        </div>
+
+                                        <div id="container-img" class="mb-3"></div>
                                     </div>
-
-                                    <br>
-
-                                    <div id="container-img" class="mb-3"></div>
                                 </div>
-                            </div>
-                            
-                            <div class="form-row justify-content-end">
-                                <a href="/listado" class="btn btn-secondary btn-lg mr-2">Cancelar</a>
-                                <button type="submit" class="btn btn-primary btn-lg">Subir imagenes</button>
-                            </div>
-                        </form>
+                                
+                                <div class="form-row justify-content-end">
+                                    <a href="/listado" class="btn btn-secondary btn-lg mr-2">Cancelar</a>
+                                    <button type="submit" class="btn btn-primary btn-lg">Subir imagenes</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                </div>
+                @endif
 
 
             </div>
@@ -110,12 +117,26 @@
 
         document.getElementById("container-img").innerHTML="";
 
+        let totalImages = 5;
+        let responseImages = @json($data);
+        let count = responseImages.length;
+        let availableImages = totalImages - count;
         let images = document.getElementById('images');
 
+        console.log(availableImages)
+
         if(images && images.files.length > 0){
-            
-            for (var i = 0; i <= images.files.length - 1; i++) {
-                previewImage(images.files[i]);
+
+            if(images.files.length > availableImages){ 
+                $(".limit-invalid").removeClass("d-none");
+                $(".img-upload").html(count);
+                $(".img-available").html(availableImages);
+                images.value = "";
+            } else {
+                $(".limit-invalid").addClass("d-none");
+                for (var i = 0; i <= images.files.length - 1; i++) {
+                    previewImage(images.files[i]);
+                }
             }
         }
 

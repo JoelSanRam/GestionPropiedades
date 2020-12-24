@@ -472,7 +472,8 @@
                             
                             <div class="carousel-inner img-popup">
                            
-                                @foreach($images as $item)<div class="carousel-item {{($i == 1) ? 'active' : ''}}">
+                                @foreach($images as $item)
+                                    <div class="carousel-item {{($i == 1) ? 'active' : ''}}">
                                         <a href="{{ asset('pics/' . $item->filename) }}">
                                             <img class="d-block w-100" src="{{ asset('pics/' . $item->filename) }}">
                                         </a>

@@ -10,7 +10,7 @@ use App\Dimencion;
 use App\Propiedad;
 use App\Ubicacion;
 use App\Valor;
-use App\Coordenada;
+use App\Image;
 
 class ReportController extends Controller
 {
@@ -73,12 +73,14 @@ class ReportController extends Controller
         $dimencion = Dimencion::find($id);
         $ubicacion = Ubicacion::find($id);
         $valor = Valor::find($id);
+        $images = Image::where('propiedad_id', $id)->get();
 
         $pdf = \PDF::loadView('reportes.individual', [
                 'propiedad' => $propiedad,
                 'dimencion' => $dimencion, 
                 'ubicacion' => $ubicacion, 
-                'valor' => $valor
+                'valor' => $valor,
+                'images' => $images
             ])->setPaper('a4');
 
         return $pdf->stream('propiedad-individual.pdf');
