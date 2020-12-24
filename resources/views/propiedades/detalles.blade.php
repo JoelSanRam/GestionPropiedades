@@ -1,52 +1,6 @@
 @extends('MasterPage.admin')
 
 @section('admin')
-    <style>
-        .popup{
-            margin: auto;
-            text-align: center
-        }
-        .popup img{
-            cursor: pointer
-        }
-        .show-img{
-            z-index: 999;
-            display: none;
-        }
-        .show-img .overlay{
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,.66);
-            position: fixed;
-            top: 0;
-            left: 0;
-        }
-        .show-img .img-show{
-            width: 65%;
-            height: 65%;
-            background: #FFF;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%,-50%);
-            overflow: hidden
-        }
-        .img-show span{
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            z-index: 99;
-            cursor: pointer;
-        }
-        .img-show img{
-            width: 100%;
-            height: 100%;
-            position: fixed;
-            top: 0;
-            left: 0;
-        }
-    </style>
-
     <ol class="breadcrumb pull-right">
     <li class="breadcrumb-item"><a href="{{ route('pdf-individual', $propiedad->id) }}" class="btn btn-primary">Generar PDF</a></li>
     </ol>
@@ -512,33 +466,22 @@
                 <!-- begin table-responsive -->
                 <div class="table-responsive">
                     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-
-                            
-                            <ol class="carousel-indicators">
-                                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                            </ol>
                             @php
                                 $i=1
                             @endphp
                             
-                            <div class="carousel-inner popup">
+                            <div class="carousel-inner img-popup">
                            
-                                @foreach($images as $item)
-
-                                @if ($i ==1)
-                                <div class="carousel-item active">
-                                    <img class="d-block w-100" src="{{ asset('pics/' . $item->filename) }}">
-                                </div>
-                                @endif
-                                    <div class="carousel-item">
-                                        <img class="d-block w-100" src="{{ asset('pics/' . $item->filename) }}">
+                                @foreach($images as $item)<div class="carousel-item {{($i == 1) ? 'active' : ''}}">
+                                        <a href="{{ asset('pics/' . $item->filename) }}">
+                                            <img class="d-block w-100" src="{{ asset('pics/' . $item->filename) }}">
+                                        </a>
                                     </div>
                                     @php
                                     $i++
                                     @endphp
                                 @endforeach
+                            </div>
                             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Previous</span>
@@ -553,7 +496,6 @@
             </div>
             <!-- end panel -->
         </div>
-
     </div>
     <div class="row">
         <div class="col-md-5"></div>
@@ -602,20 +544,6 @@
           position: @json($marker),
           map,
           icon: image,
-        });
-        $(function () {
-            "use strict";
-            
-            $(".popup img").click(function () {
-                var $src = $(this).attr("src");
-                $(".show-img").fadeIn();
-                $(".img-show img").attr("src", $src);
-            });
-            
-            $("span, .overlay").click(function () {
-                $(".show-img").fadeOut();
-            });
-            
         });
     }
 </script>
