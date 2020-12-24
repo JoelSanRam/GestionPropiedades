@@ -87,12 +87,13 @@ class CreateController extends Controller
             $propiedad->folio_regpub = $request->folio_regpub; 
             $propiedad->folio_catastral = $request->folio_catastral;
             $propiedad->save();
+
+            return redirect()->route('create-view-ubicacion');
             
         } catch (\Throwable $th) {
             \Session::flash('message', 'Ocurrio un error por favor verifique los datos');
+            
         }
-
-        return redirect()->route('create-view-ubicacion');
     }
 
     public function createUbicacion(Request $request) 
@@ -114,11 +115,12 @@ class CreateController extends Controller
             $ubicacion->codigo_postal = $request->codigo_postal;
             $ubicacion->save();
 
+            return redirect()->route('create-view-dimencion');
+
         } catch (\Throwable $th) {
             \Session::flash('message', 'Ocurrio un error por favor verifique los datos');
+            return redirect()->back();
         }
-
-        return redirect()->route('create-view-dimencion');
     }
 
     public function createDimencion(Request $request) 
@@ -137,12 +139,13 @@ class CreateController extends Controller
             $dimencion->fondo = $request->fondo;
             $dimencion->capacidad_granja = $request->capacidad_granja;
             $dimencion->save();
+
+            return redirect()->route('create-view-valor');
             
         } catch (\Throwable $th) {
             \Session::flash('message', 'Ocurrio un error por favor verifique los datos');
+            return redirect()->back();
         }
-
-        return redirect()->route('create-view-valor');
     }
 
     public function createValor(Request $request)
@@ -182,6 +185,7 @@ class CreateController extends Controller
             \Session::flash('message', 'Registros Guardados Exitosamente');
 
             return redirect()->route('create-view-archivo');
+            
         } catch (\Throwable $th) {
             \Session::flash('message', 'Ocurrio un error por favor verifique los datos');
             return redirect()->back();
