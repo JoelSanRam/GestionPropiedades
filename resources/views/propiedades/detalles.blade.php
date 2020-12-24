@@ -555,13 +555,6 @@
         </div>
 
     </div>
-    <div class="show-img">
-        <div class="overlay"></div>
-        <div class="img-show">
-            <span>X</span>
-            <img src="">
-        </div>
-    </div>
     <div class="row">
         <div class="col-md-5"></div>
         <div class="col-md-5">
