@@ -193,7 +193,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="col-md-6">
-                <h4>Ubicacion</h4>
+                <h4>Ubicación</h4>
                 <table class="table table-bordered">
                     <thead class="thead" style="background-color: #1C4482; color: white">
                         <tr>
@@ -242,14 +242,14 @@
                 </table>
             </div>
         </div>
-    </div>  
+    </div>
 
     <br><br><br><br><br><br><br><br><br><br>
 
     <div class="row mt-5">
         <div class="col-md-12">
-            <h4>Imagenes</h4>
-            @foreach($images as $item)                   
+            <h4>Imágenes</h4>
+            @foreach($images as $item)
                 <img class="img-size mb-3" src="{{ asset('pics/' . $item->filename) }}">
             @endforeach
         </div>
