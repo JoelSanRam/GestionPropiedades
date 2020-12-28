@@ -46,7 +46,7 @@
                         @foreach($data as $item)
                             <div class="col-md-3">
                                 <div class="card">
-                                    <img class="card-img" src="{{ asset('pics/' . $item->filename) }}">
+                                    <img src="{{ asset('storage/' . $item->filename) }}" class="card-img" >
                                     <div class="card-img-overlay">
                                         <a href="{{ route('delete-image', $item->id) }}" class="btn btn-danger">
                                             <i class="fa fa-trash"></i>

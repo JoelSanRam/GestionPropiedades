@@ -474,8 +474,8 @@
                            
                                 @foreach($images as $item)
                                     <div class="carousel-item {{($i == 1) ? 'active' : ''}}">
-                                        <a href="{{ asset('pics/' . $item->filename) }}">
-                                            <img class="d-block w-100" src="{{ asset('pics/' . $item->filename) }}" style="height: 400px">
+                                        <a href="{{ asset('storage/' . $item->filename) }}">
+                                            <img class="d-block w-100" src="{{ asset('storage/' . $item->filename) }}" style="height: 400px">
                                         </a>
                                     </div>
                                     @php

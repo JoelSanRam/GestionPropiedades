@@ -251,9 +251,14 @@ class CreateController extends Controller
 
                 foreach ($request->file('images') as $file) {
 
-                    $path = public_path() . '/pics';
                     $filename = uniqid() . $file->getClientOriginalName();
-                    $file->move($path, $filename);
+                    
+
+                    Storage::putFileAs(
+                        'public',
+                        $file,
+                        $filename
+                    );
                     
                     $image = new Image();
                     $image->propiedad_id = $request->propiedad_id;

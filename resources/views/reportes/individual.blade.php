@@ -250,7 +250,7 @@
         <div class="col-md-12">
             <h4>Imágenes</h4>
             @foreach($images as $item)
-                <img class="img-size mb-3" src="{{ asset('pics/' . $item->filename) }}">
+                <img class="img-size mb-3" src="{{ asset('storage/' . $item->filename) }}">
             @endforeach
         </div>
     </div>

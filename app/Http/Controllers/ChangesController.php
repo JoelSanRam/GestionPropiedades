@@ -312,6 +312,7 @@ class ChangesController extends Controller
     {
         try{
             $img = Image::find($id);
+            Storage::delete("public/{$img->filename}");
             $img->delete();
             \Session::flash('message', 'Imagen eliminada');
         } catch (\Throwable $th) {
