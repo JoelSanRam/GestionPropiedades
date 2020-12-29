@@ -147,7 +147,7 @@
 								</a>
 		                    </li>
 		                    <li class="has-sub">
-								<a href="{{ route('create-view-propiedad') }}">
+								<a href="{{ route('create') }}">
 									<i class="fa fa-plus-square"></i>
 									<span>Nuevo Predio</span>
 								</a>

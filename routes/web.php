@@ -8,9 +8,7 @@ Auth::routes();
 
 Route::middleware('auth')->group(function () {
 
-    Route::get('/test', function() {
-        return view('forms.form-wizard');
-    })->name('test');
+    Route::get('/propiedad/view/create', 'CreateController@create')->name('create');
 
     Route::get('/mapa', 'MapController@mapData')->name('map');
 

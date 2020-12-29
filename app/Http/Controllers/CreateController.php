@@ -18,6 +18,13 @@ use App\Image;
 class CreateController extends Controller
 {
     ////// Redirect Form Create ////
+
+    public function create()
+    {
+        $id = Propiedad::max('id');
+        return view('forms.create', compact('id')); 
+    }
+
     public function createViewPropiedad()
     {
         $id = Propiedad::max('id');
@@ -88,11 +95,11 @@ class CreateController extends Controller
             $propiedad->folio_catastral = $request->folio_catastral;
             $propiedad->save();
 
-            return redirect()->route('create-view-ubicacion');
+            return response()->json('success');
             
         } catch (\Throwable $th) {
             \Session::flash('message', 'Ocurrio un error por favor verifique los datos');
-            
+            return response()->json('danger');
         }
     }
 
@@ -115,11 +122,11 @@ class CreateController extends Controller
             $ubicacion->codigo_postal = $request->codigo_postal;
             $ubicacion->save();
 
-            return redirect()->route('create-view-dimencion');
+            return response()->json('success');
 
         } catch (\Throwable $th) {
             \Session::flash('message', 'Ocurrio un error por favor verifique los datos');
-            return redirect()->back();
+            return response()->json('danger');
         }
     }
 
@@ -140,11 +147,11 @@ class CreateController extends Controller
             $dimencion->capacidad_granja = $request->capacidad_granja;
             $dimencion->save();
 
-            return redirect()->route('create-view-valor');
+            return response()->json('success');
             
         } catch (\Throwable $th) {
             \Session::flash('message', 'Ocurrio un error por favor verifique los datos');
-            return redirect()->back();
+            return response()->json('danger');
         }
     }
 
@@ -164,11 +171,11 @@ class CreateController extends Controller
             $valor->fecha_valor_catastral = $request->fecha_valor_catastral;
             $valor->save();
 
-            return redirect()->route('create-view-coordenada');
+            return response()->json('success');
 
         } catch (\Throwable $th) {
             \Session::flash('message', 'Ocurrio un error por favor verifique los datos');
-            return redirect()->back();
+            return response()->json('danger');
         }
 
     }
@@ -184,11 +191,11 @@ class CreateController extends Controller
             Excel::import(new CoordenadasImport, request()->file('coordenadas'));
             \Session::flash('message', 'Registros Guardados Exitosamente');
 
-            return redirect()->route('create-view-archivo');
+            return response()->json('success');
             
         } catch (\Throwable $th) {
             \Session::flash('message', 'Ocurrio un error por favor verifique los datos');
-            return redirect()->back();
+            return response()->json('danger');
         }
         
     }
@@ -230,11 +237,11 @@ class CreateController extends Controller
             $file->dwg = $dwgName;
             $file->save();
 
-            return redirect()->route('create-view-image');
+            return response()->json('success');
 
         } catch (\Throwable $th) {
             \Session::flash('message', 'Ocurrio un error, por favor verifica los archivos que intentas subir');
-            return redirect()->back();
+            return response()->json('danger');
         }
 
     }
@@ -268,7 +275,7 @@ class CreateController extends Controller
             }
 
             if ($request->action == "create") {
-                return redirect()->route('create-complete');
+                return response()->json('success');
             } elseif ($request->action == "update") {
                 \Session::flash('message', 'Imagenes cargadas con exito');
                 return redirect()->back();
@@ -276,7 +283,7 @@ class CreateController extends Controller
 
         } catch (Exception $e) {
             \Session::flash('message', 'Ocurrio un error, al subir las imagenes');
-            return redirect()->back();
+            return response()->json('danger');
         }
 
     }

@@ -5,7 +5,7 @@
 <!-- begin breadcrumb -->
 @if (Auth::user()->rol == "Administrador")
 <ol class="breadcrumb pull-right">
-    <li class="breadcrumb-item"><a href="{{ route('create-view-propiedad') }}" class="btn btn-warning">Agregar nuevo predio</a></li>
+    <li class="breadcrumb-item"><a href="{{ route('create') }}" class="btn btn-warning">Agregar nuevo predio</a></li>
 </ol>
 @endif
 <!-- end breadcrumb -->

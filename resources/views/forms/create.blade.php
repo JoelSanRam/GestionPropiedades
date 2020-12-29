@@ -39,7 +39,7 @@
             </a>
         </li>
         <li class="col-md-3 col-sm-4 col-6">
-            <a>
+            <a class="nav-link" href="#step-5" data-toggle="tab">
                 <span class="number">5</span>
                 <span class="info text-ellipsis">
                     Coordenadas
@@ -47,7 +47,7 @@
             </a>
         </li>
         <li class="col-md-3 col-sm-4 col-6">
-            <a>
+            <a class="nav-link" href="#step-6" data-toggle="tab">
                 <span class="number">6</span>
                 <span class="info text-ellipsis">
                     Documentos Adjuntos
@@ -55,7 +55,7 @@
             </a>
         </li>
         <li class="col-md-3 col-sm-4 col-6">
-            <a>
+            <a class="nav-link" href="#step-7" data-toggle="tab">
                 <span class="number">7</span>
                 <span class="info text-ellipsis">
                     Imagenes
@@ -63,7 +63,7 @@
             </a>
         </li>
         <li class="col-md-3 col-sm-4 col-6">
-            <a>
+            <a class="nav-link" href="#step-8" data-toggle="tab">
                 <span class="number">8</span>
                 <span class="info text-ellipsis">
                     Registro Completado
@@ -72,16 +72,16 @@
         </li>
     </ul>
     
-    
     <div class="tab-content">
+
         <div id="step-1" class="tab-pane active show" role="tabpanel" aria-labelledby="step-1">
-            <form action="{{ route('create-propiedad') }}" method="POST" class="form-control-with-bg">
+            <form id="form-propiedad">
                 @csrf
-                <div class="jumbotron my-5 py-3">
+                <div class="jumbotron my-2">
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>ID Propiedad</label>
-                            <input type="text" class="form-control m-b-5" value="" readonly>
+                            <input type="text" class="form-control m-b-5" value="@if($id == null) 1 @else {{ intval($id) + 1 }} @endif" readonly>
                         </div>
                         <div class="form-group col-md-6">
                             <label>ID de origen</label>
@@ -151,22 +151,18 @@
                             <input name="folio_catastral" type="text" class="form-control m-b-5" placeholder="Ingresar folio catastral">
                         </div>
                     </div>
-            
-                    <div class="form-row justify-content-end">
-                        <a href="/listado" class="btn btn-secondary btn-lg mr-2">Cancelar</a>
-                        <button type="submit" class="btn btn-warning btn-lg">Guardar</button>
-                    </div>
+        
                 </div>
             </form>
         </div>
         <div id="step-2" class="tab-pane" role="tabpanel">
-            <form action="{{ route('create-ubicacion') }}" method="POST" class="form-control-with-bg">
+            <form id="form-ubicacion">
                 @csrf
-                <div class="jumbotron my-5 py-3">
+                <div class="jumbotron my-2">
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>ID Propiedad</label>
-                            <input type="text" class="form-control m-b-5" value="" readonly>
+                            <input type="text" class="form-control m-b-5" value="@if($id == null) 1 @else {{ intval($id) + 1 }} @endif" readonly>
                         </div>
                         <div class="form-group col-md-6">
                             <label>Ejido</label>
@@ -218,21 +214,17 @@
                         </div>
                     </div>
             
-                    <div class="form-row justify-content-end">
-                        <a href="/listado" class="btn btn-secondary btn-lg mr-2">Cancelar</a>
-                        <button type="submit" class="btn btn-warning btn-lg">Guardar</button>
-                    </div>
                 </div>
             </form>
         </div>
         <div id="step-3" class="tab-pane" role="tabpanel">
-            <form action="{{ route('create-dimencion') }}" method="POST" class="form-control-with-bg">
+            <form id="form-dimencion">
                 @csrf
-                <div class="jumbotron my-5 py-3">
+                <div class="jumbotron my-2">
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>ID Propiedad</label>
-                            <input type="text" class="form-control m-b-5" value="" readonly>
+                            <input type="text" class="form-control m-b-5" value="@if($id == null) 1 @else {{ intval($id) + 1 }} @endif" readonly>
                         </div>
                         <div class="form-group col-md-6">
                             <label>Superficie de Construcción (mts<sup>2</sup>)</label>
@@ -262,42 +254,17 @@
                         </div>
                     </div>
             
-                    <div class="form-row justify-content-end">
-                        <a href="/listado" class="btn btn-secondary btn-lg mr-2">Cancelar</a>
-                        <button type="submit" class="btn btn-warning btn-lg">Guardar</button>
-                    </div>
                 </div>
             </form>
         </div>
         <div id="step-4" class="tab-pane" role="tabpanel">
-            <div class="row">
-                <div class="col-md-6 mt-3 mx-auto">
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            @foreach ($errors->all() as $error)
-                                <p>{{ $error }}</p>
-                            @endforeach
-                        </div>
-                    @endif
-                </div>
-            </div>
-            
-            <div class="row">
-                <div class="col-md-6 mt-3 mx-auto">
-                    @if(Session::has('message'))
-                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                            <strong>{!! Session::get('message') !!}</strong>
-                        </div>
-                    @endif
-                </div>
-            </div>
-            <form action="{{ route('create-valor') }}" method="POST" class="form-control-with-bg">
+            <form id="form-valor">
                 @csrf
-                <div class="jumbotron my-5 py-3">
+                <div class="jumbotron my-2">
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>ID Propiedad</label>
-                            <input type="text" class="form-control m-b-5" value="" readonly>
+                            <input type="text" class="form-control m-b-5" value="@if($id == null) 1 @else {{ intval($id) + 1 }} @endif" readonly>
                         </div>
                         <div class="form-group col-md-6">
                             <label>Valor de construccion</label>
@@ -327,13 +294,129 @@
                         </div>
                     </div>
             
+                </div>
+            </form>
+        </div>
+        <div id="step-5" class="tab-pane" role="tabpanel">
+            <form id="form-coordenada" enctype="multipart/form-data">
+                @csrf
+                <div class="jumbotron my-2">
+
+                    <div class="form-row justify-content-center">
+                        <div class="col-md-8">
+
+                            <div class="form-group">
+                                <label>ID Propiedad</label>
+                                <input type="text" class="form-control m-b-5" value="@if($id == null) 1 @else {{ intval($id) + 1 }} @endif" readonly>
+                            </div>
+
+                            <div class="input-group my-3">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" accept=".xlsx, .xlsm, .xlsb, .xltx, .xltm,.xls,.xlt,.xls,.xml,.xla,.xlw" onchange="alertSuccess()" id="coordenadas" name="coordenadas" required>
+                                    <label class="custom-file-label" for="coordenadas">Elige tu archivo</label>
+                                </div>
+                            </div>
+
+                            <br>
+
+                            <div class="alert alert-primary message d-none" role="alert">
+                                Archivo Cargado
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+        <div id="step-6" class="tab-pane" role="tabpanel">
+            <form id="form-archivo" enctype="multipart/form-data">
+                @csrf
+                <div class="jumbotron my-2">
+
+                    <div class="form-row justify-content-center">
+                        <div class="form-group col-md-6">
+                            <label>ID Propiedad</label>
+                            <input name="propiedad_id" type="text" class="form-control m-b-5" value="@if($id == null) 1 @else {{ intval($id) + 1 }} @endif" readonly>
+                        </div>
+                    </div>
+
+                    <div class="form-row justify-content-center">
+                        <div class="form-group col-md-6">
+                            <label>Archivo PDF</label>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" accept = ".pdf" onchange="alertSuccessSinglePDF()" name="pdf" id="pdf" lang="es">
+                                <label class="custom-file-label">Seleccionar Archivo</label>
+                            </div>
+                            <div class="alert alert-primary message-pdf d-none my-2" role="alert">
+                                Archivo Cargado
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row justify-content-center">
+                        <div class="form-group col-md-6">
+                            <label>Archivo DWG</label>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" accept = ".dwg" onchange="alertSuccessSingleDWG()" name="dwg" id="dwg" lang="es">
+                                <label class="custom-file-label">Seleccionar Archivo</label>
+                            </div>
+                            <div class="alert alert-primary message-dwg d-none my-2" role="alert">
+                                Archivo Cargado
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+        <div id="step-7" class="tab-pane" role="tabpanel">
+            <form id="form-image" enctype="multipart/form-data">
+                @csrf
+
+                <input type="hidden" name="action" value="create">
+                <div class="jumbotron my-2">
+
+                    <div class="form-row justify-content-center">
+                        <div class="col-md-8">
+
+                            <div class="form-group">
+                                <label>ID Propiedad</label>
+                                <input type="text" class="form-control m-b-5" name="propiedad_id" value="@if($id == null) 1 @else {{ intval($id) + 1 }} @endif" readonly>
+                            </div>
+
+                            <div class="input-group my-3">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" accept=".jpg, .svg, .png," onchange="uploadImages()" id="images" name="images[]" required multiple>
+                                    <label class="custom-file-label" for="images">Elegir imagenes</label>
+                                </div>
+                            </div>
+
+                            <br>
+
+                            <div class="text-danger mb-2 limit-invalid d-none">
+                                Solo se pueden subir 5 imagenes por predio.
+                            </div>
+
+                            <div id="container-img" class="mb-3"></div>
+                        </div>
+                    </div>
+                    
                     <div class="form-row justify-content-end">
-                        <a href="/listado" class="btn btn-secondary btn-lg mr-2">Cancelar</a>
-                        <button type="submit" class="btn btn-warning btn-lg">Guardar</button>
+                        <button class="btn btn-secondary btn-lg mr-2 btnCancel">Cancelar</button>
+                        <button class="btn btn-warning btn-lg btnSubmit">Guardar</button>
                     </div>
                 </div>
             </form>
         </div>
+        <div id="step-8" class="tab-pane" role="tabpanel">
+            <form>
+                <div class="jumbotron my-2 text-center">
+                    <h2 class="text-inverse">Registro Exitoso</h2>
+                    <p><a href="{{ route('listado') }}" class="btn btn-primary btn-lg">Listado de Predios</a></p>
+                </div>
+            </form>
+        </div>
+
     </div>
 </div>
 
@@ -341,4 +424,197 @@
 <div class="copyright">
     <p>© 2021 Desarrollado por <a href="https://www.buho-solutions.com">Buho solutions</a></p>
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+
+        // create
+        $(".btnSubmit").click(function(event) {
+            event.preventDefault();
+
+            let form_coordenada = new FormData(document.getElementById("form-coordenada"));
+            let form_archivo = new FormData(document.getElementById("form-archivo"));
+            let form_image = new FormData(document.getElementById("form-image"));
+
+            $.ajax({
+                url: "{{ route('create-propiedad') }}",
+                type: "POST",
+                dataType: 'json',
+                data: $('#form-propiedad').serialize(),
+                success: function (data) {
+                    console.log(data)
+                },
+                error: function (data) {
+                    console.log(data)
+                    /*$('#errors').removeClass("d-none");*/
+                }
+            });
+
+            ////////
+            $.ajax({
+                url: "{{ route('create-ubicacion') }}",
+                type: "POST",
+                dataType: 'json',
+                data: $('#form-ubicacion').serialize(),
+                success: function (data) {
+                    console.log(data)
+                },
+                error: function (data) {
+                    console.log(data)
+                    /*$('#errors').removeClass("d-none");*/
+                }
+            });
+
+            ////////
+            $.ajax({
+                url: "{{ route('create-dimencion') }}",
+                type: "POST",
+                dataType: 'json',
+                data: $('#form-dimencion').serialize(),
+                success: function (data) {
+                    console.log(data)
+                },
+                error: function (data) {
+                    console.log(data)
+                    /*$('#errors').removeClass("d-none");*/
+                }
+            });
+
+            ////////
+            $.ajax({
+                url: "{{ route('create-valor') }}",
+                type: "POST",
+                dataType: 'json',
+                data: $('#form-valor').serialize(),
+                success: function (data) {
+                    console.log(data)
+                },
+                error: function (data) {
+                    console.log(data)
+                    /*$('#errors').removeClass("d-none");*/
+                }
+            });
+
+            ////////
+            $.ajax({
+                url: "{{ route('create-coordenada') }}",
+                type: "POST",
+                dataType: 'json',
+                data: form_coordenada,
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                    console.log(data)
+                },
+                error: function (data) {
+                    console.log(data)
+                }
+            });
+
+            ////////
+            $.ajax({
+                url: "{{ route('create-archivo') }}",
+                type: "POST",
+                dataType: 'json',
+                data: form_archivo,
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                    console.log(data)
+                },
+                error: function (data) {
+                    console.log(data)
+                }
+            });
+
+            ////////
+            $.ajax({
+                url: "{{ route('create-image') }}",
+                type: "POST",
+                dataType: 'json',
+                data: form_image,
+                processData: false,
+                contentType: false, 
+                success: function (data) {
+                    console.log(data)
+                },
+                error: function (data) {
+                    console.log(data)                }
+            });
+        });
+
+        $('.btnCancel').click(function(event) {
+            event.preventDefault();
+
+            if(confirm("¿Estas seguro de cancelar la captura, todos los datos se perderan?")){
+                location.href = "{{ route('listado') }}";
+            }
+        });
+      
+    });
+
+    // cooor
+    function alertSuccess() {
+        var file = document.querySelector('input[type=file]').files[0];
+
+        if (file) {
+            $(".message").removeClass("d-none");
+        }
+    }
+
+    // alert files
+
+    function alertSuccessSinglePDF() {
+        var item_pdf = document.getElementById('pdf');
+
+        if (item_pdf) {
+            $(".message-pdf").removeClass("d-none");
+        }
+    }
+
+    function alertSuccessSingleDWG() {
+        var items_dwg = document.getElementById('dwg');
+
+        if (items_dwg) {
+            $(".message-dwg").removeClass("d-none");
+        }
+    }
+
+    // preview images 
+
+    function uploadImages(){
+
+        document.getElementById("container-img").innerHTML="";
+
+        let images = document.getElementById('images');
+
+        if(images && images.files.length > 0){
+
+            if(images.files.length > 5){
+                $(".limit-invalid").removeClass("d-none");
+                images.value = "";
+            } else {
+                $(".limit-invalid").addClass("d-none");
+                for (var i = 0; i <= images.files.length - 1; i++) {
+                    previewImage(images.files[i]);
+                }
+            }
+            
+            
+        }
+
+    }
+
+    function previewImage(img) {
+        let reader = new FileReader();
+        reader.readAsDataURL(img);
+
+        reader.onloadend = function() {
+            let img = `<img src="${reader.result}" width="100" height="100" class="img-fit">`;
+            $("#container-img").append(img);
+        }
+    }
+</script>
+
 @endsection
