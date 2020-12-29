@@ -231,15 +231,13 @@
 	<script src="{{ asset('assets/plugins/DataTables/extensions/Responsive/js/dataTables.responsive.min.js')}}"></script>
 	<script src="{{ asset('assets/js/demo/table-manage-responsive.demo.min.js')}}"></script>
 	<!-- ================== END PAGE LEVEL JS ================== -->
-
-	<script src="{{ asset('assets/plugins/jquery-smart-wizard/src/js/jquery.smartWizard.js') }}"></script>
-	<script src="{{ asset('assets/js/demo/form-wizards.demo.min.js') }}"></script>
+	<script src="{{ asset('assets/plugins/jquery-smart-wizard/dist/js/jquery.smartWizard.min.js')}}" ></script>
+	<script src="{{ asset('assets/js/wizard.js')}}"></script>
 	<script src="{{ asset('assets/magnific-popup/dist/jquery.magnific-popup.min.js')}}"></script>
 	<script>
 		$(document).ready(function() {
 			App.init();
 			TableManageResponsive.init();
-            FormWizard.init();
 		});
 		$('.img-popup').magnificPopup({
 			delegate: 'a', // child items selector, by clicking on it popup will open
