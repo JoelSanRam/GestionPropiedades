@@ -473,9 +473,9 @@
                             <div class="carousel-inner img-popup">
                            
                                 @foreach($images as $item)
-                                    <div class="carousel-item {{($i == 1) ? 'active' : ''}}">
+                                    <div class="carousel-item {{($i == 1) ? 'active' : ''}}" style="height: 400px">
                                         <a href="{{ asset('storage/' . $item->filename) }}">
-                                            <img class="d-block w-100" src="{{ asset('storage/' . $item->filename) }}" style="height: 400px">
+                                            <img class="d-block w-100" src="{{ asset('storage/' . $item->filename) }}"  style="height: 100%; width:100%; object-fit:scale-down;">
                                         </a>
                                     </div>
                                     @php
