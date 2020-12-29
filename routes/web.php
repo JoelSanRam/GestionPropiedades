@@ -8,6 +8,10 @@ Auth::routes();
 
 Route::middleware('auth')->group(function () {
 
+    Route::get('/test', function() {
+        return view('forms.form-wizard');
+    })->name('test');
+
     Route::get('/mapa', 'MapController@mapData')->name('map');
 
     Route::get('/search-map', 'MapController@search')->name('search-map'); // busqueda
