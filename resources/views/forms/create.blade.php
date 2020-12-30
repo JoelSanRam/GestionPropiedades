@@ -213,11 +213,7 @@
                             <input name="codigo_postal" id="codigo_postal" type="text" class="form-control m-b-5" placeholder="Ingresar codigo postal" data-parsley-required="true">
                         </div>
                     </div>
-                    <div class="form-row">
-                        <button class="btn btn-success" type="submit">
-                            Send
-                        </button>
-                    </div>
+                    
                 </div>
             </form>
         </div>
@@ -548,6 +544,15 @@
             });
         });
 */
+
+        window.addEventListener("beforeunload", function (e) {
+        var confirmationMessage = "";
+
+        (e || window.event).returnValue = confirmationMessage; //Gecko + IE
+        return confirmationMessage;                            //Webkit, Safari, Chrome
+        });
+
+        
         $('.btnCancel').click(function(event) {
             event.preventDefault();
 
