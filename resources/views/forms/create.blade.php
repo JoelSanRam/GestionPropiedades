@@ -75,7 +75,7 @@
     <div class="tab-content">
 
         <div id="step-1" class="tab-pane active show" role="tabpanel" aria-labelledby="step-1">
-            <form id="form-propiedad">
+            <form id="form-propiedad" data-parsley-validate="true">
                 @csrf
                 <div class="jumbotron my-2">
                     <div class="form-row">
@@ -92,11 +92,11 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>Tipo</label>
-                            <input name="tipo" type="text" class="form-control m-b-5" placeholder="Ingresar tipo" required>
+                            <input name="tipo" id="tipo" type="text" class="form-control m-b-5" placeholder="Ingresar tipo" data-parsley-required="true">
                         </div>
                         <div class="form-group col-md-6">
                             <label>Granja</label>
-                            <select name="granja" class="form-control m-b-5" required>
+                            <select name="granja" id="granja" class="form-control m-b-5" data-parsley-required="true">
                                 <option value="">Seleccionar</option>
                                 <option>Si</option>
                                 <option>No</option>
@@ -107,11 +107,11 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>Estatus</label>
-                            <input name="estatus" type="text" class="form-control m-b-5" placeholder="Ingresar estatus" required>
+                            <input name="estatus" id="estatus" type="text" class="form-control m-b-5" placeholder="Ingresar estatus" data-parsley-required="true">
                         </div>
                         <div class="form-group col-md-6">
                             <label>Nombre corto</label>
-                            <input name="nombre_corto" type="text" class="form-control m-b-5" placeholder="Ingresar nombre corto" required>
+                            <input name="nombre_corto" id="nombre_corto" type="text" class="form-control m-b-5" placeholder="Ingresar nombre corto" data-parsley-required="true">
                         </div>
                     </div>
             
@@ -122,14 +122,14 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label>Propietario</label>
-                            <input name="propietario" type="text" class="form-control m-b-5" placeholder="Ingresar propietario" required>
+                            <input name="propietario" id="propietario" type="text" class="form-control m-b-5" placeholder="Ingresar propietario" data-parsley-required="true">
                         </div>
                     </div>
             
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label>Entidad federativa</label>
-                            <input name="entidad_federativa" type="text" class="form-control m-b-5" placeholder="Ingresar entidad federativa" required>
+                            <input name="entidad_federativa" id="entidad_federativa" type="text" class="form-control m-b-5" placeholder="Ingresar entidad federativa" data-parsley-required="true">
                         </div>
                         <div class="form-group col-md-4">
                             <label>Municipio</label>
@@ -156,7 +156,7 @@
             </form>
         </div>
         <div id="step-2" class="tab-pane" role="tabpanel">
-            <form id="form-ubicacion">
+            <form id="form-ubicacion" data-parsley-validate="true">
                 @csrf
                 <div class="jumbotron my-2">
                     <div class="form-row">
@@ -210,15 +210,19 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>Codigo postal</label>
-                            <input name="codigo_postal" type="text" class="form-control m-b-5" placeholder="Ingresar codigo postal" required>
+                            <input name="codigo_postal" id="codigo_postal" type="text" class="form-control m-b-5" placeholder="Ingresar codigo postal" data-parsley-required="true">
                         </div>
                     </div>
-            
+                    <div class="form-row">
+                        <button class="btn btn-success" type="submit">
+                            Send
+                        </button>
+                    </div>
                 </div>
             </form>
         </div>
         <div id="step-3" class="tab-pane" role="tabpanel">
-            <form id="form-dimencion">
+            <form id="form-dimencion" data-parsley-validate="true">
                 @csrf
                 <div class="jumbotron my-2">
                     <div class="form-row">
@@ -235,7 +239,7 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>Superficie de terreno (mts<sup>2</sup>)</label>
-                            <input name="superficie_terreno" type="text" class="form-control m-b-5" placeholder="Ingresar superficie del terreno" required>
+                            <input name="superficie_terreno" id="superficie_terreno" type="text" class="form-control m-b-5" placeholder="Ingresar superficie del terreno" data-parsley-required="true">
                         </div>
                         <div class="form-group col-md-6">
                             <label>Frente (mts)</label>
@@ -258,7 +262,7 @@
             </form>
         </div>
         <div id="step-4" class="tab-pane" role="tabpanel">
-            <form id="form-valor">
+            <form id="form-valor" data-parsley-validate="true">
                 @csrf
                 <div class="jumbotron my-2">
                     <div class="form-row">
@@ -275,7 +279,7 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>Valor comercial</label>
-                            <input name="valor_comercial" type="text" class="form-control m-b-5" placeholder="Ingresar valor comercial" required>
+                            <input name="valor_comercial" id="valor_comercial" type="text" class="form-control m-b-5" placeholder="Ingresar valor comercial" data-parsley-required="true">
                         </div>
                         <div class="form-group col-md-6">
                             <label>Fecha de valor comercial</label>
@@ -286,7 +290,7 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>Valor catastral</label>
-                            <input name="valor_catastral" type="text" class="form-control m-b-5" placeholder="Ingresar valor catastral" required>
+                            <input name="valor_catastral" id="valor_catastral" type="text" class="form-control m-b-5" placeholder="Ingresar valor catastral" data-parsley-required="true">
                         </div>
                         <div class="form-group col-md-6">
                             <label>Fecha de valor catastral</label>
@@ -298,7 +302,7 @@
             </form>
         </div>
         <div id="step-5" class="tab-pane" role="tabpanel">
-            <form id="form-coordenada" enctype="multipart/form-data">
+            <form id="form-coordenada" enctype="multipart/form-data" data-parsley-validate="true">
                 @csrf
                 <div class="jumbotron my-2">
 
@@ -312,7 +316,7 @@
 
                             <div class="input-group my-3">
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" accept=".xlsx, .xlsm, .xlsb, .xltx, .xltm,.xls,.xlt,.xls,.xml,.xla,.xlw" onchange="alertSuccess()" id="coordenadas" name="coordenadas" required>
+                                    <input type="file" class="custom-file-input" accept=".xlsx, .xlsm, .xlsb, .xltx, .xltm,.xls,.xlt,.xls,.xml,.xla,.xlw" onchange="alertSuccess()" id="coordenadas" name="coordenadas" data-parsley-required="true">
                                     <label class="custom-file-label" for="coordenadas">Elige tu archivo</label>
                                 </div>
                             </div>
@@ -329,7 +333,7 @@
             </form>
         </div>
         <div id="step-6" class="tab-pane" role="tabpanel">
-            <form id="form-archivo" enctype="multipart/form-data">
+            <form id="form-archivo" enctype="multipart/form-data" data-parsley-validate="true">
                 @csrf
                 <div class="jumbotron my-2">
 
@@ -344,7 +348,7 @@
                         <div class="form-group col-md-6">
                             <label>Archivo PDF</label>
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" accept = ".pdf" onchange="alertSuccessSinglePDF()" name="pdf" id="pdf" lang="es">
+                                <input type="file" class="custom-file-input" accept = ".pdf" onchange="alertSuccessSinglePDF()" name="pdf" id="pdf" lang="es" data-parsley-required="true">
                                 <label class="custom-file-label">Seleccionar Archivo</label>
                             </div>
                             <div class="alert alert-primary message-pdf d-none my-2" role="alert">
@@ -370,7 +374,7 @@
             </form>
         </div>
         <div id="step-7" class="tab-pane" role="tabpanel">
-            <form id="form-image" enctype="multipart/form-data">
+            <form id="form-image" enctype="multipart/form-data" data-parsley-validate="true">
                 @csrf
 
                 <input type="hidden" name="action" value="create">
@@ -386,7 +390,7 @@
 
                             <div class="input-group my-3">
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" accept=".jpg, .svg, .png," onchange="uploadImages()" id="images" name="images[]" required multiple>
+                                    <input type="file" class="custom-file-input" accept=".jpg, .svg, .png," onchange="uploadImages()" id="images" name="images[]" multiple data-parsley-required="true">
                                     <label class="custom-file-label" for="images">Elegir imagenes</label>
                                 </div>
                             </div>
@@ -401,10 +405,6 @@
                         </div>
                     </div>
                     
-                    <div class="form-row justify-content-end">
-                        <button class="btn btn-secondary btn-lg mr-2 btnCancel">Cancelar</button>
-                        <button class="btn btn-warning btn-lg btnSubmit">Guardar</button>
-                    </div>
                 </div>
             </form>
         </div>
@@ -425,12 +425,20 @@
     <p>© 2021 Desarrollado por <a href="https://www.buho-solutions.com">Buho solutions</a></p>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>
     $(document).ready(function() {
 
+        let buttons = `
+            <button type="submit" class="btn btn-warning btnSubmit">Guardar</button>
+            <button class="btn btn-secondary mr-2 btnCancel">Cancelar</button>
+        `;
+
+        $('.sw-btn-group').append(buttons);
+
         // create
-        $(".btnSubmit").click(function(event) {
+        /*$(".btnSubmit").click(function(event) {
             event.preventDefault();
 
             let form_coordenada = new FormData(document.getElementById("form-coordenada"));
@@ -447,7 +455,6 @@
                 },
                 error: function (data) {
                     console.log(data)
-                    /*$('#errors').removeClass("d-none");*/
                 }
             });
 
@@ -462,7 +469,6 @@
                 },
                 error: function (data) {
                     console.log(data)
-                    /*$('#errors').removeClass("d-none");*/
                 }
             });
 
@@ -477,7 +483,6 @@
                 },
                 error: function (data) {
                     console.log(data)
-                    /*$('#errors').removeClass("d-none");*/
                 }
             });
 
@@ -492,7 +497,6 @@
                 },
                 error: function (data) {
                     console.log(data)
-                    /*$('#errors').removeClass("d-none");*/
                 }
             });
 
@@ -543,18 +547,28 @@
                     console.log(data)                }
             });
         });
-
+*/
         $('.btnCancel').click(function(event) {
             event.preventDefault();
 
-            if(confirm("¿Estas seguro de cancelar la captura, todos los datos se perderan?")){
-                location.href = "{{ route('listado') }}";
-            }
+            Swal.fire({
+                title: '¿Estas seguro de cancelar la captura?',
+                text: "Todos los datos se perderan",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Aceptar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    location.href = "{{ route('listado') }}";
+                }
+            })
         });
       
     });
 
-    // cooor
+    // coor
     function alertSuccess() {
         var file = document.querySelector('input[type=file]').files[0];
 

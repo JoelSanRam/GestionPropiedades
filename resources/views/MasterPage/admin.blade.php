@@ -229,10 +229,14 @@
 	<script src="{{ asset('assets/plugins/DataTables/media/js/jquery.dataTables.js')}}"></script>
 	<script src="{{ asset('assets/plugins/DataTables/media/js/dataTables.bootstrap.min.js')}}"></script>
 	<script src="{{ asset('assets/plugins/DataTables/extensions/Responsive/js/dataTables.responsive.min.js')}}"></script>
+
+	<script src="{{ asset('assets/plugins/parsley/dist/parsley.min.js') }}"></script>
+
 	<script src="{{ asset('assets/js/demo/table-manage-responsive.demo.min.js')}}"></script>
 	<!-- ================== END PAGE LEVEL JS ================== -->
-	<script src="{{ asset('assets/plugins/jquery-smart-wizard/dist/js/jquery.smartWizard.min.js')}}" ></script>
+	<script src="{{ asset('assets/plugins/jquery-smart-wizard/dist/js/jquery.smartWizard.js')}}" ></script>
 	<script src="{{ asset('assets/js/wizard.js')}}"></script>
+	<script src="{{ asset('assets/js/validate.js')}}"></script>
 	<script src="{{ asset('assets/magnific-popup/dist/jquery.magnific-popup.min.js')}}"></script>
 	<script>
 		$(document).ready(function() {
