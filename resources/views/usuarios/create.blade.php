@@ -58,7 +58,7 @@
 
                     <div class="form-row justify-content-end">
                         <a href="/usuarios" class="btn btn-secondary btn-lg mr-2">Regresar</a>
-                        <button type="submit" class="btn btn-warning btn-lg">Guardar</button>
+                        <button type="submit" class="btn text-light btn-lg" style="background: #ffc800;">Guardar</button>
                     </div>
                 </form>
 

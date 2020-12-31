@@ -5,7 +5,7 @@
 <!-- begin breadcrumb -->
 @if (Auth::user()->rol == "Administrador")
 <ol class="breadcrumb pull-right">
-    <li class="breadcrumb-item"><a href="{{ route('create') }}" class="btn btn-warning">Agregar nuevo predio</a></li>
+    <li class="breadcrumb-item"><a href="{{ route('create') }}" class="btn text-light" style="background: #ffc800;">Agregar nuevo predio</a></li>
 </ol>
 @endif
 <!-- end breadcrumb -->
@@ -59,7 +59,7 @@
                                     <p>Localidad: {{ $item->localidad }}</p>
                                 </td>
                                 <td>
-                                    <a href="{{ route('pdf-individual', $item->id) }}" class="btn btn-warning btn-icon btn-sm" title="Generar reporte">
+                                    <a href="{{ route('pdf-individual', $item->id) }}" class="btn text-light btn-icon btn-sm" style="background: #ffc800;" title="Generar reporte">
                                         <i class="fas fa-file-pdf fa-fw"></i>
                                     </a>
 

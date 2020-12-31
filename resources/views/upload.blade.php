@@ -64,7 +64,7 @@
                             </div>
 
                             <div class="form-group">
-                                <button type="submit" class="btn btn-warning">Guardar</button>
+                                <button type="submit" class="btn text-light" style="background: #ffc800;">Guardar</button>
                             </div>
                         </form>
                     </div>

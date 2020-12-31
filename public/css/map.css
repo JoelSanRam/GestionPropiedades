@@ -40,6 +40,11 @@
     margin: 5px;
     border-radius: 5px;
     animation: slidein 0.8s;
+} 
+
+.btn-crio {
+    background: #ffc800;
+    color: #fff;
 }
 
 @keyframes slidein {

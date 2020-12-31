@@ -31,7 +31,7 @@
           @endforeach
       </select>
 
-      <button type="submit" class="btn btn-success mr-1 ml-2">Filtrar</button>
+      <button type="submit" class="btn text-light mr-1 ml-2" style="background: #ffc800;">Filtrar</button>
 
     </form>
 <!-- end page-header -->

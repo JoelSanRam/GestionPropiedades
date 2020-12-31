@@ -236,7 +236,6 @@
 	<!-- ================== END PAGE LEVEL JS ================== -->
 	<script src="{{ asset('assets/plugins/jquery-smart-wizard/dist/js/jquery.smartWizard.js')}}" ></script>
 	<script src="{{ asset('assets/js/wizard.js')}}"></script>
-	<script src="{{ asset('assets/js/validate.js')}}"></script>
 	<script src="{{ asset('assets/magnific-popup/dist/jquery.magnific-popup.min.js')}}"></script>
 	<script>
 		$(document).ready(function() {

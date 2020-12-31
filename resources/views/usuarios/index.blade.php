@@ -5,7 +5,7 @@
 @if (Auth::user()->rol == "Administrador")
 <!-- begin breadcrumb -->
 <ol class="breadcrumb pull-right">
-    <li class="breadcrumb-item"><a href="{{ route('usuarios.create') }}"><button class="btn btn-warning">Agregar nuevo usuario</button></a></li>
+    <li class="breadcrumb-item"><a href="{{ route('usuarios.create') }}"><button class="btn text-light" style="background: #ffc800;">Agregar nuevo usuario</button></a></li>
 </ol>
 <!-- end breadcrumb -->
 @endif
@@ -53,7 +53,7 @@
                                             <i class="fas fa-pencil-alt fa-fw"></i>
                                     </a>
 
-                                    <a href="{{ route('view-password', $user->id) }}" class="btn btn-warning btn-icon btn-sm" title="Cambiar Contraseña">
+                                    <a href="{{ route('view-password', $user->id) }}" class="btn text-light btn-icon btn-sm" title="Cambiar Contraseña" style="background: #ffc800;">
                                         <i class="fas fa-key"></i>
                                     </a>
                                     <form action="{{ route('usuarios.destroy', $user) }}" method="POST">

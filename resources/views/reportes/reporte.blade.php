@@ -40,7 +40,7 @@
         </select>
 
         <button type="submit" name="option" value="filtrar" class="btn btn-success mr-1 ml-2">Filtrar</button>
-        <button type="submit" name="option" value="reporte" class="btn btn-warning">Generar reporte</button>
+        <button type="submit" name="option" value="reporte" class="btn text-light" style="background: #ffc800;">Generar reporte</button>
 
     </form>
 <!-- end page-header -->
