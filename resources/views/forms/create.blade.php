@@ -554,15 +554,12 @@
 
             if(error == false){
 
-                let count = 0;
-
                 $.ajax({
                     url: "{{ route('create-propiedad') }}",
                     type: "POST",
                     dataType: 'json',
                     data: $('#form-propiedad').serialize(),
                     success: function (data) {
-                        if(data == "success") { count++ }
                         console.log(data)
                     },
                     error: function (data) {
@@ -577,7 +574,6 @@
                     dataType: 'json',
                     data: $('#form-ubicacion').serialize(),
                     success: function (data) {
-                        if(data == "success") { count++ }
                         console.log(data)
                     },
                     error: function (data) {
@@ -592,7 +588,6 @@
                     dataType: 'json',
                     data: $('#form-dimencion').serialize(),
                     success: function (data) {
-                        if(data == "success") { count++ }
                         console.log(data)
                     },
                     error: function (data) {
@@ -607,7 +602,6 @@
                     dataType: 'json',
                     data: $('#form-valor').serialize(),
                     success: function (data) {
-                        if(data == "success") { count++ }
                         console.log(data)
                     },
                     error: function (data) {
@@ -624,7 +618,6 @@
                     processData: false,
                     contentType: false,
                     success: function (data) {
-                        if(data == "success") { count++ }
                         console.log(data)
                     },
                     error: function (data) {
@@ -641,7 +634,6 @@
                     processData: false,
                     contentType: false,
                     success: function (data) {
-                        if(data == "success") { count++ }
                         console.log(data)
                     },
                     error: function (data) {
@@ -659,31 +651,18 @@
                     contentType: false, 
                     success: function (data) {
                         if(data == "success") { 
-                            count++;
 
                             Swal.fire({
                                 icon: 'success',
-                                title: 'Datos insertados con exito',
+                                title: 'Predio creado con exito',
                                 showConfirmButton: false,
                                 timer: 4000
+                            }).then(() => {
+                                location.href = "#step-1";
+                                location.reload(true);
                             });
 
-                            $('#form-propiedad').trigger("reset");
-                            $('#form-ubicacion').trigger("reset");
-                            $('#form-dimencion').trigger("reset");
-                            $('#form-valor').trigger("reset");
-                            $('#form-coordenada').trigger("reset");
-                            $('#form-archivo').trigger("reset");
-                            $('#form-image').trigger("reset");
-
-                            location.href = "#step-1";
-
-                            // arlerts
-                            $(".message").addClass("d-none");
-                            $(".message-pdf").addClass("d-none");
-                            $(".message-dwg").addClass("d-none");
-                            document.getElementById("container-img").innerHTML="";
-                            $(".limit-invalid").addClass("d-none");
+                            
 
                         }
                         console.log(data)
@@ -696,12 +675,12 @@
             }
         });
 
-        window.addEventListener("beforeunload", function (e) {
-        var confirmationMessage = "";
+        /*window.addEventListener("beforeunload", function (e) {
+            var confirmationMessage = "";
 
-        (e || window.event).returnValue = confirmationMessage; //Gecko + IE
-        return confirmationMessage;                            //Webkit, Safari, Chrome
-        });
+            (e || window.event).returnValue = confirmationMessage;
+            return confirmationMessage;
+        });*/
 
         
         $('.btnCancel').click(function(event) {
