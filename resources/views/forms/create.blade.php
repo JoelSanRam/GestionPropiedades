@@ -77,7 +77,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label>ID de origen</label>
-                            <input name="origen_id" type="text" class="form-control m-b-5" placeholder="Ingresar id de origen">
+                            <input name="origen_id" type="number" class="form-control m-b-5" placeholder="Ingresar id de origen">
                         </div>
                     </div>
             
@@ -165,22 +165,22 @@
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label>Ejido Parcela</label>
-                            <input name="parcela" type="text" class="form-control m-b-5" placeholder="Ingresar parcela">
+                            <input name="parcela" type="number" class="form-control m-b-5" placeholder="Ingresar parcela">
                         </div>
                         <div class="form-group col-md-4">
                             <label>Ejido Lote</label>
-                            <input name="lote" type="text" class="form-control m-b-5" placeholder="Ingresar lote">
+                            <input name="lote" type="number" class="form-control m-b-5" placeholder="Ingresar lote">
                         </div>
                         <div class="form-group col-md-4">
                             <label>Solar</label>
-                            <input name="solar" type="text" class="form-control m-b-5" placeholder="Ingresar solar">
+                            <input name="solar" type="number" class="form-control m-b-5" placeholder="Ingresar solar">
                         </div>
                     </div>
             
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>Tablaje</label>
-                            <input name="tablaje" type="text" class="form-control m-b-5" placeholder="Ingresar tablaje">
+                            <input name="tablaje" type="number" class="form-control m-b-5" placeholder="Ingresar tablaje">
                         </div>
                         <div class="form-group col-md-6">
                             <label>Finca</label>
@@ -195,14 +195,14 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label>Ejido Manzana</label>
-                            <input name="ejido_manzana" type="text" class="form-control m-b-5" placeholder="Ingresar manzana de ejido" >
+                            <input name="ejido_manzana" type="number" class="form-control m-b-5" placeholder="Ingresar manzana de ejido" >
                         </div>
                     </div>
             
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>Codigo postal</label>
-                            <input name="codigo_postal" id="codigo_postal" type="text" class="form-control m-b-5" placeholder="Ingresar codigo postal" data-parsley-required="true">
+                            <input name="codigo_postal" id="codigo_postal" type="number" class="form-control m-b-5" placeholder="Ingresar codigo postal" data-parsley-required="true">
                         </div>
                     </div>
                     
@@ -220,29 +220,29 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label>Superficie de Construcción (mts<sup>2</sup>)</label>
-                            <input name="superficie_construccion" type="text" class="form-control m-b-5" placeholder="Ingresar superficie de construccion">
+                            <input name="superficie_construccion" type="number" step="any" class="form-control m-b-5" placeholder="Ingresar superficie de construccion">
                         </div>
                     </div>
             
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>Superficie de terreno (mts<sup>2</sup>)</label>
-                            <input name="superficie_terreno" id="superficie_terreno" type="text" class="form-control m-b-5" placeholder="Ingresar superficie del terreno" data-parsley-required="true">
+                            <input name="superficie_terreno" id="superficie_terreno" type="number" step="any" class="form-control m-b-5" placeholder="Ingresar superficie del terreno" data-parsley-required="true">
                         </div>
                         <div class="form-group col-md-6">
                             <label>Frente (mts)</label>
-                            <input name="frente" type="text" class="form-control m-b-5" placeholder="Ingresar frente" required>
+                            <input name="frente" type="number" step="any" class="form-control m-b-5" placeholder="Ingresar frente" required>
                         </div>
                     </div>
             
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>Fondo (mts)</label>
-                            <input name="fondo" type="text" class="form-control m-b-5" placeholder="Ingresar fondo" required>
+                            <input name="fondo" type="number" step="any" class="form-control m-b-5" placeholder="Ingresar fondo" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label>Capacidad granja</label>
-                            <input name="capacidad_granja" type="text" class="form-control m-b-5" placeholder="Ingresar capacidad granja">
+                            <input name="capacidad_granja" type="number" class="form-control m-b-5" placeholder="Ingresar capacidad granja">
                         </div>
                     </div>
             
@@ -260,14 +260,14 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label>Valor de construccion</label>
-                            <input name="valor_construccion" type="text" class="form-control m-b-5" placeholder="Ingresar valor de construccion">
+                            <input name="valor_construccion" type="number" step="any" class="form-control m-b-5" placeholder="Ingresar valor de construccion">
                         </div>
                     </div>
             
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>Valor comercial</label>
-                            <input name="valor_comercial" id="valor_comercial" type="text" class="form-control m-b-5" placeholder="Ingresar valor comercial" data-parsley-required="true">
+                            <input name="valor_comercial" id="valor_comercial" type="number" step="any" class="form-control m-b-5" placeholder="Ingresar valor comercial" data-parsley-required="true">
                         </div>
                         <div class="form-group col-md-6">
                             <label>Fecha de valor comercial</label>
@@ -278,7 +278,7 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>Valor catastral</label>
-                            <input name="valor_catastral" id="valor_catastral" type="text" class="form-control m-b-5" placeholder="Ingresar valor catastral" data-parsley-required="true">
+                            <input name="valor_catastral" id="valor_catastral" type="number" step="any" class="form-control m-b-5" placeholder="Ingresar valor catastral" data-parsley-required="true">
                         </div>
                         <div class="form-group col-md-6">
                             <label>Fecha de valor catastral</label>
@@ -675,12 +675,12 @@
             }
         });
 
-        /*window.addEventListener("beforeunload", function (e) {
+        /* window.addEventListener("beforeunload", function (e) {
             var confirmationMessage = "";
 
             (e || window.event).returnValue = confirmationMessage;
             return confirmationMessage;
-        });*/
+        }); */
 
         
         $('.btnCancel').click(function(event) {

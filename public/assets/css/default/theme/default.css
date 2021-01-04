@@ -4,6 +4,14 @@ Version: 4.0.0
 Author: Sean Ngu
 Website: http://www.seantheme.com/color-admin-v4.0/admin/
 */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+input[type=number] { -moz-appearance:textfield; }
+
+
 .prev2{
   
 	align-self: center;
