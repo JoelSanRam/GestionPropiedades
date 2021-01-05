@@ -24,7 +24,7 @@
                     <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
 
                 </div>
-                <h4 class="panel-title">Dimenciones</h4>
+                <h4 class="panel-title">Dimensiones</h4>
             </div>
             <!-- end panel-heading -->
             <!-- begin panel-body -->
