@@ -2,6 +2,22 @@
 
 @section('admin')
 
+<style type="text/css">
+    .loader {
+        border: 12px solid #f3f3f3; /* Light grey */
+        border-top: 12px solid #3498db; /* Blue */
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        animation: spin 2s linear infinite;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+</style>
+
 <h1 class="page-header">Crear Predio</h1>
 
 <div id="wizard">
@@ -404,6 +420,25 @@
     <p>© 2021 Desarrollado por <a href="https://www.buho-solutions.com">Buho solutions</a></p>
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="sendData" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Mensaje</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row justify-content-center">
+                    <div class="col-md-4 text-center">
+                        <div class="loader"></div>
+                    </div>
+                </div>
+                <h6 class="mt-3 text-center">Los datos se estan guardando espere un momento...</h6>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>
@@ -554,6 +589,8 @@
 
             if(error == false){
 
+                $('#sendData').modal('show');
+
                 $.ajax({
                     url: "{{ route('create-propiedad') }}",
                     type: "POST",
@@ -650,7 +687,9 @@
                     processData: false,
                     contentType: false, 
                     success: function (data) {
-                        if(data == "success") { 
+                        if(data == "success") {
+
+                            $('#sendData').modal('hide'); 
 
                             Swal.fire({
                                 icon: 'success',
@@ -675,13 +714,6 @@
             }
         });
 
-        /* window.addEventListener("beforeunload", function (e) {
-            var confirmationMessage = "";
-
-            (e || window.event).returnValue = confirmationMessage;
-            return confirmationMessage;
-        }); */
-
         
         $('.btnCancel').click(function(event) {
             event.preventDefault();
@@ -699,7 +731,6 @@
                     location.href = "{{ route('listado') }}";
                 }
             });
-
         });
       
     });
