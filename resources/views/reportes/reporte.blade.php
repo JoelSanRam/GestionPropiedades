@@ -4,8 +4,8 @@
 
 <h1 class="page-header">Generación de reportes</h1>
 
-    <!-- begin page-header -->
-    <form class="my-2" action="{{ route('search') }}" method="GET">
+    <!-- form desktop -->
+    <form class="my-2 d-none d-md-block" action="{{ route('search') }}" method="GET">
 
         <label style="margin-left: 10px">Entidad</label>
         <select class="page-header form-control-sm" name="entidad">
@@ -41,9 +41,73 @@
 
         <button type="submit" name="option" value="filtrar" class="btn btn-success mr-1 ml-2">Filtrar</button>
         <button type="submit" name="option" value="reporte" class="btn text-light" style="background: #ffc800;">Generar reporte</button>
-
     </form>
-<!-- end page-header -->
+    <!-- form desktop -->
+
+    <!-- form mobile -->
+    <form class="my-2 d-block d-md-none" action="{{ route('search') }}" method="GET">
+
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <label style="margin-left: 10px">Entidad</label>
+                <select class="page-header form-control-sm" name="entidad">
+                    <option value="">Elegir</option>
+                    @foreach($entidades as $item)
+                        <option>{{ $item->entidad_federativa }}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <label style="margin-left: 10px">Localidad</label>
+                <select class="page-header form-control-sm" name="localidad">
+                    <option value="">Elegir</option>
+                    @foreach($localidades as $item)
+                        <option>{{ $item->localidad }}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <label style="margin-left: 10px">Propietario</label>
+                <select class="page-header form-control-sm" name="propietario">
+                    <option value="">Elegir</option>
+                    @foreach($propietarios as $item)
+                        <option>{{ $item->propietario }}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <label style="margin-left: 10px">Status</label>
+                <select class="page-header form-control-sm" name="status">
+                    <option value="">Elegir</option>
+                    @foreach($status as $item)
+                        <option>{{ $item->estatus }}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <button type="submit" name="option" value="filtrar" class="btn btn-success mr-1 ml-2">Filtrar</button>
+            </div>
+            <div class="form-group col-md-6">
+                <button type="submit" name="option" value="reporte" class="btn text-light" style="background: #ffc800;">
+                Generar reporte
+            </button>
+            </div>
+        </div>
+        
+    </form>
+    <!-- form mobile -->
 
 <!-- begin row -->
 <div class="row">

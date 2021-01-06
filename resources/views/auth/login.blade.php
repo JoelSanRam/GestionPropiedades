@@ -13,12 +13,20 @@
             <!-- end brand -->
             <!-- begin login-content -->
             <div class="login-content">
+                <div class="login-header">
+                    <div class="brand" style="text-align: center">
+                        <img src="{{ asset('assets/img/logo/logo.svg')}}" alt="Logo" class="logobonito2">
+
+                    </div>
+
+                </div>
+
                 @error('email')
-                    <p class="text-white text-center">{{ $message }}</p>
+                    <p class="text-dark text-center">{{ $message }}</p>
                 @enderror
 
                 @error('password')
-                    <p class="text-white text-center">{{ $message }}</p>
+                    <p class="text-dark text-center">{{ $message }}</p>
                 @enderror
 
                 <form method="POST" action="{{ route('login') }}" class="margin-bottom-0">
@@ -39,7 +47,7 @@
             </div>
 
             <!-- end login-content -->
-            <div class="copyright">
+            <div class="copyright py-3" style="background-color: #1C4482">
                 <p style="color: white">© 2021 Desarrollado por <a style="color: yellow" href="https://www.buho-solutions.com">Buho solutions</a></p>
             </div>
         </div>

@@ -707,7 +707,7 @@ table.dataTable thead .sorting_desc_disabled:after,
 	color: #333;
 }
 .header.navbar-default .navbar-toggle .icon-bar {
-    background: #2d353c;
+    background: #fff;
 }
 .header.navbar-default .navbar-nav > li > a {
     color: #585663;
@@ -10447,7 +10447,7 @@ a.text-lime:focus {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7b048', endColorstr='#f59c1a',GradientType=0 ) !important;
 }
 .bg-inverse, 
-.bg-black { background-color: #2d353c !important; }
+.bg-black { background-color: #d9e0e7 !important; }
 .bg-black-transparent-9 { background-color: rgba(45, 53, 60, 0.9) !important; }
 .bg-black-transparent-8 { background-color: rgba(45, 53, 60, 0.8) !important; }
 .bg-black-transparent-7 { background-color: rgba(45, 53, 60, 0.7) !important; }

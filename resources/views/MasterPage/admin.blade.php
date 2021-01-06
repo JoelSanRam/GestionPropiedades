@@ -11,7 +11,7 @@
 	<meta content="" name="author" />
 
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
-	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 	<link href="{{ asset('assets/plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet')}}" />
 	<link href="{{ asset('assets/plugins/bootstrap/4.0.0/css/bootstrap.min.css')}}" rel="stylesheet" />
 	<link href="{{ asset('assets/plugins/font-awesome/5.0/css/fontawesome-all.min.css')}}" rel="stylesheet" />
@@ -181,9 +181,6 @@
 
 						</li>
 
-
-
-
 				        <!-- begin sidebar minify button -->
 						<li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="fa fa-angle-double-left"></i></a></li>
 				        <!-- end sidebar minify button -->
@@ -241,7 +238,13 @@
 		$(document).ready(function() {
 			App.init();
 			TableManageResponsive.init();
+			/*$('#data-table-responsive').DataTable({
+			    "language": {
+			      "url": "https://cdn.datatables.net/plug-ins/1.10.21/i18n/Spanish.json"
+			    }
+			});*/
 		});
+
 		$('.img-popup').magnificPopup({
 			delegate: 'a', // child items selector, by clicking on it popup will open
 			type: 'image',

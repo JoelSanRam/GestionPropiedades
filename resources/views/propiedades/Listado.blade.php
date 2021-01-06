@@ -2,17 +2,16 @@
 
 @section('admin')
 
-<!-- begin breadcrumb -->
-@if (Auth::user()->rol == "Administrador")
-<ol class="breadcrumb pull-right">
-    <li class="breadcrumb-item"><a href="{{ route('create') }}" class="btn text-light" style="background: #ffc800;">Agregar nuevo predio</a></li>
-</ol>
-@endif
-<!-- end breadcrumb -->
-
-<!-- begin page-header -->
-<h1 class="page-header">Listado de predios</h1>
-<!-- end page-header -->
+<div class="row mb-3">
+    <div class="col-lg-10">
+        <h1 class="page-header">Listado de predios</h1>
+    </div>
+    <div class="col-lg-2">
+        @if (Auth::user()->rol == "Administrador")
+            <a href="{{ route('create') }}" class="btn text-light" style="background: #ffc800;">Agregar nuevo predio</a>
+        @endif
+    </div>
+</div>
 
 <!-- begin row -->
 <div class="row">

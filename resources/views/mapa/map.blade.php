@@ -5,8 +5,8 @@
 <h1 class="page-header">Mapa general</h1>
 <!-- begin breadcrumb -->
 
-    <!-- begin page-header -->
-    <form class="my-2" action="{{ route('search-map') }}" method="GET">
+    <!-- form desktop -->
+    <form class="my-2 d-none d-md-block" action="{{ route('search-map') }}" method="GET">
 
       <label style="margin-left: 10px">Granja</label>
       <select class="page-header form-control-sm" name="granja">
@@ -32,9 +32,55 @@
       </select>
 
       <button type="submit" class="btn text-light mr-1 ml-2" style="background: #ffc800;">Filtrar</button>
-
     </form>
-<!-- end page-header -->
+    <!-- form desktop -->
+
+    <!-- form mobile -->
+    <form class="my-2 d-block d-md-none" action="{{ route('search-map') }}" method="GET">
+
+      <div class="from-row">
+        <div class="form-group col-md-12">
+          <label style="margin-left: 10px">Granja</label>
+          <select class="page-header form-control-sm" name="granja">
+              <option value="">Elegir</option>
+              <option>Si</option>
+              <option>No</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="from-row">
+        <div class="form-group col-md-12">
+          <label style="margin-left: 10px">Propietario</label>
+          <select class="page-header form-control-sm" name="propietario">
+              <option value="">Elegir</option>
+              @foreach($propietarios as $item)
+                  <option>{{ $item->propietario }}</option>
+              @endforeach
+          </select>
+        </div>
+      </div>
+
+      <div class="from-row">
+        <div class="form-group col-md-12">
+          <label style="margin-left: 10px">Status</label>
+          <select class="page-header form-control-sm" name="status">
+              <option value="">Elegir</option>
+              @foreach($status as $item)
+                  <option>{{ $item->estatus }}</option>
+              @endforeach
+          </select>
+        </div>
+      </div>
+        
+      <div class="from-row">
+        <div class="form-group col-md-12">
+          <button type="submit" class="btn text-light mr-1 ml-2" style="background: #ffc800;">Filtrar</button>
+        </div>
+      </div>
+    
+    </form>
+    <!-- form mobile -->
 
 <div class="row">
   <div class="col-md-12 col-12">

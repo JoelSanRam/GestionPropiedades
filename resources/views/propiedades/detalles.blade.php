@@ -1,14 +1,16 @@
 @extends('MasterPage.admin')
 
 @section('admin')
-    <ol class="breadcrumb pull-right">
-    <li class="breadcrumb-item"><a href="{{ route('pdf-individual', $propiedad->id) }}" class="btn btn-primary">Generar PDF</a></li>
-    </ol>
 
-    <!-- begin page-header -->
-    <h1 class="page-header">Detalle de propiedad </h1>
+    <div class="row mb-3">
+        <div class="col-lg-10">
+            <h1 class="page-header">Detalle de propiedad </h1>
+        </div>
+        <div class="col-lg-2">
+            <a href="{{ route('pdf-individual', $propiedad->id) }}" class="btn btn-primary">Generar PDF</a>
+        </div>
+    </div>
 
-    <!-- end page-header -->
 
     <!-- begin row -->
     <div class="row">
@@ -498,10 +500,12 @@
             <!-- end panel -->
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-5"></div>
-        <div class="col-md-5">
-            <p><a href="{{ route('listado') }}" class="btn btn-secondary btn-lg" style="margin-left: 20px">Regresar</a></p>
+
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <p class="text-center">
+                <a href="{{ route('listado') }}" class="btn btn-secondary btn-lg" style="margin-left: 20px">Regresar</a>
+            </p>
         </div>
 
     </div>
