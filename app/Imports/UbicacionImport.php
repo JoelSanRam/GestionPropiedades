@@ -4,15 +4,14 @@ namespace App\Imports;
 
 use App\Ubicacion;
 use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\Importable;
+use Maatwebsite\Excel\Concerns\WithValidation;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
-class UbicacionImport implements ToModel, WithHeadingRow
+class UbicacionImport implements ToModel, WithValidation, WithHeadingRow
 {
-    /**
-    * @param array $row
-    *
-    * @return \Illuminate\Database\Eloquent\Model|null
-    */
+    use Importable;
+
     public function model(array $row)
     {
         return new Ubicacion([
@@ -26,5 +25,22 @@ class UbicacionImport implements ToModel, WithHeadingRow
             'ejido_manzana' => $row['ejido_manzana'],
             'codigo_postal' => $row['codigo_postal'],
         ]);
+    }
+
+    // validation
+    public function rules(): array
+    {
+        return [
+            'codigo_postal' => 'required',
+
+        ];
+    }
+
+    // message validation
+    public function customValidationMessages()
+    {
+        return [
+            'codigo_postal.required' => 'El codigo_postal es obligatorio.',
+        ];
     }
 }

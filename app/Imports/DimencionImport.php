@@ -23,4 +23,21 @@ class DimencionImport implements ToModel, WithHeadingRow
             'capacidad_granja' => $row['capacidad_granja'],
         ]);
     }
+
+    // validation
+    public function rules(): array
+    {
+        return [
+            'superficie_terreno' => 'required',
+
+        ];
+    }
+
+    // message validation
+    public function customValidationMessages()
+    {
+        return [
+            'superficie_terreno.required' => 'La superficie_terreno es obligatoria.',
+        ];
+    }
 }

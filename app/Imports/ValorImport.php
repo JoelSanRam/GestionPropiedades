@@ -4,15 +4,14 @@ namespace App\Imports;
 
 use App\Valor;
 use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\Importable;
+use Maatwebsite\Excel\Concerns\WithValidation;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
-class ValorImport implements ToModel, WithHeadingRow
+class ValorImport implements ToModel, WithValidation, WithHeadingRow
 {
-    /**
-    * @param array $row
-    *
-    * @return \Illuminate\Database\Eloquent\Model|null
-    */
+    use Importable;
+
     public function model(array $row)
     {
         return new Valor([
@@ -22,5 +21,24 @@ class ValorImport implements ToModel, WithHeadingRow
             'valor_catastral' => $row['valor_catastral'],
             'fecha_valor_catastral' => $row['fecha_valor_catastral'],
         ]);
+    }
+
+    // validation
+    public function rules(): array
+    {
+        return [
+            'valor_comercial' => 'required',
+            'valor_catastral' => 'required',
+
+        ];
+    }
+
+    // message validation
+    public function customValidationMessages()
+    {
+        return [
+            'valor_comercial.required' => 'El valor_comercial es obligatorio.',
+            'valor_catastral.required' => 'El valor_catastral es obligatorio.',
+        ];
     }
 }

@@ -34,9 +34,18 @@
                         @endif
                     </div>
 
-                    @if ( $errors->any() )
-                        <div class="alert alert-danger">
-                            @foreach( $errors->all() as $error )<strong>{{ $error }}</strong>@endforeach
+                    @if(count($errors) > 0)
+                        <div class="col-md-8 m-auto">
+                            <div class="alert alert-danger">
+                                <h6>
+                                    Ocurrio un error al subir los registros. Algunos de los siguientes mensajes pueden ser los posibles errores:
+                                </h6>
+                                <br>
+                                @foreach($errors as $error )
+                                    <strong>{{ $error }}</strong>
+                                    <br>
+                                @endforeach
+                            </div>
                         </div>
                     @endif
                 </div>

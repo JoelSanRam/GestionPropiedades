@@ -23,10 +23,10 @@ class UploadController extends Controller
     	try {
             Excel::import(new TablesImport, request()->file('registros'));
         	\Session::flash('message', 'Registros del Excel Guardados Exitosamente');
-    	} catch (\Throwable $th) {
-            \Session::flash('message', 'Ocurrio un error, por favor verifica los datos del archivo excel');
+            return redirect()->back();
+    	} catch (\Throwable $e) {
+            $errors = $e->validator->customMessages;
+            return redirect()->back()->with('errors', $errors);
         } 
-
-        return redirect()->back();
     }
 }

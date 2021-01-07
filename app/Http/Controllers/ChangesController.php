@@ -175,11 +175,12 @@ class ChangesController extends Controller
 
             Excel::import(new CoordenadasImport, request()->file('coordenadas'));
             \Session::flash('message', 'Registros Guardados Exitosamente');
+            
+            return redirect()->back();
 
-            return redirect()->back();
-        } catch (\Throwable $th) {
-            \Session::flash('message', 'Ocurrio un error por favor verifique los datos');
-            return redirect()->back();
+        } catch (\Throwable $e) {
+            $errors = $e->validator->customMessages;
+            return redirect()->back()->with('errors', $errors);
         }
     }
 
