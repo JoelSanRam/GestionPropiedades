@@ -3,7 +3,6 @@
 @section('admin')
 
 <h1 class="page-header">Mapa general</h1>
-<!-- begin breadcrumb -->
 
     <!-- form desktop -->
     <form class="my-2 d-none d-md-block" action="{{ route('search-map') }}" method="GET">
@@ -184,30 +183,5 @@
   }
 </script>
 
-{{--<script>
-  let coords = @json($data);
-  let arrayCoords = [];
-
-  coords.forEach(item => {
-    //Si el id  no existe en arrayCoords entonces
-    //la creamos e inicializamos el arreglo de points.
-    if(!arrayCoords.hasOwnProperty(item.propiedad_id)){
-      arrayCoords[item.propiedad_id] = {
-        points: []
-      }
-    }
-
-    //Agregamos los puntos para formar el poligono.
-    arrayCoords[item.propiedad_id].points.push({
-      //propiedad_id: item.propiedad_id,
-      lat: item.lat,
-      lng: item.lng
-    })
-
-  })
-
-  arrayCoords.forEach(item => console.log(item.points))
-
-</script>--}}
 @endsection
 
