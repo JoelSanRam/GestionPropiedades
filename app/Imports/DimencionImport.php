@@ -4,15 +4,15 @@ namespace App\Imports;
 
 use App\Dimencion;
 use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\Importable;
+use Maatwebsite\Excel\Concerns\WithValidation;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
+use Maatwebsite\Excel\Concerns\WithCalculatedFormulas;
 
-class DimencionImport implements ToModel, WithHeadingRow
+class DimencionImport implements ToModel, WithValidation, WithHeadingRow, WithCalculatedFormulas
 {
-    /**
-    * @param array $row
-    *
-    * @return \Illuminate\Database\Eloquent\Model|null
-    */
+    use Importable;
+
     public function model(array $row)
     {
         return new Dimencion([

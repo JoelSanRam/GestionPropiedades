@@ -7,8 +7,9 @@ use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\Importable;
 use Maatwebsite\Excel\Concerns\WithValidation;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
+use Maatwebsite\Excel\Concerns\WithCalculatedFormulas;
 
-class ValorImport implements ToModel, WithValidation, WithHeadingRow
+class ValorImport implements ToModel, WithValidation, WithHeadingRow, WithCalculatedFormulas
 {
     use Importable;
 

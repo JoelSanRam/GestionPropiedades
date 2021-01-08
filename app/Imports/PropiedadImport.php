@@ -7,8 +7,10 @@ use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\Importable;
 use Maatwebsite\Excel\Concerns\WithValidation;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
+use Maatwebsite\Excel\Concerns\WithCalculatedFormulas;
+use Maatwebsite\Excel\Concerns\SkipsFailures;
 
-class PropiedadImport implements ToModel, WithValidation, WithHeadingRow
+class PropiedadImport implements ToModel, WithValidation, WithHeadingRow, WithCalculatedFormulas
 {
     use Importable;
     

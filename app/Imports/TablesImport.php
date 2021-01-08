@@ -9,10 +9,10 @@ class TablesImport implements WithMultipleSheets
     public function sheets(): array
     {
         return [
-            'propiedades' => new PropiedadImport(),
-            'ubicaciones' => new UbicacionImport(),
-            'dimenciones' => new DimencionImport(),
-            'valores' => new ValorImport(),
+            'db_propiedades' => new PropiedadImport(),
+            'db_ubicaciones' => new UbicacionImport(),
+            'db_dimenciones' => new DimencionImport(),
+            'db_valores' => new ValorImport(),
         ];
     }
 }
