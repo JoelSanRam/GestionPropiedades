@@ -105,8 +105,6 @@ class ChangesController extends Controller
     {
         $this->validate($request, [
             'superficie_terreno' => 'required',
-            'frente' => 'required',
-            'fondo' => 'required',
         ]);
 
         try {
