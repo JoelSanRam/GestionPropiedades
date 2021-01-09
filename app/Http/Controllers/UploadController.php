@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Imports\TablesImport;
+use App\Imports\InformacionImport;
 use Maatwebsite\Excel\Facades\Excel;
 
 class UploadController extends Controller
@@ -20,13 +20,18 @@ class UploadController extends Controller
             'registros' => 'required'
         ]);
 
-    	try {
-            Excel::import(new TablesImport, request()->file('registros'));
+        Excel::import(new InformacionImport, request()->file('registros'));
+        \Session::flash('message', 'Registros del Excel Guardados Exitosamente');
+
+    	/*try {
+            Excel::import(new InformacionImport, request()->file('registros'));
         	\Session::flash('message', 'Registros del Excel Guardados Exitosamente');
             return redirect()->back();
     	} catch (\Throwable $e) {
-            $errors = $e->validator->customMessages;
-            return redirect()->back()->with('errors', $errors);
-        } 
+            //$errors = $e->validator->customMessages;
+            //\Session::flash('message', 'Ocurrio un error.');
+            //return redirect()->back()->with('errors', $errors);
+            return response()->json($e);
+        }*/ 
     }
 }
