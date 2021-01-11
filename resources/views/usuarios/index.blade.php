@@ -8,7 +8,7 @@
     </div>
     <div class="col-lg-2">
         @if (Auth::user()->rol == "Administrador")
-            <a href="{{ route('usuarios.index') }}" class="btn text-light" style="background: #ffc800;">Nuevo Usuario</a>
+            <a href="{{ route('usuarios.create') }}" class="btn text-light" style="background: #ffc800;">Nuevo Usuario</a>
         @endif
     </div>
 </div>
