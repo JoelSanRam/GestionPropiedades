@@ -20,18 +20,19 @@ class UploadController extends Controller
             'registros' => 'required'
         ]);
 
-        Excel::import(new InformacionImport, request()->file('registros'));
-        \Session::flash('message', 'Registros del Excel Guardados Exitosamente');
-
-    	/*try {
+    	try {
             Excel::import(new InformacionImport, request()->file('registros'));
         	\Session::flash('message', 'Registros del Excel Guardados Exitosamente');
             return redirect()->back();
     	} catch (\Throwable $e) {
-            //$errors = $e->validator->customMessages;
-            //\Session::flash('message', 'Ocurrio un error.');
-            //return redirect()->back()->with('errors', $errors);
-            return response()->json($e);
-        }*/ 
+            if (isset($e->validator)) {
+                $errors = $e->validator->customMessages;
+                return redirect()->back()->with('errors', $errors);
+            } else {
+                \Session::flash('message', 'Ocurrio un error, verifica que tus datos sean correctos en tu archivo excel');
+                return redirect()->back();
+            }
+            
+        } 
     }
 }

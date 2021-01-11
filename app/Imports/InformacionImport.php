@@ -7,11 +7,14 @@ use App\Ubicacion;
 use App\Dimencion;
 use App\Valor;
 use Illuminate\Support\Collection;
+use Maatwebsite\Excel\Concerns\Importable;
+use Maatwebsite\Excel\Concerns\WithValidation;
 use Maatwebsite\Excel\Concerns\ToCollection;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
-class InformacionImport implements ToCollection, WithHeadingRow
+class InformacionImport implements ToCollection, WithValidation, WithHeadingRow
 {
+    use Importable;
 
     public function collection(Collection $rows)
     {
@@ -63,4 +66,48 @@ class InformacionImport implements ToCollection, WithHeadingRow
 
         }
     }
+
+    public function headingRow(): int
+    {
+        return 7;
+    }
+
+    // validation
+    public function rules(): array
+    {
+        return [
+            'tipo' => 'required',
+            'estatus' => 'required',
+            'nombre_corto' => 'required',
+            'propietario' => 'required',
+            'entidad_federativa' => 'required',
+            //
+            'codigo_postal' => 'required',
+            //
+            'superficie_terreno' => 'required',
+            //
+            'valor_comercial' => 'required',
+            'valor_catastral' => 'required',
+        ];
+    }
+
+    // message validation
+    public function customValidationMessages()
+    {
+        return [
+            'tipo.required' => 'El tipo es obligatorio.',
+            'estatus.required' => 'El estatus es obligatorio.',
+            'nombre_corto.required' => 'El nombre_corto es obligatorio.',
+            'propietario.required' => 'El propietario es obligatorio.',
+            'entidad_federativa.required' => 'La entidad_federativa es obligatorio.',
+            //
+            'codigo_postal.required' => 'El codigo_postal es obligatorio.',
+            //
+            'superficie_terreno.required' => 'La superficie_terreno es obligatoria.',
+            //
+            'valor_comercial.required' => 'El valor_comercial es obligatorio.',
+            'valor_catastral.required' => 'El valor_catastral es obligatorio.',
+        ];
+    }
+
 }
