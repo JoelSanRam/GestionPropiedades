@@ -7,7 +7,7 @@
             <h1 class="page-header">Detalle de propiedad </h1>
         </div>
         <div class="col-lg-2">
-            <a href="{{ route('pdf-individual', $propiedad->id) }}" class="btn btn-primary">Generar PDF</a>
+            <a href="{{ route('pdf-individual', $propiedad->id) }}" class="btn text-light float-right" style="background: #1C4482;">Generar PDF</a>
         </div>
     </div>
 
