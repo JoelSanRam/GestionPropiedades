@@ -8,7 +8,7 @@
     </div>
     <div class="col-lg-2">
         @if (Auth::user()->rol == "Administrador")
-            <a href="{{ route('create') }}" class="btn text-light" style="background: #ffc800;">Agregar nuevo predio</a>
+            <a href="{{ route('create') }}" class="btn text-light float-right" style="background: #1C4482;">Agregar nuevo predio</a>
         @endif
     </div>
 </div>
@@ -75,7 +75,7 @@
 
                                 </td>
                                 @if (Auth::user()->rol == "Administrador")
-                                    <td>
+                                    <td class="text-center">
                                         <div class="btn-group">
                                             <a href="#" class="btn btn-info">Elegir</a>
                                             <a href="#" class="btn btn-info dropdown-toggle"

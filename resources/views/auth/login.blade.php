@@ -48,7 +48,7 @@
 
             <!-- end login-content -->
             <div class="copyright py-3" style="background-color: #1C4482">
-                <p style="color: white">© 2021 Desarrollado por <a style="color: yellow" href="https://www.buho-solutions.com">Buho solutions</a></p>
+                <p style="color: white" class="mt-3">© 2021 Desarrollado por <a style="color: yellow" href="https://www.buho-solutions.com">Buho solutions</a></p>
             </div>
         </div>
 

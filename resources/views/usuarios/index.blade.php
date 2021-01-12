@@ -8,7 +8,7 @@
     </div>
     <div class="col-lg-2">
         @if (Auth::user()->rol == "Administrador")
-            <a href="{{ route('usuarios.create') }}" class="btn text-light" style="background: #ffc800;">Nuevo Usuario</a>
+            <a href="{{ route('usuarios.create') }}" class="btn text-light float-right" style="background: #1C4482;">Nuevo Usuario</a>
         @endif
     </div>
 </div>
@@ -34,10 +34,10 @@
                 <table id="data-table-responsive" class="table table-striped table-bordered">
                     <thead>
                         <tr>
-                            <th class="text-nowrap">Nombre</th>
-                            <th width="15%" class="text-nowrap">Nombre de Usuario</th>
-                            <th width="15%" class="text-nowrap">Tipo de usuario</th>
-                            <th width="10%">Acciones</th>
+                            <th width="20%" class="text-nowrap">Nombre</th>
+                            <th width="30%" class="text-nowrap">Nombre de Usuario</th>
+                            <th width="20%" class="text-nowrap">Tipo de usuario</th>
+                            <th width="30%">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -48,16 +48,18 @@
                                 <td>{{ $user->rol }}</td>
                                 <td>
                                     @if (Auth::user()->rol == "Administrador")
-                                    <a href="{{ route('usuarios.edit', $user->id) }}" class="btn btn-grey btn-icon btn-sm" title="Editar">
-                                            <i class="fas fa-pencil-alt fa-fw"></i>
-                                    </a>
-
-                                    <a href="{{ route('view-password', $user->id) }}" class="btn text-light btn-icon btn-sm" title="Cambiar Contraseña" style="background: #ffc800;">
-                                        <i class="fas fa-key"></i>
-                                    </a>
                                     <form action="{{ route('usuarios.destroy', $user) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
+
+                                        <a href="{{ route('usuarios.edit', $user->id) }}" class="btn btn-grey btn-icon btn-sm" title="Editar">
+                                            <i class="fas fa-pencil-alt fa-fw"></i>
+                                        </a>
+
+                                        <a href="{{ route('view-password', $user->id) }}" class="btn text-light btn-icon btn-sm" title="Cambiar Contraseña" style="background: #ffc800;">
+                                            <i class="fas fa-key"></i>
+                                        </a>
+
                                         <button class="btn btn-danger btn-icon btn-sm" title="Eliminar">
                                             <i class="fas fa-trash-alt fa-fw"></i>
                                         </button>
@@ -79,4 +81,12 @@
 <div class="copyright">
     <p>© 2021 Desarrollado por <a href="https://www.buho-solutions.com">Buho solutions</a></p>
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.active > a').css("background-color", "#1C4482");
+    });
+</script>
+
 @endsection

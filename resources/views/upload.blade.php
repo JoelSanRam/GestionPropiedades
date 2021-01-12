@@ -61,7 +61,7 @@
 
                             <div class="input-group mb-3">
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" accept=".xlsx, .xlsm, .xlsb, .xltx, .xltm,.xls,.xlt,.xls,.xml,.xla,.xlw" onchange="alertSuccess()" id="registros" name="registros">
+                                    <input type="file" class="custom-file-input" accept=".xlsx, .xlsm, .xlsb, .xltx, .xltm,.xls,.xlt,.xls,.xml" onchange="alertSuccess()" id="registros" name="registros">
                                     <label class="custom-file-label" for="datos">Elige tu archivo</label>
                                 </div>
                             </div>
@@ -72,8 +72,8 @@
                                 Archivo Cargado con Exito
                             </div>
 
-                            <div class="form-group">
-                                <button type="submit" class="btn text-light" style="background: #ffc800;">Guardar</button>
+                            <div class="form-group text-center">
+                                <button type="submit" class="btn text-light" style="background: #1C4482;">Guardar</button>
                             </div>
                         </form>
                     </div>

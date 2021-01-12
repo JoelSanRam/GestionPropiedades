@@ -30,7 +30,7 @@
           @endforeach
       </select>
 
-      <button type="submit" class="btn text-light mr-1 ml-2" style="background: #ffc800;">Filtrar</button>
+      <button type="submit" class="btn text-light mr-1 ml-2" style="background: #1C4482;">Filtrar</button>
     </form>
     <!-- form desktop -->
 
@@ -74,7 +74,7 @@
         
       <div class="from-row">
         <div class="form-group col-md-12">
-          <button type="submit" class="btn text-light mr-1 ml-2" style="background: #ffc800;">Filtrar</button>
+          <button type="submit" class="btn text-light mr-1 ml-2" style="background: #1C4482;">Filtrar</button>
         </div>
       </div>
     

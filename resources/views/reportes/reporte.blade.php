@@ -39,8 +39,8 @@
             @endforeach
         </select>
 
-        <button type="submit" name="option" value="filtrar" class="btn btn-success mr-1 ml-2">Filtrar</button>
-        <button type="submit" name="option" value="reporte" class="btn text-light" style="background: #ffc800;">Generar reporte</button>
+        <button type="submit" name="option" value="filtrar" class="btn text-dark mr-2 ml-2" style="background: #ffc800;">Filtrar</button>
+        <button type="submit" name="option" value="reporte" class="btn text-light" style="background: #1C4482;">Generar reporte</button>
     </form>
     <!-- form desktop -->
 

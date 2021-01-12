@@ -445,9 +445,11 @@
     $(document).ready(function() {
 
         let buttons = `
-            <button type="submit" class="btn btnSubmit text-light" style="background: #ffc800;">Guardar</button>
+            <button type="submit" class="btn btnSubmit text-dark" style="background: #ffc800;">Guardar</button>
             <button class="btn btn-secondary mr-2 btnCancel">Cancelar</button>
         `;
+
+        $('.sw-btn-next').css("background-color", "#1C4482");
 
         $('.sw-btn-group').append(buttons);
 

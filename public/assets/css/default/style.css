@@ -2762,8 +2762,8 @@ legend {
 .pagination > .active > span:hover, 
 .pagination > .active > a:focus, 
 .pagination > .active > span:focus {
-    background: #348ee3 !important;
-    border-color: #348ee3 !important;
+    background: #1C4482 !important;
+    border-color: #1C4482 !important;
     color: #fff;
 }
 
