@@ -25,19 +25,24 @@ class UserController extends Controller
     {
         $this->validate($request, [
             'name' => 'required|string',
-            'username' => 'required|string',
+            'email' => 'required|string|unique:users',
             'rol' => 'required|string',
             'password' => 'required|string|min:8',
         ]);
 
-        $user = new User();
-        $user->name = $request->name;
-        $user->email = $request->username;
-        $user->rol = $request->rol;
-        $user->password = Hash::make($request->password);
-        $user->save();
+        try {
+            $user = new User();
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->rol = $request->rol;
+            $user->password = Hash::make($request->password);
+            $user->save();
 
-        \Session::flash('message', 'Usuario creado');
+            \Session::flash('message', 'Usuario creado');
+
+        } catch (\Throwable $th) {
+            \Session::flash('message', 'Error al crear usuario');
+        }
 
         return redirect()->route('usuarios.index');
     }
@@ -54,17 +59,22 @@ class UserController extends Controller
     {
         $this->validate($request, [
             'name' => 'required|string',
-            'username' => 'required|string',
+            'email' => 'required|string|unique:users',
             'rol' => 'required|string',
         ]);
 
-        $user = User::find($id);
-        $user->name = $request->name;
-        $user->email = $request->username;
-        $user->rol = $request->rol;
-        $user->save();
+        try {
+            $user = User::find($id);
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->rol = $request->rol;
+            $user->save();
 
-        \Session::flash('message', 'Usuario Actualizado');
+            \Session::flash('message', 'Usuario Actualizado');
+
+        } catch (\Throwable $th) {
+            \Session::flash('message', 'Error al actualizar datos del usuario');
+        }
 
         return redirect()->route('usuarios.index');
     }
@@ -94,11 +104,16 @@ class UserController extends Controller
             'password' => 'required|string|min:8',
         ]);
 
-        $user = User::find($id);
-        $user->password = Hash::make($request->password);
-        $user->save();
+        try {
+            $user = User::find($id);
+            $user->password = Hash::make($request->password);
+            $user->save();
 
-        \Session::flash('message', 'Contraseña Actualizada');
+            \Session::flash('message', 'Contraseña Actualizada');
+
+        } catch (\Throwable $th) {
+            \Session::flash('message', 'Error al cambiar contraseña del usuario');
+        }
 
         return redirect()->route('usuarios.index');
     }

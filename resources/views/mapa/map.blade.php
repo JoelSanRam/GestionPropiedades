@@ -162,7 +162,7 @@
       const marker = markers[i];
       const detailsLink = `
       <p>${marker.nombre_corto}</p>
-      <a href="http://127.0.0.1:8000/detalles/${marker.propiedad_id}">Ver Detalles</a>
+      <a href="http://propiedades-crio.com/detalles/${marker.propiedad_id}">Ver Detalles</a>
       `; // link detalles
       const infowindow = new google.maps.InfoWindow({ // window show clic marker
         content: detailsLink,

@@ -35,7 +35,10 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label >Nueva Contraseña</label>
-                            <input name="password" type="password" name="password" class="form-control m-b-5" placeholder="Contraseña">
+                            <input name="password" min="8" type="password" name="password" class="form-control m-b-5 @error('password') is-invalid @enderror" placeholder="Contraseña" required>
+                            @error('password')
+                                <p class="text-dark text-center">La contraseña es requerida y debe tener 8 caracteres minimo.</p>
+                            @enderror
                         </div>
                     </div>
 

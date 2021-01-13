@@ -34,25 +34,38 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>Nombre</label>
-                            <input name="name" type="text" class="form-control m-b-5" placeholder="Nombre">
+                            <input name="name" type="text" class="form-control m-b-5 @error('name') is-invalid @enderror" placeholder="Nombre" required>
+                            @error('name')
+                                <p class="text-dark text-center">El nombre es requerido</p>
+                            @enderror
                         </div>
                         <div class="form-group col-md-6">
                             <label>Nombre de Usuario</label>
-                            <input name="username" type="text" class="form-control m-b-5" placeholder="Nombre de usuario">
+                            <input name="email" type="text" class="form-control m-b-5 @error('email') is-invalid @enderror" placeholder="Nombre de usuario" required>
+                            @error('email')
+                                <p class="text-dark text-center">El nombre del usuario es requerido y debe es unico</p>
+                            @enderror
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>Tipo de usuario</label>
-                            <select class="form-control" name="rol">
+                            <select class="form-control @error('rol') is-invalid @enderror" name="rol" required>
+                                <option value="">Elegir</option>
                                 <option>Administrador</option>
                                 <option>Usuario</option>
                             </select>
+                            @error('rol')
+                                <p class="text-dark text-center">El rol del usuario es requerido</p>
+                            @enderror
                         </div>
                         <div class="form-group col-md-6">
                             <label>Contraseña</label>
-                            <input name="password" type="password" name="password" class="form-control m-b-5" placeholder="Contraseña">
+                            <input name="password" min="8" type="password" name="password" class="form-control m-b-5 @error('password') is-invalid @enderror" placeholder="Contraseña" required>
+                            @error('password')
+                                <p class="text-dark text-center">La contraseña es requerida y debe tener 8 caracteres minimo.</p>
+                            @enderror
                         </div>
                     </div>
 
