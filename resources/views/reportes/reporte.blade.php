@@ -97,11 +97,11 @@
 
         <div class="form-row">
             <div class="form-group col-md-6">
-                <button type="submit" name="option" value="filtrar" class="btn btn-success mr-1 ml-2">Filtrar</button>
+                <button type="submit" name="option" value="filtrar" class="btn btn-success mr-1 ml-2" style="background: #ffc800; color:rgb(0, 0, 0);">Filtrar</button>
             </div>
             <div class="form-group col-md-6">
-                <button type="submit" name="option" value="reporte" class="btn text-light" style="background: #ffc800;">
-                Generar reporte
+                <button type="submit" name="option" value="reporte" class="btn text-light" style="background:#1C4482;">
+                Generar Reporte
             </button>
             </div>
         </div>
