@@ -13,6 +13,16 @@
     </div>
 </div>
 
+<div class="row">
+    <div class="col-md-6 mt-3 mx-auto">
+        @if(Session::has('message'))
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>{!! Session::get('message') !!}</strong>
+            </div>
+        @endif
+    </div>
+</div>
+
 <!-- begin row -->
 <div class="row">
     <!-- begin col-10 -->
