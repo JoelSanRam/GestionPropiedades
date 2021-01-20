@@ -3,11 +3,27 @@
 @section('admin')
 
     <div class="row mb-3">
-        <div class="col-lg-10">
+        <div class="col-lg-8">
             <h1 class="page-header">Detalle de propiedad </h1>
         </div>
         <div class="col-lg-2">
-            <a href="{{ route('pdf-individual', $propiedad->id) }}" class="btn text-light float-right" style="background: #1C4482;">Generar PDF</a>
+            <div class="btn-group float-right mb-2">
+                <a href="javascript:;" class="btn btn-info" style="background: #1C4482;">Editar</a>
+                <a href="javascript:;" class="btn btn-info dropdown-toggle"data-toggle="dropdown" style="background: #1C4482;"></a>
+                <ul class="dropdown-menu pull-right">
+                    <a href="{{ route('update-view-propiedad', $propiedad->id) }}" class="dropdown-item">Datos Generales</a>
+                    <a href="{{ route('update-view-dimencion', $propiedad->id) }}" class="dropdown-item">Dimensiones</a>
+                    <a href="{{ route('update-view-ubicacion', $propiedad->id) }}" class="dropdown-item">Ubicacion</a>
+                    <a href="{{ route('update-view-valor', $propiedad->id) }}" class="dropdown-item">Valores</a>
+                    <a href="{{ route('update-view-coordenada', $propiedad->id) }}" class="dropdown-item">Coordenadas</a>
+                    <a href="{{ route('update-view-archivo', $propiedad->id) }}" class="dropdown-item">Archivos</a>
+                    <a href="{{ route('update-view-image', $propiedad->id) }}" class="dropdown-item">Imagenes</a>
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <a href="{{ route('pdf-individual', $propiedad->id) }}" class="btn text-light float-right" style="background: #1C4482;">Generar PDF
+            </a>
         </div>
     </div>
 
