@@ -98,24 +98,11 @@
 					<!-- begin sidebar user -->
 					<ul class="nav">
 						<li class="nav-profile ajustedelogocontexto">
-							<a href="javascript:;" data-toggle="nav-profile">
+							<a href="{{ route('listado') }}" data-toggle="nav-profile">
                                 <div class="cover " style="background-color: white">
-                                    <img src="{{ asset('assets/img/logo/logo.svg')}}" alt="Logo" class="logobonito">
-                                    <div class="info titulos">
-
-
-                                        {{-- <small class="titulos">Rol de {{Auth::user()->rol}}</small> --}}
-                                    </div>
+                                    <img src="{{ asset('assets/img/logo/logo.svg')}}" id="link-img" alt="Logo" class="logobonito">
                                 </div>
-
-								<div class="info titulos">
-
-                                    {{-- {{ Auth::user()->name }} <br>
-                                    Rol de {{Auth::user()->rol}} --}}
-									{{-- <small class="titulos">Rol de {{Auth::user()->rol}}</small> --}}
-								</div>
                             </a>
-
 						</li>
 
 					</ul>
@@ -254,6 +241,11 @@
 			}
 			// other options
 		});
+
+		document.getElementById('link-img').addEventListener('click', function function_name(e) {
+			e.preventDefault();
+			location.href = "{{ route('listado') }}"
+		})
 	</script>
 </body>
 </html>
