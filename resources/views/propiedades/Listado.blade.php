@@ -35,6 +35,7 @@
                     <thead>
                         <tr>
                             <th width="1%">ID</th>
+                            <th width="1%">Tablaje</th>
                             <th class="text-nowrap">Propietario</th>
                             <th class="text-nowrap">Status</th>
                             <th class="text-nowrap">Tipo</th>
@@ -49,7 +50,8 @@
                     <tbody>
                         @foreach($data as $item)
                             <tr class="odd gradeX">
-                                <td width="1%" class="f-s-600 text-inverse">{{ $item->id }}</td>
+                                <td>{{ $item->id }}</td>
+                                <td>{{ $item->tablaje }}</td>
                                 <td>{{ $item->propietario }}</td>
                                 <td>{{ $item->estatus }}</td>
                                 <td>{{ $item->tipo }}</td>
