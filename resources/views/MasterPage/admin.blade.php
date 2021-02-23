@@ -38,6 +38,15 @@
     <link href="{{ asset('assets/img/logo/criofavicon.png')}}" sizes="128x128" rel="shortcut icon" type="image/x-icon" />
 	<link href="{{ asset('assets/img/logo/criofavicon.png')}}" sizes="128x128" rel="shortcut icon" />
 	<link rel="stylesheet" href="{{ asset('assets/magnific-popup/dist/magnific-popup.css')}}">
+	<style>	
+		.sidebar .sub-menu>li.has-sub>a:before, .sidebar .sub-menu>li:before, .sidebar .sub-menu>li>a:after {
+			background: #ffffff;
+		}
+		.sidebar .sub-menu > li.active:after {
+    		border-color: #ffffff;
+		}
+	</style>
+
 </head>
 <body>
 	<!-- begin #page-loader -->
@@ -126,19 +135,18 @@
 							</a>
 	                    </li>
 
-	                    @if (Auth::user()->rol == "Administrador")
-		                    <li class="has-sub">
-								<a href="{{ route('view-upload') }}">
-									<i class="fa fa-file-excel"></i>
-									<span>Cargar Excel</span>
+	                    @if (Auth::user()->rol == "Administrador")				
+							  <li class="has-sub">
+								<a href="javascript:;">
+								  <b class="caret"></b>
+								  <i class="fas fa-upload"></i>
+								  Carga de Predios
 								</a>
-		                    </li>
-		                    <li class="has-sub">
-								<a href="{{ route('create') }}">
-									<i class="fa fa-plus-square"></i>
-									<span>Nuevo Predio</span>
-								</a>
-		                    </li>
+								<ul class="sub-menu">
+								  <li class="active"><a  href="{{ route('view-upload') }}"><i class="fa fa-file-excel"></i>  Carga Masiva</a></li>
+								  <li class="active"><a href="{{ route('create') }}"><i class="fa fa-plus-square"></i>  Carga Individual</a></li>
+								</ul>
+							 </li>
 
 		                    <li class="has-sub">
 								<a href="/usuarios">
