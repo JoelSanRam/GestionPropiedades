@@ -19,7 +19,7 @@ class PropiedadController extends Controller
 	{
 		$data = DB::table('propiedads')
                     ->join('ubicacions', 'propiedads.id', '=', 'ubicacions.id')
-                    ->select('propiedads.*', 'ubicacions.tablaje')
+                    ->select('propiedads.*', 'ubicacions.*')
                     ->get();
 
 		return view('propiedades.Listado', ['data' => $data]);

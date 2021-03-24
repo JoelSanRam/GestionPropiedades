@@ -657,6 +657,7 @@ class ComposerStaticInit874bfa0fc2921e8608afa8a7c5a1df13
         'App\\Image' => __DIR__ . '/../..' . '/app/Image.php',
         'App\\Imports\\CoordenadasImport' => __DIR__ . '/../..' . '/app/Imports/CoordenadasImport.php',
         'App\\Imports\\DimencionImport' => __DIR__ . '/../..' . '/app/Imports/DimencionImport.php',
+        'App\\Imports\\InformacionImport' => __DIR__ . '/../..' . '/app/Imports/InformacionImport.php',
         'App\\Imports\\PropiedadImport' => __DIR__ . '/../..' . '/app/Imports/PropiedadImport.php',
         'App\\Imports\\TablesImport' => __DIR__ . '/../..' . '/app/Imports/TablesImport.php',
         'App\\Imports\\UbicacionImport' => __DIR__ . '/../..' . '/app/Imports/UbicacionImport.php',

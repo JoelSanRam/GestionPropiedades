@@ -41,7 +41,7 @@ class ReportController extends Controller
                     ->join('valors', 'propiedads.id', '=', 'valors.id')
                     ->select(
                         'propiedads.*', 
-                        'ubicacions.direccion', 
+                        'ubicacions.*', 
                         'dimencions.superficie_terreno', 
                         'valors.valor_comercial',
                         'valors.valor_catastral')->get();
@@ -86,36 +86,4 @@ class ReportController extends Controller
         return $pdf->stream('propiedad-individual.pdf');
     }
 
-    /*public function search(Request $request)
-    {
-        $tipo = $request->get('tipo');
-        $entidad = $request->get('entidad');
-        $status = $request->get('status');
-        $option = $request->get('option');
-
-        // primero consulta a la db sobre datos de las propedades
-        $prodiedades = DB::table('propiedads')->where([['tipo', $tipo], ['estatus', $status]]);
-
-        // unimos con un subJoin los datos similares
-        $datos = DB::table('datos')
-                    ->where('entidad_federativa', $entidad)
-                    ->joinSub($prodiedades, 'prodiedades', function($join){ // consultamos los datos los ids de las tablas
-                        $join->on('datos.propiedad_id', '=', 'prodiedades.propiedad_id');
-                    })
-                    ->join('dimencions', 'datos.propiedad_id', '=', 'dimencions.propiedad_id')
-                    ->join('valors', 'datos.propiedad_id', '=', 'valors.propiedad_id')
-                    ->select('datos.*', 'prodiedades.tipo', 'prodiedades.estatus', 'dimencions.superficie_terreno', 'valors.valor_comercial','valors.valor_catastral')
-                    ->get();
-
-        if ($option == "filtrar") {
-
-            return view('reportes.reporte', compact('datos'));
-
-        } else if($option == "reporte") {
-            $pdf =  \PDF::loadView('reportes.pdf', ['data' => $datos])->setPaper('a4', 'landscape');
-
-            return $pdf->stream('propiedades.pdf');
-        }
-
-    }*/
 }

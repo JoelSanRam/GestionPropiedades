@@ -38,6 +38,7 @@ return array(
     'App\\Image' => $baseDir . '/app/Image.php',
     'App\\Imports\\CoordenadasImport' => $baseDir . '/app/Imports/CoordenadasImport.php',
     'App\\Imports\\DimencionImport' => $baseDir . '/app/Imports/DimencionImport.php',
+    'App\\Imports\\InformacionImport' => $baseDir . '/app/Imports/InformacionImport.php',
     'App\\Imports\\PropiedadImport' => $baseDir . '/app/Imports/PropiedadImport.php',
     'App\\Imports\\TablesImport' => $baseDir . '/app/Imports/TablesImport.php',
     'App\\Imports\\UbicacionImport' => $baseDir . '/app/Imports/UbicacionImport.php',

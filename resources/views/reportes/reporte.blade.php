@@ -134,6 +134,9 @@
                             <th scope="col">Entidad</th>
                             <th scope="col">Localidad</th>
                             <th scope="col">Direccion</th>
+                            <th scope="col">Finca</th>
+                            <th scope="col">Parecla</th>
+                            <th scope="col">Tablaje</th>
                             <th scope="col">Nombre Corto</th>
                             <th scope="col">Propietario</th>
                             <th scope="col">Superficie Terreno</th>
@@ -149,6 +152,9 @@
                                     <td>{{ $item->entidad_federativa }}</td>
                                     <td>{{ $item->localidad }}</td>
                                     <td>{{ $item->direccion }}</td>
+                                    <td>{{ $item->finca }}</td>
+                                    <td>{{ $item->parcela }}</td>
+                                    <td>{{ $item->tablaje }}</td>
                                     <td>{{ $item->nombre_corto }}</td>
                                     <td>{{ $item->propietario }}</td>
                                     <td>{{ $item->superficie_terreno }} m<sup>2</sup></td>

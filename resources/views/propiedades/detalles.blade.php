@@ -446,23 +446,35 @@
                             </tr>
                                 @if(!empty($archivo->created_at)){{-- valida si contiene informacion --}}
                                 <tr>
-                                <td class="bg-silver-lighter">Fecha alta</td>
-                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $archivo->created_at }}</a></td>
+                                    <td class="bg-silver-lighter">Fecha alta</td>
+                                    <td>
+                                        <a href="javascript:;">
+                                            {{ $archivo->created_at }}
+                                        </a>
+                                    </td>
                                 </tr>
                                 @endif
 
 
                                 @if (!empty($archivo->updated_at))
                                 <tr>
-                                <td class="bg-silver-lighter">Ult. Mov</td>
-                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $archivo->updated_at }}</a></td>
+                                    <td class="bg-silver-lighter">Ult. Mov</td>
+                                    <td>
+                                        <a href="javascript:;" class="editable editable-click">
+                                            {{ $archivo->updated_at }}
+                                        </a>
+                                    </td>
                                 </tr>
                                 @endif
-
-
-
                         </tbody>
                     </table>
+                    @if(!empty($archivo))
+                        @if($archivo->pdf != null && $archivo->pdf != "")
+                            <div class="embed-responsive embed-responsive-16by9 my-3">
+                                <iframe class="embed-responsive-items" src="{{ asset('pdfs/' . $archivo->pdf) }}"></iframe>
+                            </div>
+                        @endif
+                    @endif
                 </div>
                 <!-- end table-responsive -->
             </div>
