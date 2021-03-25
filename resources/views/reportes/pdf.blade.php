@@ -34,6 +34,7 @@
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Tablaje</th>
+                <th scope="col">Solar</th>
                 <th scope="col">Finca</th>
                 <th scope="col">Parcela</th>
                 <th scope="col">Propietario</th>
@@ -51,6 +52,7 @@
                 <tr>
                     <td>{{ $item->id }}</td>
                     <td>{{ $item->tablaje }}</td>
+                    <td>{{ $item->solar }}</td>
                     <td>{{ $item->finca }}</td>
                     <td>{{ $item->parcela }}</td>
                     <td>{{ $item->propietario }}</td>

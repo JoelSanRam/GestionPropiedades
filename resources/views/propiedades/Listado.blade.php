@@ -36,6 +36,7 @@
                         <tr>
                             <th class="text-nowrap">ID</th>
                             <th class="text-nowrap">Tablaje</th>
+                            <th class="text-nowrap">Solar</th>
                             <th class="text-nowrap">Finca</th>
                             <th class="text-nowrap">Parcela</th>
                             <th class="text-nowrap">Propietario</th>
@@ -50,6 +51,7 @@
                             <tr class="odd gradeX">
                                 <td>{{ $item->id }}</td>
                                 <td>{{ $item->tablaje }}</td>
+                                <td>{{ $item->solar }}</td>
                                 <td>{{ $item->finca }}</td>
                                 <td>{{ $item->parcela }}</td>
                                 <td>{{ $item->propietario }}</td>
