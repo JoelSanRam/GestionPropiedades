@@ -136,11 +136,11 @@
 	                    </li>
 
 	                    @if (Auth::user()->rol == "Administrador")				
-							  <li class="has-sub">
+							  <li class="has-sub closed">
 								<a href="javascript:;">
-								  <b class="caret"></b>
-								  <i class="fas fa-upload"></i>
-								  Carga de Predios
+								  	<b class="caret"></b>
+								  	<i class="fas fa-upload"></i>
+								  	<span>Carga de Predios</span>
 								</a>
 								<ul class="sub-menu">
 								  <li class="active"><a  href="{{ route('view-upload') }}"><i class="fa fa-file-excel"></i>  Carga Masiva</a></li>

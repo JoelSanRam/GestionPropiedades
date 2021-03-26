@@ -33,9 +33,15 @@ class MapController extends Controller
         $estatus = $request->get('status');
 
         $polygons = DB::table('propiedads')
-                    ->orWhere('granja', $granja)
-                    ->orWhere('propietario', $propietario)
-                    ->orWhere('estatus', $estatus)
+                    ->when($granja, function ($query, $granja) {
+                        return $query->where('granja', $granja);
+                    })
+                    ->when($propietario, function ($query, $propietario) {
+                        return $query->where('propietario', $propietario);
+                    })
+                    ->when($estatus, function ($query, $estatus) {
+                        return $query->where('estatus', $estatus);
+                    })
                     ->join('coordenadas', function ($join) {
                         $join->on('propiedads.id', '=', 'coordenadas.propiedad_id')
                             ->where('coordenadas.marcador', '=', null);
@@ -44,9 +50,15 @@ class MapController extends Controller
                     ->get();
 
         $markers = DB::table('propiedads')
-                    ->orWhere('granja', $granja)
-                    ->orWhere('propietario', $propietario)
-                    ->orWhere('estatus', $estatus)
+                    ->when($granja, function ($query, $granja) {
+                        return $query->where('granja', $granja);
+                    })
+                    ->when($propietario, function ($query, $propietario) {
+                        return $query->where('propietario', $propietario);
+                    })
+                    ->when($estatus, function ($query, $estatus) {
+                        return $query->where('estatus', $estatus);
+                    })
                     ->join('coordenadas', function ($join) {
                         $join->on('propiedads.id', '=', 'coordenadas.propiedad_id')
                             ->where('coordenadas.marcador', '=', 'si');

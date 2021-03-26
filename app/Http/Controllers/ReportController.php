@@ -32,10 +32,18 @@ class ReportController extends Controller
         $option = $request->get('option');
 
         $datos = DB::table('propiedads')
-                    ->orWhere('entidad_federativa', $entidad)
-                    ->orWhere('localidad', $localidad)
-                    ->orWhere('propietario', $propietario)
-                    ->orWhere('estatus', $status)
+                    ->when($entidad, function ($query, $entidad) {
+                        return $query->where('entidad_federativa', $entidad);
+                    })
+                    ->when($localidad, function ($query, $localidad) {
+                        return $query->where('localidad', $localidad);
+                    })
+                    ->when($propietario, function ($query, $propietario) {
+                        return $query->where('propietario', $propietario);
+                    })
+                    ->when($status, function ($query, $status) {
+                        return $query->where('estatus', $status);
+                    })
                     ->join('ubicacions', 'propiedads.id', '=', 'ubicacions.id')
                     ->join('dimencions', 'propiedads.id', '=', 'dimencions.id')
                     ->join('valors', 'propiedads.id', '=', 'valors.id')

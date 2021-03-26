@@ -34,15 +34,15 @@
                 <table id="data-table-responsive" class="table table-striped table-bordered">
                     <thead>
                         <tr>
-                            <th width="1%">ID</th>
-                            <th width="1%">Tablaje</th>
+                            <th class="text-nowrap">ID</th>
+                            <th class="text-nowrap">Tablaje</th>
+                            <th class="text-nowrap">Finca</th>
+                            <th class="text-nowrap">Parcela</th>
                             <th class="text-nowrap">Propietario</th>
                             <th class="text-nowrap">Tipo</th>
                             <th class="text-nowrap">Ubicación</th>
                             <th class="text-nowrap">Dirección</th>
-                            <th class="text-nowrap">Finca</th>
-                            <th class="text-nowrap">Parcela</th>
-                            <th>Acciones</th>
+                            <th class="text-nowrap">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -50,6 +50,8 @@
                             <tr class="odd gradeX">
                                 <td>{{ $item->id }}</td>
                                 <td>{{ $item->tablaje }}</td>
+                                <td>{{ $item->finca }}</td>
+                                <td>{{ $item->parcela }}</td>
                                 <td>{{ $item->propietario }}</td>
                                 <td>{{ $item->tipo }}</td>
                                 <td>
@@ -57,8 +59,6 @@
                                     <p>Localidad: {{ $item->localidad }}</p>
                                 </td>
                                 <td>{{ $item->direccion }}</td>
-                                <td>{{ $item->finca }}</td>
-                                <td>{{ $item->parcela }}</td>
                                 <td>
                                     <a href="{{ route('pdf-individual', $item->id) }}" class="btn text-light btn-icon btn-sm" style="background: #ffc800;" title="Generar reporte">
                                         <i class="fas fa-file-pdf fa-fw"></i>

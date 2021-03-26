@@ -131,14 +131,14 @@
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
+                            <th scope="col">Tablaje</th>
+                            <th scope="col">Finca</th>
+                            <th scope="col">Parcela</th>
+                            <th scope="col">Propietario</th>
                             <th scope="col">Entidad</th>
                             <th scope="col">Localidad</th>
-                            <th scope="col">Direccion</th>
-                            <th scope="col">Finca</th>
-                            <th scope="col">Parecla</th>
-                            <th scope="col">Tablaje</th>
+                            <th scope="col">Dirección</th>
                             <th scope="col">Nombre Corto</th>
-                            <th scope="col">Propietario</th>
                             <th scope="col">Superficie Terreno</th>
                             <th scope="col">Valor Comercial</th>
                             <th scope="col">Valor Catastral</th>
@@ -149,14 +149,14 @@
                             @foreach($datos as $item)
                                 <tr>
                                     <td>{{ $item->id }}</td>
+                                    <td>{{ $item->tablaje }}</td>
+                                    <td>{{ $item->finca }}</td>
+                                    <td>{{ $item->parcela }}</td>
+                                    <td>{{ $item->propietario }}</td>
                                     <td>{{ $item->entidad_federativa }}</td>
                                     <td>{{ $item->localidad }}</td>
                                     <td>{{ $item->direccion }}</td>
-                                    <td>{{ $item->finca }}</td>
-                                    <td>{{ $item->parcela }}</td>
-                                    <td>{{ $item->tablaje }}</td>
                                     <td>{{ $item->nombre_corto }}</td>
-                                    <td>{{ $item->propietario }}</td>
                                     <td>{{ $item->superficie_terreno }} m<sup>2</sup></td>
                                     <td>${{ number_format($item->valor_comercial, 2) }}</td>
                                     <td>${{ number_format($item->valor_catastral, 2) }}</td>
