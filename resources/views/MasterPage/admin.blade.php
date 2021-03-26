@@ -229,6 +229,10 @@
 	<script src="{{ asset('assets/plugins/jquery-smart-wizard/dist/js/jquery.smartWizard.js')}}" ></script>
 	<script src="{{ asset('assets/js/wizard.js')}}"></script>
 	<script src="{{ asset('assets/magnific-popup/dist/jquery.magnific-popup.min.js')}}"></script>
+	<!-- ================== jsPDF ================== -->
+	<script src="{{ asset('assets/jspdf/dist/jspdf.min.js')}}"></script>
+	<script src="{{ asset('js/autotable.js')}}"></script>
+
 	<script>
 		$(document).ready(function() {
 			App.init();

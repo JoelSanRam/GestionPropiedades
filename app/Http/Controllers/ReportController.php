@@ -55,23 +55,20 @@ class ReportController extends Controller
                         'valors.valor_catastral')->get();
 
 
-        if ($option == "filtrar") {
+        $entidades = DB::table('propiedads')->select('entidad_federativa')->distinct()->get();
+        $localidades = DB::table('propiedads')->select('localidad')->distinct()->get();
+        $propietarios = DB::table('propiedads')->select('propietario')->distinct()->get();
+        $status = DB::table('propiedads')->select('estatus')->distinct()->get();
 
-            // Filtros 
-
-            $entidades = DB::table('propiedads')->select('entidad_federativa')->distinct()->get();
-            $localidades = DB::table('propiedads')->select('localidad')->distinct()->get();
-            $propietarios = DB::table('propiedads')->select('propietario')->distinct()->get();
-            $status = DB::table('propiedads')->select('estatus')->distinct()->get();
-
-            return view('reportes.reporte', compact('datos', 'entidades', 'localidades', 'propietarios', 'status'));
-
-        } else if($option == "reporte") {
-
-            $pdf =  \PDF::loadView('reportes.pdf', ['data' => $datos])->setPaper('a4', 'landscape');
-
-            return $pdf->stream('propiedades.pdf');
-        }
+        return view('reportes.reporte', 
+            compact(
+                'datos', 
+                'entidades', 
+                'localidades', 
+                'propietarios', 
+                'status'
+            )
+        );
 
     }
 

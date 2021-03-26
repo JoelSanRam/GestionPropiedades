@@ -2,10 +2,12 @@
 
 @section('admin')
 
+<link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+
 <h1 class="page-header">Generación de reportes</h1>
 
     <!-- form desktop -->
-    <form class="my-2 d-none d-md-block" action="{{ route('search') }}" method="GET">
+    <form id="form-search" class="my-2 d-none d-md-block" action="{{ route('search') }}" method="GET">
 
         <label style="margin-left: 10px">Entidad</label>
         <select class="page-header form-control-sm" name="entidad">
@@ -40,7 +42,7 @@
         </select>
 
         <button type="submit" name="option" value="filtrar" class="btn text-dark mr-2 ml-2" style="background: #ffc800;">Filtrar</button>
-        <button type="submit" name="option" value="reporte" class="btn text-light" style="background: #1C4482;">Generar reporte</button>
+        <a type="button" class="btn text-light reporte" style="background: #1C4482;">Generar reporte</a>
     </form>
     <!-- form desktop -->
 
@@ -100,9 +102,9 @@
                 <button type="submit" name="option" value="filtrar" class="btn btn-success mr-1 ml-2" style="background: #ffc800; color:rgb(0, 0, 0);">Filtrar</button>
             </div>
             <div class="form-group col-md-6">
-                <button type="submit" name="option" value="reporte" class="btn text-light" style="background:#1C4482;">
-                Generar Reporte
-            </button>
+                <a type="button" class="btn text-light reporte" style="background:#1C4482;">
+                    Generar Reporte
+                </a>
             </div>
         </div>
         
@@ -127,46 +129,48 @@
             <!-- end panel-heading -->
             <!-- begin panel-body -->
             <div class="panel-body">
-                <table id="data-table-responsive" class="table table-striped table-bordered">
-                    <thead>
-                        <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Tablaje</th>
-                            <th scope="col">Solar</th>
-                            <th scope="col">Finca</th>
-                            <th scope="col">Parcela</th>
-                            <th scope="col">Propietario</th>
-                            <th scope="col">Entidad</th>
-                            <th scope="col">Localidad</th>
-                            <th scope="col">Dirección</th>
-                            <th scope="col">Nombre Corto</th>
-                            <th scope="col">Superficie Terreno</th>
-                            <th scope="col">Valor Comercial</th>
-                            <th scope="col">Valor Catastral</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @if(isset($datos))
-                            @foreach($datos as $item)
-                                <tr>
-                                    <td>{{ $item->id }}</td>
-                                    <td>{{ $item->tablaje }}</td>
-                                    <td>{{ $item->solar }}</td>
-                                    <td>{{ $item->finca }}</td>
-                                    <td>{{ $item->parcela }}</td>
-                                    <td>{{ $item->propietario }}</td>
-                                    <td>{{ $item->entidad_federativa }}</td>
-                                    <td>{{ $item->localidad }}</td>
-                                    <td>{{ $item->direccion }}</td>
-                                    <td>{{ $item->nombre_corto }}</td>
-                                    <td>{{ $item->superficie_terreno }} m<sup>2</sup></td>
-                                    <td>${{ number_format($item->valor_comercial, 2) }}</td>
-                                    <td>${{ number_format($item->valor_catastral, 2) }}</td>
-                                </tr>
-                            @endforeach
-                        @endif
-                    </tbody>
-                </table>
+                <div class="table-responsive">
+                    <table id="data-report" class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Tablaje</th>
+                                <th scope="col">Solar</th>
+                                <th scope="col">Finca</th>
+                                <th scope="col">Parcela</th>
+                                <th scope="col">Propietario</th>
+                                <th scope="col">Entidad</th>
+                                <th scope="col">Localidad</th>
+                                <th scope="col">Dirección</th>
+                                <th scope="col">Nombre Corto</th>
+                                <th scope="col">Superficie Terreno</th>
+                                <th scope="col">Valor Comercial</th>
+                                <th scope="col">Valor Catastral</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if(isset($datos))
+                                @foreach($datos as $item)
+                                    <tr>
+                                        <td>{{ $item->id }}</td>
+                                        <td>{{ $item->tablaje }}</td>
+                                        <td>{{ $item->solar }}</td>
+                                        <td>{{ $item->finca }}</td>
+                                        <td>{{ $item->parcela }}</td>
+                                        <td>{{ $item->propietario }}</td>
+                                        <td>{{ $item->entidad_federativa }}</td>
+                                        <td>{{ $item->localidad }}</td>
+                                        <td>{{ $item->direccion }}</td>
+                                        <td>{{ $item->nombre_corto }}</td>
+                                        <td>{{ $item->superficie_terreno }} m<sup>2</sup></td>
+                                        <td>${{ number_format($item->valor_comercial, 2) }}</td>
+                                        <td>${{ number_format($item->valor_catastral, 2) }}</td>
+                                    </tr>
+                                @endforeach
+                            @endif
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <!-- end panel-body -->
         </div>
@@ -178,4 +182,29 @@
 <div class="copyright">
     <p>© 2021 Desarrollado por <a href="https://www.buho-solutions.com">Buho solutions</a></p>
 </div>
+
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script type="text/javascript">
+
+    
+    $('.reporte').click(function(e){
+            e.preventDefault();
+
+            let doc = new jsPDF({
+              orientation: "landscape",
+            });
+
+            doc.text("Propiedades", 10, 10);
+            
+            doc.autoTable({
+                html: '#data-report' 
+            })
+
+            doc.save('table.pdf')
+            
+        });
+</script>
+
 @endsection

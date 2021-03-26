@@ -84,13 +84,13 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/initial/data/excel/upload', 'UploadController@upload')->name('upload'); // controlador insersion datos
     Route::get('/cargar-excel', 'UploadController@create')->name('view-upload'); // ruta formulario insercion de datos
-    Route::get('/search', 'ReportController@search')->name('search'); // busqueda
 
     Route::get('create/complete', function () {
         return view('forms.create.complete');
     })->name('create-complete');
 
-
+    // Page reports
+    Route::get('/search', 'ReportController@search')->name('search'); // busqueda
 
     ///// downloads documents //////
     Route::get('/downloads/pdf/doc-pdf/{id}', 'FileController@downloadPDF')->name('doc-pdf');
