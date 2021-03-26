@@ -481,7 +481,7 @@
             <!-- end panel -->
         </div>
 
-        
+
 
          <!-- Valores -->
          <div class="col-lg-6 ui-sortable">
@@ -501,9 +501,9 @@
                             @php
                                 $i=1
                             @endphp
-                            
+
                             <div class="carousel-inner img-popup">
-                           
+
                                 @foreach($images as $item)
                                     <div class="carousel-item {{($i == 1) ? 'active' : ''}}" style="height: 400px">
                                         <a href="{{ asset('storage/' . $item->filename) }}">
