@@ -42,7 +42,8 @@
         </select>
 
         <button type="submit" name="option" value="filtrar" class="btn text-dark mr-2 ml-2" style="background: #ffc800;">Filtrar</button>
-        <a type="button" class="btn text-light reporte" style="background: #1C4482;">Generar reporte</a>
+        <a type="button" class="btn text-light reporte-pdf" style="background: #1C4482;">Generar pdf</a>
+        <a type="button" class="btn text-light reporte-excel" style="background: #1C4482;">Generar excel</a>
     </form>
     <!-- form desktop -->
 
@@ -102,9 +103,8 @@
                 <button type="submit" name="option" value="filtrar" class="btn btn-success mr-1 ml-2" style="background: #ffc800; color:rgb(0, 0, 0);">Filtrar</button>
             </div>
             <div class="form-group col-md-6">
-                <a type="button" class="btn text-light reporte" style="background:#1C4482;">
-                    Generar Reporte
-                </a>
+                <a type="button" class="btn text-light reporte-pdf" style="background: #1C4482;">Generar pdf</a>
+                <a type="button" class="btn text-light reporte-excel" style="background: #1C4482;">Generar excel</a>
             </div>
         </div>
         
@@ -183,28 +183,56 @@
     <p>© 2021 Desarrollado por <a href="https://www.buho-solutions.com">Buho solutions</a></p>
 </div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+
 <script type="text/javascript">
 
     
-    $('.reporte').click(function(e){
-            e.preventDefault();
+    $('.reporte-pdf').click(function(e){
+        e.preventDefault();
 
-            let doc = new jsPDF({
-              orientation: "landscape",
-            });
-
-            doc.text("Propiedades", 10, 10);
-            
-            doc.autoTable({
-                html: '#data-report' 
-            })
-
-            doc.save('table.pdf')
-            
+        let doc = new jsPDF({
+            orientation: "landscape",
         });
+
+        doc.text("Reporte resultado de filtros", 120, 10);
+        
+        doc.autoTable({
+            headStyles: {
+                fillColor: [28, 68, 130]
+            },
+            html: '#data-report' 
+        })
+
+        doc.save('propiedades.pdf');
+
+        // $("#data-report").table2excel({
+        //     preserveColors: false,
+        //     filename: "propiedades.xls"
+        // });
+        
+    });
+
+    $('.reporte-excel').click(function(e){
+        e.preventDefault();
+
+        ExportExcel('xlsx');
+
+    });
+
+    function ExportExcel(type, fn, dl) {
+        
+       var elt = document.getElementById('data-report');
+       var wb = XLSX.utils.table_to_book(elt, {sheet:"Sheet JS"});
+
+       return dl ?
+            XLSX.write(wb, {bookType:type, bookSST:true, type: 'base64'}) :
+            XLSX.writeFile(wb, fn || ('propiedades.' + (type || 'xlsx')));
+    }
+
 </script>
 
 @endsection

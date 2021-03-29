@@ -233,15 +233,14 @@
 	<script src="{{ asset('assets/jspdf/dist/jspdf.min.js')}}"></script>
 	<script src="{{ asset('js/autotable.js')}}"></script>
 
+	<!-- ================== jsPDF ================== -->
+	{{-- <script src="{{ asset('js/table2excel.js')}}"></script> --}}
+	<script src="{{ asset('excel/xlsx.full.min.js')}}"></script>
+
 	<script>
 		$(document).ready(function() {
 			App.init();
 			TableManageResponsive.init();
-			/*$('#data-table-responsive').DataTable({
-			    "language": {
-			      "url": "https://cdn.datatables.net/plug-ins/1.10.21/i18n/Spanish.json"
-			    }
-			});*/
 		});
 
 		$('.img-popup').magnificPopup({
