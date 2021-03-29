@@ -42,8 +42,12 @@
         </select>
 
         <button type="submit" name="option" value="filtrar" class="btn text-dark mr-2 ml-2" style="background: #ffc800;">Filtrar</button>
-        <a type="button" class="btn text-light reporte-pdf" style="background: #1C4482;">Generar pdf</a>
-        <a type="button" class="btn text-light reporte-excel" style="background: #1C4482;">Generar excel</a>
+        <a type="button" class="btn text-light reporte-pdf" style="background: #1C4482;">
+        	<i class="far fa-file-pdf"></i>
+        </a>
+        <a type="button" class="btn text-light reporte-excel" style="background: #1C4482;">
+        	<i class="far fa-file-excel"></i>
+        </a>
     </form>
     <!-- form desktop -->
 
@@ -103,8 +107,12 @@
                 <button type="submit" name="option" value="filtrar" class="btn btn-success mr-1 ml-2" style="background: #ffc800; color:rgb(0, 0, 0);">Filtrar</button>
             </div>
             <div class="form-group col-md-6">
-                <a type="button" class="btn text-light reporte-pdf" style="background: #1C4482;">Generar pdf</a>
-                <a type="button" class="btn text-light reporte-excel" style="background: #1C4482;">Generar excel</a>
+                <a type="button" class="btn text-light reporte-pdf" style="background: #1C4482;">
+                	<i class="far fa-file-pdf"></i>
+                </a>
+                <a type="button" class="btn text-light reporte-excel" style="background: #1C4482;">
+                	<i class="far fa-file-excel"></i>
+                </a>
             </div>
         </div>
         
