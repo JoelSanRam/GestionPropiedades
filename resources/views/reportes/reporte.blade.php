@@ -137,6 +137,9 @@
             <!-- end panel-heading -->
             <!-- begin panel-body -->
             <div class="panel-body">
+                @if(isset($datos))
+                    <strong><p class="text-dark font-italic" id="total"></p></strong>
+                @endif
                 <div class="table-responsive">
                     <table id="data-report" class="table table-striped table-bordered">
                         <thead>
@@ -197,49 +200,62 @@
 <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
 
 <script type="text/javascript">
+    @if(isset($datos))
+        let datos = @json($datos);
+        let total = datos.length;
+        $('#total').html("Total de registros: " + total);
 
-    
-    $('.reporte-pdf').click(function(e){
-        e.preventDefault();
+        $('.reporte-pdf').click(function(e){
+            e.preventDefault();
 
-        let doc = new jsPDF({
-            orientation: "landscape",
+            let doc = new jsPDF({
+                orientation: "landscape",
+            });
+            let totalPDF = "Total de registros: " + total;
+
+            doc.text("Reporte resultado de filtros", 120, 10);
+            doc.setFontType("italic");
+            doc.setFontSize(9);
+            doc.text(totalPDF, 15, 20);
+
+            
+            doc.autoTable({
+                margin: { 
+                    top: 25
+                },
+                headStyles: {
+                    fillColor: [28, 68, 130]
+                },
+                html: '#data-report' 
+            })
+
+            doc.save('propiedades.pdf');
+
+            // $("#data-report").table2excel({
+            //     preserveColors: false,
+            //     filename: "propiedades.xls"
+            // });
+            
         });
 
-        doc.text("Reporte resultado de filtros", 120, 10);
-        
-        doc.autoTable({
-            headStyles: {
-                fillColor: [28, 68, 130]
-            },
-            html: '#data-report' 
-        })
+        $('.reporte-excel').click(function(e){
+            e.preventDefault();
 
-        doc.save('propiedades.pdf');
+            ExportExcel('xlsx');
 
-        // $("#data-report").table2excel({
-        //     preserveColors: false,
-        //     filename: "propiedades.xls"
-        // });
-        
-    });
+        });
 
-    $('.reporte-excel').click(function(e){
-        e.preventDefault();
+        function ExportExcel(type, fn, dl) {
+            
+           var elt = document.getElementById('data-report');
+           var wb = XLSX.utils.table_to_book(elt, {sheet:"Sheet JS"});
 
-        ExportExcel('xlsx');
+           return dl ?
+                XLSX.write(wb, {bookType:type, bookSST:true, type: 'base64'}) :
+                XLSX.writeFile(wb, fn || ('propiedades.' + (type || 'xlsx')));
+        }
 
-    });
-
-    function ExportExcel(type, fn, dl) {
-        
-       var elt = document.getElementById('data-report');
-       var wb = XLSX.utils.table_to_book(elt, {sheet:"Sheet JS"});
-
-       return dl ?
-            XLSX.write(wb, {bookType:type, bookSST:true, type: 'base64'}) :
-            XLSX.writeFile(wb, fn || ('propiedades.' + (type || 'xlsx')));
-    }
+    @endif
 
 </script>
 
