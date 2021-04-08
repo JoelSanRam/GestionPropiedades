@@ -54,11 +54,11 @@
                 </span>
             </a>
         </li>
-        <li class="col-md-3 col-sm-4 col-6">
+        <li class="col-md-3 col-sm-4 col-6 ">
             <a class="nav-link" href="#step-5" data-toggle="tab">
                 <span class="number">5</span>
                 <span class="info text-ellipsis">
-                    Coordenadas
+                    Valores 2
                 </span>
             </a>
         </li>
@@ -66,13 +66,21 @@
             <a class="nav-link" href="#step-6" data-toggle="tab">
                 <span class="number">6</span>
                 <span class="info text-ellipsis">
-                    Documentos Adjuntos
+                    Coordenadas
                 </span>
             </a>
         </li>
         <li class="col-md-3 col-sm-4 col-6">
             <a class="nav-link" href="#step-7" data-toggle="tab">
                 <span class="number">7</span>
+                <span class="info text-ellipsis">
+                    Documentos Adjuntos
+                </span>
+            </a>
+        </li>
+        <li class="col-md-3 col-sm-4 col-6">
+            <a class="nav-link" href="#step-8" data-toggle="tab">
+                <span class="number">8</span>
                 <span class="info text-ellipsis">
                     Imagenes
                 </span>
@@ -306,6 +314,42 @@
             </form>
         </div>
         <div id="step-5" class="tab-pane" role="tabpanel">
+            <form id="form-seguimiento-valor" data-parsley-validate="true">
+                @csrf
+                <div class="jumbotron my-2">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>ID Propiedad</label>
+                            <input type="text" name="propiedad_id" class="form-control m-b-5" value="@if($id == null) 1 @else {{ intval($id) + 1 }} @endif" readonly>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Avalúo de terreno</label>
+                            <input name="avaluo_terreno" type="number" step="any" class="form-control m-b-5" placeholder="Ingresar avalúo de terreno">
+                        </div>
+                    </div>
+            
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Estimación de valor de la construcción</label>
+                            <input name="estimacion_valor_construccion" type="number" step="any" class="form-control m-b-5" placeholder="Ingresar estimación de valor de la construcción">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Avalúo de la construcción</label>
+                            <input name="avaluo_construccion" type="number" step="any" class="form-control m-b-5" placeholder="Ingresar avalúo de la construcción">
+                        </div>
+                    </div>
+            
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Valor conjunto</label>
+                            <input name="valor_conjunto" type="number" step="any" class="form-control m-b-5" placeholder="Ingresar valor conjunto">
+                        </div>
+                    </div>
+            
+                </div>
+            </form>
+        </div>
+        <div id="step-6" class="tab-pane" role="tabpanel">
             <form id="form-coordenada" enctype="multipart/form-data" data-parsley-validate="true">
                 @csrf
                 <div class="jumbotron my-2">
@@ -336,7 +380,7 @@
                 </div>
             </form>
         </div>
-        <div id="step-6" class="tab-pane" role="tabpanel">
+        <div id="step-7" class="tab-pane" role="tabpanel">
             <form id="form-archivo" enctype="multipart/form-data" data-parsley-validate="true">
                 @csrf
                 <div class="jumbotron my-2">
@@ -377,7 +421,7 @@
                 </div>
             </form>
         </div>
-        <div id="step-7" class="tab-pane" role="tabpanel">
+        <div id="step-8" class="tab-pane" role="tabpanel">
             <form id="form-image" enctype="multipart/form-data" data-parsley-validate="true">
                 @csrf
 
@@ -640,6 +684,20 @@
                     type: "POST",
                     dataType: 'json',
                     data: $('#form-valor').serialize(),
+                    success: function (data) {
+                        console.log(data)
+                    },
+                    error: function (data) {
+                        console.log(data)
+                    }
+                });
+
+                //////// TABLA SEGUIMENTO_VALOR
+                $.ajax({
+                    url: "{{ route('create-seguimiento-valor') }}",
+                    type: "POST",
+                    dataType: 'json',
+                    data: $('#form-seguimiento-valor').serialize(),
                     success: function (data) {
                         console.log(data)
                     },

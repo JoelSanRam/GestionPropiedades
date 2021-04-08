@@ -11,6 +11,7 @@ use App\Dimencion;
 use App\Propiedad;
 use App\Ubicacion;
 use App\Valor;
+use App\SeguimientoValor;
 use App\Coordenada;
 use App\File;
 use App\Image;
@@ -23,48 +24,6 @@ class CreateController extends Controller
     {
         $id = Propiedad::max('id');
         return view('forms.create', compact('id')); 
-    }
-
-    public function createViewPropiedad()
-    {
-        $id = Propiedad::max('id');
-        return view('forms.create.propiedad', compact('id')); 
-    }
-
-    public function createViewUbicacion()
-    {
-        $id = Ubicacion::max('id'); 
-        return view('forms.create.ubicacion', compact('id')); 
-    }
-
-    public function createViewDimencion()
-    {
-        $id = Dimencion::max('id');  
-        return view('forms.create.dimencion', compact('id')); 
-    }
-
-    public function createViewValor()
-    {
-        $id = Valor::max('id');  
-        return view('forms.create.valor', compact('id')); 
-    }
-
-    public function createViewCoordenada()
-    {
-        $id = Propiedad::max('id');
-        return view('forms.create.coordenada', compact('id')); 
-    }
-
-    public function createViewArchivo()
-    {
-        $id = Propiedad::max('id'); 
-        return view('forms.create.files', compact('id')); 
-    }
-
-    public function createViewImage()
-    {
-        $id = Propiedad::max('id'); 
-        return view('forms.create.image', compact('id')); 
     }
 
     ////// Action Form Create ////
@@ -176,6 +135,26 @@ class CreateController extends Controller
             return response()->json('danger');
         }
 
+    }
+
+    // segunda tabla de seguimintos de valores
+    public function createSeguimientoValor(Request $request)
+    {
+        try {
+            $seguiminto = new SeguimientoValor();
+            $seguiminto->propiedad_id = $request->propiedad_id;
+            $seguiminto->avaluo_terreno = $request->avaluo_terreno;
+            $seguiminto->estimacion_valor_construccion = $request->estimacion_valor_construccion;
+            $seguiminto->avaluo_construccion = $request->avaluo_construccion;
+            $seguiminto->valor_conjunto = $request->valor_conjunto;
+            $seguiminto->save();
+
+            return response()->json('success');
+            
+        } catch (\Throwable $th) {
+            \Session::flash('message', 'Ocurrio un error por favor verifique los datos');
+            return response()->json('danger');
+        }
     }
 
     public function createCoordenada(Request $request)

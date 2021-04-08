@@ -47,13 +47,15 @@ class ReportController extends Controller
                     ->join('ubicacions', 'propiedads.id', '=', 'ubicacions.id')
                     ->join('dimencions', 'propiedads.id', '=', 'dimencions.id')
                     ->join('valors', 'propiedads.id', '=', 'valors.id')
+                    ->join('seguimiento_valors', 'propiedads.id', '=', 'seguimiento_valors.propiedad_id')
                     ->select(
                         'propiedads.*', 
                         'ubicacions.*', 
                         'dimencions.superficie_terreno', 
                         'valors.valor_comercial',
-                        'valors.valor_catastral')->get();
-
+                        'valors.valor_catastral',
+                        'seguimiento_valors.avaluo_terreno'
+                    )->get();
 
         $entidades = DB::table('propiedads')->select('entidad_federativa')->distinct()->get();
         $localidades = DB::table('propiedads')->select('localidad')->distinct()->get();

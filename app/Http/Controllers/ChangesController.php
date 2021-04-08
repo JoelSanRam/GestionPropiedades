@@ -12,6 +12,7 @@ use App\Dimencion;
 use App\Propiedad;
 use App\Ubicacion;
 use App\Valor;
+use App\SeguimientoValor;
 use App\Coordenada;
 use App\File;
 use App\Image;
@@ -23,6 +24,11 @@ class ChangesController extends Controller
     public function updateViewUbicacion($id){ $item = Ubicacion::find($id); return view('forms.update.ubicacion', compact('item')); }
     public function updateViewDimencion($id){ $item = Dimencion::find($id); return view('forms.update.dimencion', compact('item')); }
     public function updateViewValor($id){ $item = Valor::find($id); return view('forms.update.valor', compact('item')); }
+
+    public function updateViewSeguimientoValor($id){ 
+        $item = SeguimientoValor::where('propiedad_id', $id)->first(); 
+        return view('forms.update.seguimiento-valor', compact('item', 'id')); 
+    }
 
     public function updateViewArchivo($id)
     { 
@@ -137,6 +143,23 @@ class ChangesController extends Controller
             $valor->valor_catastral = $request->valor_catastral;
             $valor->fecha_valor_catastral = $request->fecha_valor_catastral;
             $valor->save(); 
+        } catch (\Throwable $th) {
+            \Session::flash('message', 'Ocurrio un error por favor verifique los datos');
+        }
+
+        return redirect()->route('listado');
+    }
+
+    // tabla seguimiento valor
+    public function updateSeguimientoValor(Request $request, $id)
+    {
+        try {
+            $seguiminto = SeguimientoValor::find($id);
+            $seguiminto->avaluo_terreno = $request->avaluo_terreno;
+            $seguiminto->estimacion_valor_construccion = $request->estimacion_valor_construccion;
+            $seguiminto->avaluo_construccion = $request->avaluo_construccion;
+            $seguiminto->valor_conjunto = $request->valor_conjunto;
+            $seguiminto->save(); 
         } catch (\Throwable $th) {
             \Session::flash('message', 'Ocurrio un error por favor verifique los datos');
         }

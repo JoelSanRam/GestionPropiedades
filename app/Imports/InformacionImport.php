@@ -6,6 +6,7 @@ use App\Propiedad;
 use App\Ubicacion;
 use App\Dimencion;
 use App\Valor;
+use App\SeguimientoValor;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\Importable;
 use Maatwebsite\Excel\Concerns\WithValidation;
@@ -21,7 +22,7 @@ class InformacionImport implements ToCollection, WithValidation, WithHeadingRow
         foreach ($rows as $row) 
         {
 
-            Propiedad::create([
+            $propiedad = Propiedad::create([
                 'origen_id' => $row['origen_id'],
                 'tipo' => $row['tipo'],
                 'granja' => $row['granja'],
@@ -62,6 +63,14 @@ class InformacionImport implements ToCollection, WithValidation, WithHeadingRow
                 'fecha_valor_comercial' => $row['fecha_estimacion_de_valor_del_terreno'], // cambio el nombre de columna
                 'valor_catastral' => $row['valor_catastral'],
                 'fecha_valor_catastral' => $row['fecha_valor_catastral'],
+            ]);
+
+            SeguimientoValor::create([
+                'propiedad_id' => $propiedad->id,
+                'avaluo_terreno' => $row['avaluo_de_terreno'],
+                'estimacion_valor_construccion' => $row['estimacion_de_valor_de_la_construccion'],
+                'avaluo_construccion' => $row['avaluo_de_la_construccion'],
+                'valor_conjunto' => $row['valor_conjunto'],
             ]);
 
         }

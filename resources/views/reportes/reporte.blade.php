@@ -155,8 +155,9 @@
                                 <th scope="col">Dirección</th>
                                 <th scope="col">Nombre Corto</th>
                                 <th scope="col">Superficie Terreno</th>
-                                <th scope="col">Estimación de valor del terreno</th>
                                 <th scope="col">Valor Catastral</th>
+                                <th scope="col">Estimación de valor de terreno</th>
+                                <th scope="col">Avalúo de terreno</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -174,8 +175,9 @@
                                         <td>{{ $item->direccion }}</td>
                                         <td>{{ $item->nombre_corto }}</td>
                                         <td>{{ $item->superficie_terreno }} m<sup>2</sup></td>
-                                        <td>${{ number_format($item->valor_comercial, 2) }}</td>
                                         <td>${{ number_format($item->valor_catastral, 2) }}</td>
+                                        <td>${{ number_format($item->valor_comercial, 2) }}</td>
+                                        <td>${{ number_format($item->avaluo_terreno, 2) }}</td>
                                     </tr>
                                 @endforeach
                             @endif
@@ -223,6 +225,7 @@
                 margin: { 
                     top: 25
                 },
+                styles: { fontSize: 8 },
                 headStyles: {
                     fillColor: [28, 68, 130]
                 },

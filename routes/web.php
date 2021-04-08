@@ -25,18 +25,13 @@ Route::middleware('auth')->group(function () {
 
     ///// routes views form create /////
     Route::get('/create/view/propiedad', 'CreateController@createViewPropiedad')->name('create-view-propiedad');
-    Route::get('/create/view/ubicacion', 'CreateController@createViewUbicacion')->name('create-view-ubicacion');
-    Route::get('/create/view/dimencion', 'CreateController@createViewDimencion')->name('create-view-dimencion');
-    Route::get('/create/view/valor', 'CreateController@createViewValor')->name('create-view-valor');
-    Route::get('/create/view/coordenada', 'CreateController@createViewCoordenada')->name('create-view-coordenada');
-    Route::get('/create/view/archivo', 'CreateController@createViewArchivo')->name('create-view-archivo');
-    Route::get('/create/view/image', 'CreateController@createViewImage')->name('create-view-image');
 
     ///// routes post form create /////
     Route::post('/create/save/propiedad', 'CreateController@createPropiedad')->name('create-propiedad');
     Route::post('/create/save/ubicacion', 'CreateController@createUbicacion')->name('create-ubicacion');
     Route::post('/create/save/dimencion', 'CreateController@createDimencion')->name('create-dimencion');
     Route::post('/create/save/valor', 'CreateController@createValor')->name('create-valor');
+    Route::post('/create/save/seguimiento/valor', 'CreateController@createSeguimientoValor')->name('create-seguimiento-valor');
     Route::post('/create/save/coordenada', 'CreateController@createCoordenada')->name('create-coordenada');
     Route::post('/create/save/archivo', 'CreateController@createArchivo')->name('create-archivo');
     Route::post('/create/save/image', 'CreateController@createImage')->name('create-image');
@@ -47,6 +42,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/update/view/propiedad/{id}', 'ChangesController@updateViewPropiedad')->name('update-view-propiedad');
     Route::get('/update/view/ubicacion/{id}', 'ChangesController@updateViewUbicacion')->name('update-view-ubicacion');
     Route::get('/update/view/valor/{id}', 'ChangesController@updateViewValor')->name('update-view-valor');
+    Route::get('/update/view/seguimiento/valor/{id}', 'ChangesController@updateViewSeguimientoValor')->name('update-view-seguimiento-valor');
     Route::get('/update/view/coordenada/{id}', 'ChangesController@updateViewCoordenada')->name('update-view-coordenada');
     Route::get('/update/view/archivo/{id}', 'ChangesController@updateViewArchivo')->name('update-view-archivo');
     Route::get('/update/view/image/{id}', 'ChangesController@updateViewImage')->name('update-view-image');
@@ -59,6 +55,7 @@ Route::middleware('auth')->group(function () {
     Route::put('/update/save/propiedad/{id}', 'ChangesController@updatePropiedad')->name('update-propiedad');
     Route::put('/update/save/ubicacion/{id}', 'ChangesController@updateUbicacion')->name('update-ubicacion');
     Route::put('/update/save/valor/{id}', 'ChangesController@updateValor')->name('update-valor');
+    Route::put('/update/save/seguimiento/valor/{id}', 'ChangesController@updateSeguimientoValor')->name('update-seguimiento-valor');
     Route::put('/update/save/coordenada', 'ChangesController@updateCoordenada')->name('update-coordenada');
     Route::put('/update/save/coordenada/excel', 'ChangesController@updateExcelCoordenada')->name('update-excel-coordenada');
     Route::put('/update/save/archivo/pdf/and/dwg', 'ChangesController@updateArchivoPDFAndDWG')->name('update-archivo');
