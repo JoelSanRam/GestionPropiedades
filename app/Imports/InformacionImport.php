@@ -58,8 +58,8 @@ class InformacionImport implements ToCollection, WithValidation, WithHeadingRow
 
             Valor::create([
                 'valor_construccion' => $row['valor_construccion'],
-                'valor_comercial' => $row['valor_comercial'],
-                'fecha_valor_comercial' => $row['fecha_valor_comercial'],
+                'valor_comercial' => $row['estimacion_de_valor_del_terreno'], // cambio el nombre de columna
+                'fecha_valor_comercial' => $row['fecha_estimacion_de_valor_del_terreno'], // cambio el nombre de columna
                 'valor_catastral' => $row['valor_catastral'],
                 'fecha_valor_catastral' => $row['fecha_valor_catastral'],
             ]);
@@ -86,7 +86,7 @@ class InformacionImport implements ToCollection, WithValidation, WithHeadingRow
             //
             'superficie_terreno' => 'required',
             //
-            'valor_comercial' => 'required',
+            'estimacion_de_valor_del_terreno' => 'required',
             'valor_catastral' => 'required',
         ];
     }
@@ -105,7 +105,7 @@ class InformacionImport implements ToCollection, WithValidation, WithHeadingRow
             //
             'superficie_terreno.required' => 'La superficie_terreno es obligatoria.',
             //
-            'valor_comercial.required' => 'El valor_comercial es obligatorio.',
+            'estimacion_de_valor_del_terreno.required' => 'El estimacion_de_valor_del_terreno es obligatorio.', // cambio el nombre de columna
             'valor_catastral.required' => 'El valor_catastral es obligatorio.',
         ];
     }
