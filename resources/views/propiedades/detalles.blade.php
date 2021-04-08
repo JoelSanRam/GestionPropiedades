@@ -356,11 +356,11 @@
                                 <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">${{ number_format($valor->valor_construccion, 2) }}</a></td>
                             </tr>
                             <tr>
-                                <td class="bg-silver-lighter">Valor comercial</td>
+                                <td class="bg-silver-lighter">Estimación de valor del terreno</td>
                                 <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">${{ number_format($valor->valor_comercial, 2) }}</a></td>
                             </tr>
                             <tr>
-                                <td class="bg-silver-lighter">Fecha del valor comercial</td>
+                                <td class="bg-silver-lighter">Fecha del Estimación de valor del terreno</td>
                                 <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $valor->fecha_valor_comercial }}</a></td>
                             </tr>
                             <tr>

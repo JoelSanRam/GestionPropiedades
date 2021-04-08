@@ -155,7 +155,7 @@
                                 <th scope="col">Dirección</th>
                                 <th scope="col">Nombre Corto</th>
                                 <th scope="col">Superficie Terreno</th>
-                                <th scope="col">Valor Comercial</th>
+                                <th scope="col">Estimación de valor del terreno</th>
                                 <th scope="col">Valor Catastral</th>
                             </tr>
                         </thead>

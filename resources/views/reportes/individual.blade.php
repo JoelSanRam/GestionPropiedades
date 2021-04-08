@@ -169,11 +169,11 @@
                             <td>${{ number_format($valor->valor_construccion, 2) }}</td>
                         </tr>
                         <tr>
-                            <td>Valor comercial</td>
+                            <td>Estimación de valor del terreno</td>
                             <td>${{ number_format($valor->valor_comercial, 2) }}</td>
                         </tr>
                         <tr>
-                            <td>Fecha valor comercial</td>
+                            <td>Fecha de Estimación de valor del terreno</td>
                             <td>{{ $valor->fecha_valor_comercial }}</td>
                         </tr>
                         <tr>

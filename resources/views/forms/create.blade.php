@@ -282,11 +282,11 @@
             
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label>Valor comercial</label>
+                            <label>Estimación de valor del terreno</label>
                             <input name="valor_comercial" id="valor_comercial" type="number" step="any" class="form-control m-b-5" placeholder="Ingresar valor comercial" data-parsley-required="true">
                         </div>
                         <div class="form-group col-md-6">
-                            <label>Fecha de valor comercial</label>
+                            <label>Fecha de Estimación de valor del terreno</label>
                             <input name="fecha_valor_comercial" type="date" class="form-control m-b-5">
                         </div>
                     </div>
