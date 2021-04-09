@@ -373,30 +373,32 @@
                                 <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">{{ $valor->fecha_valor_catastral }}</a></td>
                             </tr>
                             <!-- seguimiento valor -->
-                            <tr>
-                                <td class="bg-silver-lighter">Avalúo de terreno</td>
-                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">
-                                    ${{ number_format($seguimiento->avaluo_terreno, 2) }}</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="bg-silver-lighter">Estimación de valor de la construcción</td>
-                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">
-                                    ${{ number_format($seguimiento->estimacion_valor_construccion, 2) }}
-                                </a></td>
-                            </tr>
-                            <tr>
-                                <td class="bg-silver-lighter">Avalúo de la construcción</td>
-                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">
-                                    ${{ number_format($seguimiento->avaluo_construccion, 2) }}
-                                </a></td>
-                            </tr>
-                            <tr>
-                                <td class="bg-silver-lighter">Valor conjunto</td>
-                                <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">
-                                    ${{ number_format($seguimiento->valor_conjunto, 2) }}
-                                </a></td>
-                            </tr>
+                            @if(!empty($seguimiento))
+                                <tr>
+                                    <td class="bg-silver-lighter">Avalúo de terreno</td>
+                                    <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">
+                                        ${{ number_format($seguimiento->avaluo_terreno, 2) }}</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="bg-silver-lighter">Estimación de valor de la construcción</td>
+                                    <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">
+                                        ${{ number_format($seguimiento->estimacion_valor_construccion, 2) }}
+                                    </a></td>
+                                </tr>
+                                <tr>
+                                    <td class="bg-silver-lighter">Avalúo de la construcción</td>
+                                    <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">
+                                        ${{ number_format($seguimiento->avaluo_construccion, 2) }}
+                                    </a></td>
+                                </tr>
+                                <tr>
+                                    <td class="bg-silver-lighter">Valor conjunto</td>
+                                    <td><a href="javascript:;" id="username" data-type="text" data-pk="1" data-title="Enter Username" class="editable editable-click">
+                                        ${{ number_format($seguimiento->valor_conjunto, 2) }}
+                                    </a></td>
+                                </tr>
+                            @endif
                             <!-- seguimiento valor -->
                             <tr>
                                 <td class="bg-silver-lighter">Fecha alta</td>

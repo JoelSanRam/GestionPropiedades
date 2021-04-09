@@ -181,9 +181,27 @@
                             <td>${{ number_format($valor->valor_catastral, 2) }}</td>
                         </tr>
                         <tr>
-                            <td>Fecha valorcatastral</td>
+                            <td>Fecha valor catastral</td>
                             <td>{{ $valor->fecha_valor_catastral }}</td>
                         </tr>
+                        @if(!empty($seguimiento))
+                            <tr>
+                                <td>Avalúo de terreno</td>
+                                <td>${{ number_format($seguimiento->avaluo_terreno, 2) }}</td>
+                            </tr>
+                            <tr>
+                                <td>Estimación de valor de la construcción</td>
+                                <td>${{ number_format($seguimiento->estimacion_valor_construccion, 2) }}</td>
+                            </tr>
+                            <tr>
+                                <td>Avalúo de la construcción</td>
+                                <td>${{ number_format($seguimiento->avaluo_construccion, 2) }}</td>
+                            </tr>
+                            <tr>
+                                <td>Valor conjunto</td>
+                                <td>${{ number_format($seguimiento->valor_conjunto, 2) }}</td>
+                            </tr>
+                        @endif
                     </tbody>
                 </table>
             </div>
@@ -244,7 +262,7 @@
         </div>
     </div>
 
-    <br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br>
 
     <div class="row mt-5">
         <div class="col-md-12">
