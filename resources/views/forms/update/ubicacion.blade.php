@@ -101,7 +101,7 @@
                     </div>
 
                     <div class="form-row justify-content-end">
-                        <a href="/listado" class="btn btn-secondary btn-lg mr-2">Regresar</a>
+                        <a href="{{ route('detalles', $item->id) }}" class="btn btn-secondary btn-lg mr-2">Volver a detalles</a>
                         <button type="submit" class="btn btn-primary btn-lg">Guardar Cambios</button>
                     </div>
                 </form>
