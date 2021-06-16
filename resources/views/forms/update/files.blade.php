@@ -40,6 +40,8 @@
                     </div>
                 </div>
 
+
+
                 @if(!empty($item))
 
                     <div class="row justify-content-center">
@@ -131,6 +133,10 @@
                                     </tr>
                               </tbody>
                             </table>
+
+                            <div class="row justify-content-center">
+                                <a href="{{ route('detalles', $id) }}" class="btn btn-secondary btn-lg mr-2">Volver a detalles</a>
+                            </div>
 
                         </div>
                     </div>
