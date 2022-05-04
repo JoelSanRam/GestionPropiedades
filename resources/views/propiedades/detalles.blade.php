@@ -420,7 +420,6 @@
     <!-- end row -->
 
     <div class="row">
-
         <div class="col-lg-6 ui-sortable">
             @if(Session::has('message'))
                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -510,11 +509,49 @@
             <!-- end panel -->
         </div>
 
+        {{-- Escrituras --}}
+        <div class="col-lg-6 ui-sortable">
+            @if(Session::has('message'))
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>{!! Session::get('message') !!}</strong>
+                </div>
+            @endif
+            <div class="panel panel-inverse">
+                <div class="panel-heading ui-sortable-handle">
+                    <div class="panel-heading-btn">
 
+                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
 
-         <!-- Valores -->
-         <div class="col-lg-6 ui-sortable">
-            <!-- begin panel -->
+                    </div>
+                    <h4 class="panel-title">Escrituras</h4>
+                </div>
+                <div class="text-center py-3">
+                    @if(!empty($archivo))
+                        @if($archivo->escrituras != null && $archivo->escrituras != "")
+                            <a href="{{ route('doc-escrituras', $archivo->id ) }}" class="btn btn-green">
+                                Descargar Archivo
+                            </a>
+                        @else
+                            <p>No hay escrituras</p>
+                        @endif
+                    @else
+                        No hay documento pdf
+                    @endif
+                    @if(!empty($archivo))
+                        @if($archivo->escrituras != null && $archivo->escrituras != "")
+                            <div class="embed-responsive embed-responsive-16by9 mt-3">
+                                <iframe class="embed-responsive-items" src="{{ asset('escrituras/' . $archivo->escrituras) }}"></iframe>
+                            </div>
+                        @endif
+                    @endif
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Galeria -->
+        <div class="col-lg-6 ui-sortable">
             <div class="panel panel-inverse">
                 <div class="panel-heading ui-sortable-handle">
                     <div class="panel-heading-btn">
@@ -556,7 +593,6 @@
                 </div>
                 <!-- end table-responsive -->
             </div>
-            <!-- end panel -->
         </div>
     </div>
 

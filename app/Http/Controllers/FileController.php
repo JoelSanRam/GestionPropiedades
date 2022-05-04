@@ -40,6 +40,17 @@ class FileController extends Controller
         }
     }
 
+    public function downloadEscrituras($id)
+    {
+        try {
+            $file = File::find($id);
+            return response()->download(storage_path("app/escrituras/{$file->escrituras}"));
+        } catch (\Throwable $th) {
+            \Session::flash('message', 'Ocurrio un error en la descaga, no se encontro el archivo');
+            return redirect()->back();
+        }
+    }
+
     public function deletePDF($id)
     {
         try {

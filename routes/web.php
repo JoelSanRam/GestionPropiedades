@@ -92,6 +92,7 @@ Route::middleware('auth')->group(function () {
     ///// downloads documents //////
     Route::get('/downloads/pdf/doc-pdf/{id}', 'FileController@downloadPDF')->name('doc-pdf');
     Route::get('/downloads/dwg/doc-dwg/{id}', 'FileController@downloadDWG')->name('doc-dwg');
+    Route::get('/downloads/escrituras/doc-escrituras/{id}', 'FileController@downloadEscrituras')->name('doc-escrituras');
 
     ///// downloads documents //////
     Route::get('/delete/pdf/doc-pdf/{id}', 'FileController@deletePDF')->name('delete-pdf');
