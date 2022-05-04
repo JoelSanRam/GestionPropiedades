@@ -418,6 +418,19 @@
                         </div>
                     </div>
 
+                    <div class="form-row justify-content-center">
+                        <div class="form-group col-md-6">
+                            <label>Escrituras</label>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" accept = ".pdf" onchange="alertSuccessEscrituras()" name="escrituras" id="escrituras" lang="es">
+                                <label class="custom-file-label">Seleccionar Archivo</label>
+                            </div>
+                            <div class="alert alert-primary message-escrituras d-none my-2" role="alert">
+                                Archivo Cargado
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </form>
         </div>
@@ -819,6 +832,14 @@
 
         if (items_dwg) {
             $(".message-dwg").removeClass("d-none");
+        }
+    }
+
+    function alertSuccessEscrituras() {
+        var items_escrituras = document.getElementById('escrituras');
+
+        if (items_escrituras) {
+            $(".message-escrituras").removeClass("d-none");
         }
     }
 
