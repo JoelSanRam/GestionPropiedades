@@ -46,98 +46,133 @@
 
                     <div class="row justify-content-center">
                         <div class="col-md-8 mb-4">
-
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">PDF</th>
-                                        <th scope="col">DWG</th>
-                                    </tr>
-                              </thead>
-                              <tbody>
-                                    <tr>
-                                        <td>
-                                            @if($item->pdf != "")
-                                                <a href="{{route('delete-pdf', $item->id)}}" class="btn btn-danger btn-block">
-                                                    Eliminar PDF
-                                                </a>
-                                            @else
-                                                No se cargo el archivo pdf
-                                            @endif
-                                        </td>
-                                        <td>
-                                            @if($item->dwg != "")
-                                                <a href="{{route('delete-dwg', $item->id)}}" class="btn btn-warning btn-block">
-                                                    Eliminar DWG
-                                                </a>
-                                            @else
-                                                No se cargo el archivo dwg
-                                            @endif
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        @if($item->pdf == '')
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">PDF</th>
+                                            <th scope="col">DWG</th>
+                                            <th scope="col">Escrituras</th>
+                                        </tr>
+                                  </thead>
+                                  <tbody>
+                                        <tr>
                                             <td>
-                                                <form action="{{ route('update-view-archivo-pdf', $item->id) }}" method="POST" enctype="multipart/form-data">
-                                                    @csrf
-                                                    @method('PUT')
-                                                    <div class="form-row justify-content-center">
-                                                        <div class="form-group col-md-8">
-                                                            <label>Archivo PDF</label>
-                                                            <div class="custom-file">
-                                                                <input type="file" class="custom-file-input" accept=".pdf" onchange="alertSuccessSinglePDF()" name="pdf" id="pdf" lang="es" required>
-                                                                <label class="custom-file-label">Seleccionar Archivo</label>
-                                                            </div>
-                                                            <div class="alert alert-primary message-pdf d-none my-2" role="alert">
-                                                                Archivo Cargado
+                                                @if($item->pdf != "")
+                                                    <a href="{{route('delete-pdf', $item->id)}}" class="btn btn-danger btn-block">
+                                                        Eliminar PDF
+                                                    </a>
+                                                @else
+                                                    No se cargo el archivo pdf
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if($item->dwg != "")
+                                                    <a href="{{route('delete-dwg', $item->id)}}" class="btn btn-danger btn-block">
+                                                        Eliminar DWG
+                                                    </a>
+                                                @else
+                                                    No se cargo el archivo dwg
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if($item->escrituras != "")
+                                                    <a href="{{route('delete-escrituras', $item->id)}}" class="btn btn-danger btn-block">
+                                                        Eliminar escrituras
+                                                    </a>
+                                                @else
+                                                    No se cargo el archivo de escrituras
+                                                @endif
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            @if($item->pdf == '')
+                                                <td>
+                                                    <form action="{{ route('update-view-archivo-pdf', $item->id) }}" method="POST" enctype="multipart/form-data">
+                                                        @csrf
+                                                        @method('PUT')
+                                                        <div class="form-row justify-content-center">
+                                                            <div class="form-group col-md-8">
+                                                                <label>Archivo PDF</label>
+                                                                <div class="custom-file">
+                                                                    <input type="file" class="custom-file-input" accept=".pdf" onchange="alertSuccessSinglePDF()" name="pdf" id="pdf" lang="es" required>
+                                                                    <label class="custom-file-label">Seleccionar Archivo</label>
+                                                                </div>
+                                                                <div class="alert alert-primary message-pdf d-none my-2" role="alert">
+                                                                    Archivo Cargado
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
 
-                                                    <div class="form-row justify-content-center">
-                                                        <button type="submit" class="btn btn-primary btn-sm">Subir</button>
-                                                    </div>
-                                                </form>
-                                            </td>
-                                        @else
-                                            <td></td>
-                                        @endif
+                                                        <div class="form-row justify-content-center">
+                                                            <button type="submit" class="btn btn-primary btn-sm">Subir</button>
+                                                        </div>
+                                                    </form>
+                                                </td>
+                                            @else
+                                                <td></td>
+                                            @endif
 
-
-                                        @if($item->dwg == '')
-                                            <td>
-                                                <form action="{{ route('update-view-archivo-dwg', $item->id) }}" method="POST" enctype="multipart/form-data">
-                                                    @csrf
-                                                    @method('PUT')
-                                                    <div class="form-row justify-content-center">
-                                                        <div class="form-group col-md-8">
-                                                            <label>Archivo DWG</label>
-                                                            <div class="custom-file">
-                                                                <input type="file" class="custom-file-input" accept=".dwg" onchange="alertSuccessSingleDWG()" name="dwg" id="dwg" lang="es" required>
-                                                                <label class="custom-file-label">Seleccionar Archivo</label>
-                                                            </div>
-                                                            <div class="alert alert-primary message-dwg d-none my-2" role="alert">
-                                                                Archivo Cargado
+                                            @if($item->dwg == '')
+                                                <td>
+                                                    <form action="{{ route('update-view-archivo-dwg', $item->id) }}" method="POST" enctype="multipart/form-data">
+                                                        @csrf
+                                                        @method('PUT')
+                                                        <div class="form-row justify-content-center">
+                                                            <div class="form-group col-md-8">
+                                                                <label>Archivo DWG</label>
+                                                                <div class="custom-file">
+                                                                    <input type="file" class="custom-file-input" accept=".dwg" onchange="alertSuccessSingleDWG()" name="dwg" id="dwg" lang="es" required>
+                                                                    <label class="custom-file-label">Seleccionar Archivo</label>
+                                                                </div>
+                                                                <div class="alert alert-primary message-dwg d-none my-2" role="alert">
+                                                                    Archivo Cargado
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
 
-                                                    <div class="form-row justify-content-center">
-                                                        <button type="submit" class="btn btn-primary btn-sm">Subir</button>
-                                                    </div>
-                                                </form>
-                                            </td>
-                                        @else
-                                            <td></td>
-                                        @endif
-                                    </tr>
-                              </tbody>
-                            </table>
+                                                        <div class="form-row justify-content-center">
+                                                            <button type="submit" class="btn btn-primary btn-sm">Subir</button>
+                                                        </div>
+                                                    </form>
+                                                </td>
+                                            @else
+                                                <td></td>
+                                            @endif
 
+                                            @if($item->escrituras == '')
+                                                <td>
+                                                    <form action="{{ route('update-view-archivo-escrituras', $item->id) }}" method="POST" enctype="multipart/form-data">
+                                                        @csrf
+                                                        @method('PUT')
+                                                        <div class="form-row justify-content-center">
+                                                            <div class="form-group col-md-8">
+                                                                <label>Escrituras</label>
+                                                                <div class="custom-file">
+                                                                    <input type="file" class="custom-file-input" accept=".pdf" onchange="alertSuccessEscrituras()" name="escrituras" id="escrituras" lang="es" required>
+                                                                    <label class="custom-file-label">Seleccionar Archivo</label>
+                                                                </div>
+                                                                <div class="alert alert-primary message-escrituras d-none my-2" role="alert">
+                                                                    Archivo Cargado
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-row justify-content-center">
+                                                            <button type="submit" class="btn btn-primary btn-sm">Subir</button>
+                                                        </div>
+                                                    </form>
+                                                </td>
+                                            @else
+                                                <td></td>
+                                            @endif
+                                        </tr>
+                                  </tbody>
+                                </table>
+                            </div>
                             <div class="row justify-content-center">
                                 <a href="{{ route('detalles', $id) }}" class="btn btn-secondary btn-lg mr-2">Volver a detalles</a>
                             </div>
-
                         </div>
                     </div>
 
@@ -209,6 +244,14 @@
 
         if (items_dwg) {
             $(".message-dwg").removeClass("d-none");
+        }
+    }
+
+    function alertSuccessEscrituras() {
+        var items_escrituras = document.getElementById('escrituras');
+
+        if (items_escrituras) {
+            $(".message-escrituras").removeClass("d-none");
         }
     }
 

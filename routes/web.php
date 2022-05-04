@@ -61,6 +61,7 @@ Route::middleware('auth')->group(function () {
     Route::put('/update/save/archivo/pdf/and/dwg', 'ChangesController@updateArchivoPDFAndDWG')->name('update-archivo');
     Route::put('/update/save/archivo/pdf/{id}', 'ChangesController@updateArchivoPDF')->name('update-view-archivo-pdf');
     Route::put('/update/save/archivo/dwg/{id}', 'ChangesController@updateArchivoDWG')->name('update-view-archivo-dwg');
+    Route::put('/update/save/archivo/escrituras/{id}', 'ChangesController@updateArchivoEscrituras')->name('update-view-archivo-escrituras');
 
     ///// route delete coordenada and image ////
     Route::get('/delete/coordenada/{id}', 'ChangesController@deleteCoordenada')->name('delete-coordenada'); 
@@ -97,6 +98,7 @@ Route::middleware('auth')->group(function () {
     ///// downloads documents //////
     Route::get('/delete/pdf/doc-pdf/{id}', 'FileController@deletePDF')->name('delete-pdf');
     Route::get('/delete/dwg/doc-dwg/{id}', 'FileController@deleteDWG')->name('delete-dwg');
+    Route::get('/delete/escrituras/doc-escrituras/{id}', 'FileController@deleteEscrituras')->name('delete-escrituras');
 
 });
 

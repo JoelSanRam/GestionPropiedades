@@ -78,4 +78,18 @@ class FileController extends Controller
 
         return redirect()->back();
     }
+
+    public function deleteEscrituras($id)
+    {
+        try {
+            $file = File::find($id);
+            Storage::delete("escrituras/{$file->escrituras}");
+            DB::table('files')->where('id', $id)->update(['escrituras' => ""]);
+            \Session::flash('message', 'El archivo se elimino con exito');
+        } catch (\Throwable $th) {
+            \Session::flash('message', 'Ocurrio un error, no se encontro el archivo');
+        }
+
+        return redirect()->back();
+    }
 }

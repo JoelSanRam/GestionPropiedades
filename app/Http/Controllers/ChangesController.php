@@ -272,6 +272,40 @@ class ChangesController extends Controller
         return redirect()->back();
     }
 
+    public function updateArchivoEscrituras(Request $request, $id)
+    {
+        $this->validate($request, [
+            'escrituras' => 'required',
+        ]);
+
+        $escriturasName = '';
+
+        try {
+            if ($request->has('escrituras')) {
+
+                $escriturasName = uniqid() . $request->file('escrituras')->getClientOriginalName();
+
+                Storage::putFileAs(
+                    'escrituras', 
+                    $request->file('escrituras'), 
+                    $escriturasName
+                );
+
+            }
+
+            $file = File::find($id);
+            $file->escrituras = $escriturasName;
+            $file->save();
+
+            \Session::flash('message', 'Archivo de escrituras subido con exito');
+
+        } catch (\Throwable $th) {
+            \Session::flash('message', 'Ocurrio un error, al subir el archivo DWG');
+        }
+
+        return redirect()->back();
+    }
+
     public function updateArchivoPDFAndDWG(Request $request)
     {
         $pdfName = '';
