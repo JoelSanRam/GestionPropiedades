@@ -214,6 +214,19 @@
                             </div>
                         </div>
 
+                        <div class="form-row justify-content-center">
+                            <div class="form-group col-md-6">
+                                <label>Escrituras</label>
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" accept=".pdf" onchange="alertSuccessEscrituras()" name="escrituras" id="escrituras" lang="es">
+                                    <label class="custom-file-label">Seleccionar Archivo</label>
+                                </div>
+                                <div class="alert alert-primary message-escrituras d-none my-2" role="alert">
+                                    Archivo Cargado
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="form-row justify-content-end">
                             <a href="{{ route('detalles', $id) }}" class="btn btn-secondary btn-lg mr-2">Volver a detalles</a>
                             <button type="submit" class="btn btn-primary btn-lg">Guardar</button>

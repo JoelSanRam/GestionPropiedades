@@ -310,6 +310,7 @@ class ChangesController extends Controller
     {
         $pdfName = '';
         $dwgName = '';
+        $escriturasName = '';
 
         try {
 
@@ -337,10 +338,23 @@ class ChangesController extends Controller
                 
             }
 
+            if ($request->has('escrituras')) {
+
+                $escriturasName = uniqid() . $request->file('escrituras')->getClientOriginalName();
+
+                Storage::putFileAs(
+                    'escrituras', 
+                    $request->file('escrituras'), 
+                    $escriturasName
+                );
+                
+            }
+
             $file = new File();
             $file->propiedad_id = $request->propiedad_id;
             $file->pdf = $pdfName;
             $file->dwg = $dwgName;
+            $file->escrituras = $escriturasName;
             $file->save();
 
             return redirect()->back();
